@@ -405,9 +405,9 @@
 
 @media (max-width: 768px) {
     .hero {
-        padding: 80px 1rem 50px;
+        padding: 120px 1rem 80px;
         text-align: center;
-        min-height: auto;
+        min-height: 100vh;
     }
 
     .hero::before {
@@ -482,7 +482,8 @@
 
 @media (max-width: 480px) {
     .hero {
-        padding: 60px 0.75rem 40px;
+        padding: 100px 0.75rem 60px;
+        min-height: 100vh;
     }
 
     .hero-content {
@@ -561,7 +562,8 @@
 
 @media (max-width: 360px) {
     .hero {
-        padding: 50px 0.5rem 30px;
+        padding: 80px 0.5rem 50px;
+        min-height: 100vh;
     }
 
     .hero-image {

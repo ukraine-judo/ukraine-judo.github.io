@@ -14,24 +14,43 @@ class HomeNewsWidget {
         try {
             console.log('Initializing HomeNewsWidget...');
             
+            // Show loading animation
+            this.showLoading();
+            
             // Wait for newsLoader to be available
             if (!window.newsLoader) {
                 console.warn('newsLoader not available, using static content');
+                this.showError('Система новин недоступна');
                 return;
             }
 
-            // Load latest news
-            const allNews = await window.newsLoader.loadArticlesList();
+            // Add minimum loading time for better UX
+            const [allNews] = await Promise.all([
+                window.newsLoader.loadArticlesList(),
+                new Promise(resolve => setTimeout(resolve, 1000)) // Minimum 1 second loading
+            ]);
+            
             const latestNews = allNews.slice(0, 5); // Get 5 latest news
 
             if (latestNews.length > 0) {
+                // Show skeleton first, then real content
+                this.showSkeleton();
+                await new Promise(resolve => setTimeout(resolve, 500)); // Show skeleton for 0.5s
+                
                 this.renderNews(latestNews);
                 this.updateDots(latestNews.length);
                 this.isLoaded = true;
+                
+                // Trigger slider reinitialization
+                this.triggerSliderInit();
+                
                 console.log(`Loaded ${latestNews.length} news articles`);
+            } else {
+                this.showError('Новини не знайдено');
             }
         } catch (error) {
             console.error('Error loading news for home widget:', error);
+            this.showError('Помилка завантаження новин');
         }
     }
 
@@ -62,6 +81,17 @@ class HomeNewsWidget {
         });
 
         this.newsContainer.innerHTML = html;
+        
+        // Add fade-in animation
+        this.newsContainer.style.opacity = '0';
+        this.newsContainer.style.transform = 'translateY(20px)';
+        
+        // Trigger animation
+        requestAnimationFrame(() => {
+            this.newsContainer.style.transition = 'all 0.5s ease-out';
+            this.newsContainer.style.opacity = '1';
+            this.newsContainer.style.transform = 'translateY(0)';
+        });
     }
 
     updateDots(count) {
@@ -91,6 +121,73 @@ class HomeNewsWidget {
         const months = ['Січня', 'Лютого', 'Березня', 'Квітня', 'Травня', 'Червня', 'Липня', 'Серпня', 'Вересня', 'Жовтня', 'Листопада', 'Грудня'];
         return `${date.getDate()} ${months[date.getMonth()]}`;
     }
+
+    showLoading() {
+        if (!this.newsContainer) return;
+
+        this.newsContainer.innerHTML = `
+            <div class="news-loading">
+                <div class="news-loader"></div>
+                <div class="news-loader-text">Завантаження новин...</div>
+                <div class="news-loader-subtext">Отримуємо останні новини Федерації Дзюдо України</div>
+            </div>
+        `;
+
+        // Hide dots during loading
+        if (this.dotsContainer) {
+            this.dotsContainer.innerHTML = '';
+        }
+    }
+
+    showSkeleton() {
+        if (!this.newsContainer) return;
+
+        this.newsContainer.innerHTML = `
+            <div class="news-skeleton">
+                <div class="news-skeleton-image"></div>
+                <div class="news-skeleton-content">
+                    <div class="news-skeleton-category"></div>
+                    <div class="news-skeleton-title"></div>
+                    <div class="news-skeleton-title"></div>
+                    <div class="news-skeleton-excerpt"></div>
+                    <div class="news-skeleton-excerpt"></div>
+                    <div class="news-skeleton-excerpt"></div>
+                    <div class="news-skeleton-link"></div>
+                </div>
+            </div>
+        `;
+    }
+
+    showError(message) {
+        if (!this.newsContainer) return;
+
+        this.newsContainer.innerHTML = `
+            <div class="news-loading">
+                <div style="width: 60px; height: 60px; border-radius: 50%; background: rgba(220, 53, 69, 0.1); display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem;">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#dc3545" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"/>
+                        <line x1="15" y1="9" x2="9" y2="15"/>
+                        <line x1="9" y1="9" x2="15" y2="15"/>
+                    </svg>
+                </div>
+                <div class="news-loader-text" style="color: #dc3545;">${message}</div>
+                <div class="news-loader-subtext">Спробуйте оновити сторінку або зверніться до адміністратора</div>
+            </div>
+        `;
+
+        // Hide dots during error
+        if (this.dotsContainer) {
+            this.dotsContainer.innerHTML = '';
+        }
+    }
+
+    triggerSliderInit() {
+        // Dispatch custom event to notify slider to reinitialize
+        const event = new CustomEvent('newsLoaded', {
+            detail: { widget: this }
+        });
+        document.dispatchEvent(event);
+    }
 }
 
 // News Slider Functionality
@@ -106,14 +203,25 @@ document.addEventListener('DOMContentLoaded', function() {
     let currentSlide = 0;
     let isAutoPlay = true;
     let autoPlayInterval;
+    let isTransitioning = false;
+    let transitionTimeout;
 
     // Initialize news widget first, then slider
     async function initNewsSystem() {
         // Initialize news widget
         const newsWidget = new HomeNewsWidget();
         
-        // Wait a bit for DOM to update
-        await new Promise(resolve => setTimeout(resolve, 100));
+        // Wait for news widget to complete loading
+        await new Promise(resolve => {
+            const checkLoaded = () => {
+                if (newsWidget.isLoaded || document.querySelectorAll('.news-card').length > 0) {
+                    resolve();
+                } else {
+                    setTimeout(checkLoaded, 100);
+                }
+            };
+            checkLoaded();
+        });
         
         // Re-query elements after news widget updates DOM
         newsCards = document.querySelectorAll('.news-card');
@@ -137,19 +245,40 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Show specific slide
-    function showSlide(index) {
+    function showSlide(index, direction = 'next') {
+        // Prevent transition if already transitioning
+        if (isTransitioning) return;
+        
+        // Set transitioning state
+        isTransitioning = true;
+        
+        // Clear any existing transition timeout
+        if (transitionTimeout) {
+            clearTimeout(transitionTimeout);
+        }
+        
         // Re-query elements to ensure we have current references
         newsCards = document.querySelectorAll('.news-card');
         dots = document.querySelectorAll('.dot');
         
-        // Remove active class from all cards and dots
-        newsCards.forEach(card => card.classList.remove('active'));
-        dots.forEach(dot => dot.classList.remove('active'));
+        // Remove all classes from cards
+        newsCards.forEach((card, cardIndex) => {
+            card.classList.remove('active', 'prev', 'next');
+            
+            if (cardIndex === index) {
+                // Current slide
+                card.classList.add('active');
+            } else if (cardIndex < index) {
+                // Previous slides
+                card.classList.add('prev');
+            } else {
+                // Next slides
+                card.classList.add('next');
+            }
+        });
         
-        // Add active class to current slide
-        if (newsCards[index]) {
-            newsCards[index].classList.add('active');
-        }
+        // Update dots
+        dots.forEach(dot => dot.classList.remove('active'));
         if (dots[index]) {
             dots[index].classList.add('active');
         }
@@ -161,26 +290,38 @@ document.addEventListener('DOMContentLoaded', function() {
         if ('vibrate' in navigator && window.innerWidth <= 768) {
             navigator.vibrate(30);
         }
+        
+        // Reset transitioning state after animation completes
+        transitionTimeout = setTimeout(() => {
+            isTransitioning = false;
+        }, 60000); // Match CSS animation duration
     }
 
     // Go to next slide
     function nextSlide() {
+        if (isTransitioning) return;
+        
         const currentNewsCards = document.querySelectorAll('.news-card');
         currentSlide = (currentSlide + 1) % currentNewsCards.length;
-        showSlide(currentSlide);
+        showSlide(currentSlide, 'next');
     }
 
     // Go to previous slide
     function prevSlide() {
+        if (isTransitioning) return;
+        
         const currentNewsCards = document.querySelectorAll('.news-card');
         currentSlide = (currentSlide - 1 + currentNewsCards.length) % currentNewsCards.length;
-        showSlide(currentSlide);
+        showSlide(currentSlide, 'prev');
     }
 
     // Go to specific slide
     function goToSlide(index) {
+        if (isTransitioning) return;
+        
+        const direction = index > currentSlide ? 'next' : 'prev';
         currentSlide = index;
-        showSlide(currentSlide);
+        showSlide(currentSlide, direction);
         restartAutoPlay();
     }
 
@@ -200,6 +341,9 @@ document.addEventListener('DOMContentLoaded', function() {
         if (!isAutoPlay) return;
         
         autoPlayInterval = setInterval(() => {
+            // Don't auto-advance if transitioning
+            if (isTransitioning) return;
+            
             const currentNewsCards = document.querySelectorAll('.news-card');
             if (currentSlide === currentNewsCards.length - 1) {
                 currentSlide = 0;
@@ -207,13 +351,18 @@ document.addEventListener('DOMContentLoaded', function() {
                 currentSlide++;
             }
             showSlide(currentSlide);
-        }, 5000); // 5 seconds
+        }, 25000); // 25 seconds
     }
 
     // Stop auto play
     function stopAutoPlay() {
         if (autoPlayInterval) {
             clearInterval(autoPlayInterval);
+        }
+        // Also clear transition timeout if stopping
+        if (transitionTimeout) {
+            clearTimeout(transitionTimeout);
+            isTransitioning = false;
         }
     }
 
@@ -233,49 +382,78 @@ document.addEventListener('DOMContentLoaded', function() {
         dots = document.querySelectorAll('.dot');
 
         // Navigation buttons
+        let lastClickTime = 0;
+        const clickDebounceTime = 250; // Minimum time between clicks
+        
         if (nextBtn) {
             nextBtn.addEventListener('click', () => {
-                nextSlide();
-                restartAutoPlay();
+                const now = Date.now();
+                if (now - lastClickTime >= clickDebounceTime && !isTransitioning) {
+                    lastClickTime = now;
+                    nextSlide();
+                    restartAutoPlay();
+                }
             });
         }
 
         if (prevBtn) {
             prevBtn.addEventListener('click', () => {
-                prevSlide();
-                restartAutoPlay();
+                const now = Date.now();
+                if (now - lastClickTime >= clickDebounceTime && !isTransitioning) {
+                    lastClickTime = now;
+                    prevSlide();
+                    restartAutoPlay();
+                }
             });
         }
 
         // Dots navigation
         dots.forEach((dot, index) => {
             dot.addEventListener('click', () => {
-                goToSlide(index);
+                const now = Date.now();
+                if (now - lastClickTime >= clickDebounceTime && !isTransitioning) {
+                    lastClickTime = now;
+                    goToSlide(index);
+                }
             });
         });
 
         // Keyboard navigation
+        let lastKeyTime = 0;
+        const keyDebounceTime = 200; // Minimum time between key presses
+        
         document.addEventListener('keydown', (e) => {
             if (!newsSlider.closest('.news-section')) return;
+            
+            const now = Date.now();
             
             switch(e.key) {
                 case 'ArrowLeft':
                     e.preventDefault();
-                    prevSlide();
-                    restartAutoPlay();
+                    if (now - lastKeyTime >= keyDebounceTime && !isTransitioning) {
+                        lastKeyTime = now;
+                        prevSlide();
+                        restartAutoPlay();
+                    }
                     break;
                 case 'ArrowRight':
                     e.preventDefault();
-                    nextSlide();
-                    restartAutoPlay();
+                    if (now - lastKeyTime >= keyDebounceTime && !isTransitioning) {
+                        lastKeyTime = now;
+                        nextSlide();
+                        restartAutoPlay();
+                    }
                     break;
                 case ' ':
                 case 'Enter':
                     if (e.target.classList.contains('dot')) {
                         e.preventDefault();
-                        const currentDots = document.querySelectorAll('.dot');
-                        const index = Array.from(currentDots).indexOf(e.target);
-                        goToSlide(index);
+                        if (now - lastKeyTime >= keyDebounceTime && !isTransitioning) {
+                            lastKeyTime = now;
+                            const currentDots = document.querySelectorAll('.dot');
+                            const index = Array.from(currentDots).indexOf(e.target);
+                            goToSlide(index);
+                        }
                     }
                     break;
             }
@@ -286,6 +464,8 @@ document.addEventListener('DOMContentLoaded', function() {
         let touchEndX = 0;
         let touchStartY = 0;
         let touchEndY = 0;
+        let lastSwipeTime = 0;
+        const swipeDebounceTime = 300; // Minimum time between swipes
 
         newsSlider.addEventListener('touchstart', (e) => {
             touchStartX = e.changedTouches[0].screenX;
@@ -301,12 +481,26 @@ document.addEventListener('DOMContentLoaded', function() {
         });
 
         function handleSwipe() {
+            const now = Date.now();
+            
+            // Debounce swipes to prevent too rapid swiping
+            if (now - lastSwipeTime < swipeDebounceTime) {
+                return;
+            }
+            
+            // Don't handle swipe if transitioning
+            if (isTransitioning) {
+                return;
+            }
+            
             const deltaX = touchEndX - touchStartX;
             const deltaY = touchEndY - touchStartY;
             const minSwipeDistance = 50;
             
             // Ensure horizontal swipe is more significant than vertical
             if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > minSwipeDistance) {
+                lastSwipeTime = now;
+                
                 if (deltaX > 0) {
                     // Swipe right - go to previous slide
                     prevSlide();
