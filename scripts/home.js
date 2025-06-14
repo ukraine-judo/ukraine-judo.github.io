@@ -294,7 +294,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // Reset transitioning state after animation completes
         transitionTimeout = setTimeout(() => {
             isTransitioning = false;
-        }, 60000); // Match CSS animation duration
+        }, 600); // Match CSS animation duration
     }
 
     // Go to next slide
