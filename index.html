@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="css/components.css">
     <link rel="stylesheet" href="css/footer.css">
     <link rel="stylesheet" href="css/pages/home/hero.css">
+    <link rel="stylesheet" href="css/pages/home/events.css">
     <link rel="stylesheet" href="css/pages/home/news.css">
     <script src="scripts/news/newsLoader.js"></script>
     <script src="scripts/news/newsUtils.js"></script>
@@ -25,7 +26,8 @@
                 <span class="brand-text">
                     <strong class="brand-full">Федерація Дзюдо України</strong>
                     <strong class="brand-short">ФДУ</strong>
-                    <small>FJU</small>
+                    <small class="brand-subtitle-full">Federation Judo Ukraine</small>
+                    <small class="brand-subtitle-short">FJU</small>
                 </span>
             </div>
             <div class="nav-menu-overlay"></div>
@@ -262,6 +264,64 @@
                 </div>
             </div>
         </section>
+        <section class="upcoming-events-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Найближчі Події</h2>
+                    <p class="section-subtitle">Не пропустіть важливі змагання та заходи</p>
+                    <a href="calendar.html" class="view-all-link">Переглянути календар →</a>
+                </div>
+                
+                <!-- Current Events Slider -->
+                <div class="current-events-slider" id="currentEventsSlider" style="display: none;">
+                    <div class="current-events-header">
+                        <h3 class="current-events-title">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="#ff4444" style="margin-right: 0.5rem;">
+                                <circle cx="12" cy="12" r="10"/>
+                            </svg>
+                            Зараз проходять
+                        </h3>
+                        <div class="current-events-controls">
+                            <button class="current-events-btn prev" id="currentEventsPrev" aria-label="Попередня подія">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="15,18 9,12 15,6"></polyline>
+                                </svg>
+                            </button>
+                            <button class="current-events-btn next" id="currentEventsNext" aria-label="Наступна подія">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="9,18 15,12 9,6"></polyline>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="current-events-container">
+                        <div class="current-events-track" id="currentEventsTrack">
+                            <!-- Current events cards will be inserted here -->
+                        </div>
+                    </div>
+                    
+
+                </div>
+                
+                <div class="upcoming-events-container">
+                    <div class="events-loading" id="upcomingEventsLoading">
+                        <div class="loading-spinner"></div>
+                        <p>Завантаження подій...</p>
+                    </div>
+                    
+                    <div class="events-grid" id="upcomingEventsGrid" style="display: none;">
+                        <!-- Events will be loaded here dynamically -->
+                    </div>
+                    
+                    <div class="no-events" id="noUpcomingEvents" style="display: none;">
+                        <div class="no-events-icon">📅</div>
+                        <h3>Немає запланованих подій</h3>
+                        <p>Найближчі події з'являться тут, як тільки вони будуть заплановані</p>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
 
     <footer class="footer">
@@ -337,6 +397,7 @@
     </footer>
 
     <script src="script.js"></script>
+    <script src="scripts/calendar/calendar.js"></script>
     <script src="scripts/home.js"></script>
 </body>
 </html> 

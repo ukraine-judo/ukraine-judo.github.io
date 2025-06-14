@@ -77,11 +77,20 @@
     display: none;
 }
 
-.brand-text small {
+.brand-subtitle-full,
+.brand-subtitle-short {
     font-size: 0.875rem;
     color: #666;
     font-weight: 500;
     letter-spacing: 0.5px;
+}
+
+.brand-subtitle-full {
+    display: block;
+}
+
+.brand-subtitle-short {
+    display: none;
 }
 
 /* Navigation Menu */
@@ -478,6 +487,14 @@
         font-size: 1.75rem;
     }
     
+    .brand-subtitle-full {
+        display: none;
+    }
+    
+    .brand-subtitle-short {
+        display: block;
+    }
+    
     /* Tablet Submenu Adjustments */
     .submenu {
         min-width: 280px;
@@ -865,7 +882,8 @@
         font-weight: 700;
     }
     
-    .brand-text small {
+    .brand-subtitle-full,
+    .brand-subtitle-short {
         font-size: 0.8rem;
         opacity: 0.8;
     }
@@ -1057,7 +1075,8 @@
         font-size: 1rem;
     }
 
-    .brand-text small {
+    .brand-subtitle-full,
+    .brand-subtitle-short {
         font-size: 0.8rem;
     }
 
@@ -1117,7 +1136,8 @@
         font-size: 1.1rem;
     }
     
-    .brand-text small {
+    .brand-subtitle-full,
+    .brand-subtitle-short {
         display: none;
     }
     
