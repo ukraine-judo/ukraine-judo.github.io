@@ -17,6 +17,7 @@
     box-shadow: 0 20px 60px rgba(26, 63, 103, 0.1);
     position: relative;
     overflow: hidden;
+    padding: 3rem 2rem;
 }
 
 .news-loading::before {
@@ -243,15 +244,15 @@
     background: white;
     border-radius: 20px;
     overflow: hidden;
-    position: absolute;
-    top: 0;
-    left: 0;
     width: 100%;
     opacity: 0;
     transform: translateX(100px) scale(0.95);
     transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     z-index: 1;
     filter: blur(2px) brightness(0.7);
+    position: absolute;
+    top: 0;
+    left: 0;
 }
 
 .news-card.active {
@@ -259,6 +260,7 @@
     transform: translateX(0) scale(1);
     z-index: 2;
     filter: blur(0) brightness(1);
+    position: relative;
 }
 
 .news-card.prev {
@@ -277,8 +279,9 @@
 
 .news-card-image {
     position: relative;
-    height: 500px;
+    height: auto;
     overflow: hidden;
+    /* Убираем min-height, картинка подстраивается под контейнер */
 }
 
 .news-card-image img {
@@ -533,7 +536,8 @@
     }
 
     .news-skeleton-image {
-        height: 280px;
+        height: auto;
+        min-height: 200px; /* Минимальная высота только для изображений */
         order: -1;
     }
 
@@ -565,8 +569,9 @@
     }
 
     .news-card-image {
-        height: 280px;
+        height: auto;
         order: -1;
+        /* Убираем min-height, картинка по размеру контейнера */
     }
 
     .news-card-date {
@@ -649,7 +654,6 @@
 
     /* Loading adaptations for mobile */
     .news-loading {
-        min-height: 350px;
         margin: 0 0.75rem;
     }
 
@@ -674,7 +678,8 @@
     }
 
     .news-skeleton-image {
-        height: 220px;
+        height: auto;
+        /* Убираем min-height, картинка по размеру контейнера */
     }
 
     .news-skeleton-content {
@@ -711,7 +716,6 @@
     }
 
     .news-card {
-        min-height: 350px;
         transform: translateX(30px) scale(0.99);
         transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         filter: blur(0.5px) brightness(0.9);
@@ -732,7 +736,8 @@
     }
 
     .news-card-image {
-        height: 220px;
+        height: auto;
+        /* Убираем min-height, картинка по размеру контейнера */
     }
 
     .news-card-date {
@@ -796,9 +801,6 @@
         border-width: 1.5px;
     }
 
-    .news-slider-container {
-        min-height: 350px;
-    }
 }
 
 @media (max-width: 360px) {
@@ -816,7 +818,8 @@
     }
 
     .news-card-image {
-        height: 200px;
+        height: auto;
+        /* Убираем min-height, картинка по размеру контейнера */
     }
 
     .news-card-content {
