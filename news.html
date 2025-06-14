@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Новини - Федерація Дзюдо України</title>
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/navigation.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/pages/news.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-brand">
+                <img src="assets/fju-logo.png" alt="FJU Logo" class="logo" width="48" height="48">
+                <span class="brand-text">
+                    <strong class="brand-full">Федерація Дзюдо України</strong>
+                    <strong class="brand-short">ФДУ</strong>
+                    <small>FJU</small>
+                </span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Головна</a></li>
+                <li class="nav-item-with-submenu">
+                    <a href="#" class="nav-link-with-submenu" data-main-link="about.html">
+                        Федерація
+                        <svg class="submenu-arrow" width="12" height="8" viewBox="0 0 12 8" fill="none">
+                            <path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </a>
+                    <div class="submenu">
+                        <div class="submenu-content">
+                            <div class="submenu-section">
+                                <h4 class="submenu-title">Федерація</h4>
+                                <div class="submenu-links">
+                                    <a href="about.html" class="submenu-link">
+                                        <div class="submenu-link-icon">📋</div>
+                                        <div class="submenu-link-content">
+                                            <span class="submenu-link-title">Про нас</span>
+                                            <span class="submenu-link-desc">Історія та керівництво</span>
+                                        </div>
+                                    </a>
+                                    <a href="team.html" class="submenu-link">
+                                        <div class="submenu-link-icon">🥋</div>
+                                        <div class="submenu-link-content">
+                                            <span class="submenu-link-title">Сборная</span>
+                                            <span class="submenu-link-desc">Національна збірна України</span>
+                                        </div>
+                                    </a>
+                                    <a href="documents.html" class="submenu-link">
+                                        <div class="submenu-link-icon">📄</div>
+                                        <div class="submenu-link-content">
+                                            <span class="submenu-link-title">Документи</span>
+                                            <span class="submenu-link-desc">Статути та положення</span>
+                                        </div>
+                                    </a>
+                                    <a href="regions.html" class="submenu-link">
+                                        <div class="submenu-link-icon">🗺️</div>
+                                        <div class="submenu-link-content">
+                                            <span class="submenu-link-title">Регіональні Відділення</span>
+                                            <span class="submenu-link-desc">Дзюдо в регіонах України</span>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li><a href="news.html" class="active">Новини</a></li>
+                <li><a href="calendar.html">Календар</a></li>
+                <li><a href="gallery.html">Галерея</a></li>
+                <li><a href="contacts.html">Контакти</a></li>
+            </ul>
+            <button class="nav-toggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
+    </header>
+
+    <main>
+        <section class="news-hero">
+            <div class="container">
+                <h1 class="news-title">Новини ФДУ</h1>
+                <p class="news-subtitle">Останні події та досягнення української дзюдо сім'ї</p>
+            </div>
+        </section>
+
+        <section class="news-content">
+            <div class="container">
+                <div class="news-filter">
+                    <div class="news-filter-content">
+                        <div class="news-search-container">
+                            <div class="search-input-wrapper">
+                                <input type="text" class="news-search" placeholder="Пошук новин..." />
+                                <button class="search-clear-btn" style="display: none;">✕</button>
+                            </div>
+                        </div>
+                        <div class="news-filter-tabs">
+                            <button class="news-filter-tab active" data-category="all">Усі новини</button>
+                            <button class="news-filter-tab" data-category="competitions">Змагання</button>
+                            <button class="news-filter-tab" data-category="achievements">Досягнення</button>
+                            <button class="news-filter-tab" data-category="events">Події</button>
+                            <button class="news-filter-tab" data-category="announcements">Анонси</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="news-grid">
+                    <div class="main-articles">
+                        <article class="featured-article" data-category="achievements">
+                            <div class="article-image"></div>
+                            <div class="article-content">
+                                <span class="article-category">Досягнення</span>
+                                <h2 class="article-title">Українські дзюдоїсти здобули медалі на міжнародному турнірі</h2>
+                                <p class="article-excerpt">Збірна команда України з дзюдо показала відмінні результати на престижному міжнародному турнірі, завоювавши три медалі різного достоїнства. Це черговий крок до підготовки до важливих стартів року.</p>
+                                <div class="article-meta">
+                                    <span class="article-date">15 грудня 2024</span>
+                                    <a href="#" class="read-more-btn">Читати далі</a>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="regular-article" data-category="competitions">
+                            <span class="article-category">Змагання</span>
+                            <h3 class="article-title">Відкрита першість України серед молоді</h3>
+                            <p class="article-excerpt">У Києві пройшла відкрита першість України з дзюдо серед молоді, в якій взяли участь понад 300 спортсменів з усіх регіонів країни.</p>
+                            <div class="article-meta">
+                                <span class="article-date">12 грудня 2024</span>
+                                <a href="#" class="read-more-btn">Читати далі</a>
+                            </div>
+                        </article>
+
+                        <article class="regular-article" data-category="events">
+                            <span class="article-category">Події</span>
+                            <h3 class="article-title">Семінар з підготовки суддів</h3>
+                            <p class="article-excerpt">Федерація провела важливий семінар з підготовки та підвищення кваліфікації суддів з дзюдо, в якому взяли участь понад 50 арбітрів з усієї України.</p>
+                            <div class="article-meta">
+                                <span class="article-date">10 грудня 2024</span>
+                                <a href="#" class="read-more-btn">Читати далі</a>
+                            </div>
+                        </article>
+
+                        <article class="regular-article" data-category="announcements">
+                            <span class="article-category">Анонси</span>
+                            <h3 class="article-title">Тренувальний збір збірної команди</h3>
+                            <p class="article-excerpt">Запрошуємо спортсменів на тренувальний збір збірної команди України, який відбудеться з 20 по 30 грудня в Києві.</p>
+                            <div class="article-meta">
+                                <span class="article-date">8 грудня 2024</span>
+                                <a href="#" class="read-more-btn">Читати далі</a>
+                            </div>
+                        </article>
+
+                        <article class="regular-article" data-category="achievements">
+                            <span class="article-category">Досягнення</span>
+                            <h3 class="article-title">Новий рекорд української дзюдо</h3>
+                            <p class="article-excerpt">Наш спортсмен встановив новий національний рекорд, ставши наймолодшим чемпіоном в історії української дзюдо в своїй ваговій категорії.</p>
+                            <div class="article-meta">
+                                <span class="article-date">5 грудня 2024</span>
+                                <a href="#" class="read-more-btn">Читати далі</a>
+                            </div>
+                        </article>
+
+                        <article class="regular-article" data-category="competitions">
+                            <span class="article-category">Змагання</span>
+                            <h3 class="article-title">Кубок України з дзюдо 2024</h3>
+                            <p class="article-excerpt">Завершився фінальний етап Кубка України з дзюдо, в якому визначилися переможці в усіх вагових категоріях серед чоловіків та жінок.</p>
+                            <div class="article-meta">
+                                <span class="article-date">3 грудня 2024</span>
+                                <a href="#" class="read-more-btn">Читати далі</a>
+                            </div>
+                        </article>
+                    </div>
+
+                    <aside class="news-sidebar">
+                        <div class="sidebar-widget">
+                            <h3 class="widget-title">Останні новини</h3>
+                            <div class="recent-articles">
+                                <a href="#" class="recent-article">
+                                    <div class="recent-article-image"></div>
+                                    <div class="recent-article-content">
+                                        <h4 class="recent-article-title">Підсумки року українського дзюдо</h4>
+                                        <span class="recent-article-date">18 грудня 2024</span>
+                                    </div>
+                                </a>
+                                <a href="#" class="recent-article">
+                                    <div class="recent-article-image"></div>
+                                    <div class="recent-article-content">
+                                        <h4 class="recent-article-title">Новорічний турнір для дітей</h4>
+                                        <span class="recent-article-date">16 грудня 2024</span>
+                                    </div>
+                                </a>
+                                <a href="#" class="recent-article">
+                                    <div class="recent-article-image"></div>
+                                    <div class="recent-article-content">
+                                        <h4 class="recent-article-title">Міжнародне співробітництво</h4>
+                                        <span class="recent-article-date">14 грудня 2024</span>
+                                    </div>
+                                </a>
+                                <a href="#" class="recent-article">
+                                    <div class="recent-article-image"></div>
+                                    <div class="recent-article-content">
+                                        <h4 class="recent-article-title">Нові ініціативи федерації</h4>
+                                        <span class="recent-article-date">13 грудня 2024</span>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="sidebar-widget">
+                            <h3 class="widget-title">Архів новин</h3>
+                            <ul class="archive-list">
+                                <li>
+                                    <a href="#">Грудень 2024</a>
+                                    <span class="archive-count">15</span>
+                                </li>
+                                <li>
+                                    <a href="#">Листопад 2024</a>
+                                    <span class="archive-count">12</span>
+                                </li>
+                                <li>
+                                    <a href="#">Жовтень 2024</a>
+                                    <span class="archive-count">18</span>
+                                </li>
+                                <li>
+                                    <a href="#">Вересень 2024</a>
+                                    <span class="archive-count">22</span>
+                                </li>
+                                <li>
+                                    <a href="#">Серпень 2024</a>
+                                    <span class="archive-count">9</span>
+                                </li>
+                                <li>
+                                    <a href="#">Липень 2024</a>
+                                    <span class="archive-count">14</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="sidebar-widget">
+                            <h3 class="widget-title">Наші партнери</h3>
+                            <div class="sponsors-grid">
+                                <div class="sponsor-item">
+                                    <img src="assets/TAS_logo.png" alt="TAS" class="sponsor-logo">
+                                </div>
+                                <div class="sponsor-item">
+                                    <img src="assets/etg-logo.png" alt="ETG" class="sponsor-logo">
+                                </div>
+                                <div class="sponsor-item">
+                                    <img src="assets/frutex-logo.png" alt="Frutex" class="sponsor-logo">
+                                </div>
+                                <div class="sponsor-item">
+                                    <img src="assets/leon-logo.png" alt="Leon" class="sponsor-logo">
+                                </div>
+                                <div class="sponsor-item">
+                                    <img src="assets/mir-logo.png" alt="Mir" class="sponsor-logo">
+                                </div>
+                                <div class="sponsor-item">
+                                    <img src="assets/petrikiv-logo.png" alt="Petrikiv" class="sponsor-logo">
+                                </div>
+                            </div>
+                        </div>
+                    </aside>
+                </div>
+
+                <div class="pagination">
+                    <a href="#">«</a>
+                    <span class="current">1</span>
+                    <a href="#">2</a>
+                    <a href="#">3</a>
+                    <span>...</span>
+                    <a href="#">8</a>
+                    <a href="#">»</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-brand">
+                        <img src="assets/fju-logo.png" alt="FJU Logo" class="footer-logo">
+                        <div class="brand-info">
+                            <h3>Федерація Дзюдо України</h3>
+                            <p>Офіційна організація з розвитку дзюдо в Україні</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Навігація</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Головна</a></li>
+                        <li><a href="about.html">Федерація</a></li>
+                        <li><a href="news.html">Новини</a></li>
+                        <li><a href="calendar.html">Календар</a></li>
+                        <li><a href="gallery.html">Галерея</a></li>
+                        <li><a href="contacts.html">Контакти</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Контакти</h4>
+                    <div class="contact-info">
+                        <p>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                                <polyline points="22,6 12,13 2,6"/>
+                            </svg>
+                            judoukr@ukr.net
+                        </p>
+                        <p>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                            </svg>
+                            +38 044 284-38-39
+                        </p>
+                        <p>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                                <circle cx="12" cy="10" r="3"/>
+                            </svg>
+                            Україна, 01601, м. Київ, вул. Еспланадна, 42, офіс 808
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Соціальні мережі</h4>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/UkraineJudoFederation" class="social-link">Facebook</a>
+                        <a href="https://www.instagram.com/ukraine_judo_official" class="social-link">Instagram</a>
+                        <a href="https://t.me/ukrainianjudofederation" class="social-link">Telegram</a>
+                        <a href="https://www.youtube.com/@ukrainejudo" class="social-link">YouTube</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Федерація Дзюдо України. Всі права захищені.</p>
+                <div class="footer-bottom-links">
+                    <a href="#">Політика конфіденційності</a>
+                    <a href="#">Умови використання</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="scripts/news/newsLoader.js"></script>
+    <script src="scripts/news/newsManager.js"></script>
+    <script src="scripts/news/newsUtils.js"></script>
+</body>
+</html> 

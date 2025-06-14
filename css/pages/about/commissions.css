@@ -1,0 +1,277 @@
+/* Commissions Section Styles */
+.commissions-section {
+    padding: 5rem 0;
+    background: var(--bg-light);
+    position: relative;
+}
+
+.commissions-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="15" cy="15" r="1" fill="rgba(0,123,255,0.02)"/><circle cx="85" cy="85" r="1.5" fill="rgba(0,123,255,0.015)"/><circle cx="70" cy="20" r="0.8" fill="rgba(0,123,255,0.025)"/><circle cx="30" cy="80" r="1.2" fill="rgba(0,123,255,0.02)"/></svg>') repeat;
+    opacity: 0.4;
+}
+
+.commissions-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+}
+
+.commission-card {
+    background: var(--bg-white);
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    border-top: 4px solid var(--primary-color);
+    border-left: 1px solid rgba(var(--primary-rgb), 0.1);
+}
+
+.commission-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, transparent 0%, rgba(var(--primary-rgb), 0.02) 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.commission-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+    border-top-color: var(--primary-light);
+    border-left-color: rgba(var(--primary-rgb), 0.2);
+}
+
+.commission-card:hover::before {
+    opacity: 1;
+}
+
+.commission-title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+    position: relative;
+    z-index: 2;
+    line-height: 1.3;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid rgba(var(--primary-rgb), 0.1);
+}
+
+.commission-role {
+    margin-bottom: 1rem;
+    position: relative;
+    z-index: 2;
+}
+
+.commission-role:last-child {
+    margin-bottom: 0;
+}
+
+.role-title {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-medium);
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.role-members {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.role-members li {
+    font-size: 1rem;
+    color: var(--text-dark);
+    margin-bottom: 0.3rem;
+    padding-left: 1.2rem;
+    position: relative;
+    line-height: 1.4;
+    transition: all 0.2s ease;
+}
+
+.role-members li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.6rem;
+    width: 6px;
+    height: 6px;
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-light) 100%);
+    border-radius: 50%;
+    box-shadow: 0 1px 3px rgba(var(--primary-rgb), 0.3);
+}
+
+.role-members li:last-child {
+    margin-bottom: 0;
+}
+
+.role-members li:hover {
+    padding-left: 1.4rem;
+    color: var(--primary-color);
+}
+
+.role-members li:hover::before {
+    transform: scale(1.2);
+    box-shadow: 0 2px 6px rgba(var(--primary-rgb), 0.4);
+}
+
+.member-name {
+    font-weight: 600;
+    color: var(--text-dark);
+}
+
+.member-note {
+    font-size: 0.85rem;
+    color: var(--text-medium);
+    font-style: italic;
+    margin-top: 0.2rem;
+    display: block;
+}
+
+/* Special styling for main positions */
+.commission-role.head .role-title {
+    color: var(--primary-color);
+    font-weight: 700;
+}
+
+.commission-role.head .member-name {
+    color: var(--primary-color);
+    font-weight: 700;
+    font-size: 1.05rem;
+}
+
+/* Documents section */
+.documents-note {
+    text-align: center;
+    margin-top: 1.5rem;
+    padding: 1rem;
+    background: linear-gradient(135deg, rgba(var(--primary-rgb), 0.05) 0%, rgba(var(--primary-rgb), 0.08) 100%);
+    border-radius: 8px;
+    font-size: 0.9rem;
+    color: var(--text-medium);
+    font-weight: 500;
+    position: relative;
+    z-index: 2;
+    border: 1px solid rgba(var(--primary-rgb), 0.1);
+    transition: all 0.2s ease;
+}
+
+.documents-note:hover {
+    background: linear-gradient(135deg, rgba(var(--primary-rgb), 0.08) 0%, rgba(var(--primary-rgb), 0.12) 100%);
+    border-color: rgba(var(--primary-rgb), 0.2);
+    transform: translateY(-1px);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .commissions-section {
+        padding: 3rem 0;
+    }
+    
+    .commissions-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        padding: 0 1rem;
+    }
+    
+    .commission-card {
+        padding: 1.5rem;
+    }
+    
+    .commission-title {
+        font-size: 1.2rem;
+        margin-bottom: 1.25rem;
+    }
+    
+    .role-title {
+        font-size: 0.85rem;
+    }
+    
+         .role-members li {
+         font-size: 0.95rem;
+         padding-left: 1rem;
+     }
+     
+     .role-members li:hover {
+         padding-left: 1.2rem;
+     }
+    
+    .commission-role.head .member-name {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .commissions-section {
+        padding: 2rem 0;
+    }
+    
+    .commissions-grid {
+        padding: 0 1.5rem;
+        gap: 1.25rem;
+    }
+    
+    .commission-card {
+        padding: 1.25rem;
+        border-top-width: 3px;
+    }
+    
+    .commission-title {
+        font-size: 1.1rem;
+        margin-bottom: 1rem;
+        line-height: 1.2;
+    }
+    
+    .role-title {
+        font-size: 0.8rem;
+        margin-bottom: 0.4rem;
+    }
+    
+         .role-members li {
+         font-size: 0.9rem;
+         margin-bottom: 0.25rem;
+         padding-left: 0.9rem;
+     }
+     
+     .role-members li:hover {
+         padding-left: 1.1rem;
+     }
+     
+     .role-members li::before {
+         top: 0.5rem;
+         width: 4px;
+         height: 4px;
+     }
+    
+    .commission-role.head .member-name {
+        font-size: 0.95rem;
+    }
+    
+    .member-note {
+        font-size: 0.8rem;
+    }
+    
+    .documents-note {
+        padding: 0.8rem;
+        font-size: 0.85rem;
+    }
+} 

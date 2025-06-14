@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Календар змагань - Федерація Дзюдо України</title>
+    <meta name="description" content="Календар змагань Федерації Дзюдо України. Розклад турнірів, чемпіонатів та спортивних подій на 2024 рік.">
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/navigation.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/pages/calendar.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-brand">
+                <img src="assets/fju-logo.png" alt="FJU Logo" class="logo" width="48" height="48">
+                <span class="brand-text">
+                    <strong class="brand-full">Федерація Дзюдо України</strong>
+                    <strong class="brand-short">ФДУ</strong>
+                    <small>FJU</small>
+                </span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Головна</a></li>
+                <li class="nav-item-with-submenu">
+                    <a href="#" class="nav-link-with-submenu" data-main-link="about.html">
+                        Федерація
+                        <svg class="submenu-arrow" width="12" height="8" viewBox="0 0 12 8" fill="none">
+                            <path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </a>
+                    <div class="submenu">
+                        <div class="submenu-content">
+                            <div class="submenu-section">
+                                <h4 class="submenu-title">Федерація</h4>
+                                <div class="submenu-links">
+                                    <a href="about.html" class="submenu-link">
+                                        <div class="submenu-link-icon">📋</div>
+                                        <div class="submenu-link-content">
+                                            <span class="submenu-link-title">Про нас</span>
+                                            <span class="submenu-link-desc">Історія та керівництво</span>
+                                        </div>
+                                    </a>
+                                    <a href="team.html" class="submenu-link">
+                                        <div class="submenu-link-icon">🥋</div>
+                                        <div class="submenu-link-content">
+                                            <span class="submenu-link-title">Сборная</span>
+                                            <span class="submenu-link-desc">Національна збірна України</span>
+                                        </div>
+                                    </a>
+                                    <a href="documents.html" class="submenu-link">
+                                        <div class="submenu-link-icon">📄</div>
+                                        <div class="submenu-link-content">
+                                            <span class="submenu-link-title">Документи</span>
+                                            <span class="submenu-link-desc">Статути та положення</span>
+                                        </div>
+                                    </a>
+                                    <a href="regions.html" class="submenu-link">
+                                        <div class="submenu-link-icon">🗺️</div>
+                                        <div class="submenu-link-content">
+                                            <span class="submenu-link-title">Регіональні Відділення</span>
+                                            <span class="submenu-link-desc">Дзюдо в регіонах України</span>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li><a href="news.html">Новини</a></li>
+                <li><a href="calendar.html" class="active">Календар</a></li>
+                <li><a href="gallery.html">Галерея</a></li>
+                <li><a href="contacts.html">Контакти</a></li>
+            </ul>
+            <button class="nav-toggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
+    </header>
+
+    <main>
+        <section class="calendar-hero">
+            <div class="container">
+                <h1>Календар змагань 2025</h1>
+                <p>Розклад офіційних змагань з дзюдо під егідою ФДУ</p>
+            </div>
+        </section>
+
+        <section id="calendar-filter" class="section2">
+            <div class="container">
+                <div class="calendar-controls">
+                    <div class="filter-tabs">
+                        <button class="filter-tab active" data-filter="all">Всі події</button>
+                        <button class="filter-tab" data-filter="championship">Чемпіонати</button>
+                        <button class="filter-tab" data-filter="international">Міжнародні</button>
+                        <button class="filter-tab" data-filter="cup">Кубки</button>
+                        <button class="filter-tab" data-filter="tournament">Турніри</button>
+                        <button class="filter-tab" data-filter="youth">Молодь</button>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section id="events-list" class="section2">
+            <div class="container">
+                <div class="month-navigation">
+                    <button class="nav-btn prev-month" id="prevMonth">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="m15 18-6-6 6-6"/>
+                        </svg>
+                    </button>
+                    <h2 class="current-month" id="currentMonth">Січень 2025</h2>
+                    <button class="nav-btn next-month" id="nextMonth">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="m9 18 6-6-6-6"/>
+                        </svg>
+                    </button>
+                </div>
+                
+                <div class="month-events">
+                    <div class="events-loading" id="eventsLoading">
+                        <div class="loading-spinner"></div>
+                        <p>Завантаження подій...</p>
+                    </div>
+                    <div class="events-container" id="eventsContainer">
+                        <!-- События будут загружены через JavaScript -->
+                    </div>
+                    <div class="no-events" id="noEvents" style="display: none;">
+                        <div class="no-events-icon">📅</div>
+                        <h3>Немає подій на цей місяць</h3>
+                        <p>Перевірте інші місяці або оновіть фільтри</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-brand">
+                        <img src="assets/fju-logo.png" alt="FJU Logo" class="footer-logo">
+                        <div class="brand-info">
+                            <h3>Федерація Дзюдо України</h3>
+                            <p>Офіційна організація з розвитку дзюдо в Україні</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Навігація</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Головна</a></li>
+                        <li><a href="about.html">Федерація</a></li>
+                        <li><a href="news.html">Новини</a></li>
+                        <li><a href="calendar.html">Календар</a></li>
+                        <li><a href="gallery.html">Галерея</a></li>
+                        <li><a href="contacts.html">Контакти</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Контакти</h4>
+                    <div class="contact-info">
+                        <p>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                                <polyline points="22,6 12,13 2,6"/>
+                            </svg>
+                            judoukr@ukr.net
+                        </p>
+                        <p>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                            </svg>
+                            +38 044 284-38-39
+                        </p>
+                        <p>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                                <circle cx="12" cy="10" r="3"/>
+                            </svg>
+                            Україна, 01601, м. Київ, вул. Еспланадна, 42, офіс 808
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Соціальні мережі</h4>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/UkraineJudoFederation" class="social-link">Facebook</a>
+                        <a href="https://www.instagram.com/ukraine_judo_official" class="social-link">Instagram</a>
+                        <a href="https://t.me/ukrainianjudofederation" class="social-link">Telegram</a>
+                        <a href="https://www.youtube.com/@ukrainejudo" class="social-link">YouTube</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Федерація Дзюдо України. Всі права захищені.</p>
+                <div class="footer-bottom-links">
+                    <a href="#">Політика конфіденційності</a>
+                    <a href="#">Умови використання</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="scripts/calendar/calendar.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

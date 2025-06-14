@@ -1,0 +1,1412 @@
+{
+  "months": {
+    "january": {
+      "name": "Січень",
+      "events": [
+        {
+          "id": 1,
+          "title": "Міжнародний тренувальний табір",
+          "type": "international",
+          "category": "international",
+          "date": "2025-01-07",
+          "endDate": "2025-01-13",
+          "location": "Міттерзіль, Австрія",
+          "description": "Міжнародний тренувальний табір для підготовки спортсменів",
+          "status": "planned",
+          "ageGroup": "adults"
+        },
+        {
+          "id": 2,
+          "title": "Міжнародний тренувальний табір U18",
+          "type": "international",
+          "category": "international",
+          "date": "2025-01-09",
+          "endDate": "2025-01-12",
+          "location": "Банська Бистриця, Словаччина",
+          "description": "Міжнародний тренувальний табір для юніорів до 18 років",
+          "status": "planned",
+          "ageGroup": "U18"
+        },
+        {
+          "id": 3,
+          "title": "НТЗ збірної команди (жінки)",
+          "type": "training",
+          "category": "education",
+          "date": "2025-01-08",
+          "endDate": "2025-01-22",
+          "location": "Київ, ОНСЦ \"Конча-Заспа\"",
+          "description": "Навчально-тренувальний збір жіночої збірної команди України",
+          "status": "planned",
+          "ageGroup": "adults"
+        },
+        {
+          "id": 4,
+          "title": "НТЗ збірної команди (чоловіки)",
+          "type": "training",
+          "category": "education",
+          "date": "2025-01-16",
+          "endDate": "2025-01-29",
+          "location": "Київ, ОНСЦ \"Конча-Заспа\"",
+          "description": "Навчально-тренувальний збір чоловічої збірної команди України",
+          "status": "planned",
+          "ageGroup": "adults"
+        },
+        {
+          "id": 5,
+          "title": "Семінар для керівників відокремлених підрозділів ФДУ",
+          "type": "seminar",
+          "category": "education",
+          "date": "2025-01-17",
+          "endDate": null,
+          "location": "Київ, ОНСЦ \"Конча-Заспа\"",
+          "description": "Семінар для керівників відокремлених підрозділів ФДУ, тренерів та суддів",
+          "status": "planned",
+          "ageGroup": "officials"
+        }
+      ]
+    },
+    "february": {
+      "name": "Лютий",
+      "events": [
+        {
+          "id": 6,
+          "title": "GRAND SLAM Париж",
+          "type": "international",
+          "category": "international",
+          "date": "2025-02-01",
+          "endDate": "2025-02-02",
+          "location": "Париж, Франція",
+          "description": "Престижний міжнародний турнір серії GRAND SLAM з дзюдо",
+          "status": "planned",
+          "ageGroup": "adults"
+        },
+        {
+          "id": 19,
+          "title": "НТЗ збірної команди (юніорки, дівчата)",
+          "type": "training",
+          "category": "education",
+          "date": "2025-02-03",
+          "endDate": "2025-02-05",
+          "location": "Київ, ОФК ім. І. Піддубного",
+          "description": "Навчально-тренувальний збір збірної команди юніорок та дівчат 2005-2010 р.н.",
+          "status": "planned",
+          "ageGroup": "U18"
+        },
+        {
+          "id": 20,
+          "title": "EUROPEAN OPEN Любляна",
+          "type": "international",
+          "category": "international",
+          "date": "2025-02-10",
+          "endDate": "2025-02-11",
+          "location": "Любляна, Словенія",
+          "description": "Міжнародний турнір серії EUROPEAN OPEN",
+          "status": "planned",
+          "ageGroup": "adults"
+        },
+        {
+          "id": 21,
+          "title": "Всеукраїнський Ката семінар",
+          "type": "seminar",
+          "category": "education",
+          "date": "2025-02-11",
+          "endDate": "2025-02-14",
+          "location": "Ужгород",
+          "description": "Всеукраїнський семінар з техніки Ката в дзюдо",
+          "status": "planned",
+          "ageGroup": "officials"
+        },
+        {
+          "id": 22,
+          "title": "GRAND SLAM Баку",
+          "type": "international",
+          "category": "international",
+          "date": "2025-02-14",
+          "endDate": "2025-02-16",
+          "location": "Баку, Азербайджан",
+          "description": "Престижний міжнародний турнір серії GRAND SLAM з дзюдо",
+          "status": "planned",
+          "ageGroup": "adults"
+        },
+        {
+          "id": 23,
+          "title": "Кубок Європи U18",
+          "type": "international",
+          "category": "international",
+          "date": "2025-02-15",
+          "endDate": "2025-02-16",
+          "location": "Шаморін, Словаччина",
+          "description": "Кубок Європи з дзюдо серед юніорів до 18 років",
+          "status": "planned",
+          "ageGroup": "U18"
+        },
+        {
+          "id": 7,
+          "title": "Чемпіонат України U18",
+          "type": "championship",
+          "category": "youth",
+          "date": "2025-02-19",
+          "endDate": "2025-02-21",
+          "location": "Черкаси",
+          "description": "Чемпіонат України серед спортсменів 2008-2010 р.н.",
+          "status": "planned",
+          "ageGroup": "U18"
+        },
+        {
+          "id": 24,
+          "title": "EUROPEAN OPEN Варшава",
+          "type": "international",
+          "category": "international",
+          "date": "2025-02-22",
+          "endDate": "2025-02-23",
+          "location": "Варшава, Польща",
+          "description": "Міжнародний турнір серії EUROPEAN OPEN",
+          "status": "planned",
+          "ageGroup": "adults"
+        },
+        {
+          "id": 25,
+          "title": "GRAND SLAM Ташкент",
+          "type": "international",
+          "category": "international",
+          "date": "2025-02-28",
+          "endDate": "2025-03-02",
+          "location": "Ташкент, Узбекистан",
+          "description": "Престижний міжнародний турнір серії GRAND SLAM з дзюдо",
+          "status": "planned",
+          "ageGroup": "adults"
+        }
+      ]
+    },
+    "march": {
+      "name": "Березень",
+      "events": [
+        {
+          "id": 8,
+          "title": "ВТ \"Київська весна\"",
+          "type": "tournament",
+          "category": "youth",
+          "date": "2025-03-01",
+          "endDate": null,
+          "location": "Київ",
+          "description": "Відкритий турнір серед юнаків та дівчат 2010-2011 р.н.",
+          "status": "planned",
+          "ageGroup": "U15"
+        },
+        {
+          "id": 9,
+          "title": "Чемпіонат України U21",
+          "type": "championship",
+          "category": "youth",
+          "date": "2025-03-04",
+          "endDate": "2025-03-06",
+          "location": "Ужгород",
+          "description": "Чемпіонат України серед молоді 2005-2010 р.н.",
+          "status": "planned",
+          "ageGroup": "U21"
+        },
+        {
+          "id": 26,
+          "title": "GRAND PRIX Лінц",
+          "type": "international",
+          "category": "international",
+          "date": "2025-03-07",
+          "endDate": "2025-03-09",
+          "location": "Лінц, Австрія",
+          "description": "Міжнародний турнір серії GRAND PRIX з дзюдо",
+          "status": "planned",
+          "ageGroup": "adults"
+        },
+        {
+          "id": 27,
+          "title": "Міжнародний тренувальний табір",
+          "type": "international",
+          "category": "international",
+          "date": "2025-03-10",
+          "endDate": "2025-03-17",
+          "location": "Німбурк, Чехія",
+          "description": "Міжнародний тренувальний табір для підготовки спортсменів",
+          "status": "planned",
+          "ageGroup": "adults"
+        },
+        {
+          "id": 28,
+          "title": "Кубок Європи Рига",
+          "type": "international",
+          "category": "international",
+          "date": "2025-03-15",
+          "endDate": "2025-03-16",
+          "location": "Рига, Латвія",
+          "description": "Кубок Європи з дзюдо серед дорослих",
+          "status": "planned",
+          "ageGroup": "adults"
+        },
+        {
+          "id": 29,
+          "title": "Кубок Європи U18 Загреб",
+          "type": "international",
+          "category": "international",
+          "date": "2025-03-15",
+          "endDate": "2025-03-16",
+          "location": "Загреб, Хорватія",
+          "description": "Кубок Європи з дзюдо серед юніорів до 18 років",
+          "status": "planned",
+          "ageGroup": "U18"
+        },
+        {
+          "id": 30,
+          "title": "GRAND SLAM Тбілісі",
+          "type": "international",
+          "category": "international",
+          "date": "2025-03-21",
+          "endDate": "2025-03-23",
+          "location": "Тбілісі, Грузія",
+          "description": "Престижний міжнародний турнір серії GRAND SLAM з дзюдо",
+          "status": "planned",
+          "ageGroup": "adults"
+        },
+        {
+          "id": 31,
+          "title": "НТЗ збірної команди (юніори, кадети)",
+          "type": "training",
+          "category": "education",
+          "date": "2025-03-21",
+          "endDate": "2025-03-23",
+          "location": "Київ, ОФК ім. І. Піддубного",
+          "description": "Навчально-тренувальний збір збірної команди юніорів та кадетів 2005-2010 р.н.",
+          "status": "planned",
+          "ageGroup": "U18"
+        },
+        {
+          "id": 10,
+          "title": "ВТ \"Kremen Cup\"",
+          "type": "tournament",
+          "category": "youth",
+          "date": "2025-03-28",
+          "endDate": "2025-03-30",
+          "location": "Кременчук",
+          "description": "Відкритий турнір серед юнаків та дівчат U15, U13, U11",
+          "status": "planned",
+          "ageGroup": "U13"
+        },
+        {
+          "id": 32,
+          "title": "ХХ літня Універсіада України",
+          "type": "championship",
+          "category": "championship",
+          "date": "2025-03-29",
+          "endDate": "2025-03-31",
+          "location": "Хмельницький",
+          "description": "ХХ літня Універсіада України з дзюдо серед студентів",
+          "status": "planned",
+          "ageGroup": "U23"
+        }
+      ]
+    },
+    "april": {
+      "name": "Квітень",
+      "events": [
+        {
+          "id": 33,
+          "title": "Кубок Європи Дубровник",
+          "type": "international",
+          "category": "international",
+          "date": "2025-04-05",
+          "endDate": "2025-04-06",
+          "location": "Дубровник, Хорватія",
+          "description": "Кубок Європи з дзюдо серед дорослих",
+          "status": "planned",
+          "ageGroup": "adults"
+        },
+        {
+          "id": 34,
+          "title": "Кубок Європи U18 Тепліце",
+          "type": "international",
+          "category": "international",
+          "date": "2025-04-05",
+          "endDate": "2025-04-06",
+          "location": "Тепліце, Чехія",
+          "description": "Кубок Європи з дзюдо серед юніорів до 18 років",
+          "status": "planned",
+          "ageGroup": "U18"
+        },
+        {
+          "id": 35,
+          "title": "Кубок Європи U21 Познань",
+          "type": "international",
+          "category": "international",
+          "date": "2025-04-05",
+          "endDate": "2025-04-06",
+          "location": "Познань, Польща",
+          "description": "Кубок Європи з дзюдо серед молоді до 21 року",
+          "status": "planned",
+          "ageGroup": "U21"
+        },
+        {
+          "id": 36,
+          "title": "ВТ \"ХХХIV Меморіал Івана Прищепи\"",
+          "type": "tournament",
+          "category": "youth",
+          "date": "2025-04-05",
+          "endDate": "2025-04-06",
+          "location": "Дніпро",
+          "description": "Відкритий турнір серед юнаків та дівчат 2009-2011 р.н.",
+          "status": "planned",
+          "ageGroup": "U15"
+        },
+        {
+          "id": 37,
+          "title": "Міжнародний тренувальний табір",
+          "type": "international",
+          "category": "international",
+          "date": "2025-04-07",
+          "endDate": "2025-04-12",
+          "location": "Тата, Угорщина",
+          "description": "Міжнародний тренувальний табір для підготовки спортсменів",
+          "status": "planned",
+          "ageGroup": "adults"
+        },
+        {
+          "id": 38,
+          "title": "НТЗ збірної команди до чемпіонату Європи",
+          "type": "training",
+          "category": "education",
+          "date": "2025-04-10",
+          "endDate": "2025-04-20",
+          "location": "Київ",
+          "description": "Навчально-тренувальний збір збірної команди до чемпіонату Європи",
+          "status": "planned",
+          "ageGroup": "adults"
+        },
+        {
+          "id": 11,
+          "title": "Чемпіонат Європи",
+          "type": "international",
+          "category": "international",
+          "date": "2025-04-24",
+          "endDate": "2025-04-27",
+          "location": "Подгориця, Чорногорія",
+          "description": "Чемпіонат Європи з дзюдо серед дорослих",
+          "status": "planned",
+          "ageGroup": "adults"
+        },
+        {
+          "id": 39,
+          "title": "Всеукраїнське змагання \"Дитяча ліга\" (фінал)",
+          "type": "championship",
+          "category": "youth",
+          "date": "2025-04-25",
+          "endDate": "2025-04-26",
+          "location": "Дніпро",
+          "description": "Фінальні змагання Всеукраїнської дитячої ліги з дзюдо",
+          "status": "planned",
+          "ageGroup": "U13"
+        },
+        {
+          "id": 40,
+          "title": "ВТ \"Randori Spring Cup-2025\"",
+          "type": "tournament",
+          "category": "youth",
+          "date": "2025-04-25",
+          "endDate": "2025-04-27",
+          "location": "Ужгород",
+          "description": "Відкритий турнір серед юнаків та дівчат 2009-2011 р.н.",
+          "status": "planned",
+          "ageGroup": "U15"
+        },
+        {
+          "id": 41,
+          "title": "Кубок Європи U18 Берлін",
+          "type": "international",
+          "category": "international",
+          "date": "2025-04-26",
+          "endDate": "2025-04-27",
+          "location": "Берлін, Німеччина",
+          "description": "Кубок Європи з дзюдо серед юніорів до 18 років",
+          "status": "planned",
+          "ageGroup": "U18"
+        },
+        {
+          "id": 42,
+          "title": "Чемпіонат України U16",
+          "type": "championship",
+          "category": "youth",
+          "date": "2025-04-30",
+          "endDate": "2025-05-02",
+          "location": "Київ",
+          "description": "Чемпіонат України серед спортсменів 2010-2011 р.н.",
+          "status": "cancelled",
+          "ageGroup": "U16"
+        }
+      ]
+    },
+    "may": {
+      "name": "Травень",
+      "events": [
+        {
+          "id": 43,
+          "title": "Кубок України",
+          "type": "cup",
+          "category": "cup",
+          "date": "2025-05-02",
+          "endDate": "2025-05-03",
+          "location": "Київ",
+          "description": "Кубок України з дзюдо серед дорослих",
+          "status": "cancelled",
+          "ageGroup": "adults"
+        },
+        {
+          "id": 44,
+          "title": "GRAND PRIX Душанбе",
+          "type": "international",
+          "category": "international",
+          "date": "2025-05-02",
+          "endDate": "2025-05-04",
+          "location": "Душанбе, Таджикистан",
+          "description": "Міжнародний турнір серії GRAND PRIX з дзюдо",
+          "status": "planned",
+          "ageGroup": "adults"
+        },
+        {
+          "id": 45,
+          "title": "Кубок Європи U18 Баку",
+          "type": "international",
+          "category": "international",
+          "date": "2025-05-03",
+          "endDate": "2025-05-05",
+          "location": "Баку, Азербайджан",
+          "description": "Кубок Європи з дзюдо серед юніорів до 18 років",
+          "status": "planned",
+          "ageGroup": "U18"
+        },
+        {
+          "id": 46,
+          "title": "ВТ \"Кубок Луцьку\"",
+          "type": "tournament",
+          "category": "tournament",
+          "date": "2025-05-09",
+          "endDate": "2025-05-10",
+          "location": "Луцьк",
+          "description": "Відкритий турнір з дзюдо на Кубок міста Луцьк",
+          "status": "planned",
+          "ageGroup": "adults"
+        },
+        {
+          "id": 47,
+          "title": "GRAND SLAM Алмати",
+          "type": "international",
+          "category": "international",
+          "date": "2025-05-09",
+          "endDate": "2025-05-11",
+          "location": "Алмати, Казахстан",
+          "description": "Престижний міжнародний турнір серії GRAND SLAM з дзюдо",
+          "status": "planned",
+          "ageGroup": "adults"
+        },
+        {
+          "id": 48,
+          "title": "EUROPEAN OPEN Мадрид",
+          "type": "international",
+          "category": "international",
+          "date": "2025-05-17",
+          "endDate": "2025-05-18",
+          "location": "Мадрид, Іспанія",
+          "description": "Міжнародний турнір серії EUROPEAN OPEN",
+          "status": "planned",
+          "ageGroup": "adults"
+        },
+        {
+          "id": 49,
+          "title": "Кубок Європи U18 Бельсько-Бяла",
+          "type": "international",
+          "category": "international",
+          "date": "2025-05-17",
+          "endDate": "2025-05-18",
+          "location": "Бельсько-Бяла, Польща",
+          "description": "Кубок Європи з дзюдо серед юніорів до 18 років",
+          "status": "planned",
+          "ageGroup": "U18"
+        },
+        {
+          "id": 50,
+          "title": "ВТ \"LION JUDO CUP\"",
+          "type": "tournament",
+          "category": "tournament",
+          "date": "2025-05-17",
+          "endDate": "2025-05-18",
+          "location": "Львів",
+          "description": "Відкритий турнір з дзюдо \"LION JUDO CUP\"",
+          "status": "planned",
+          "ageGroup": "adults"
+        },
+        {
+          "id": 51,
+          "title": "Міжнародний тренувальний табір",
+          "type": "international",
+          "category": "international",
+          "date": "2025-05-19",
+          "endDate": "2025-05-23",
+          "location": "Бенідорм, Іспанія",
+          "description": "Міжнародний тренувальний табір для підготовки спортсменів",
+          "status": "planned",
+          "ageGroup": "adults"
+        },
+        {
+          "id": 52,
+          "title": "Чемпіонат Європи серед ветеранів",
+          "type": "international",
+          "category": "veterans",
+          "date": "2025-05-22",
+          "endDate": "2025-05-25",
+          "location": "Рига, Латвія",
+          "description": "Чемпіонат Європи з дзюдо серед ветеранів",
+          "status": "planned",
+          "ageGroup": "veterans"
+        },
+        {
+          "id": 53,
+          "title": "ВТ \"Кубок Поділля\"",
+          "type": "tournament",
+          "category": "youth",
+          "date": "2025-05-23",
+          "endDate": "2025-05-25",
+          "location": "Хмельницький",
+          "description": "Відкритий турнір до міжнародного дня захисту дітей серед юнаків та дівчат 2010-2011, 2012-2013 р.н.",
+          "status": "planned",
+          "ageGroup": "U13"
+        },
+        {
+          "id": 54,
+          "title": "ВТ \"Кубок Придніпров'я\"",
+          "type": "tournament",
+          "category": "tournament",
+          "date": "2025-05-23",
+          "endDate": "2025-05-24",
+          "location": "Кам'янське",
+          "description": "Відкритий турнір серед чоловіків та жінок з правом присвоєння звання \"Майстер спорту України\"",
+          "status": "planned",
+          "ageGroup": "adults"
+        },
+        {
+          "id": 55,
+          "title": "Кубок Європи U21 Каунас",
+          "type": "international",
+          "category": "international",
+          "date": "2025-05-24",
+          "endDate": "2025-05-25",
+          "location": "Каунас, Литва",
+          "description": "Кубок Європи з дзюдо серед молоді до 21 року",
+          "status": "planned",
+          "ageGroup": "U21"
+        },
+        {
+          "id": 56,
+          "title": "Чемпіонат України U23",
+          "type": "championship",
+          "category": "youth",
+          "date": "2025-05-29",
+          "endDate": "2025-05-30",
+          "location": "Львів",
+          "description": "Чемпіонат України з дзюдо серед молоді до 23 років",
+          "status": "planned",
+          "ageGroup": "U23"
+        },
+        {
+          "id": 57,
+          "title": "ВТ \"Кубок Шашкевича\"",
+          "type": "tournament",
+          "category": "youth",
+          "date": "2025-05-30",
+          "endDate": "2025-06-01",
+          "location": "Золочів, Львівська обл.",
+          "description": "Відкритий турнір серед юнаків та дівчат",
+          "status": "planned",
+          "ageGroup": "U15"
+        },
+        {
+          "id": 58,
+          "title": "ВТ \"Кодокан\"",
+          "type": "tournament",
+          "category": "youth",
+          "date": "2025-05-30",
+          "endDate": "2025-06-01",
+          "location": "Одеса",
+          "description": "Відкритий турнір серед юнаків та дівчат",
+          "status": "planned",
+          "ageGroup": "U15"
+        },
+        {
+          "id": 59,
+          "title": "Кубок Європи U21 Грац",
+          "type": "international",
+          "category": "international",
+          "date": "2025-05-31",
+          "endDate": "2025-06-01",
+          "location": "Грац, Австрія",
+          "description": "Кубок Європи з дзюдо серед молоді до 21 року",
+          "status": "planned",
+          "ageGroup": "U21"
+        },
+        {
+          "id": 60,
+          "title": "ВТ пам'яті І. Момота",
+          "type": "tournament",
+          "category": "youth",
+          "date": "2025-05-31",
+          "endDate": null,
+          "location": "Черкаси",
+          "description": "Відкритий турнір пам'яті І. Момота серед юнаків та дівчат",
+          "status": "planned",
+          "ageGroup": "U15"
+        }
+      ]
+    },
+    "june": {
+      "name": "Червень",
+      "events": [
+        {
+          "id": 61,
+          "title": "Міжнародний тренувальний табір",
+          "type": "international",
+          "category": "international",
+          "date": "2025-06-10",
+          "endDate": "2025-06-17",
+          "location": "Пореч, Хорватія",
+          "description": "Міжнародний тренувальний табір для підготовки спортсменів",
+          "status": "planned",
+          "ageGroup": "adults"
+        },
+        {
+          "id": 62,
+          "title": "Чемпіонат світу",
+          "type": "international",
+          "category": "international",
+          "date": "2025-06-13",
+          "endDate": "2025-06-20",
+          "location": "Будапешт, Угорщина",
+          "description": "Чемпіонат світу з дзюдо серед дорослих",
+          "status": "planned",
+          "ageGroup": "adults"
+        },
+        {
+          "id": 63,
+          "title": "ВТ на призи ЗМС Р. Машуренка",
+          "type": "tournament",
+          "category": "youth",
+          "date": "2025-06-21",
+          "endDate": "2025-06-22",
+          "location": "Луцьк",
+          "description": "Відкритий турнір на призи заслуженого майстра спорту Р. Машуренка серед молоді",
+          "status": "planned",
+          "ageGroup": "U21"
+        },
+        {
+          "id": 64,
+          "title": "Кубок Європи U21 Берлін",
+          "type": "international",
+          "category": "international",
+          "date": "2025-06-21",
+          "endDate": "2025-06-22",
+          "location": "Берлін, Німеччина",
+          "description": "Кубок Європи з дзюдо серед молоді до 21 року",
+          "status": "planned",
+          "ageGroup": "U21"
+        },
+        {
+          "id": 65,
+          "title": "Чемпіонат Європи U18",
+          "type": "international",
+          "category": "international",
+          "date": "2025-06-26",
+          "endDate": "2025-06-29",
+          "location": "Скоп'є, Північна Македонія",
+          "description": "Чемпіонат Європи з дзюдо серед юніорів до 18 років",
+          "status": "planned",
+          "ageGroup": "U18"
+        }
+      ]
+    },
+    "july": {
+      "name": "Липень",
+      "events": [
+        {
+          "id": 66,
+          "title": "EUROPEAN OPEN Таллінн",
+          "type": "international",
+          "category": "international",
+          "date": "2025-07-05",
+          "endDate": "2025-07-06",
+          "location": "Таллінн, Естонія",
+          "description": "Міжнародний турнір серії EUROPEAN OPEN",
+          "status": "planned",
+          "ageGroup": "adults"
+        },
+        {
+          "id": 67,
+          "title": "Кубок Європи U21 Прага",
+          "type": "international",
+          "category": "international",
+          "date": "2025-07-05",
+          "endDate": "2025-07-06",
+          "location": "Прага, Чехія",
+          "description": "Кубок Європи з дзюдо серед молоді до 21 року",
+          "status": "planned",
+          "ageGroup": "U21"
+        },
+        {
+          "id": 68,
+          "title": "Кубок Європи U21 Пакш",
+          "type": "international",
+          "category": "international",
+          "date": "2025-07-12",
+          "endDate": "2025-07-13",
+          "location": "Пакш, Угорщина",
+          "description": "Кубок Європи з дзюдо серед молоді до 21 року",
+          "status": "planned",
+          "ageGroup": "U21"
+        },
+        {
+          "id": 12,
+          "title": "Кубок України",
+          "type": "cup",
+          "category": "cup",
+          "date": "2025-07-14",
+          "endDate": "2025-07-15",
+          "location": "Біла Церква",
+          "description": "Престижний турнір на Кубок України з дзюдо",
+          "status": "planned",
+          "ageGroup": "adults"
+        },
+        {
+          "id": 69,
+          "title": "ХVІІІ літній Європейський юнацький олімпійський фестиваль",
+          "type": "international",
+          "category": "international",
+          "date": "2025-07-19",
+          "endDate": "2025-07-27",
+          "location": "Скоп'є, Північна Македонія",
+          "description": "ХVІІІ літній Європейський юнацький олімпійський фестиваль з дзюдо",
+          "status": "planned",
+          "ageGroup": "U18"
+        },
+        {
+          "id": 70,
+          "title": "GRAND SLAM Улан-Батор",
+          "type": "international",
+          "category": "international",
+          "date": "2025-07-25",
+          "endDate": "2025-07-27",
+          "location": "Улан-Батор, Монголія",
+          "description": "Престижний міжнародний турнір серії GRAND SLAM з дзюдо",
+          "status": "planned",
+          "ageGroup": "adults"
+        }
+      ]
+    },
+    "august": {
+      "name": "Серпень",
+      "events": [
+        {
+          "id": 71,
+          "title": "Кубок Європи U21 Скоп'є",
+          "type": "international",
+          "category": "international",
+          "date": "2025-08-02",
+          "endDate": "2025-08-03",
+          "location": "Скоп'є, Північна Македонія",
+          "description": "Кубок Європи з дзюдо серед молоді до 21 року",
+          "status": "planned",
+          "ageGroup": "U21"
+        },
+        {
+          "id": 13,
+          "title": "Чемпіонат світу U18",
+          "type": "international",
+          "category": "international",
+          "date": "2025-08-27",
+          "endDate": "2025-08-31",
+          "location": "Софія, Болгарія",
+          "description": "Чемпіонат світу з дзюдо серед юніорів до 18 років",
+          "status": "planned",
+          "ageGroup": "U18"
+        },
+        {
+          "id": 72,
+          "title": "ВТ пам'яті міського голови м. Кременчука Бабаєва О.",
+          "type": "tournament",
+          "category": "tournament",
+          "date": "2025-08-30",
+          "endDate": "2025-08-31",
+          "location": "Кременчук",
+          "description": "Відкритий турнір пам'яті міського голови м. Кременчука Бабаєва О. серед чоловіків та жінок",
+          "status": "planned",
+          "ageGroup": "adults"
+        }
+      ]
+    },
+    "september": {
+      "name": "Вересень",
+      "events": [
+        {
+          "id": 73,
+          "title": "Чемпіонат Європи U21",
+          "type": "international",
+          "category": "international",
+          "date": "2025-09-04",
+          "endDate": "2025-09-07",
+          "location": "Словаччина",
+          "description": "Чемпіонат Європи з дзюдо серед молоді до 21 року",
+          "status": "planned",
+          "ageGroup": "U21"
+        },
+        {
+          "id": 14,
+          "title": "Чемпіонат України",
+          "type": "championship",
+          "category": "championship",
+          "date": "2025-09-11",
+          "endDate": "2025-09-13",
+          "location": "Вінниця",
+          "description": "Головний турнір року - Чемпіонат України з дзюдо серед дорослих",
+          "status": "planned",
+          "ageGroup": "adults"
+        },
+        {
+          "id": 74,
+          "title": "Чемпіонат світу U21",
+          "type": "international",
+          "category": "international",
+          "date": "2025-09-24",
+          "endDate": "2025-09-28",
+          "location": "За призначенням",
+          "description": "Чемпіонат світу з дзюдо серед молоді до 21 року",
+          "status": "planned",
+          "ageGroup": "U21"
+        },
+        {
+          "id": 75,
+          "title": "ВТ \"Дитячий фестиваль\"",
+          "type": "tournament",
+          "category": "youth",
+          "date": "2025-09-26",
+          "endDate": "2025-09-28",
+          "location": "Київ",
+          "description": "Відкритий турнір \"Дитячий фестиваль\" з дзюдо",
+          "status": "planned",
+          "ageGroup": "U13"
+        },
+        {
+          "id": 76,
+          "title": "ВТ пам'яті загиблих воїнів",
+          "type": "tournament",
+          "category": "youth",
+          "date": "2025-09-27",
+          "endDate": "2025-09-28",
+          "location": "Суми",
+          "description": "Відкритий турнір пам'яті Героя України полковника Олександра Аніщенка та народного Героя капітана Максима Савченка серед юнаків 2009-2011, 2012-2013 р.н.",
+          "status": "planned",
+          "ageGroup": "U13"
+        },
+        {
+          "id": 77,
+          "title": "EUROPEAN OPEN Прага",
+          "type": "international",
+          "category": "international",
+          "date": "2025-09-27",
+          "endDate": "2025-09-28",
+          "location": "Прага, Чехія",
+          "description": "Міжнародний турнір серії EUROPEAN OPEN",
+          "status": "planned",
+          "ageGroup": "adults"
+        },
+        {
+          "id": 78,
+          "title": "Відкритий чемпіонат ВФСТ \"Україна\"",
+          "type": "championship",
+          "category": "youth",
+          "date": "2025-09-30",
+          "endDate": null,
+          "location": "Чернівці",
+          "description": "Відкритий чемпіонат ВФСТ \"Україна\" серед юнаків та дівчат",
+          "status": "planned",
+          "ageGroup": "U15"
+        }
+      ]
+    },
+    "october": {
+      "name": "Жовтень",
+      "events": [
+        {
+          "id": 79,
+          "title": "ВТ \"Кубок Закарпаття\"",
+          "type": "tournament",
+          "category": "youth",
+          "date": "2025-10-03",
+          "endDate": "2025-10-05",
+          "location": "Ужгород",
+          "description": "Відкритий турнір присвячений пам'яті А.А. Шерегія серед юнаків та дівчат 2009-2011 р.н.",
+          "status": "planned",
+          "ageGroup": "U15"
+        },
+        {
+          "id": 80,
+          "title": "ВТ \"Stronger Together Cup\"",
+          "type": "tournament",
+          "category": "youth",
+          "date": "2025-10-11",
+          "endDate": "2025-10-12",
+          "location": "Київ",
+          "description": "Відкритий турнір серед юнаків 2011-2012, 2013-2014, 2015-2016 та дівчат 2011-2012, 2013-2014",
+          "status": "planned",
+          "ageGroup": "U13"
+        },
+        {
+          "id": 81,
+          "title": "Кубок Європи Малага",
+          "type": "international",
+          "category": "international",
+          "date": "2025-10-11",
+          "endDate": "2025-10-12",
+          "location": "Малага, Іспанія",
+          "description": "Кубок Європи з дзюдо серед дорослих",
+          "status": "planned",
+          "ageGroup": "adults"
+        },
+        {
+          "id": 82,
+          "title": "GRAND SLAM Абу-Дабі",
+          "type": "international",
+          "category": "international",
+          "date": "2025-10-17",
+          "endDate": "2025-10-19",
+          "location": "Абу-Дабі, ОАЕ",
+          "description": "Престижний міжнародний турнір серії GRAND SLAM з дзюдо",
+          "status": "planned",
+          "ageGroup": "adults"
+        },
+        {
+          "id": 83,
+          "title": "Кубок Європи U18 Рига",
+          "type": "international",
+          "category": "international",
+          "date": "2025-10-18",
+          "endDate": "2025-10-19",
+          "location": "Рига, Латвія",
+          "description": "Кубок Європи з дзюдо серед юніорів до 18 років",
+          "status": "planned",
+          "ageGroup": "U18"
+        },
+        {
+          "id": 15,
+          "title": "ВТ \"Патріот\"",
+          "type": "tournament",
+          "category": "tournament",
+          "date": "2025-10-24",
+          "endDate": "2025-10-25",
+          "location": "Дніпро",
+          "description": "Відкритий турнір присвячений Дню захисника та захисниць України серед юнаків 2011-2012 р.н.",
+          "status": "planned",
+          "ageGroup": "U13"
+        },
+        {
+          "id": 84,
+          "title": "ВТ \"LVIV OPEN CUP\"",
+          "type": "tournament",
+          "category": "youth",
+          "date": "2025-10-24",
+          "endDate": "2025-10-25",
+          "location": "Львів",
+          "description": "Відкритий турнір серед юнаків та дівчат",
+          "status": "planned",
+          "ageGroup": "U15"
+        },
+        {
+          "id": 85,
+          "title": "EUROPEAN OPEN Сараєво",
+          "type": "international",
+          "category": "international",
+          "date": "2025-10-25",
+          "endDate": "2025-10-26",
+          "location": "Сараєво, Боснія і Герцеговина",
+          "description": "Міжнародний турнір серії EUROPEAN OPEN",
+          "status": "planned",
+          "ageGroup": "adults"
+        },
+        {
+          "id": 86,
+          "title": "Кубок Європи U18 Краньська Гора",
+          "type": "international",
+          "category": "international",
+          "date": "2025-10-25",
+          "endDate": "2025-10-26",
+          "location": "Краньська Гора, Словенія",
+          "description": "Кубок Європи з дзюдо серед юніорів до 18 років",
+          "status": "planned",
+          "ageGroup": "U18"
+        },
+        {
+          "id": 87,
+          "title": "GRAND PRIX Португалія",
+          "type": "international",
+          "category": "international",
+          "date": "2025-10-29",
+          "endDate": "2025-11-02",
+          "location": "Португалія",
+          "description": "Міжнародний турнір серії GRAND PRIX з дзюдо",
+          "status": "planned",
+          "ageGroup": "adults"
+        },
+        {
+          "id": 88,
+          "title": "Чемпіонат Європи U23",
+          "type": "international",
+          "category": "international",
+          "date": "2025-10-31",
+          "endDate": "2025-11-02",
+          "location": "Кишинів, Молдова",
+          "description": "Чемпіонат Європи з дзюдо серед молоді до 23 років",
+          "status": "planned",
+          "ageGroup": "U23"
+        },
+        {
+          "id": 89,
+          "title": "Чемпіонат України U17",
+          "type": "championship",
+          "category": "youth",
+          "date": "2025-10-31",
+          "endDate": null,
+          "location": "За призначенням",
+          "description": "Чемпіонат України серед спортсменів 2009-2011 р.н.",
+          "status": "planned",
+          "ageGroup": "U17"
+        },
+        {
+          "id": 90,
+          "title": "ВТ \"Кубок Федерації дзюдо Києва\"",
+          "type": "tournament",
+          "category": "youth",
+          "date": "2025-10-31",
+          "endDate": null,
+          "location": "Київ",
+          "description": "Відкритий турнір серед юніорів та юніорок",
+          "status": "planned",
+          "ageGroup": "U18"
+        },
+        {
+          "id": 91,
+          "title": "Відкритий чемпіонат ВФСТ \"Україна\" \"Хто ти майбутній олімпієць?\"",
+          "type": "championship",
+          "category": "youth",
+          "date": "2025-10-31",
+          "endDate": null,
+          "location": "Чернівці",
+          "description": "Відкритий чемпіонат ВФСТ \"Україна\" за програмою \"Хто ти майбутній олімпієць?\" серед юніорів та юніорок",
+          "status": "planned",
+          "ageGroup": "U18"
+        }
+      ]
+    },
+    "november": {
+      "name": "Листопад",
+      "events": [
+        {
+          "id": 92,
+          "title": "EUROPEAN OPEN Рим",
+          "type": "international",
+          "category": "international",
+          "date": "2025-11-08",
+          "endDate": "2025-11-09",
+          "location": "Рим, Італія",
+          "description": "Міжнародний турнір серії EUROPEAN OPEN",
+          "status": "planned",
+          "ageGroup": "adults"
+        },
+        {
+          "id": 93,
+          "title": "Кубок Європи U18 Дьор",
+          "type": "international",
+          "category": "international",
+          "date": "2025-11-08",
+          "endDate": "2025-11-09",
+          "location": "Дьор, Угорщина",
+          "description": "Кубок Європи з дзюдо серед юніорів до 18 років",
+          "status": "planned",
+          "ageGroup": "U18"
+        },
+        {
+          "id": 94,
+          "title": "GRAND PRIX Загреб",
+          "type": "international",
+          "category": "international",
+          "date": "2025-11-14",
+          "endDate": "2025-11-16",
+          "location": "Загреб, Хорватія",
+          "description": "Міжнародний турнір серії GRAND PRIX з дзюдо",
+          "status": "planned",
+          "ageGroup": "adults"
+        },
+        {
+          "id": 95,
+          "title": "ВТ пам'яті волинських майстрів дзюдо",
+          "type": "tournament",
+          "category": "tournament",
+          "date": "2025-11-15",
+          "endDate": "2025-11-16",
+          "location": "Луцьк",
+          "description": "Відкритий турнір присвячений пам'яті волинських майстрів дзюдо",
+          "status": "planned",
+          "ageGroup": "adults"
+        },
+        {
+          "id": 96,
+          "title": "ВТ \"Українка\"",
+          "type": "tournament",
+          "category": "youth",
+          "date": "2025-11-21",
+          "endDate": "2025-11-22",
+          "location": "Дніпро",
+          "description": "Відкритий турнір серед дівчат 2010-2011, 2012-2013, 2014-2015 р.н.",
+          "status": "planned",
+          "ageGroup": "U13"
+        },
+        {
+          "id": 97,
+          "title": "Чемпіонат України U15",
+          "type": "championship",
+          "category": "youth",
+          "date": "2025-11-30",
+          "endDate": null,
+          "location": "За призначенням",
+          "description": "Чемпіонат України серед спортсменів 2009-2011 р.н.",
+          "status": "planned",
+          "ageGroup": "U15"
+        }
+      ]
+    },
+    "december": {
+      "name": "Грудень",
+      "events": [
+        {
+          "id": 98,
+          "title": "ВТ \"Кубок Лева\"",
+          "type": "tournament",
+          "category": "veterans",
+          "date": "2025-12-05",
+          "endDate": "2025-12-06",
+          "location": "Львів",
+          "description": "Відкритий турнір серед ветеранів",
+          "status": "planned",
+          "ageGroup": "veterans"
+        },
+        {
+          "id": 99,
+          "title": "ХХІІ ВТ \"Кубок федерації дзюдо Одеської області\"",
+          "type": "tournament",
+          "category": "youth",
+          "date": "2025-12-05",
+          "endDate": "2025-12-06",
+          "location": "Одеса",
+          "description": "Відкритий турнір серед юнаків та дівчат, присвячений воїнам ЗСУ",
+          "status": "planned",
+          "ageGroup": "U15"
+        },
+        {
+          "id": 100,
+          "title": "ВТ \"Кубок Новатора 2025\"",
+          "type": "tournament",
+          "category": "youth",
+          "date": "2025-12-05",
+          "endDate": "2025-12-07",
+          "location": "Хмельницький",
+          "description": "Турнір присвячений пам'яті президента СК \"Новатор\" Юрія ЖИЖАНОВА серед кадетів до 17 років, юнаків та дівчат до 14 років, юнаків до 12 років",
+          "status": "planned",
+          "ageGroup": "U17"
+        },
+        {
+          "id": 101,
+          "title": "GRAND SLAM Токіо",
+          "type": "international",
+          "category": "international",
+          "date": "2025-12-06",
+          "endDate": "2025-12-07",
+          "location": "Токіо, Японія",
+          "description": "Міжнародний турнір серії GRAND SLAM з дзюдо",
+          "status": "planned",
+          "ageGroup": "adults"
+        },
+        {
+          "id": 102,
+          "title": "ВТ \"Randori Winter Cup-2024\"",
+          "type": "tournament",
+          "category": "youth",
+          "date": "2025-12-12",
+          "endDate": "2025-12-13",
+          "location": "Ужгород",
+          "description": "Відкритий турнір серед юнаків та дівчат 2013-2014, 2015-2016 р.н.",
+          "status": "planned",
+          "ageGroup": "U12"
+        },
+        {
+          "id": 103,
+          "title": "ВТ пам'яті загиблих воїнів-афганців",
+          "type": "tournament",
+          "category": "memorial",
+          "date": "2025-12-13",
+          "endDate": "2025-12-14",
+          "location": "Луцьк",
+          "description": "Відкритий турнір присвячений пам'яті загиблих воїнів-афганців, інтернаціоналістів",
+          "status": "planned",
+          "ageGroup": "adults"
+        },
+        {
+          "id": 104,
+          "title": "ВТ на підтримку ЗСУ",
+          "type": "tournament",
+          "category": "patriotic",
+          "date": "2025-12-14",
+          "endDate": null,
+          "location": "Черкаси",
+          "description": "Відкритий турнір на підтримку Збройних Сил України",
+          "status": "planned",
+          "ageGroup": "adults"
+        }
+      ]
+    }
+  },
+  "categories": [
+    {
+      "id": "all",
+      "name": "Всі події",
+      "description": "Всі змагання та турніри"
+    },
+    {
+      "id": "championship",
+      "name": "Чемпіонати",
+      "description": "Офіційні чемпіонати України"
+    },
+    {
+      "id": "cup",
+      "name": "Кубки",
+      "description": "Турніри на кубки та призи"
+    },
+    {
+      "id": "tournament",
+      "name": "Турніри",
+      "description": "Відкриті турніри та змагання"
+    },
+    {
+      "id": "youth",
+      "name": "Молодь",
+      "description": "Змагання серед молоді та юніорів"
+    },
+    {
+      "id": "international",
+      "name": "Міжнародні",
+      "description": "Міжнародні турніри та чемпіонати"
+    },
+    {
+      "id": "education",
+      "name": "Освіта",
+      "description": "Семінари, курси та освітні заходи"
+    },
+    {
+      "id": "veterans",
+      "name": "Ветерани",
+      "description": "Змагання серед ветеранів"
+    },
+    {
+      "id": "training",
+      "name": "Тренування",
+      "description": "Навчально-тренувальні збори та табори"
+    }
+  ],
+  "statuses": [
+    {
+      "id": "planned",
+      "name": "Заплановано",
+      "description": "Змагання заплановано"
+    },
+    {
+      "id": "ongoing",
+      "name": "Зараз",
+      "description": "Змагання проходить зараз"
+    },
+    {
+      "id": "completed",
+      "name": "Пройшло",
+      "description": "Змагання завершено"
+    },
+    {
+      "id": "cancelled",
+      "name": "Скасовано",
+      "description": "Змагання скасовано"
+    }
+  ],
+  "ageGroups": [
+    {
+      "id": "U11",
+      "name": "До 11 років",
+      "description": "Юні спортсмени до 11 років"
+    },
+    {
+      "id": "U12",
+      "name": "До 12 років",
+      "description": "Юні спортсмени до 12 років"
+    },
+    {
+      "id": "U13",
+      "name": "До 13 років",
+      "description": "Юні спортсмени до 13 років"
+    },
+    {
+      "id": "U14",
+      "name": "До 14 років",
+      "description": "Юні спортсмени до 14 років"
+    },
+    {
+      "id": "U15",
+      "name": "До 15 років",
+      "description": "Юні спортсмени до 15 років"
+    },
+    {
+      "id": "U16",
+      "name": "До 16 років",
+      "description": "Юні спортсмени до 16 років"
+    },
+    {
+      "id": "U17",
+      "name": "До 17 років",
+      "description": "Юні спортсмени до 17 років"
+    },
+    {
+      "id": "U18",
+      "name": "До 18 років",
+      "description": "Юніори до 18 років"
+    },
+    {
+      "id": "U21",
+      "name": "До 21 року",
+      "description": "Молодь до 21 року"
+    },
+    {
+      "id": "U23",
+      "name": "До 23 років",
+      "description": "Молодь до 23 років"
+    },
+    {
+      "id": "adults",
+      "name": "Дорослі",
+      "description": "Дорослі спортсмени"
+    },
+    {
+      "id": "veterans",
+      "name": "Ветерани",
+      "description": "Ветерани спорту"
+    },
+    {
+      "id": "officials",
+      "name": "Офіційні особи",
+      "description": "Тренери, судді, керівники"
+    }
+  ]
+}

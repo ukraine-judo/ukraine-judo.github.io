@@ -1,0 +1,285 @@
+/* Federation Info Section */
+.federation-info-section {
+    padding: 4rem 0;
+    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+}
+
+.federation-content {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+.federation-status {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    border-left: 4px solid var(--primary-color);
+}
+
+.federation-status p {
+    font-size: 1.1rem;
+    color: var(--text-color);
+    margin: 0;
+    font-weight: 500;
+}
+
+/* Presidents History */
+.presidents-history {
+    background: white;
+    padding: 2.5rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.presidents-history h3 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.presidents-list {
+    display: grid;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.president-item {
+    display: flex;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    background: #f8fafc;
+    border-radius: 8px;
+    border-left: 3px solid #cbd5e1;
+    transition: all 0.3s ease;
+}
+
+.president-item:hover {
+    background: #f1f5f9;
+    border-left-color: var(--primary-color);
+    transform: translateX(4px);
+}
+
+.president-item.current {
+    background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+    border-left-color: #f59e0b;
+    font-weight: 600;
+}
+
+.president-years {
+    font-weight: 700;
+    color: var(--primary-color);
+    min-width: 120px;
+    font-size: 0.95rem;
+}
+
+.president-name {
+    color: var(--text-color);
+    font-size: 1rem;
+}
+
+.president-item.current .president-name {
+    color: #92400e;
+}
+
+/* Current Leadership */
+.current-leadership {
+    background: white;
+    padding: 2.5rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.current-leadership h3 {
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.leadership-structure {
+    margin-top: 2rem;
+}
+
+.position-group {
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background: #f8fafc;
+    border-radius: 8px;
+    border-left: 3px solid var(--primary-color);
+}
+
+.position-group h4 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.position-group ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.position-group li {
+    padding: 0.5rem 0;
+    color: var(--text-color);
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.position-group li:last-child {
+    border-bottom: none;
+}
+
+.position-group p {
+    margin: 0.5rem 0;
+    color: var(--text-color);
+}
+
+/* Governance */
+.governance {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.governance h3 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.governance p {
+    font-size: 1.1rem;
+    color: var(--text-color);
+    margin: 0;
+}
+
+/* Federation Goals */
+.federation-goals {
+    background: white;
+    padding: 2.5rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.federation-goals h3 {
+    color: var(--primary-color);
+    margin-bottom: 2rem;
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-align: center;
+}
+
+.goals-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.goal-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.5rem;
+    padding: 1.5rem;
+    background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+    transition: all 0.3s ease;
+}
+
+.goal-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px -8px rgba(0, 0, 0, 0.15);
+    border-color: var(--primary-color);
+}
+
+.goal-number {
+    flex-shrink: 0;
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(135deg, var(--primary-color) 0%, #1e40af 100%);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1.2rem;
+    box-shadow: 0 4px 8px rgba(59, 130, 246, 0.3);
+}
+
+.goal-content p {
+    margin: 0;
+    color: var(--text-color);
+    line-height: 1.6;
+    font-size: 1rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .federation-info-section {
+        padding: 2rem 0;
+    }
+    
+    .federation-content {
+        gap: 2rem;
+    }
+    
+    .presidents-history,
+    .current-leadership,
+    .federation-goals {
+        padding: 1.5rem;
+    }
+    
+    .federation-status {
+        padding: 1.5rem;
+    }
+    
+    .president-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+    
+    .president-years {
+        min-width: auto;
+        font-size: 0.9rem;
+    }
+    
+    .goal-item {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1.25rem;
+    }
+    
+    .goal-number {
+        align-self: flex-start;
+    }
+    
+    .position-group {
+        padding: 1.25rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .presidents-history h3,
+    .current-leadership h3,
+    .federation-goals h3 {
+        font-size: 1.3rem;
+    }
+    
+    .federation-status p {
+        font-size: 1rem;
+    }
+    
+    .goal-content p {
+        font-size: 0.95rem;
+    }
+} 
