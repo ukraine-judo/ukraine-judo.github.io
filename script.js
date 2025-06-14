@@ -194,12 +194,17 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
         
-        // Close submenu when clicking outside
-        document.addEventListener('click', function(e) {
+        // Close submenu when clicking outside (only once per item)
+        const closeSubmenuHandler = function(e) {
             if (!item.contains(e.target)) {
                 item.classList.remove('mobile-submenu-open');
+                item.classList.remove('hovering');
             }
-        });
+        };
+        
+        // Remove previous handler if exists and add new one
+        document.removeEventListener('click', closeSubmenuHandler);
+        document.addEventListener('click', closeSubmenuHandler);
     });
     
     // Handle window resize
