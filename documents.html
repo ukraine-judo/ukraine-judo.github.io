@@ -4,11 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Документи - Федерація Дзюдо України</title>
-    <meta name="description" content="Статути, положення та офіційні документи Федерації Дзюдо України.">
+    <meta name="description" content="Статути, положення та офіційні документи Федерації Дзюдо України. Завантажте необхідні документи для участі в змаганнях та діяльності федерації.">
     <link rel="stylesheet" href="css/global.css">
     <link rel="stylesheet" href="css/navigation.css">
     <link rel="stylesheet" href="css/components.css">
     <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/pages/documents.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -21,14 +22,15 @@
                 <span class="brand-text">
                     <strong class="brand-full">Федерація Дзюдо України</strong>
                     <strong class="brand-short">ФДУ</strong>
-                    <small>FJU</small>
+                    <small class="brand-subtitle-full">Federation Judo Ukraine</small>
+                    <small class="brand-subtitle-short">FJU</small>
                 </span>
             </div>
             <div class="nav-menu-overlay"></div>
             <ul class="nav-menu">
                 <li><a href="index.html">Головна</a></li>
                 <li class="nav-item-with-submenu">
-                    <a href="#" class="nav-link-with-submenu active" data-main-link="about.html">
+                    <a href="about.html" class="nav-link-with-submenu">
                         Федерація
                         <svg class="submenu-arrow" width="12" height="8" viewBox="0 0 12 8" fill="none">
                             <path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -86,20 +88,217 @@
     </header>
 
     <main>
-        <section class="page-header">
+        <!-- Hero Section -->
+        <section class="documents-hero">
             <div class="container">
-                <h1 class="page-title">Документи</h1>
-                <p class="page-subtitle">
-                    Статути, положення та офіційні документи Федерації Дзюдо України
-                </p>
+                <div class="documents-hero-content">
+                    <h1>Документи ФДУ</h1>
+                    <p>
+                        Офіційні документи, статути, положення та регламенти Федерації Дзюдо України. 
+                        Завантажуйте актуальні документи для участі в змаганнях та діяльності федерації.
+                    </p>
+                    <div class="documents-stats">
+                        <div class="stat-item">
+                            <span class="stat-number">25</span>
+                            <span class="stat-label">Документів</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">7</span>
+                            <span class="stat-label">Категорій</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">2024</span>
+                            <span class="stat-label">Актуальна версія</span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
 
-        <section class="section">
+        <!-- Document List -->
+        <section class="documents-list">
             <div class="container">
-                <div class="coming-soon">
-                    <h2>📄 Сторінка в розробці</h2>
-                    <p>Незабаром тут будуть розміщені всі офіційні документи федерації</p>
+                <h2 class="section-title">Всі документи</h2>
+                <p class="section-subtitle">Повний перелік документів з можливістю фільтрування та пошуку</p>
+                
+                <div class="documents-controls">
+                    <div class="documents-filter">
+                        <button class="filter-btn active" data-filter="all">Всі</button>
+                        <button class="filter-btn" data-filter="protocols">Протоколи</button>
+                        <button class="filter-btn" data-filter="statutory">Статутні</button>
+                        <button class="filter-btn" data-filter="competitions">Змагання</button>
+                        <button class="filter-btn" data-filter="athletes">Спортсмени</button>
+                        <button class="filter-btn" data-filter="medical">Медичні</button>
+                        <button class="filter-btn" data-filter="financial">Фінансові</button>
+                        <button class="filter-btn" data-filter="education">Освітні</button>
+                    </div>
+                    
+                    <div class="documents-search-sort">
+                        <div class="documents-search">
+                            <input type="text" class="search-input" placeholder="Пошук документів...">
+                        </div>
+                        <select class="sort-select">
+                            <option value="date-desc">Спочатку нові</option>
+                            <option value="date-asc">Спочатку старі</option>
+                            <option value="title-asc">А-Я</option>
+                            <option value="title-desc">Я-А</option>
+                        </select>
+                        <div class="filter-results-info">
+                            <span class="results-count">Знайдено: <strong>0</strong> документів</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="document-grid">
+                    <!-- Documents will be loaded dynamically from JSON -->
+                    <div class="loading-state">
+                        <div class="loading-spinner"></div>
+                        <p>Завантаження документів...</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Competition Protocols Section -->
+        <section class="competition-protocols">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Протоколи Змагань</h2>
+                    <p class="section-subtitle">Результати чемпіонатів України з дзюдо за віковими категоріями</p>
+                </div>
+
+                <div class="protocols-tabs-container">
+                    <!-- Tab Navigation -->
+                    <div class="protocols-tabs">
+                        <button class="protocol-tab active" data-category="u23">
+                            <span class="tab-icon">U23</span>
+                            <div class="tab-content">
+                                <span class="tab-title">Молодь U23</span>
+                                <span class="tab-count">16 змагань</span>
+                                <span class="tab-years">2009-2025</span>
+                            </div>
+                        </button>
+                        
+                        <button class="protocol-tab" data-category="u21">
+                            <span class="tab-icon">U21</span>
+                            <div class="tab-content">
+                                <span class="tab-title">Юніори U21</span>
+                                <span class="tab-count">11 змагань</span>
+                                <span class="tab-years">2015-2025</span>
+                            </div>
+                        </button>
+                        
+                        <button class="protocol-tab" data-category="u18">
+                            <span class="tab-icon">U18</span>
+                            <div class="tab-content">
+                                <span class="tab-title">Кадети U18</span>
+                                <span class="tab-count">14 змагань</span>
+                                <span class="tab-years">2013-2024</span>
+                            </div>
+                        </button>
+                        
+                        <button class="protocol-tab" data-category="u17">
+                            <span class="tab-icon">U17</span>
+                            <div class="tab-content">
+                                <span class="tab-title">Молодші кадети U17</span>
+                                <span class="tab-count">10 змагань</span>
+                                <span class="tab-years">2009-2024</span>
+                            </div>
+                        </button>
+                        
+                        <button class="protocol-tab" data-category="u16">
+                            <span class="tab-icon">U16</span>
+                            <div class="tab-content">
+                                <span class="tab-title">Юнаки U16</span>
+                                <span class="tab-count">10 змагань</span>
+                                <span class="tab-years">2011-2024</span>
+                            </div>
+                        </button>
+                        
+                        <button class="protocol-tab" data-category="u15">
+                            <span class="tab-icon">U15</span>
+                            <div class="tab-content">
+                                <span class="tab-title">Молодші юнаки U15</span>
+                                <span class="tab-count">5 змагань</span>
+                                <span class="tab-years">2012-2024</span>
+                            </div>
+                        </button>
+                    </div>
+
+                    <!-- Tab Content -->
+                    <div class="protocols-content">
+                        <!-- U23 Content -->
+                        <div class="protocol-content active" data-category="u23">
+                            <div class="protocol-header">
+                                <h3>Чемпіонати України серед молоді U23</h3>
+                                <p>16 змагань з 2009 року (окрім 2022 року через воєнний стан)</p>
+                            </div>
+                            
+                            <div class="competitions-grid">
+                                <!-- Competitions will be generated by JavaScript -->
+                            </div>
+                        </div>
+
+                        <!-- U21 Content -->
+                        <div class="protocol-content" data-category="u21">
+                            <div class="protocol-header">
+                                <h3>Чемпіонати України серед юніорів U21</h3>
+                                <p>11 змагань з 2015 року</p>
+                            </div>
+                            
+                            <div class="competitions-grid">
+                                <!-- Competitions will be generated by JavaScript -->
+                            </div>
+                        </div>
+
+                        <!-- U18 Content -->
+                        <div class="protocol-content" data-category="u18">
+                            <div class="protocol-header">
+                                <h3>Чемпіонати України серед кадетів U18</h3>
+                                <p>14 змагань з 2013 року</p>
+                            </div>
+                            
+                            <div class="competitions-grid">
+                                <!-- Competitions will be generated by JavaScript -->
+                            </div>
+                        </div>
+
+                        <!-- U17 Content -->
+                        <div class="protocol-content" data-category="u17">
+                            <div class="protocol-header">
+                                <h3>Чемпіонати України серед молодших кадетів U17</h3>
+                                <p>10 змагань з 2009 року</p>
+                            </div>
+                            
+                            <div class="competitions-grid">
+                                <!-- Competitions will be generated by JavaScript -->
+                            </div>
+                        </div>
+
+                        <!-- U16 Content -->
+                        <div class="protocol-content" data-category="u16">
+                            <div class="protocol-header">
+                                <h3>Чемпіонати України серед юнаків U16</h3>
+                                <p>10 змагань з 2011 року</p>
+                            </div>
+                            
+                            <div class="competitions-grid">
+                                <!-- Competitions will be generated by JavaScript -->
+                            </div>
+                        </div>
+
+                        <!-- U15 Content -->
+                        <div class="protocol-content" data-category="u15">
+                            <div class="protocol-header">
+                                <h3>Чемпіонати України серед молодших юнаків U15</h3>
+                                <p>5 змагань з 2012 року</p>
+                            </div>
+                            
+                            <div class="competitions-grid">
+                                <!-- Competitions will be generated by JavaScript -->
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -117,14 +316,49 @@
                         </div>
                     </div>
                 </div>
+                
+                <div class="footer-section">
+                    <h4>Корисні посилання</h4>
+                    <ul class="footer-links">
+                        <li><a href="about.html">Про федерацію</a></li>
+                        <li><a href="news.html">Новини</a></li>
+                        <li><a href="calendar.html">Календар змагань</a></li>
+                        <li><a href="documents.html">Документи</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Контакти</h4>
+                    <div class="footer-contact">
+                        <p>
+                            <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" style="vertical-align: middle; margin-right: 0.5rem;">
+                                <path d="M12,6.5A2.5,2.5 0 0,1 14.5,9A2.5,2.5 0 0,1 12,11.5A2.5,2.5 0 0,1 9.5,9A2.5,2.5 0 0,1 12,6.5M12,2A7,7 0 0,1 19,9C19,14.25 12,22 12,22C12,22 5,14.25 5,9A7,7 0 0,1 12,2Z"/>
+                            </svg>
+                            вул. Еспланадна, 20, Київ, 01023
+                        </p>
+                        <p>
+                            <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" style="vertical-align: middle; margin-right: 0.5rem;">
+                                <path d="M6.62,10.79C8.06,13.62 10.38,15.94 13.21,17.38L15.41,15.18C15.69,14.9 16.08,14.82 16.43,14.93C17.55,15.3 18.75,15.5 20,15.5A1,1 0 0,1 21,16.5V20A1,1 0 0,1 20,21A17,17 0 0,1 3,4A1,1 0 0,1 4,3H7.5A1,1 0 0,1 8.5,4C8.5,5.25 8.7,6.45 9.07,7.57C9.18,7.92 9.1,8.31 8.82,8.59L6.62,10.79Z"/>
+                            </svg>
+                            +38 (044) 234-56-78
+                        </p>
+                        <p>
+                            <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" style="vertical-align: middle; margin-right: 0.5rem;">
+                                <path d="M20,8L12,13L4,8V6L12,11L20,6M20,4H4C2.89,4 2,4.89 2,6V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V6C22,4.89 21.1,4 20,4Z"/>
+                            </svg>
+                            info@fju.org.ua
+                        </p>
+                    </div>
+                </div>
             </div>
             
             <div class="footer-bottom">
-                <p>&copy; 2025 Федерація Дзюдо України. Всі права захищені.</p>
+                <p>&copy; 2024 Федерація Дзюдо України. Всі права захищені.</p>
             </div>
         </div>
     </footer>
 
     <script src="script.js"></script>
+    <script src="scripts/documents/main.js"></script>
 </body>
 </html> 

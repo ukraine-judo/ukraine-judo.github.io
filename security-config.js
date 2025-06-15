@@ -5,16 +5,9 @@
 const SecurityConfig = {
     // URL API для разных окружений
     apiUrls: {
-        news: {
-            development: 'api/news.php',                        // Локальная разработка
-            github: 'https://motoshfq.github.io/FJU/api/news.php',  // GitHub Pages
-            production: 'https://ukrainejudo.com/api/news.php'      // Основной домен
-        },
-        calendar: {
-            development: 'api/calendar.php',                    // Локальная разработка
-            github: 'https://motoshfq.github.io/FJU/api/calendar.php',  // GitHub Pages
-            production: 'https://ukrainejudo.com/api/calendar.php'      // Основной домен
-        }
+        development: 'api/news.php',                        // Локальная разработка
+        github: 'https://motoshfq.github.io/FJU/api/news.php',  // GitHub Pages
+        production: 'https://ukrainejudo.com/api/news.php'      // Основной домен
     },
 
     // Разрешенные домены для referer
@@ -80,53 +73,19 @@ const SecurityConfig = {
     },
 
     // Получить API URL в зависимости от окружения
-    getApiUrl(apiType = 'news') {
+    getApiUrl() {
         const hostname = location.hostname;
         
         if (hostname === 'localhost' || hostname === '127.0.0.1' || hostname.includes('.local')) {
-            return this.apiUrls[apiType].development;
+            return this.apiUrls.development;
         } else if (hostname === 'motoshfq.github.io') {
-            return this.apiUrls[apiType].github;
+            return this.apiUrls.github;
         } else if (hostname === 'ukrainejudo.com' || hostname === 'www.ukrainejudo.com') {
-            return this.apiUrls[apiType].production;
+            return this.apiUrls.production;
         }
         
         // Fallback для неизвестных доменов
-        return this.apiUrls[apiType].development;
-    },
-
-    // Получить URL для новостного API (для обратной совместимости)
-    getNewsApiUrl() {
-        return this.getApiUrl('news');
-    },
-
-    // Получить URL для календарного API
-    getCalendarApiUrl() {
-        return this.getApiUrl('calendar');
-    },
-
-    // Генерация токена для API
-    generateToken(apiType = 'news') {
-        const currentHour = new Date().toISOString().substring(0, 13); // YYYY-MM-DDTHH
-        const tokenPrefix = apiType === 'calendar' ? 'fju_calendar_' : 'fju_news_';
-        
-        // Простой хеш (для совместимости с PHP)
-        return this.simpleHash(tokenPrefix + currentHour.replace('T', '-'));
-    },
-
-    // Простая хеш-функция для совместимости с PHP
-    simpleHash(str) {
-        let hash = 0;
-        if (str.length === 0) return hash.toString(16);
-        
-        for (let i = 0; i < str.length; i++) {
-            const char = str.charCodeAt(i);
-            hash = ((hash << 5) - hash) + char;
-            hash = hash & 0xFFFFFFFF; // Корректная 32-битная маска
-        }
-        
-        // Конвертация в положительное число и в hex
-        return Math.abs(hash).toString(16);
+        return this.apiUrls.development;
     },
 
     // Определение текущего окружения
