@@ -62,9 +62,11 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Close mobile menu when clicking overlay
+    if (navMenuOverlay) {
     navMenuOverlay.addEventListener('click', function() {
         closeMobileMenu();
     });
+    }
 
     // Close mobile menu when clicking outside
     document.addEventListener('click', function(e) {
@@ -246,7 +248,9 @@ window.addEventListener('scroll', function() {
 });
 
 // Contact Form Handling
-document.querySelector('.contact-form').addEventListener('submit', function(e) {
+const contactForm = document.querySelector('.contact-form');
+if (contactForm) {
+    contactForm.addEventListener('submit', function(e) {
     e.preventDefault();
     
     const formData = new FormData(this);
@@ -281,6 +285,7 @@ document.querySelector('.contact-form').addEventListener('submit', function(e) {
         submitBtn.disabled = false;
     }, 1500);
 });
+}
 
 // Intersection Observer for Animations
 const observerOptions = {
@@ -307,7 +312,59 @@ document.addEventListener('DOMContentLoaded', function() {
         el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
         observer.observe(el);
     });
+
+    // Исправляем активные состояния навигации на всех страницах кроме главной
+    fixNavigationActiveStates();
 });
+
+function fixNavigationActiveStates() {
+    const isHomePage = window.location.pathname === '/' || 
+                      window.location.pathname.endsWith('/index.html') || 
+                      window.location.pathname.endsWith('/');
+    
+    if (isHomePage) return; // На главной странице не трогаем логику
+    
+    // Убираем любые активные состояния от подменю и hover эффектов
+    const submenuItems = document.querySelectorAll('.nav-item-with-submenu');
+    submenuItems.forEach(item => {
+        item.classList.remove('hovering', 'mobile-submenu-open');
+        const submenuLink = item.querySelector('.nav-link-with-submenu');
+        if (submenuLink) {
+            submenuLink.classList.remove('active');
+        }
+    });
+    
+    // Убираем active класс со всех навигационных ссылок кроме той, что должна быть активной
+    const navLinks = document.querySelectorAll('.nav-menu a');
+    navLinks.forEach(link => {
+        // Проверяем, должна ли эта ссылка быть активной на текущей странице
+        const href = link.getAttribute('href');
+        const currentPage = window.location.pathname.split('/').pop();
+        
+        if (href === currentPage || (href && window.location.pathname.includes(href.replace('.html', '')))) {
+            // Эта ссылка должна быть активной
+            return;
+        }
+        
+        // Убираем класс active если он не должен быть здесь
+        if (!link.textContent.trim().includes(getCurrentPageName())) {
+            link.classList.remove('active');
+        }
+    });
+}
+
+function getCurrentPageName() {
+    const currentPage = window.location.pathname.split('/').pop();
+    switch(currentPage) {
+        case 'news.html': return 'Новини';
+        case 'about.html': return 'Федерація';
+        case 'calendar.html': return 'Календар';
+        case 'gallery.html': return 'Галерея';
+        case 'contacts.html': return 'Контакти';
+        case 'news-article.html': return 'Новини';
+        default: return 'Головна';
+    }
+}
 
 // Dynamic Statistics Animation
 function animateStats() {
@@ -345,8 +402,15 @@ if (statsSection) {
     statsObserver.observe(statsSection);
 }
 
-// Active Navigation Link Highlighting
+// Active Navigation Link Highlighting (только для главной страницы с якорями)
 window.addEventListener('scroll', function() {
+    // Проверяем, что мы на главной странице или странице с секциями
+    const isHomePage = window.location.pathname === '/' || 
+                      window.location.pathname.endsWith('/index.html') || 
+                      window.location.pathname.endsWith('/');
+    
+    if (!isHomePage) return; // Не применяем логику якорей на других страницах
+    
     const sections = document.querySelectorAll('section[id]');
     const navLinks = document.querySelectorAll('.nav-menu a[href^="#"]');
     

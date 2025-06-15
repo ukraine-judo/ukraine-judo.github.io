@@ -1,4 +1,4 @@
-// News Utilities - Helper functions for news system
+// News Utilities - Minimal helper functions (legacy support)
 class NewsUtils {
     
     // Date formatting utilities

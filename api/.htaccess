@@ -1,0 +1,29 @@
+# Защита от прямого доступа к JSON файлам
+<Files "*.json">
+    Deny from all
+</Files>
+
+# Запрещаем доступ к системным файлам
+<Files ".htaccess">
+    Deny from all
+</Files>
+
+# Разрешаем только POST запросы к API
+<RequireAll>
+    Require method POST
+</RequireAll>
+
+# Отключаем индексацию директории
+Options -Indexes
+
+# Базовая защита от ботов
+RewriteEngine On
+RewriteCond %{HTTP_USER_AGENT} ^.*(bot|crawl|spider|scrape).*$ [NC]
+RewriteRule ^(.*)$ - [F,L]
+
+# CORS заголовки для API
+<IfModule mod_headers.c>
+    Header always set Access-Control-Allow-Origin "*"
+    Header always set Access-Control-Allow-Methods "POST"
+    Header always set Access-Control-Allow-Headers "Content-Type"
+</IfModule> 
