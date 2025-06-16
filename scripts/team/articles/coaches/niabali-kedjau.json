@@ -1,0 +1,126 @@
+{
+  "id": "niabali-kedjau",
+  "name": "Ньябалі Кеджау Францискович",
+  "nameEn": "Niabali Kedjau Frankyskovych",
+  "position": "Старший тренер юніорської збірної команди України з дзюдо (чоловіки)",
+  "birthDate": "8 липня 1990",
+  "age": 34,
+  "category": "junior",
+  "experience": "4 роки",
+  "image": "assets/team/coaches/Niabali.jpg",
+  "city": "Київ",
+  "region": "Київ",
+  "education": "Не вказано",
+  "graduationYear": null,
+  "titles": [
+    "Майстер спорту України міжнародного класу"
+  ],
+  "biography": {
+    "personalInfo": "Ньябалі Кеджау Францискович народився 8 липня 1990 року. Має звання Майстра спорту України міжнародного класу.",
+    "careerInfo": "Тренером збірної України почав працювати з 2021 року. З 2021 року обіймає посаду старшого тренера юніорської збірної команди України з дзюдо (чоловіки). Є учасником Олімпійських Ігор Ріо-2016 та Токіо-2020. Протягом своєї спортивної кар'єри здобув численні нагороди на міжнародних змаганнях найвищого рівня."
+  },
+  "awards": [
+    {
+      "year": "2016",
+      "title": "Учасник Олімпійських Ігор",
+      "location": "Ріо-де-Жанейро",
+      "type": "international"
+    },
+    {
+      "year": "2020",
+      "title": "Учасник Олімпійських Ігор",
+      "location": "Токіо",
+      "type": "international"
+    },
+    {
+      "year": "2020",
+      "title": "Срібний призер GRAND SLAM",
+      "location": "Дюссельдорф",
+      "type": "international"
+    },
+    {
+      "year": "2017",
+      "title": "Бронзовий призер GRAND SLAM",
+      "location": "Баку",
+      "type": "international"
+    },
+    {
+      "year": "2013",
+      "title": "Бронзовий призер GRAND PRIX",
+      "location": "Чеджу",
+      "type": "international"
+    },
+    {
+      "year": "2014",
+      "title": "Бронзовий призер GRAND PRIX",
+      "location": "Астана",
+      "type": "international"
+    },
+    {
+      "year": "2018",
+      "title": "Бронзовий призер GRAND PRIX",
+      "location": "Агадір",
+      "type": "international"
+    },
+    {
+      "year": "2019",
+      "title": "Бронзовий призер GRAND PRIX",
+      "location": "Марракеш",
+      "type": "international"
+    },
+    {
+      "year": "2017",
+      "title": "Срібний призер EUROPEAN OPEN",
+      "location": "Одівелаш",
+      "type": "international"
+    },
+    {
+      "year": "2013",
+      "title": "Бронзовий призер командного чемпіонату Європи",
+      "location": "",
+      "type": "international"
+    },
+    {
+      "year": "2015",
+      "title": "Бронзовий призер командного чемпіонату Європи",
+      "location": "",
+      "type": "international"
+    },
+    {
+      "year": "2017",
+      "title": "Бронзовий призер командного чемпіонату Європи",
+      "location": "",
+      "type": "international"
+    },
+    {
+      "year": "2011",
+      "title": "Срібний призер чемпіонату Європи U23",
+      "location": "Тюмень",
+      "type": "international"
+    },
+    {
+      "year": "2012",
+      "title": "Срібний призер чемпіонату Європи U23",
+      "location": "Прага",
+      "type": "international"
+    },
+    {
+      "year": "2009",
+      "title": "Чемпіон світу U20",
+      "location": "",
+      "type": "international"
+    },
+    {
+      "year": "2009",
+      "title": "Бронзовий призер чемпіонату Європи U20",
+      "location": "",
+      "type": "international"
+    },
+    {
+      "year": "різні роки",
+      "title": "Багаторазовий переможець і призер чемпіонатів України",
+      "location": "",
+      "type": "national"
+    }
+  ]
+} 

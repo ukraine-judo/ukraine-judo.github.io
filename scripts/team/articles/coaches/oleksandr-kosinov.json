@@ -1,0 +1,82 @@
+{
+  "id": "oleksandr-kosinov",
+  "name": "Косінов Олександр Іванович",
+  "nameEn": "Oleksandr Kosinov",
+  "position": "Головний тренер чоловічої збірної команди України з дзюдо",
+  "birthDate": "1 липня 1983",
+  "age": 41,
+  "category": "head",
+  "experience": "3 роки",
+  "image": "assets/team/coaches/kosinov.jpg",
+  "city": "Запоріжжя",
+  "region": "Запоріжжя",
+  "education": "Дніпропетровська фінансова академія",
+  "graduationYear": 2007,
+  "titles": [
+    "Заслужений майстер спорту України"
+  ],
+  "biography": {
+    "personalInfo": "Олександр Іванович Косінов народився 1 липня 1983 року. Закінчив Дніпропетровську фінансову академію у 2007 році.",
+    "careerInfo": "З 2022 року обіймає посаду старшого тренера збірної України з дзюдо. З 2025 року призначений головним тренером чоловічої збірної команди України з дзюдо. Має звання Заслуженого майстра спорту України, яке отримав у 2011 році."
+  },
+  "awards": [
+    {
+      "year": "2012",
+      "title": "Чемпіон Паралімпійських Ігор",
+      "location": "Лондон",
+      "type": "international"
+    },
+    {
+      "year": "2016", 
+      "title": "Бронзовий призер Паралімпійських Ігор",
+      "location": "",
+      "type": "international"
+    },
+    {
+      "year": "2011",
+      "title": "Чемпіон світу",
+      "location": "Анталія, Туреччина",
+      "type": "international"
+    },
+    {
+      "year": "2011",
+      "title": "Чемпіон Європи",
+      "location": "Лондон",
+      "type": "international"
+    },
+    {
+      "year": "2012",
+      "title": "Бронзовий призер Кубка світу",
+      "location": "",
+      "type": "international"
+    },
+    {
+      "year": "2011",
+      "title": "Чемпіон України",
+      "location": "",
+      "type": "national"
+    },
+    {
+      "year": "2012",
+      "title": "Володар Кубка України",
+      "location": "",
+      "type": "national"
+    },
+    {
+      "year": "2011",
+      "title": "Заслужений майстер спорту України",
+      "location": "",
+      "type": "title"
+    }
+  ],
+  "gallery": [
+    "assets/team/coaches/ak4.jpg",
+    "assets/team/coaches/ak5.jpg",
+    "assets/team/coaches/photo_2024-12-26_17-38-38.jpg",
+    "assets/team/coaches/photo_2024-12-26_17-38-39.jpg",
+    "assets/team/coaches/photo_2025-01-23_13-31-58.jpg",
+    "assets/team/coaches/photo_2025-03-11_20-03-31.jpg",
+    "assets/team/coaches/photo_2025-04-10_13-13-31.jpg",
+    "assets/team/coaches/photo_2025-04-26_21-48-02.jpg"
+  ]
+} 

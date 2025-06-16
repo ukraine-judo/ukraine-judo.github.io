@@ -247,41 +247,61 @@
                     </p>
                 </div>
 
-                <div class="coaches-grid">
-                    <div class="coach-card">
-                        <div class="coach-avatar">ГТ</div>
-                        <h3 class="coach-name">Геннадій Тимошенко</h3>
-                        <div class="coach-position">Головний тренер</div>
-                        <p class="coach-experience">
-                            Більше 20 років досвіду в дзюдо. Колишній олімпійський чемпіон та багаторазовий чемпіон світу.
-                        </p>
+                <!-- Coach Filter Controls -->
+                <div class="coach-filter-controls">
+                    <div class="coach-categories">
+                        <button class="coach-category-btn active" data-category="all">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 2L2 7v10c0 5.55 3.84 9.74 9 11 5.16-1.26 9-5.45 9-11V7l-10-5z"/>
+                                <path d="M9 12l2 2 4-4"/>
+                            </svg>
+                            Всі
+                        </button>
+                        <button class="coach-category-btn" data-category="head">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M9 12l2 2 4-4"/>
+                                <path d="M21 12c-1 0-3-1-3-3s2-3 3-3 3 1 3 3-2 3-3 3"/>
+                                <path d="M3 12c1 0 3-1 3-3s-2-3-3-3-3 1-3 3 2 3 3 3"/>
+                            </svg>
+                            Керівництво
+                        </button>
+                        <button class="coach-category-btn" data-category="men">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                                <circle cx="12" cy="7" r="4"/>
+                            </svg>
+                            Чоловіча збірна
+                        </button>
+                        <button class="coach-category-btn" data-category="women">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="8" r="7"/>
+                                <polyline points="8.21,13.89 7,23 17,23 15.79,13.88"/>
+                            </svg>
+                            Жіноча збірна
+                        </button>
+                        <button class="coach-category-btn" data-category="technical">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="22,12 18,12 15,21 9,3 6,12 2,12"/>
+                            </svg>
+                            Технічний штаб
+                        </button>
+                        <button class="coach-category-btn" data-category="medical">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M14 2v6a2 2 0 0 0 2 2h6"/>
+                                <path d="M5 2H3a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1h18a1 1 0 0 0 1-1V9"/>
+                                <circle cx="10" cy="13" r="2"/>
+                                <path d="M13 13c0 1-1 1-1 1s-1 0-1-1 1-1 1-1 1 0 1 1z"/>
+                            </svg>
+                            Медичний персонал
+                        </button>
                     </div>
+                </div>
 
-                    <div class="coach-card">
-                        <div class="coach-avatar">ІМ</div>
-                        <h3 class="coach-name">Ірина Мельник</h3>
-                        <div class="coach-position">Тренер жіночої збірної</div>
-                        <p class="coach-experience">
-                            15 років тренерського досвіду. Спеціалізується на підготовці жінок до міжнародних змагань.
-                        </p>
-                    </div>
-
-                    <div class="coach-card">
-                        <div class="coach-avatar">ВК</div>
-                        <h3 class="coach-name">Віктор Коваленко</h3>
-                        <div class="coach-position">Тренер чоловічої збірної</div>
-                        <p class="coach-experience">
-                            18 років тренерської роботи. Підготував 12 призерів міжнarodних турнірів.
-                        </p>
-                    </div>
-
-                    <div class="coach-card">
-                        <div class="coach-avatar">ОП</div>
-                        <h3 class="coach-name">Олексій Попович</h3>
-                        <div class="coach-position">Фізичний підготовник</div>
-                        <p class="coach-experience">
-                            Кандидат в майстри спорту з важкої атлетики. 12 років досвіду в спортивній підготовці.
-                        </p>
+                <div class="coaches-grid" id="coaches-grid">
+                    <!-- Coaches will be loaded dynamically from JSON -->
+                    <div class="loading-coaches">
+                        <div class="loading-spinner"></div>
+                        <p>Завантаження тренерського штабу...</p>
                     </div>
                 </div>
             </div>

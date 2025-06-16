@@ -1,0 +1,109 @@
+{
+  "id": "vitaliy-dubrova",
+  "name": "Дуброва Віталій Вікторович",
+  "nameEn": "Vitaliy Dubrova",
+  "position": "Старший тренер резервної збірної команди України з дзюдо",
+  "birthDate": "14 серпня 1977",
+  "age": 47,
+  "category": "reserve",
+  "experience": "31 рік",
+  "image": "assets/team/coaches/dubrova/245382291_10225179544342940_3478703328148784119_n.jpg",
+  "city": "Київ",
+  "region": "Київ",
+  "education": "Національний університет фізичного виховання і спорту України",
+  "graduationYear": null,
+  "titles": [
+    "Майстер спорту України",
+    "Заслужений тренер України",
+    "Заслужений працівник фізичної культури і спорту України"
+  ],
+  "biography": {
+    "personalInfo": "Дуброва Віталій Вікторович народився 14 серпня 1977 року в місті Київ. Закінчив Національний університет фізичного виховання і спорту України. Має звання Майстра спорту України, Заслуженого тренера України та Заслуженого працівника фізичної культури і спорту України. Неодноразовий призер першостей України.",
+    "careerInfo": "З 1994 року працював тренером в СДЮШОР \"Юний спартаківець\". У 2005 році присвоєно звання Заслуженого тренера України. З 2009 по 2015 роки обіймав посаду старшого тренера чоловічої збірної команди України з дзюдо. З 2017 по 2024 рік був головним тренером національної збірної команди України з дзюдо. Наразі працює старшим тренером резервної збірної команди України з дзюдо. Виховав понад 40 майстрів спорту України, 8 майстрів спорту України міжнародного класу, 2 заслужених майстрів спорту."
+  },
+  "awards": [
+    {
+      "year": "2005",
+      "title": "Заслужений тренер України",
+      "location": "",
+      "type": "title"
+    },
+    {
+      "year": "2011",
+      "title": "Золото командного чемпіонату Європи (як тренер)",
+      "location": "",
+      "type": "coaching"
+    },
+    {
+      "year": "2012",
+      "title": "Бронза командного чемпіонату Європи (як тренер)",
+      "location": "",
+      "type": "coaching"
+    },
+    {
+      "year": "2013",
+      "title": "Бронза командного чемпіонату Європи (як тренер)",
+      "location": "",
+      "type": "coaching"
+    },
+    {
+      "year": "2015",
+      "title": "Бронза Перших Європейських ігор у командних змаганнях (як тренер)",
+      "location": "Баку",
+      "type": "coaching"
+    },
+    {
+      "year": "2018",
+      "title": "Бронза чемпіонату Європи серед змішаних команд (як тренер)",
+      "location": "",
+      "type": "coaching"
+    },
+    {
+      "year": "різні роки",
+      "title": "Неодноразовий призер першостей України",
+      "location": "",
+      "type": "athlete"
+    },
+    {
+      "year": "2017-2024",
+      "title": "Головний тренер національної збірної команди України з дзюдо",
+      "location": "",
+      "type": "appointment"
+    },
+    {
+      "year": "різні роки",
+      "title": "Виховав понад 40 майстрів спорту України",
+      "location": "",
+      "type": "coaching"
+    },
+    {
+      "year": "різні роки",
+      "title": "Виховав 8 майстрів спорту України міжнародного класу",
+      "location": "",
+      "type": "coaching"
+    },
+    {
+      "year": "різні роки",
+      "title": "Виховав 2 заслужених майстрів спорту",
+      "location": "",
+      "type": "coaching"
+    }
+  ],
+  "gallery": [
+    "assets/team/coaches/dubrova/0f8e1c566f08a0d7093c0fb0eacbde3e.jpg",
+    "assets/team/coaches/dubrova/7d1d75fd78eb5996-794x420.jpg",
+    "assets/team/coaches/dubrova/32e9f884aa5b02c65600b3f2a7f7d1ea-quality_70Xresize_1Xallow_enlarge_0Xw_835Xh_0.jpg",
+    "assets/team/coaches/dubrova/66a3f96558845.jpg",
+    "assets/team/coaches/dubrova/69b1d70a9f23a5eb.jpg",
+    "assets/team/coaches/dubrova/1773592.jpg",
+    "assets/team/coaches/dubrova/139171999_10223389662237006_9222364446520343590_n.jpg",
+    "assets/team/coaches/dubrova/245382291_10225179544342940_3478703328148784119_n.jpg",
+    "assets/team/coaches/dubrova/367676155_7128277777249862_8471772730783950628_n.jpg",
+    "assets/team/coaches/dubrova/c55241cd82e1da9d.jpg",
+    "assets/team/coaches/dubrova/cf2ba59ace6946e69c2afabd811a2b72-quality_70Xresize_1Xallow_enlarge_0Xw_835Xh_0.jpg",
+    "assets/team/coaches/dubrova/CIlONnmUwAERWnc.jpg",
+    "assets/team/coaches/dubrova/image.jpg",
+    "assets/team/coaches/dubrova/leader-2.webp",
+    "assets/team/coaches/dubrova/thumb856_20150708161631493.jpg"
+  ]
+} 

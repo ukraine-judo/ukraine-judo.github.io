@@ -18,6 +18,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initScrollAnimations();
     initStatCounters();
     loadAthletesData();
+    loadCoachesData();
     
     /**
      * Load athletes data from JSON files
@@ -625,7 +626,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const style = document.createElement('style');
         style.textContent = `
             .athlete-card, .coach-card, .achievement-card, .team-stat {
-                opacity: 0;
+
                 transform: translateY(30px);
                 transition: all 0.6s ease;
             }
@@ -783,6 +784,236 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
+    /**
+     * Load coaches data from JSON files
+     */
+    async function loadCoachesData() {
+        try {
+            const response = await fetch('scripts/team/coaches.json');
+            const data = await response.json();
+            
+            const coachesGrid = document.getElementById('coaches-grid');
+            
+            // Remove loading indicator
+            const loadingElement = coachesGrid.querySelector('.loading-coaches');
+            if (loadingElement) {
+                loadingElement.remove();
+            }
+            
+            // Load detailed data for all coaches
+            const allCoaches = [];
+            for (const coach of data.coaches) {
+                // Load detailed coach data for filtering
+                let detailedData = null;
+                try {
+                    const response = await fetch(`scripts/team/articles/coaches/${coach.id}.json`);
+                    detailedData = await response.json();
+                } catch (error) {
+                    console.warn(`Could not load detailed data for coach ${coach.id}`);
+                }
+
+                const coachCard = await createCoachCard(coach, detailedData);
+                allCoaches.push({
+                    element: coachCard,
+                    data: coach,
+                    detailedData: detailedData
+                });
+                
+                coachesGrid.appendChild(coachCard);
+            }
+            
+            // Initialize coach filtering
+            initCoachFiltering(allCoaches);
+            
+        } catch (error) {
+            console.error('Error loading coaches data:', error);
+            
+            // Show error message
+            const coachesGrid = document.getElementById('coaches-grid');
+            coachesGrid.innerHTML = `
+                <div class="loading-coaches">
+                    <p style="color: #e74c3c;">❌ Помилка завантаження тренерського штабу</p>
+                    <button onclick="location.reload()" style="margin-top: 10px; padding: 10px 20px; background: var(--primary-color); color: white; border: none; border-radius: 5px; cursor: pointer;">
+                        Спробувати знову
+                    </button>
+                </div>
+            `;
+        }
+    }
+
+    /**
+     * Create coach card element
+     */
+    async function createCoachCard(coach, detailedData = null) {
+        const card = document.createElement('div');
+        card.className = 'coach-card';
+        card.setAttribute('data-category', coach.category);
+        
+        // Create image element with placeholder fallback
+        const imageContent = createCoachImageContent(coach);
+        
+        // Get additional info from detailed data
+        const achievements = detailedData?.achievements?.length || 0;
+        const experience = coach.experience || '—';
+        const specialization = coach.specialization || '';
+        
+        card.innerHTML = `
+            <div class="coach-category-badge ${coach.category}">${getCategoryName(coach.category)}</div>
+            
+            <div class="coach-image-container">
+                ${imageContent}
+            </div>
+            
+            <div class="coach-content">
+                <h3 class="coach-name">${coach.name}</h3>
+                <div class="coach-position">${coach.position}</div>
+                
+                <div class="coach-experience-badge">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="3"/>
+                        <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1 1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+                    </svg>
+                    ${experience} років досвіду
+                </div>
+                
+                ${specialization ? `<p class="coach-specialization">${specialization}</p>` : ''}
+                
+                ${achievements > 0 ? `
+                <div class="coach-achievements-preview">
+                    <span class="coach-achievement-count">${achievements} досягнень</span>
+                </div>
+                ` : ''}
+                
+                <div class="coach-actions">
+                    <button class="coach-btn" onclick="window.location.href='coach.html?id=${coach.id}'">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                            <circle cx="12" cy="12" r="3"/>
+                        </svg>
+                        Переглянути профіль
+                    </button>
+                </div>
+            </div>
+        `;
+        
+        return card;
+    }
+
+    /**
+     * Create coach image content with placeholder fallback
+     */
+    function createCoachImageContent(coach) {
+        // Get initials from name
+        const getInitials = (name) => {
+            return name.split(' ')
+                .map(word => word.charAt(0))
+                .join('')
+                .substring(0, 2)
+                .toUpperCase();
+        };
+        
+        const initials = getInitials(coach.name);
+        
+        // Check if image exists and is not a placeholder path
+        const hasImage = coach.image && 
+                         coach.image.trim() !== '' &&
+                         !coach.image.includes('placeholder') && 
+                         coach.image !== 'assets/images/placeholder.jpg';
+        
+        if (hasImage) {
+            return `
+                <img src="${coach.image}" 
+                     alt="${coach.name}" 
+                     class="coach-image"
+                     onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                <div class="coach-placeholder" style="display: none;">
+                    <span class="coach-placeholder-initials">${initials}</span>
+                </div>
+            `;
+        } else {
+            return `
+                <div class="coach-placeholder">
+                    <span class="coach-placeholder-initials">${initials}</span>
+                </div>
+            `;
+        }
+    }
+
+    /**
+     * Get category display name
+     */
+    function getCategoryName(category) {
+        const categories = {
+            'head': 'Керівництво',
+            'men': 'Чоловіча',
+            'women': 'Жіноча', 
+            'youth': 'Молодіжна',
+            'technical': 'Технічний',
+            'medical': 'Медичний',
+            'physical': 'Фізична'
+        };
+        return categories[category] || category;
+    }
+
+    /**
+     * Initialize coach filtering
+     */
+    function initCoachFiltering(coaches) {
+        const categoryButtons = document.querySelectorAll('.coach-category-btn');
+        
+        categoryButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                // Update active button
+                categoryButtons.forEach(btn => btn.classList.remove('active'));
+                this.classList.add('active');
+                
+                // Filter coaches
+                const category = this.getAttribute('data-category');
+                filterCoaches(coaches, category);
+            });
+        });
+    }
+
+    /**
+     * Filter coaches by category
+     */
+    function filterCoaches(coaches, category) {
+        coaches.forEach(coach => {
+            const shouldShow = category === 'all' || coach.data.category === category;
+            
+            if (shouldShow) {
+                coach.element.classList.remove('hidden');
+                coach.element.style.display = 'block';
+            } else {
+                coach.element.classList.add('hidden');
+                coach.element.style.display = 'none';
+            }
+        });
+        
+        // Check if any coaches are visible
+        const visibleCoaches = coaches.filter(coach => !coach.element.classList.contains('hidden'));
+        const coachesGrid = document.getElementById('coaches-grid');
+        
+        // Remove any existing "no results" message
+        const existingNoResults = coachesGrid.querySelector('.no-coaches-found');
+        if (existingNoResults) {
+            existingNoResults.remove();
+        }
+        
+        if (visibleCoaches.length === 0) {
+            const noResultsElement = document.createElement('div');
+            noResultsElement.className = 'no-coaches-found';
+            noResultsElement.innerHTML = `
+                <h3>🔍 Тренерів не знайдено</h3>
+                <p>Спробуйте обрати іншу категорію</p>
+                <button class="reset-filters-btn" onclick="document.querySelector('.coach-category-btn[data-category=all]').click()">
+                    Показати всіх тренерів
+                </button>
+            `;
+            coachesGrid.appendChild(noResultsElement);
+        }
+    }
+
 });
 
 // Export functions for potential external use

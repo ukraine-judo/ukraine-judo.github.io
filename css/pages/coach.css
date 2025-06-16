@@ -1,0 +1,1081 @@
+/* Coach Profile Page Styles */
+
+/* Breadcrumb */
+.breadcrumb {
+    background: #f8f9fa;
+    padding: 1rem 0;
+    border-bottom: 1px solid rgba(26, 63, 103, 0.1);
+}
+
+.breadcrumb-nav {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+}
+
+.breadcrumb-nav a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.breadcrumb-nav a:hover {
+    color: var(--primary-light);
+}
+
+.breadcrumb-separator {
+    color: #666;
+    margin: 0 0.25rem;
+}
+
+/* Loading */
+.loading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 4rem 0;
+    text-align: center;
+}
+
+.loading-spinner {
+    width: 50px;
+    height: 50px;
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid var(--primary-color);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-bottom: 1rem;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Error Message */
+.error-message {
+    padding: 4rem 0;
+    text-align: center;
+    color: #d32f2f;
+}
+
+.error-message h2 {
+    color: #d32f2f;
+    margin-bottom: 1rem;
+}
+
+/* Coach Hero Section */
+.coach-hero {
+    background: linear-gradient(135deg, #1a3f67 0%, #2a5f87 100%);
+    color: white;
+    padding: 4rem 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.coach-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100"><path d="M0,50 Q250,20 500,50 T1000,50 L1000,0 L0,0 Z" fill="rgba(255,255,255,0.05)"/></svg>') repeat-x;
+    animation: wave 15s linear infinite;
+}
+
+@keyframes wave {
+    0% { background-position-x: 0; }
+    100% { background-position-x: 1000px; }
+}
+
+.coach-hero-content {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 3rem;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+}
+
+.coach-hero-image {
+    position: relative;
+}
+
+.coach-main-image {
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    border: 4px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Coach placeholder styles */
+.coach-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #1a3f67, #2a5f87);
+    color: white;
+    font-size: 3rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.4s ease;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    border: 4px solid rgba(255, 255, 255, 0.2);
+}
+
+.coach-hero:hover .coach-placeholder {
+    transform: scale(1.05);
+}
+
+.coach-badges {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    right: 1rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.coach-badge {
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-weight: 700;
+    font-size: 0.875rem;
+    backdrop-filter: blur(10px);
+}
+
+.coach-badge.category {
+    background: linear-gradient(135deg, #ffd700, #ffed4a);
+    color: #1a1a1a;
+}
+
+.coach-badge.experience {
+    background: rgba(26, 63, 103, 0.9);
+    color: white;
+}
+
+.coach-hero-info h1 {
+    color: white;
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.coach-hero-subtitle {
+    color: rgb(174, 174, 174);
+    font-size: 1.25rem;
+    opacity: 0.9;
+    margin-bottom: 0.5rem;
+}
+
+.coach-position-title {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #ffd700;
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.coach-basic-info {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.info-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+}
+
+.info-item:hover {
+    background: rgba(255, 255, 255, 0.15);
+    transform: translateY(-2px);
+}
+
+.info-icon {
+    color: #ffd700;
+    display: flex;
+    align-items: center;
+}
+
+.coach-quick-stats {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.quick-stat {
+    text-align: center;
+    padding: 1rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+}
+
+.quick-stat:hover {
+    background: rgba(255, 255, 255, 0.15);
+    transform: translateY(-2px);
+}
+
+.quick-stat-number {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #ffd700;
+    display: block;
+}
+
+.quick-stat-label {
+    font-size: 0.875rem;
+    opacity: 0.9;
+    margin-top: 0.25rem;
+}
+
+/* Specialization Section */
+.coach-specialization {
+    padding: 4rem 0;
+    background: #f8f9fa;
+}
+
+.specialization-header h2 {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 3rem;
+    color: var(--text-dark);
+}
+
+.specialization-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+.specialization-item {
+    background: white;
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.specialization-item:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+}
+
+.specialization-icon {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+    color: white;
+    font-size: 2rem;
+}
+
+.specialization-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 1rem;
+}
+
+.specialization-description {
+    color: var(--text-light);
+    line-height: 1.6;
+}
+
+/* Achievements Section */
+.coach-achievements {
+    padding: 4rem 0;
+    background: white;
+}
+
+.achievements-tabs {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    justify-content: center;
+}
+
+.achievement-tab {
+    padding: 0.75rem 1.5rem;
+    border: 2px solid var(--primary-color);
+    background: transparent;
+    color: var(--primary-color);
+    border-radius: 25px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.achievement-tab.active,
+.achievement-tab:hover {
+    background: var(--primary-color);
+    color: white;
+}
+
+.achievements-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.achievement-stat {
+    text-align: center;
+    padding: 1.5rem;
+    background: #f8f9fa;
+    border-radius: 16px;
+    transition: all 0.3s ease;
+}
+
+.achievement-stat:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.achievement-stat-number {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.achievement-stat-label {
+    color: var(--text-light);
+    font-weight: 600;
+}
+
+.achievements-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+}
+
+.achievement-item {
+    background: white;
+    border-radius: 16px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    border-left: 4px solid var(--primary-color);
+    transition: all 0.3s ease;
+}
+
+.achievement-item:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+}
+
+.achievement-item.gold {
+    border-left-color: #ffd700;
+}
+
+.achievement-item.silver {
+    border-left-color: #c0c0c0;
+}
+
+.achievement-item.bronze {
+    border-left-color: #cd7f32;
+}
+
+.achievement-medal {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.achievement-medal.gold {
+    background: linear-gradient(135deg, #ffd700, #ffed4a);
+    color: #1a1a1a;
+}
+
+.achievement-medal.silver {
+    background: linear-gradient(135deg, #c0c0c0, #e8e8e8);
+    color: #1a1a1a;
+}
+
+.achievement-medal.bronze {
+    background: linear-gradient(135deg, #cd7f32, #d2b48c);
+    color: white;
+}
+
+.achievement-title {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 0.5rem;
+}
+
+.achievement-meta {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    font-size: 0.875rem;
+    color: var(--text-light);
+}
+
+.achievement-description {
+    color: var(--text-light);
+    line-height: 1.5;
+}
+
+/* Current Athletes Section */
+.coach-athletes {
+    padding: 4rem 0;
+    background: #f8f9fa;
+}
+
+.athletes-header h2 {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 1rem;
+    color: var(--text-dark);
+}
+
+.athletes-header p {
+    text-align: center;
+    color: var(--text-light);
+    margin-bottom: 3rem;
+}
+
+.athletes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.athlete-card {
+    background: white;
+    border-radius: 16px;
+    padding: 1.5rem;
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.athlete-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+}
+
+.athlete-avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin: 0 auto 1rem;
+    object-fit: cover;
+}
+
+.athlete-placeholder {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1rem;
+    font-weight: 700;
+    font-size: 1.5rem;
+}
+
+.athlete-name {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 0.5rem;
+}
+
+.athlete-weight {
+    color: var(--primary-color);
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.athlete-achievements {
+    color: var(--text-light);
+    font-size: 0.875rem;
+}
+
+/* Philosophy Section */
+.coach-philosophy {
+    padding: 4rem 0;
+    background: white;
+}
+
+.philosophy-header h2 {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 3rem;
+    color: var(--text-dark);
+}
+
+.philosophy-content {
+    display: grid;
+    gap: 3rem;
+}
+
+.philosophy-approach h3,
+.philosophy-methods h3,
+.philosophy-quotes h3 {
+    font-size: 1.5rem;
+    color: var(--text-dark);
+    margin-bottom: 1.5rem;
+}
+
+.philosophy-text {
+    font-size: 1.125rem;
+    line-height: 1.8;
+    color: var(--text-light);
+    padding: 2rem;
+    background: #f8f9fa;
+    border-radius: 16px;
+    border-left: 4px solid var(--primary-color);
+}
+
+.methods-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+.method-item {
+    background: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 12px;
+    border-left: 4px solid var(--primary-color);
+    transition: all 0.3s ease;
+}
+
+.method-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.quotes-list {
+    display: grid;
+    gap: 1.5rem;
+}
+
+.quote-item {
+    background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+    padding: 2rem;
+    border-radius: 16px;
+    position: relative;
+    font-style: italic;
+    font-size: 1.125rem;
+    line-height: 1.7;
+    color: var(--text-dark);
+    border-left: 4px solid var(--primary-color);
+}
+
+.quote-item::before {
+    content: '"';
+    position: absolute;
+    top: 1rem;
+    left: 1.5rem;
+    font-size: 3rem;
+    color: var(--primary-color);
+    font-family: serif;
+    line-height: 1;
+}
+
+/* Biography Section */
+.coach-biography {
+    padding: 4rem 0;
+    background: #f8f9fa;
+}
+
+.biography-header h2 {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 3rem;
+    color: var(--text-dark);
+}
+
+.biography-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.biography-text {
+    background: white;
+    padding: 3rem;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.biography-text h3 {
+    font-size: 1.5rem;
+    color: var(--text-dark);
+    margin-bottom: 1rem;
+    margin-top: 2rem;
+    border-bottom: 2px solid var(--primary-color);
+    padding-bottom: 0.5rem;
+}
+
+.biography-text h3:first-child {
+    margin-top: 0;
+}
+
+.biography-paragraph {
+    margin-bottom: 1.5rem;
+}
+
+.biography-paragraph p {
+    color: var(--text-light);
+    line-height: 1.8;
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+}
+
+/* Awards Section */
+.coach-awards {
+    padding: 4rem 0;
+    background: white;
+}
+
+.awards-header h2 {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 3rem;
+    color: var(--text-dark);
+}
+
+.awards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.award-item {
+    background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+    padding: 2rem;
+    border-radius: 16px;
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+}
+
+.award-item:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+}
+
+.award-icon {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, #ffd700, #ffed4a);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+    font-size: 2rem;
+}
+
+.award-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 0.5rem;
+}
+
+.award-year {
+    color: var(--primary-color);
+    font-weight: 600;
+    font-size: 1.125rem;
+}
+
+/* Gallery Section */
+.coach-gallery {
+    padding: 4rem 0;
+    background: #f8f9fa;
+}
+
+.gallery-header h2 {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 1rem;
+    color: var(--text-dark);
+}
+
+.gallery-header p {
+    text-align: center;
+    color: var(--text-light);
+    margin-bottom: 3rem;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.gallery-item {
+    position: relative;
+    aspect-ratio: 4/3;
+    border-radius: 16px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.gallery-item:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+}
+
+.gallery-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: all 0.3s ease;
+}
+
+.gallery-item:hover .gallery-image {
+    transform: scale(1.1);
+}
+
+.gallery-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+    color: white;
+    padding: 1.5rem;
+    transform: translateY(100%);
+    transition: all 0.3s ease;
+}
+
+.gallery-item:hover .gallery-overlay {
+    transform: translateY(0);
+}
+
+/* Contact Section */
+.coach-contact {
+    padding: 4rem 0;
+    background: white;
+}
+
+.contact-header h2 {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 3rem;
+    color: var(--text-dark);
+}
+
+.contact-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+}
+
+.contact-info h3,
+.social-media h3 {
+    font-size: 1.5rem;
+    color: var(--text-dark);
+    margin-bottom: 1.5rem;
+}
+
+.contact-details {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    background: #f8f9fa;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+}
+
+.contact-item:hover {
+    background: #e9ecef;
+    transform: translateY(-2px);
+}
+
+.contact-icon {
+    color: var(--primary-color);
+}
+
+.social-links {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.social-link {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    background: var(--primary-color);
+    color: white;
+    text-decoration: none;
+    border-radius: 25px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.social-link:hover {
+    background: var(--primary-light);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(26, 63, 103, 0.3);
+}
+
+/* Gallery Modal */
+.gallery-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+}
+
+.gallery-modal.active {
+    display: flex;
+    animation: fadeIn 0.3s ease;
+}
+
+.gallery-modal-content {
+    max-width: 90vw;
+    max-height: 90vh;
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.gallery-modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    background: #f8f9fa;
+}
+
+.gallery-counter {
+    font-weight: 600;
+    color: var(--text-dark);
+}
+
+.gallery-modal-close {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--text-light);
+    transition: color 0.2s ease;
+}
+
+.gallery-modal-close:hover {
+    color: var(--text-dark);
+}
+
+.gallery-modal-body {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.gallery-main-image-container {
+    max-width: 800px;
+    max-height: 600px;
+}
+
+.gallery-modal-image {
+    width: 100%;
+    height: auto;
+    max-height: 600px;
+    object-fit: contain;
+}
+
+.gallery-nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 10;
+    transition: all 0.2s ease;
+}
+
+.gallery-nav-btn:hover {
+    background: rgba(0, 0, 0, 0.7);
+}
+
+.gallery-prev {
+    left: 1rem;
+}
+
+.gallery-next {
+    right: 1rem;
+}
+
+.gallery-modal-footer {
+    padding: 1rem;
+    background: #f8f9fa;
+}
+
+.gallery-thumbnails {
+    display: flex;
+    gap: 0.5rem;
+    overflow-x: auto;
+    padding: 0.5rem 0;
+}
+
+.gallery-thumbnail {
+    flex: 0 0 80px;
+    height: 60px;
+    border-radius: 8px;
+    overflow: hidden;
+    cursor: pointer;
+    opacity: 0.6;
+    transition: all 0.2s ease;
+}
+
+.gallery-thumbnail:hover,
+.gallery-thumbnail.active {
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+.gallery-thumbnail img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .coach-hero-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        text-align: center;
+    }
+    
+    .coach-hero-info h1 {
+        font-size: 2rem;
+    }
+    
+    .coach-basic-info {
+        grid-template-columns: 1fr;
+    }
+    
+    .biography-text {
+        padding: 2rem;
+    }
+    
+    .contact-content {
+        grid-template-columns: 1fr;
+    }
+    
+    .coach-quick-stats {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .achievements-tabs {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .specialization-grid,
+    .achievements-grid,
+    .athletes-grid,
+    .awards-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .coach-hero {
+        padding: 2rem 0;
+    }
+    
+    .coach-hero-info h1 {
+        font-size: 1.75rem;
+    }
+    
+    .specialization-header h2,
+    .achievements-header h2,
+    .athletes-header h2,
+    .philosophy-header h2,
+    .biography-header h2,
+    .awards-header h2,
+    .gallery-header h2,
+    .contact-header h2 {
+        font-size: 1.75rem;
+    }
+    
+    .biography-text,
+    .specialization-item,
+    .achievement-item,
+    .athlete-card,
+    .award-item {
+        padding: 1rem;
+    }
+    
+    .biography-paragraph p {
+        font-size: 1rem;
+    }
+    
+    .philosophy-text,
+    .quote-item {
+        padding: 1rem;
+        font-size: 1rem;
+    }
+    
+    .social-links {
+        flex-direction: column;
+        align-items: stretch;
+    }
+} 

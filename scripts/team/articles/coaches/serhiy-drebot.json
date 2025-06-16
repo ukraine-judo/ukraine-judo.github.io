@@ -1,0 +1,120 @@
+{
+  "id": "serhiy-drebot",
+  "name": "Дребот Сергій Володимирович",
+  "nameEn": "Serhiy Drebot",
+  "position": "Старший тренер кадетської збірної команди України з дзюдо (хлопці)",
+  "birthDate": "16 травня 1987",
+  "age": 37,
+  "category": "cadet",
+  "experience": "8 років",
+  "image": "assets/team/coaches/IMG_3183.jpg",
+  "city": "Львів",
+  "region": "Львів",
+  "education": "Не вказано",
+  "graduationYear": null,
+  "titles": [
+    "Майстер спорту України міжнародного класу"
+  ],
+  "biography": {
+    "personalInfo": "Дребот Сергій Володимирович народився 16 травня 1987 року в місті Львів. Має звання Майстра спорту України міжнародного класу.",
+    "careerInfo": "Тренером збірної України почав працювати з 2017 року. Обіймає посаду старшого тренера кадетської збірної команди України з дзюдо (хлопці). Протягом своєї спортивної кар'єри здобув численні нагороди на міжнародних змаганнях найвищого рівня, включаючи чемпіонат Європи в команді та медалі престижних турнірів GRAND PRIX."
+  },
+  "awards": [
+    {
+      "year": "2011",
+      "title": "Чемпіон Європи в команді",
+      "location": "",
+      "type": "international"
+    },
+    {
+      "year": "2015",
+      "title": "Бронзовий призер командного чемпіонату Європи",
+      "location": "",
+      "type": "international"
+    },
+    {
+      "year": "2017",
+      "title": "Бронзовий призер командного чемпіонату Європи",
+      "location": "",
+      "type": "international"
+    },
+    {
+      "year": "2009",
+      "title": "Срібний призер GRAND PRIX",
+      "location": "Туніс",
+      "type": "international"
+    },
+    {
+      "year": "2010",
+      "title": "Бронзовий призер GRAND PRIX",
+      "location": "Роттердам",
+      "type": "international"
+    },
+    {
+      "year": "2010",
+      "title": "Бронзовий призер GRAND PRIX",
+      "location": "Абу-Дабі",
+      "type": "international"
+    },
+    {
+      "year": "2011",
+      "title": "Бронзовий призер GRAND PRIX",
+      "location": "Дюссельдорф",
+      "type": "international"
+    },
+    {
+      "year": "2011",
+      "title": "Бронзовий призер GRAND PRIX",
+      "location": "Циньдао",
+      "type": "international"
+    },
+    {
+      "year": "2017",
+      "title": "Бронзовий призер EUROPEAN OPEN",
+      "location": "Катовіце",
+      "type": "international"
+    },
+    {
+      "year": "2003",
+      "title": "Бронзовий призер чемпіонату Європи U17",
+      "location": "Баку",
+      "type": "international"
+    },
+    {
+      "year": "2015",
+      "title": "Чемпіон України",
+      "location": "",
+      "type": "national"
+    },
+    {
+      "year": "2016",
+      "title": "Чемпіон України",
+      "location": "",
+      "type": "national"
+    },
+    {
+      "year": "2012",
+      "title": "Бронзовий призер чемпіонату України",
+      "location": "",
+      "type": "national"
+    },
+    {
+      "year": "2013",
+      "title": "Бронзовий призер чемпіонату України",
+      "location": "",
+      "type": "national"
+    },
+    {
+      "year": "2013",
+      "title": "Переможець Кубка України",
+      "location": "",
+      "type": "national"
+    },
+    {
+      "year": "2015",
+      "title": "Переможець Кубка України",
+      "location": "",
+      "type": "national"
+    }
+  ]
+} 
