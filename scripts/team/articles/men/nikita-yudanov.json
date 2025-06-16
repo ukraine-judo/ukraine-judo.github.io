@@ -1,0 +1,159 @@
+{
+  "id": "nikita-yudanov",
+  "name": "Юданов Нікіта Валерійович",
+  "nameEn": "Nikita Yudanov",
+  "birthDate": "05.03.2007",
+  "age": 17,
+  "rank": "МСУМК",
+  "club": "Динамо м. Київ",
+  "weight": "-90",
+  "teamRank": 1,
+  "coaches": [
+    {
+      "name": "Юданов Валерій Борисович",
+      "role": "Головний тренер"
+    },
+    {
+      "name": "Дуброва Віталій Вікторович",
+      "role": "Тренер"
+    }
+  ],
+  "achievements": [
+    {
+      "year": 2023,
+      "competition": "Чемпіонат світу U18",
+      "place": "Загреб",
+      "result": "Чемпіон",
+      "medal": "gold",
+      "category": "world",
+      "level": "youth",
+      "isHighest": true
+    },
+    {
+      "year": 2023,
+      "competition": "Чемпіонат Європи U18",
+      "place": "Одівелаш",
+      "result": "Чемпіон",
+      "medal": "gold",
+      "category": "continental",
+      "level": "youth"
+    },
+    {
+      "year": 2023,
+      "competition": "Чемпіонат Європи U23",
+      "place": "Постдам",
+      "result": "Срібний призер",
+      "medal": "silver",
+      "category": "continental",
+      "level": "junior"
+    },
+    {
+      "year": 2024,
+      "competition": "Чемпіонат Європи U23",
+      "place": "Піла",
+      "result": "Бронзовий призер",
+      "medal": "bronze",
+      "category": "continental",
+      "level": "junior"
+    },
+    {
+      "year": 2022,
+      "competition": "Кубок Європи U18",
+      "place": "Коімбра",
+      "result": "Переможець",
+      "medal": "gold",
+      "category": "european_cup",
+      "level": "youth"
+    },
+    {
+      "year": 2023,
+      "competition": "Кубок Європи U18",
+      "place": "Тепліце",
+      "result": "Переможець",
+      "medal": "gold",
+      "category": "european_cup",
+      "level": "youth"
+    },
+    {
+      "year": 2022,
+      "competition": "Кубок Європи U18",
+      "place": "Тепліце",
+      "result": "Срібний призер",
+      "medal": "silver",
+      "category": "european_cup",
+      "level": "youth"
+    },
+    {
+      "year": 2022,
+      "competition": "Кубок Європи U18",
+      "place": "Бухарест",
+      "result": "Бронзовий призер",
+      "medal": "bronze",
+      "category": "european_cup",
+      "level": "youth"
+    },
+    {
+      "year": 2022,
+      "competition": "Кубок Європи U18",
+      "place": "Дьор",
+      "result": "Бронзовий призер",
+      "medal": "bronze",
+      "category": "european_cup",
+      "level": "youth"
+    },
+    {
+      "year": 2023,
+      "competition": "Кубок Європи U18",
+      "place": "Загреб",
+      "result": "Бронзовий призер",
+      "medal": "bronze",
+      "category": "european_cup",
+      "level": "youth"
+    },
+    {
+      "year": 2023,
+      "competition": "Чемпіонат України",
+      "place": "Україна",
+      "result": "Чемпіон",
+      "medal": "gold",
+      "category": "national",
+      "level": "senior"
+    }
+  ],
+  "totalMedals": 11,
+  "careerSpan": "2022-2024",
+  "careerHighlight": "Чемпіон світу U18 Загреб-2023 - найвища досягнення у міжнародному дзюдо серед юнаків",
+  "preview": "assets\\team\\men\\Iudanov\\Iudanov1.jpg",
+  "gallery": [
+    {
+      "src": "assets\\team\\men\\Iudanov\\Iudanov1.jpg",
+      "alt": "Нікіта Юданов - чемпіон світу U18",
+      "caption": "Переможець чемпіонату світу U18"
+    },
+    {
+      "src": "assets\\team\\men\\Iudanov\\Iudanov2.jpg",
+      "alt": "Нікіта Юданов на змаганнях",
+      "caption": "Виступ на міжнародних змаганнях"
+    },
+    {
+      "src": "assets\\team\\men\\Iudanov\\Iudanov3.jpg",
+      "alt": "Нікіта Юданов з медаллю",
+      "caption": "Нагородження переможця"
+    },
+    {
+      "src": "assets\\team\\men\\Iudanov\\Iudanov4.jpg",
+      "alt": "Нікіта Юданов на тренуванні",
+      "caption": "Підготовка до змагань"
+    },
+    {
+      "src": "assets\\team\\men\\Iudanov\\Iudanov5.jpg",
+      "alt": "Нікіта Юданов команда України",
+      "caption": "У складі збірної України"
+    }
+  ],
+  "description": "Нікіта Юданов - виняткова зірка українського дзюдо, який у свої 17 років вже став чемпіоном світу серед юнаків. Вихованець київського 'Динамо' демонструє феноменальні результати на міжнародній арені, маючи 11 медалей за 3 роки кар'єри. Його найбільшим досягненням є золото чемпіонату світу U18 у Загребі 2023 року, що робить його одним з найперспективніших спортсменів України. Під керівництвом досвідчених тренерів Валерія Юданова та Віталія Дуброви, Нікіта продовжує прогресувати та здобувати нові перемоги для української збірної.",
+  "socialMedia": {},
+  "personalBest": "Чемпіон світу U18 2023",
+  "weightCategory": "90 кг",
+  "competitionLevel": "Міжнародний/Світовий рівень"
+} 

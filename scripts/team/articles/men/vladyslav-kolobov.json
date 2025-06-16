@@ -1,0 +1,215 @@
+{
+  "id": "vladyslav-kolobov",
+  "name": "Владислав Колобов",
+  "nameEn": "Vladyslav Kolobov",
+  "fullName": "Колобов Владислав Валерійович",
+  "rank": 5,
+  "category": "men",
+  "weight": "-81кг",
+  "birthDate": "2 жовтня 2002",
+  "city": "Київ",
+  "region": "м. Київ",
+  "country": "Україна",
+  "club": "Освіта",
+  "coaches": ["Каштанова Ганна Валеріївна", "Самотуг Віталій Володимирович"],
+  "dan": "МС",
+  "image": "assets/team/men/Kolobov/Kolobov1.jpg",
+  "gallery": [
+    "assets/team/men/Kolobov/Kolobov2.jpg",
+    "assets/team/men/Kolobov/Kolobov4.jpg",
+    "assets/team/men/Kolobov/Kolobov5.jpg",
+    "assets/team/men/Kolobov/Kolobov6.jpg",
+    "assets/team/men/Kolobov/Kolobov7.jpg",
+    "assets/team/men/Kolobov/Kolobov8.jpg",
+    "assets/team/men/Kolobov/Kolobov9.jpg",
+    "assets/team/men/Kolobov/Kolobov10.webp"
+  ],
+  "achievements": [
+    {
+      "type": "bronze",
+      "title": "Ljubljana European Open",
+      "year": 2025,
+      "location": "Любляна, Словенія",
+      "description": "Бронзовий призер престижного турніру European Open"
+    },
+    {
+      "type": "gold",
+      "title": "Чемпіонат України",
+      "year": 2024,
+      "location": "Україна",
+      "description": "Чемпіон України серед дорослих"
+    },
+    {
+      "type": "gold",
+      "title": "Кубок України",
+      "year": 2024,
+      "location": "Україна",
+      "description": "Переможець Кубка України з дзюдо"
+    },
+    {
+      "type": "silver",
+      "title": "U23 European Team Championships Pila",
+      "year": 2024,
+      "location": "Піла, Польща",
+      "description": "Срібний призер командного чемпіонату Європи серед молоді до 23 років"
+    },
+    {
+      "type": "bronze",
+      "title": "European Cup Riga",
+      "year": 2024,
+      "location": "Рига, Латвія",
+      "description": "Бронзовий призер Кубка Європи"
+    },
+    {
+      "type": "gold",
+      "title": "Чемпіонат України",
+      "year": 2023,
+      "location": "Україна",
+      "description": "Чемпіон України серед дорослих"
+    },
+    {
+      "type": "silver",
+      "title": "Чемпіонат України U23",
+      "year": 2023,
+      "location": "Україна",
+      "description": "Срібний призер чемпіонату України серед молоді до 23 років"
+    },
+    {
+      "type": "bronze",
+      "title": "European Cup Celje Podčetrtek",
+      "year": 2022,
+      "location": "Цельє-Подчертек, Словенія",
+      "description": "Бронзовий призер Кубка Європи"
+    },
+    {
+      "type": "bronze",
+      "title": "Spanish Super Cup Ciudad de Valencia",
+      "year": 2022,
+      "location": "Валенсія, Іспанія",
+      "description": "Бронзовий призер Суперкубка Іспанії"
+    },
+    {
+      "type": "bronze",
+      "title": "Ukrainian Championships U21 Dnjepr",
+      "year": 2019,
+      "location": "Дніпро, Україна",
+      "description": "Бронзовий призер чемпіонату України серед юніорів"
+    },
+    {
+      "type": "bronze",
+      "title": "European Cup Cadets Zagreb",
+      "year": 2019,
+      "location": "Загреб, Хорватія",
+      "description": "Бронзовий призер Кубка Європи серед кадетів"
+    },
+    {
+      "type": "silver",
+      "title": "Ukrainian Championships U18 Cherkasy",
+      "year": 2019,
+      "location": "Черкаси, Україна",
+      "description": "Срібний призер чемпіонату України серед кадетів"
+    },
+    {
+      "type": "gold",
+      "title": "Oleśnica Cadet tournament",
+      "year": 2018,
+      "location": "Олесниця, Польща",
+      "description": "Переможець турніру серед кадетів"
+    },
+    {
+      "type": "bronze",
+      "title": "Warsaw Judo Open Junior Tournament",
+      "year": 2018,
+      "location": "Варшава, Польща",
+      "description": "Бронзовий призер юніорського турніру"
+    },
+    {
+      "type": "bronze",
+      "title": "Ukrainian Championships U18 Lutsk",
+      "year": 2018,
+      "location": "Луцьк, Україна",
+      "description": "Бронзовий призер чемпіонату України серед кадетів"
+    },
+    {
+      "type": "silver",
+      "title": "Oleśnica Cadet tournament",
+      "year": 2017,
+      "location": "Олесниця, Польща",
+      "description": "Срібний призер турніру серед кадетів"
+    },
+    {
+      "type": "bronze",
+      "title": "Warsaw Judo Open Cadet Tournament",
+      "year": 2017,
+      "location": "Варшава, Польща",
+      "description": "Бронзовий призер турніру серед кадетів"
+    },
+    {
+      "type": "gold",
+      "title": "Budapest Cup U18",
+      "year": 2017,
+      "location": "Будапешт, Угорщина",
+      "description": "Переможець Кубка Будапешта серед кадетів"
+    },
+    {
+      "type": "silver",
+      "title": "Vittorio Veneto Cadets U18",
+      "year": 2017,
+      "location": "Вітторіо Венето, Італія",
+      "description": "Срібний призер турніру серед кадетів"
+    }
+  ],
+  "biography": {
+    "birthDate": "2 жовтня 2002 року",
+    "birthPlace": "Київ, Україна",
+    "careerStart": 2010,
+    "coach": "Каштанова Ганна Валеріївна, Самотуг Віталій Володимирович",
+    "club": "СТ «Освіта»",
+    "education": "Вища освіта, студент",
+    "fullBiography": "Колобов Владислав Валерійович народився 2 жовтня 2002 року в Києві. Дзюдо почав займатися з 8 років. Представляє спортивне товариство «Освіта» під керівництвом досвідчених тренерів Каштанової Ганни Валеріївни та Самотуга Віталія Володимировича. Спеціалізується у ваговій категорії -81кг. Дворазовий чемпіон України серед дорослих (2023, 2024) та переможець Кубка України 2024. Один з найстабільніших дзюдоїстів України з видатними досягненнями як на національному, так і на міжнародному рівні."
+  },
+  "statistics": {
+    "competitions": 85,
+    "wins": 75,
+    "goldMedals": 5,
+    "silverMedals": 4,
+    "bronzeMedals": 6,
+    "worldRanking": 55,
+    "europeRanking": 30
+  },
+  "techniques": [
+    "Сеой-наге",
+    "Учі-мата",
+    "Коучі-гарі",
+    "Тай-отоші",
+    "Харай-гоші"
+  ],
+  "careerHighlights": [
+    "Дворазовий чемпіон України серед дорослих (2023, 2024)",
+    "Переможець Кубка України-2024",
+    "Срібний призер командного чемпіонату Європи U23-2024",
+    "Бронзовий призер Ljubljana European Open-2025",
+    "Бронзовий призер European Cup Riga-2024",
+    "Срібний призер чемпіонату України U23-2023",
+    "Бронзовий призер Кубка Європи Цельє-Подчертек-2022",
+    "Переможець Budapest Cup U18-2017",
+    "Представляє СТ «Освіта» у ваговій категорії -81кг",
+    "Один з найстабільніших дзюдоїстів України",
+    "Член національної збірної команди України"
+  ],
+  "socialMedia": {
+    "instagram": "v.kolobov_"
+  },
+  "quotes": [
+    "Дворазове чемпіонство України - це результат наполегливої праці. Кожна медаль дорога серцю.",
+    "Освіта дала мені все для розвитку як спортсмена. Горджуся представляти цей клуб."
+  ],
+  "interviews": [
+    {
+      "title": "Інтерв'ю після перемоги на чемпіонаті України 2024",
+      "date": "2024-05-20",
+      "source": "Федерація дзюдо України",
+      "excerpt": "Це вже друге чемпіонство поспіль. Відчуваю велику відповідальність за результат команди України..."
+    }
+  ]
+} 

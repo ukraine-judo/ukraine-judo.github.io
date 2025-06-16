@@ -3,12 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Сборная - Федерація Дзюдо України</title>
-    <meta name="description" content="Національна збірна України з дзюдо. Спортсмени, тренери та досягнення.">
+    <title>Національна Збірна - Федерація Дзюдо України</title>
+    <meta name="description" content="Національна збірна України з дзюдо. Спортсмени, тренери та досягнення найкращих дзюдоїстів країни.">
     <link rel="stylesheet" href="css/global.css">
     <link rel="stylesheet" href="css/navigation.css">
     <link rel="stylesheet" href="css/components.css">
     <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/pages/team.css">
+    <link rel="stylesheet" href="css/pages/team.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -21,7 +23,8 @@
                 <span class="brand-text">
                     <strong class="brand-full">Федерація Дзюдо України</strong>
                     <strong class="brand-short">ФДУ</strong>
-                    <small>FJU</small>
+                    <small class="brand-subtitle-full">Federation Judo Ukraine</small>
+                    <small class="brand-subtitle-short">FJU</small>
                 </span>
             </div>
             <div class="nav-menu-overlay"></div>
@@ -86,20 +89,287 @@
     </header>
 
     <main>
-        <section class="page-header">
+        <!-- Team Hero Section -->
+        <section class="team-hero">
             <div class="container">
-                <h1 class="page-title">Національна Збірна України</h1>
-                <p class="page-subtitle">
-                    Найкращі дзюдоїсти країни, що представляють Україну на міжнародній арені
-                </p>
+                <div class="team-hero-content">
+                    <h1 class="team-hero-title">Національна Збірна України</h1>
+                    <p class="team-hero-subtitle">
+                        Елітні спортсмени, що представляють Україну на найпрестижніших міжнародних змаганнях з дзюдо
+                    </p>
+                    
+                    <div class="team-stats">
+                        <div class="team-stat">
+                            <span class="team-stat-number">24</span>
+                            <span class="team-stat-label">Спортсменів</span>
+                        </div>
+                        <div class="team-stat">
+                            <span class="team-stat-number">8</span>
+                            <span class="team-stat-label">Тренерів</span>
+                        </div>
+                        <div class="team-stat">
+                            <span class="team-stat-number">156</span>
+                            <span class="team-stat-label">Медалей</span>
+                        </div>
+                        <div class="team-stat">
+                            <span class="team-stat-number">12</span>
+                            <span class="team-stat-label">Країн</span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
 
-        <section class="section">
+        <!-- Athletes Section -->
+        <section class="team-section">
             <div class="container">
-                <div class="coming-soon">
-                    <h2>🚧 Сторінка в розробці</h2>
-                    <p>Незабаром тут буде повна інформація про національну збірну України з дзюдо</p>
+                <div class="team-section-header">
+                    <h2 class="team-section-title">Спортсмени</h2>
+                    <p class="team-section-subtitle">
+                        Найкращі дзюдоїсти України, що борються за честь нашої країни
+                    </p>
+                </div>
+
+                <!-- Filter Controls -->
+                <div class="team-filter-controls">
+                    <!-- Gender Filters -->
+                    <div class="filter-group">
+                        <label class="filter-label">За статтю:</label>
+                        <div class="team-categories">
+                            <button class="team-category-btn active" data-category="all">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M12 2L2 7v10c0 5.55 3.84 9.74 9 11 5.16-1.26 9-5.45 9-11V7l-10-5z"/>
+                                    <path d="M9 12l2 2 4-4"/>
+                                </svg>
+                                Всі
+                            </button>
+                            <button class="team-category-btn" data-category="men">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                                    <circle cx="12" cy="7" r="4"/>
+                                </svg>
+                                Чоловіки
+                            </button>
+                            <button class="team-category-btn" data-category="women">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="8" r="7"/>
+                                    <polyline points="8.21,13.89 7,23 17,23 15.79,13.88"/>
+                                </svg>
+                                Жінки
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Age Filters -->
+                    <div class="filter-group">
+                        <label class="filter-label">За віком:</label>
+                        <div class="team-age-categories">
+                            <button class="team-age-btn active" data-age="all">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M12 2L2 7v10c0 5.55 3.84 9.74 9 11 5.16-1.26 9-5.45 9-11V7l-10-5z"/>
+                                </svg>
+                                Всі віки
+                            </button>
+                            <button class="team-age-btn" data-age="u17">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M3 12h18l-9-9v18"/>
+                                </svg>
+                                Ю17
+                            </button>
+                            <button class="team-age-btn" data-age="u18">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M3 12h18l-9-9v18"/>
+                                </svg>
+                                Ю18
+                            </button>
+                            <button class="team-age-btn" data-age="u21">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M3 12h18l-9-9v18"/>
+                                </svg>
+                                Ю21
+                            </button>
+                            <button class="team-age-btn" data-age="u23">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M3 12h18l-9-9v18"/>
+                                </svg>
+                                Ю23
+                            </button>
+                            <button class="team-age-btn" data-age="senior">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                                    <circle cx="12" cy="7" r="4"/>
+                                </svg>
+                                Дорослі
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Weight Filters -->
+                    <div class="filter-group">
+                        <label class="filter-label">За вагою:</label>
+                        <div class="team-weight-categories">
+                            <select class="weight-filter-select" id="weight-filter">
+                                <option value="all">Всі ваги</option>
+                                <option value="-48кг">-48кг</option>
+                                <option value="-52кг">-52кг</option>
+                                <option value="-57кг">-57кг</option>
+                                <option value="-60кг">-60кг</option>
+                                <option value="-63кг">-63кг</option>
+                                <option value="-66кг">-66кг</option>
+                                <option value="-70кг">-70кг</option>
+                                <option value="-73кг">-73кг</option>
+                                <option value="-78кг">-78кг</option>
+                                <option value="-81кг">-81кг</option>
+                                <option value="-90кг">-90кг</option>
+                                <option value="-100кг">-100кг</option>
+                                <option value="+100кг">+100кг</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Search -->
+                    <div class="filter-group">
+                        <label class="filter-label">Пошук:</label>
+                        <div class="team-search-container">
+                            <input type="text" class="team-search" placeholder="Ім'я спортсмена...">
+                            <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="11" cy="11" r="8"/>
+                                <path d="M21 21l-4.35-4.35"/>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="athletes-grid" id="athletes-grid">
+                    <!-- Athletes will be loaded dynamically from JSON -->
+                    <div class="loading-athletes">
+                        <div class="loading-spinner"></div>
+                        <p>Завантаження спортсменів...</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Coaches Section -->
+        <section class="team-section coaches-section">
+            <div class="container">
+                <div class="team-section-header">
+                    <h2 class="team-section-title">Тренерський Штаб</h2>
+                    <p class="team-section-subtitle">
+                        Досвідчені фахівці, що розвивають українське дзюдо
+                    </p>
+                </div>
+
+                <div class="coaches-grid">
+                    <div class="coach-card">
+                        <div class="coach-avatar">ГТ</div>
+                        <h3 class="coach-name">Геннадій Тимошенко</h3>
+                        <div class="coach-position">Головний тренер</div>
+                        <p class="coach-experience">
+                            Більше 20 років досвіду в дзюдо. Колишній олімпійський чемпіон та багаторазовий чемпіон світу.
+                        </p>
+                    </div>
+
+                    <div class="coach-card">
+                        <div class="coach-avatar">ІМ</div>
+                        <h3 class="coach-name">Ірина Мельник</h3>
+                        <div class="coach-position">Тренер жіночої збірної</div>
+                        <p class="coach-experience">
+                            15 років тренерського досвіду. Спеціалізується на підготовці жінок до міжнародних змагань.
+                        </p>
+                    </div>
+
+                    <div class="coach-card">
+                        <div class="coach-avatar">ВК</div>
+                        <h3 class="coach-name">Віктор Коваленко</h3>
+                        <div class="coach-position">Тренер чоловічої збірної</div>
+                        <p class="coach-experience">
+                            18 років тренерської роботи. Підготував 12 призерів міжнarodних турнірів.
+                        </p>
+                    </div>
+
+                    <div class="coach-card">
+                        <div class="coach-avatar">ОП</div>
+                        <h3 class="coach-name">Олексій Попович</h3>
+                        <div class="coach-position">Фізичний підготовник</div>
+                        <p class="coach-experience">
+                            Кандидат в майстри спорту з важкої атлетики. 12 років досвіду в спортивній підготовці.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Achievements Section -->
+        <section class="team-section achievements-section">
+            <div class="container">
+                <div class="team-section-header">
+                    <h2 class="team-section-title">Наші Досягнення</h2>
+                    <p class="team-section-subtitle">
+                        Результати, якими пишається вся Україна
+                    </p>
+                </div>
+
+                <div class="achievements-grid">
+                    <div class="achievement-card">
+                        <span class="achievement-icon">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="8" r="7"/>
+                                <polyline points="8.21,13.89 7,23 17,23 15.79,13.88"/>
+                            </svg>
+                        </span>
+                        <h3 class="achievement-title">Олімпійські ігри</h3>
+                        <p class="achievement-description">
+                            5 золотих, 8 срібних та 12 бронзових медалей за всю історію участі
+                        </p>
+                    </div>
+
+                    <div class="achievement-card">
+                        <span class="achievement-icon">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"/>
+                                <path d="M2 12h20"/>
+                                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+                            </svg>
+                        </span>
+                        <h3 class="achievement-title">Чемпіонати Світу</h3>
+                        <p class="achievement-description">
+                            32 медалі на чемпіонатах світу, включаючи 14 золотих нагород
+                        </p>
+                    </div>
+
+                    <div class="achievement-card">
+                        <span class="achievement-icon">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M3 3v18h18"/>
+                                <path d="M18.7 8a3 3 0 0 0-5.4 0"/>
+                                <path d="M16.5 12.5a3 3 0 0 1-5 0"/>
+                                <path d="M6 18l2-8 2 8"/>
+                                <path d="M12 18l2-8 2 8"/>
+                            </svg>
+                        </span>
+                        <h3 class="achievement-title">Чемпіонати Європи</h3>
+                        <p class="achievement-description">
+                            68 медалей на європейських чемпіонатах за останні 10 років
+                        </p>
+                    </div>
+
+                    <div class="achievement-card">
+                        <span class="achievement-icon">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/>
+                                <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/>
+                                <path d="M4 22h16"/>
+                                <path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/>
+                                <path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/>
+                                <path d="M18 2H6v7a6 6 0 0 0 12 0V2z"/>
+                            </svg>
+                        </span>
+                        <h3 class="achievement-title">Гран-Прі та Гран-Слем</h3>
+                        <p class="achievement-description">
+                            Більше 150 перемог на турнірах серії Гран-Прі та Гран-Слем
+                        </p>
+                    </div>
                 </div>
             </div>
         </section>
@@ -117,14 +387,67 @@
                         </div>
                     </div>
                 </div>
+                
+                <div class="footer-section">
+                    <h4>Навігація</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Головна</a></li>
+                        <li><a href="about.html">Федерація</a></li>
+                        <li><a href="news.html">Новини</a></li>
+                        <li><a href="calendar.html">Календар</a></li>
+                        <li><a href="gallery.html">Галерея</a></li>
+                        <li><a href="contacts.html">Контакти</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Контакти</h4>
+                    <div class="contact-info">
+                        <p>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                                <polyline points="22,6 12,13 2,6"/>
+                            </svg>
+                            judoukr@ukr.net
+                        </p>
+                        <p>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                            </svg>
+                            +38 044 284-38-39
+                        </p>
+                        <p>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                                <circle cx="12" cy="10" r="3"/>
+                            </svg>
+                            Україна, 01601, м. Київ, вул. Еспланадна, 42, офіс 808
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Соціальні мережі</h4>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/UkraineJudoFederation" class="social-link">Facebook</a>
+                        <a href="https://www.instagram.com/ukraine_judo_official" class="social-link">Instagram</a>
+                        <a href="https://t.me/ukrainianjudofederation" class="social-link">Telegram</a>
+                        <a href="https://www.youtube.com/@ukrainejudo" class="social-link">YouTube</a>
+                    </div>
+                </div>
             </div>
             
             <div class="footer-bottom">
                 <p>&copy; 2025 Федерація Дзюдо України. Всі права захищені.</p>
+                <div class="footer-bottom-links">
+                    <a href="#">Політика конфіденційності</a>
+                    <a href="#">Умови використання</a>
+                </div>
             </div>
         </div>
     </footer>
 
     <script src="script.js"></script>
+    <script src="scripts/team.js"></script>
 </body>
 </html> 

@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="page-title">Спортсмен - Федерація Дзюдо України</title>
+    <meta name="description" id="page-description" content="Профіль спортсмена національної збірної України з дзюдо">
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/navigation.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/pages/athlete.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-brand">
+                <img src="assets/fju-logo.png" alt="FJU Logo" class="logo" width="48" height="48">
+                <span class="brand-text">
+                    <strong class="brand-full">Федерація Дзюдо України</strong>
+                    <strong class="brand-short">ФДУ</strong>
+                    <small class="brand-subtitle-full">Federation Judo Ukraine</small>
+                    <small class="brand-subtitle-short">FJU</small>
+                </span>
+            </div>
+            <div class="nav-menu-overlay"></div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Головна</a></li>
+                <li class="nav-item-with-submenu">
+                    <a href="#" class="nav-link-with-submenu active" data-main-link="about.html">
+                        Федерація
+                        <svg class="submenu-arrow" width="12" height="8" viewBox="0 0 12 8" fill="none">
+                            <path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </a>
+                    <div class="submenu">
+                        <div class="submenu-content">
+                            <div class="submenu-section">
+                                <h4 class="submenu-title">Федерація</h4>
+                                <div class="submenu-links">
+                                    <a href="about.html" class="submenu-link">
+                                        <div class="submenu-link-icon">📋</div>
+                                        <div class="submenu-link-content">
+                                            <span class="submenu-link-title">Про нас</span>
+                                            <span class="submenu-link-desc">Історія та керівництво</span>
+                                        </div>
+                                    </a>
+                                    <a href="team.html" class="submenu-link active">
+                                        <div class="submenu-link-icon">🥋</div>
+                                        <div class="submenu-link-content">
+                                            <span class="submenu-link-title">Сборная</span>
+                                            <span class="submenu-link-desc">Національна збірна України</span>
+                                        </div>
+                                    </a>
+                                    <a href="documents.html" class="submenu-link">
+                                        <div class="submenu-link-icon">📄</div>
+                                        <div class="submenu-link-content">
+                                            <span class="submenu-link-title">Документи</span>
+                                            <span class="submenu-link-desc">Статути та положення</span>
+                                        </div>
+                                    </a>
+                                    <a href="regions.html" class="submenu-link">
+                                        <div class="submenu-link-icon">🗺️</div>
+                                        <div class="submenu-link-content">
+                                            <span class="submenu-link-title">Регіональні Відділення</span>
+                                            <span class="submenu-link-desc">Дзюдо в регіонах України</span>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li><a href="news.html">Новини</a></li>
+                <li><a href="calendar.html">Календар</a></li>
+                <li><a href="gallery.html">Галерея</a></li>
+                <li><a href="contacts.html">Контакти</a></li>
+            </ul>
+            <button class="nav-toggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Breadcrumb -->
+        <section class="breadcrumb">
+            <div class="container">
+                <nav class="breadcrumb-nav">
+                    <a href="index.html">Головна</a>
+                    <span class="breadcrumb-separator">→</span>
+                    <a href="team.html">Збірна</a>
+                    <span class="breadcrumb-separator">→</span>
+                    <span id="breadcrumb-name">Спортсмен</span>
+                </nav>
+            </div>
+        </section>
+
+        <!-- Loading indicator -->
+        <div id="loading" class="loading">
+            <div class="loading-spinner"></div>
+            <p>Завантаження профілю спортсмена...</p>
+        </div>
+
+        <!-- Error message -->
+        <div id="error" class="error-message" style="display: none;">
+            <div class="container">
+                <h2>Помилка завантаження</h2>
+                <p>Не вдалося завантажити профіль спортсмена. <a href="team.html">Повернутися до збірної</a></p>
+            </div>
+        </div>
+
+        <!-- Athlete Profile Content -->
+        <div id="athlete-content" style="display: none;">
+            <!-- Hero Section -->
+            <section class="athlete-hero">
+                <div class="container">
+                    <div class="athlete-hero-content">
+                        <div class="athlete-hero-image">
+                            <img id="athlete-image" src="" alt="" class="athlete-main-image">
+                            <div class="athlete-badges">
+                                <div id="athlete-rank" class="athlete-badge rank"></div>
+                                <div id="athlete-weight" class="athlete-badge weight"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="athlete-hero-info">
+                            <h1 id="athlete-name" class="athlete-hero-title"></h1>
+                            <p id="athlete-name-en" class="athlete-hero-subtitle"></p>
+                            
+                            <div class="athlete-basic-info">
+                                <div class="info-item">
+                                    <span class="info-icon">
+                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                                            <circle cx="12" cy="10" r="3"/>
+                                        </svg>
+                                    </span>
+                                    <span id="athlete-location"></span>
+                                </div>
+                                <div class="info-item">
+                                    <span class="info-icon">
+                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                                            <line x1="16" y1="2" x2="16" y2="6"/>
+                                            <line x1="8" y1="2" x2="8" y2="6"/>
+                                            <line x1="3" y1="10" x2="21" y2="10"/>
+                                        </svg>
+                                    </span>
+                                    <span id="athlete-age"></span>
+                                </div>
+                                <div class="info-item">
+                                    <span class="info-icon">
+                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M12 2L2 7v10c0 5.55 3.84 9.74 9 11 5.16-1.26 9-5.45 9-11V7l-10-5z"/>
+                                            <path d="M9 12l2 2 4-4"/>
+                                        </svg>
+                                    </span>
+                                    <span id="athlete-dan"></span>
+                                </div>
+                                <div class="info-item">
+                                    <span class="info-icon">
+                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                                            <polyline points="9,22 9,12 15,12 15,22"/>
+                                        </svg>
+                                    </span>
+                                    <span id="athlete-club"></span>
+                                </div>
+                            </div>
+
+                            <div id="athlete-medals" class="athlete-quick-medals"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+
+            <!-- Achievements Section -->
+            <section class="athlete-achievements">
+                <div class="container achievements-container">
+                    <div class="achievements-header">
+                        <h2>Досягнення</h2>
+                    </div>
+                    
+                    <div id="achievements-stats" class="achievements-stats">
+                        <!-- Stats will be populated by JavaScript -->
+                    </div>
+                    
+                    <div id="achievements-list" class="achievements-grid"></div>
+                </div>
+            </section>
+
+            <!-- Biography Section -->
+            <section class="athlete-biography">
+                <div class="container biography-container">
+                    <div class="biography-header">
+                        <h2>Біографія та Кар'єра</h2>
+                    </div>
+                    
+                    <div class="biography-grid">
+                        <div class="biography-section">
+                            <h3>Особиста інформація</h3>
+                            <div class="biography-details">
+                                <div class="bio-item">
+                                    <div class="bio-icon">
+                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                                            <line x1="16" y1="2" x2="16" y2="6"/>
+                                            <line x1="8" y1="2" x2="8" y2="6"/>
+                                            <line x1="3" y1="10" x2="21" y2="10"/>
+                                        </svg>
+                                    </div>
+                                    <div class="bio-content">
+                                        <div class="bio-label">Дата народження</div>
+                                        <div class="bio-value" id="bio-birth-date"></div>
+                                    </div>
+                                </div>
+                                <div class="bio-item">
+                                    <div class="bio-icon">
+                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M12 2L2 7v10c0 5.55 3.84 9.74 9 11 5.16-1.26 9-5.45 9-11V7l-10-5z"/>
+                                            <path d="M9 12l2 2 4-4"/>
+                                        </svg>
+                                    </div>
+                                    <div class="bio-content">
+                                        <div class="bio-label">Початок кар'єри</div>
+                                        <div class="bio-value" id="bio-start-year"></div>
+                                    </div>
+                                </div>
+                                <div class="bio-item">
+                                    <div class="bio-icon">
+                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                                            <circle cx="12" cy="7" r="4"/>
+                                        </svg>
+                                    </div>
+                                    <div class="bio-content">
+                                        <div class="bio-label">Тренер</div>
+                                        <div class="bio-value" id="bio-coach"></div>
+                                    </div>
+                                </div>
+                                <div class="bio-item">
+                                    <div class="bio-icon">
+                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                                            <polyline points="9,22 9,12 15,12 15,22"/>
+                                        </svg>
+                                    </div>
+                                    <div class="bio-content">
+                                        <div class="bio-label">Клуб</div>
+                                        <div class="bio-value" id="bio-club"></div>
+                                    </div>
+                                </div>
+                                <div class="bio-item">
+                                    <div class="bio-icon">
+                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M12 20v-6M6 20V10M18 20V4"/>
+                                        </svg>
+                                    </div>
+                                    <div class="bio-content">
+                                        <div class="bio-label">Зріст</div>
+                                        <div class="bio-value" id="bio-height"></div>
+                                    </div>
+                                </div>
+                                <div class="bio-item">
+                                    <div class="bio-icon">
+                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
+                                            <path d="M6 12v5c3 3 9 3 12 0v-5"/>
+                                        </svg>
+                                    </div>
+                                    <div class="bio-content">
+                                        <div class="bio-label">Освіта</div>
+                                        <div class="bio-value" id="bio-education"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="biography-section">
+                            <h3>Досягнення кар'єри</h3>
+                            <div id="career-highlights" class="career-highlights"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Gallery Section -->
+            <section class="athlete-gallery">
+                <div class="container gallery-container">
+                    <div class="gallery-header">
+                        <h2>Галерея</h2>
+                        <p>Фотографії з тренувань та змагань</p>
+                    </div>
+                    <div id="gallery-grid" class="gallery-grid"></div>
+                </div>
+            </section>
+
+            <!-- Social Media -->
+            <section class="athlete-social">
+                <div class="container social-container">
+                    <div class="social-header">
+                        <h2>Соціальні мережі</h2>
+                        <p>Слідкуйте за новинами та досягненнями спортсмена</p>
+                    </div>
+                    <div id="social-links2" class="social-links2"></div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Gallery Modal -->
+    <div id="gallery-modal" class="gallery-modal">
+        <div class="gallery-modal-content">
+            <div class="gallery-modal-header">
+                <div id="gallery-counter" class="gallery-counter">1 з 10</div>
+                <button class="gallery-modal-close" onclick="closeGalleryModal()">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
+            
+            <div class="gallery-modal-body">
+                <button class="gallery-nav-btn gallery-prev" onclick="previousImage()">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="15,18 9,12 15,6"></polyline>
+                    </svg>
+                </button>
+                
+                <div class="gallery-main-image-container">
+                    <img id="gallery-modal-image" class="gallery-modal-image" src="" alt="">
+                </div>
+                
+                <button class="gallery-nav-btn gallery-next" onclick="nextImage()">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="9,18 15,12 9,6"></polyline>
+                    </svg>
+                </button>
+            </div>
+            
+            <div class="gallery-modal-footer">
+                <div id="gallery-thumbnails" class="gallery-thumbnails"></div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-brand">
+                        <img src="assets/fju-logo.png" alt="FJU Logo" class="footer-logo">
+                        <div class="brand-info">
+                            <h3>Федерація Дзюдо України</h3>
+                            <p>Офіційна організація з розвитку дзюдо в Україні</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Навігація</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Головна</a></li>
+                        <li><a href="about.html">Федерація</a></li>
+                        <li><a href="news.html">Новини</a></li>
+                        <li><a href="calendar.html">Календар</a></li>
+                        <li><a href="gallery.html">Галерея</a></li>
+                        <li><a href="contacts.html">Контакти</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Контакти</h4>
+                    <div class="contact-info">
+                        <p>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                                <polyline points="22,6 12,13 2,6"/>
+                            </svg>
+                            judoukr@ukr.net
+                        </p>
+                        <p>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                            </svg>
+                            +38 044 284-38-39
+                        </p>
+                        <p>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                                <circle cx="12" cy="10" r="3"/>
+                            </svg>
+                            Україна, 01601, м. Київ, вул. Еспланадна, 42, офіс 808
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Соціальні мережі</h4>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/UkraineJudoFederation" class="social-link">Facebook</a>
+                        <a href="https://www.instagram.com/ukraine_judo_official" class="social-link">Instagram</a>
+                        <a href="https://t.me/ukrainianjudofederation" class="social-link">Telegram</a>
+                        <a href="https://www.youtube.com/@ukrainejudo" class="social-link">YouTube</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Федерація Дзюдо України. Всі права захищені.</p>
+                <div class="footer-bottom-links">
+                    <a href="#">Політика конфіденційності</a>
+                    <a href="#">Умови використання</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="scripts/athlete.js"></script>
+</body>
+</html> 

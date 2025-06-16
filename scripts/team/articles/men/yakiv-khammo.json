@@ -1,0 +1,212 @@
+{
+  "id": "yakiv-khammo",
+  "name": "Яків Хаммо",
+  "nameEn": "Yakiv Khammo",
+  "fullName": "Хаммо Яків Михайлович",
+  "rank": 1,
+  "category": "men",
+  "weight": "+100кг",
+  "birthDate": "11 червня 1994",
+  "city": "Київ",
+  "region": "м. Київ",
+  "country": "Україна",
+  "club": "Динамо",
+  "coaches": ["Дуброва Віталій Вікторович", "Дуброва Сергій Вікторович"],
+  "dan": "ЗМСУ",
+  "image": "assets/team/men/khammo/khammo1.jpg",
+  "gallery": [
+    "assets/team/men/khammo/khammo2.jpg",
+    "assets/team/men/khammo/khammo3.jpg",
+    "assets/team/men/khammo/khammo4.jpg",
+    "assets/team/men/khammo/khammo5.jpg",
+    "assets/team/men/khammo/khammo6.jpg",
+    "assets/team/men/khammo/khammo7.jpg",
+    "assets/team/men/khammo/khammo8.jpg",
+    "assets/team/men/khammo/khammo9.jpg",
+    "assets/team/men/khammo/khammo10.jpg",
+    "assets/team/men/khammo/khammo11.jpg",
+    "assets/team/men/khammo/khammo12.jpg",
+    "assets/team/men/khammo/khammo13.jpg",
+    "assets/team/men/khammo/khammo14.jpg",
+    "assets/team/men/khammo/khammo15.jpg",
+    "assets/team/men/khammo/khammo16.jpg",
+    "assets/team/men/khammo/khammo17.jpg",
+    "assets/team/men/khammo/khammo18.jpg",
+    "assets/team/men/khammo/khammo19.jpg",
+    "assets/team/men/khammo/khammo20.jpg",
+    "assets/team/men/khammo/khammo21.jpg",
+    "assets/team/men/khammo/khammo22.jpg",
+    "assets/team/men/khammo/khammo23.jpg",
+    "assets/team/men/khammo/khammo24.jpg",
+    "assets/team/men/khammo/khammo25.jpg"
+  ],
+  "achievements": [
+    {
+      "type": "bronze",
+      "title": "Чемпіонат світу",
+      "year": 2015,
+      "location": "Астана, Казахстан",
+      "description": "Бронзовий призер чемпіонату світу - найвище досягнення української важкої ваги"
+    },
+    {
+      "type": "bronze",
+      "title": "Чемпіонат світу",
+      "year": 2021,
+      "location": "Будапешт, Угорщина",
+      "description": "Бронзовий призер чемпіонату світу - друга медаль найвищого рівня"
+    },
+    {
+      "type": "bronze",
+      "title": "Чемпіонат Європи",
+      "year": 2015,
+      "location": "Баку, Азербайджан",
+      "description": "Бронзовий призер чемпіонату Європи"
+    },
+    {
+      "type": "gold",
+      "title": "Grand Slam Baku",
+      "year": 2016,
+      "location": "Баку, Азербайджан",
+      "description": "Переможець Grand Slam Baku - найпрестижніша перемога в кар'єрі"
+    },
+    {
+      "type": "silver",
+      "title": "Grand Slam Abu Dhabi",
+      "year": 2015,
+      "location": "Абу-Дабі, ОАЕ",
+      "description": "Срібний призер Grand Slam Abu Dhabi"
+    },
+    {
+      "type": "silver",
+      "title": "Grand Slam Abu Dhabi",
+      "year": 2019,
+      "location": "Абу-Дабі, ОАЕ",
+      "description": "Срібний призер Grand Slam Abu Dhabi"
+    },
+    {
+      "type": "bronze",
+      "title": "Masters Doha",
+      "year": 2021,
+      "location": "Доха, Катар",
+      "description": "Бронзовий призер Masters Doha - турнір найвищого рівня IJF"
+    },
+    {
+      "type": "gold",
+      "title": "Grand Prix Zagreb",
+      "year": 2015,
+      "location": "Загреб, Хорватія",
+      "description": "Переможець Grand Prix Zagreb"
+    },
+    {
+      "type": "gold",
+      "title": "Grand Prix Zagreb",
+      "year": 2018,
+      "location": "Загреб, Хорватія",
+      "description": "Переможець Grand Prix Zagreb"
+    },
+    {
+      "type": "gold",
+      "title": "Grand Prix Düsseldorf",
+      "year": 2016,
+      "location": "Дюссельдорф, Німеччина",
+      "description": "Переможець Grand Prix Düsseldorf"
+    },
+    {
+      "type": "gold",
+      "title": "Grand Prix The Hague",
+      "year": 2018,
+      "location": "Гаага, Нідерланди",
+      "description": "Переможець Grand Prix The Hague"
+    },
+    {
+      "type": "gold",
+      "title": "European Open Riccione",
+      "year": 2022,
+      "location": "Річчоне, Італія",
+      "description": "Переможець European Open Riccione"
+    },
+    {
+      "type": "gold",
+      "title": "Чемпіонат України",
+      "year": 2017,
+      "location": "Україна",
+      "description": "Чемпіон України серед дорослих"
+    },
+    {
+      "type": "gold",
+      "title": "Чемпіонат України",
+      "year": 2018,
+      "location": "Україна",
+      "description": "Чемпіон України серед дорослих"
+    },
+    {
+      "type": "gold",
+      "title": "Абсолютний чемпіонат України",
+      "year": 2017,
+      "location": "Україна",
+      "description": "Абсолютний чемпіон України - перемога серед всіх вагових категорій"
+    },
+    {
+      "type": "gold",
+      "title": "Чемпіонат Європи U21",
+      "year": 2014,
+      "location": "Європа",
+      "description": "Чемпіон Європи U21"
+    },
+    {
+      "type": "gold",
+      "title": "Чемпіонат Європи U23",
+      "year": 2016,
+      "location": "Європа",
+      "description": "Чемпіон Європи U23"
+    }
+  ],
+  "biography": {
+    "birthDate": "11 червня 1994 року",
+    "birthPlace": "Київ, Україна",
+    "careerStart": 2004,
+    "coach": "Дуброва Віталій Вікторович, Дуброва Сергій Вікторович",
+    "club": "Динамо (Київ)",
+    "education": "Вища освіта",
+    "fullBiography": "Хаммо Яків Михайлович народився 11 червня 1994 року в Києві. Одна з найбільших зірок українського дзюдо всіх часів з унікальною 18-річною кар'єрою на найвищому рівні. Двократний бронзовий призер чемпіонатів світу (2015, 2021), бронзовий призер чемпіонату Європи (2015), переможець Grand Slam Baku (2016) та бронзовий призер Masters Doha (2021). Протягом кар'єри здобув понад 35 медалей на найпрестижніших турнірах світу. Абсолютний чемпіон України (2017) та двократний чемпіон країни. Заслужений майстер спорту України. Один з найуспішніших важковаговиків в історії українського дзюдо."
+  },
+  "statistics": {
+    "competitions": 180,
+    "wins": 145,
+    "goldMedals": 15,
+    "silverMedals": 7,
+    "bronzeMedals": 13,
+    "worldRanking": 12,
+    "europeRanking": 6
+  },
+  "techniques": [
+    "Учі-мата",
+    "О-сото-гарі",
+    "Харай-гоші",
+    "Сеой-наге",
+    "Коучі-гарі",
+    "Тай-отоші",
+    "Сото-маком-рейкі",
+    "Томое-наге"
+  ],
+  "careerHighlights": [
+    "Двократний бронзовий призер чемпіонатів світу (2015, 2021) - найвище досягнення",
+    "Переможець Grand Slam Baku-2016 - найпрестижніша перемога",
+    "Бронзовий призер Masters Doha-2021 - турнір найвищого рівня IJF",
+    "Абсолютний чемпіон України-2017",
+    "Двократний чемпіон України (2017, 2018)",
+    "Чемпіон Європи U21-2014 та U23-2016",
+    "35+ медалей на міжнародних турнірах",
+    "18 років на найвищому міжнародному рівні",
+    "4 перемоги на Grand Prix турнірах",
+    "Лідер української важкої категорії останнього десятиліття",
+    "Один з найуспішніших дзюдоїстів в історії України",
+    "Рекордсмен за кількістю медалей серед українських важковаговиків"
+  ],
+  "socialMedia": {},
+  "quotes": [
+    "Дві бронзи чемпіонатів світу - це результат багаторічної наполегливої праці. Кожна медаль найвищого рівня має свою історію.",
+    "Grand Slam Baku-2016 залишається найяскравішим моментом кар'єри. Перемога на турнірі такого рівня - мрія будь-якого дзюдоїста.",
+    "18 років на міжнародній арені навчили мене цінувати кожен момент. Дзюдо дало мені все у житті."
+  ]
+} 
