@@ -132,110 +132,97 @@
 
                 <!-- Filter Controls -->
                 <div class="team-filter-controls">
-                    <!-- Gender Filters -->
-                    <div class="filter-group">
-                        <label class="filter-label">За статтю:</label>
-                        <div class="team-categories">
-                            <button class="team-category-btn active" data-category="all">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M12 2L2 7v10c0 5.55 3.84 9.74 9 11 5.16-1.26 9-5.45 9-11V7l-10-5z"/>
-                                    <path d="M9 12l2 2 4-4"/>
-                                </svg>
-                                Всі
-                            </button>
-                            <button class="team-category-btn" data-category="men">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
-                                    <circle cx="12" cy="7" r="4"/>
-                                </svg>
-                                Чоловіки
-                            </button>
-                            <button class="team-category-btn" data-category="women">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <circle cx="12" cy="8" r="7"/>
-                                    <polyline points="8.21,13.89 7,23 17,23 15.79,13.88"/>
-                                </svg>
-                                Жінки
-                            </button>
+                    <!-- Main Filters Row -->
+                    <div class="filter-groups-container">
+                        <!-- Gender Filters -->
+                        <div class="filter-group">
+                            <label class="filter-label">За статтю:</label>
+                <div class="team-categories">
+                    <button class="team-category-btn active" data-category="all">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 2L2 7v10c0 5.55 3.84 9.74 9 11 5.16-1.26 9-5.45 9-11V7l-10-5z"/>
+                            <path d="M9 12l2 2 4-4"/>
+                        </svg>
+                                    Всі
+                    </button>
+                    <button class="team-category-btn" data-category="men">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                            <circle cx="12" cy="7" r="4"/>
+                        </svg>
+                        Чоловіки
+                    </button>
+                    <button class="team-category-btn" data-category="women">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="8" r="7"/>
+                            <polyline points="8.21,13.89 7,23 17,23 15.79,13.88"/>
+                        </svg>
+                        Жінки
+                    </button>
+                            </div>
+                        </div>
+
+                        <!-- Age Filters -->
+                        <div class="filter-group">
+                            <label class="filter-label">За віком:</label>
+                            <div class="team-age-categories">
+                                <button class="team-age-btn active" data-age="all">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M12 2L2 7v10c0 5.55 3.84 9.74 9 11 5.16-1.26 9-5.45 9-11V7l-10-5z"/>
+                                    </svg>
+                                    Всі
+                                </button>
+                                <button class="team-age-btn" data-age="u17">Ю17</button>
+                                <button class="team-age-btn" data-age="u18">Ю18</button>
+                                <button class="team-age-btn" data-age="u21">Ю21</button>
+                                <button class="team-age-btn" data-age="u23">Ю23</button>
+                                <button class="team-age-btn" data-age="senior">Дорослі</button>
+                            </div>
+                        </div>
+
+                        <!-- Weight Filters -->
+                        <div class="filter-group">
+                            <label class="filter-label">За вагою:</label>
+                            <div class="team-weight-categories">
+                                <select class="weight-filter-select" id="weight-filter">
+                                    <option value="all">Всі ваги</option>
+                                    <option value="-48кг">-48кг</option>
+                                    <option value="-52кг">-52кг</option>
+                                    <option value="-57кг">-57кг</option>
+                                    <option value="-60кг">-60кг</option>
+                                    <option value="-63кг">-63кг</option>
+                                    <option value="-66кг">-66кг</option>
+                                    <option value="-70кг">-70кг</option>
+                                    <option value="-73кг">-73кг</option>
+                                    <option value="-78кг">-78кг</option>
+                                    <option value="-81кг">-81кг</option>
+                                    <option value="-90кг">-90кг</option>
+                                    <option value="-100кг">-100кг</option>
+                                    <option value="+100кг">+100кг</option>
+                                </select>
+                            </div>
                         </div>
                     </div>
 
-                    <!-- Age Filters -->
-                    <div class="filter-group">
-                        <label class="filter-label">За віком:</label>
-                        <div class="team-age-categories">
-                            <button class="team-age-btn active" data-age="all">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M12 2L2 7v10c0 5.55 3.84 9.74 9 11 5.16-1.26 9-5.45 9-11V7l-10-5z"/>
+                    <!-- Search Row -->
+                    <div class="search-row">
+                        <div class="enhanced-search-container">
+                            <div class="search-input-wrapper">
+                                <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="11" cy="11" r="8"/>
+                                    <path d="M21 21l-4.35-4.35"/>
                                 </svg>
-                                Всі віки
-                            </button>
-                            <button class="team-age-btn" data-age="u17">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M3 12h18l-9-9v18"/>
-                                </svg>
-                                Ю17
-                            </button>
-                            <button class="team-age-btn" data-age="u18">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M3 12h18l-9-9v18"/>
-                                </svg>
-                                Ю18
-                            </button>
-                            <button class="team-age-btn" data-age="u21">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M3 12h18l-9-9v18"/>
-                                </svg>
-                                Ю21
-                            </button>
-                            <button class="team-age-btn" data-age="u23">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M3 12h18l-9-9v18"/>
-                                </svg>
-                                Ю23
-                            </button>
-                            <button class="team-age-btn" data-age="senior">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
-                                    <circle cx="12" cy="7" r="4"/>
-                                </svg>
-                                Дорослі
-                            </button>
-                        </div>
-                    </div>
-
-                    <!-- Weight Filters -->
-                    <div class="filter-group">
-                        <label class="filter-label">За вагою:</label>
-                        <div class="team-weight-categories">
-                            <select class="weight-filter-select" id="weight-filter">
-                                <option value="all">Всі ваги</option>
-                                <option value="-48кг">-48кг</option>
-                                <option value="-52кг">-52кг</option>
-                                <option value="-57кг">-57кг</option>
-                                <option value="-60кг">-60кг</option>
-                                <option value="-63кг">-63кг</option>
-                                <option value="-66кг">-66кг</option>
-                                <option value="-70кг">-70кг</option>
-                                <option value="-73кг">-73кг</option>
-                                <option value="-78кг">-78кг</option>
-                                <option value="-81кг">-81кг</option>
-                                <option value="-90кг">-90кг</option>
-                                <option value="-100кг">-100кг</option>
-                                <option value="+100кг">+100кг</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <!-- Search -->
-                    <div class="filter-group">
-                        <label class="filter-label">Пошук:</label>
-                        <div class="team-search-container">
-                            <input type="text" class="team-search" placeholder="Ім'я спортсмена...">
-                            <svg class="search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <circle cx="11" cy="11" r="8"/>
-                                <path d="M21 21l-4.35-4.35"/>
-                            </svg>
+                                <input type="text" class="enhanced-search-input" placeholder="Почніть вводити ім'я спортсмена..." autocomplete="off">
+                                <button class="search-clear-btn" type="button" aria-label="Очистити пошук">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <line x1="18" y1="6" x2="6" y2="18"/>
+                                        <line x1="6" y1="6" x2="18" y2="18"/>
+                        </svg>
+                    </button>
+                            </div>
+                            <div class="search-results-info">
+                                <span class="results-count">Знайдено спортсменів: <strong>0</strong></span>
+                            </div>
                         </div>
                     </div>
                 </div>

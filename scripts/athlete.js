@@ -179,13 +179,6 @@ document.addEventListener('DOMContentLoaded', function() {
         
 
         
-        // Career highlights
-        if (athlete.careerHighlights && athlete.careerHighlights.length > 0) {
-            displayCareerHighlights(athlete.careerHighlights);
-        }
-        
-
-        
         // Gallery
         if (athlete.gallery && athlete.gallery.length > 0) {
             displayGallery(athlete.gallery);
@@ -205,10 +198,7 @@ document.addEventListener('DOMContentLoaded', function() {
             hideSection('athlete-achievements');
         }
         
-        // Hide career highlights if empty
-        if (!athlete.careerHighlights || athlete.careerHighlights.length === 0) {
-            hideSection('career-highlights');
-        }
+
         
         // Show content
         document.getElementById('athlete-content').style.display = 'block';
@@ -344,20 +334,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
 
     
-    /**
-     * Display career highlights
-     */
-    function displayCareerHighlights(highlights) {
-        const highlightsContainer = document.getElementById('career-highlights');
-        highlightsContainer.innerHTML = '';
-        
-        highlights.forEach(highlight => {
-            const highlightDiv = document.createElement('div');
-            highlightDiv.className = 'career-highlight';
-            highlightDiv.textContent = highlight;
-            highlightsContainer.appendChild(highlightDiv);
-        });
-    }
+
     
     /**
      * Display social media links
@@ -518,7 +495,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }, observerOptions);
         
         // Observe elements for animation
-        const animatedElements = document.querySelectorAll('.achievement-item, .biography-section, .bio-item, .career-highlight, .social-link');
+        const animatedElements = document.querySelectorAll('.achievement-item, .biography-section, .bio-item, .social-link');
         animatedElements.forEach(el => {
             observer.observe(el);
         });
@@ -533,14 +510,14 @@ document.addEventListener('DOMContentLoaded', function() {
     function addAnimationStyles() {
         const style = document.createElement('style');
         style.textContent = `
-            .achievement-item, .biography-section, .bio-item, .career-highlight, .social-link {
+            .achievement-item, .biography-section, .bio-item, .social-link {
                 opacity: 0;
                 transform: translateY(20px);
                 transition: all 0.6s ease;
             }
             
             .achievement-item.animate-in, .biography-section.animate-in, .bio-item.animate-in,
-            .career-highlight.animate-in, .social-link.animate-in {
+            .social-link.animate-in {
                 opacity: 1;
                 transform: translateY(0);
             }
@@ -555,10 +532,6 @@ document.addEventListener('DOMContentLoaded', function() {
             
             .bio-item:nth-child(odd).animate-in {
                 transition-delay: 0.1s;
-            }
-            
-            .career-highlight:nth-child(even).animate-in {
-                transition-delay: 0.05s;
             }
             
             .social-link:nth-child(2).animate-in {

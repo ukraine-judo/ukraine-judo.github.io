@@ -1,0 +1,202 @@
+{
+  "id": "yelyzaveta-lytvynenko",
+  "name": "Єлизавета Литвиненко",
+  "nameEn": "Yelyzaveta Lytvynenko",
+  "fullName": "Литвиненко Єлизавета Анатоліївна",
+  "rank": 1,
+  "category": "women",
+  "weight": "-70кг",
+  "birthDate": "11 лютого 2004",
+  "city": "Дніпро",
+  "region": "Дніпропетровська",
+  "country": "Україна",
+  "club": "ЗСУ",
+  "coaches": ["Блошенко Артем Олексійович", "Чимчиурі Ілля Валікоєвич"],
+  "dan": "ЗМСУ",
+  "image": "assets/team/women/Lytvynenko/Lytvynenko.jpg",
+  "gallery": [
+    "assets/team/women/Lytvynenko/Lytvynenko2.jpg",
+    "assets/team/women/Lytvynenko/Lytvynenko3.jpg",
+    "assets/team/women/Lytvynenko/Lytvynenko4.jpg",
+    "assets/team/women/Lytvynenko/Lytvynenko5.jpg",
+    "assets/team/women/Lytvynenko/Lytvynenko6.jpg",
+    "assets/team/women/Lytvynenko/Lytvynenko7.jpg",
+    "assets/team/women/Lytvynenko/Lytvynenko8.jpg",
+    "assets/team/women/Lytvynenko/Lytvynenko9.jpg",
+    "assets/team/women/Lytvynenko/Lytvynenko10.jpg",
+    "assets/team/women/Lytvynenko/Lytvynenko11.jpg",
+    "assets/team/women/Lytvynenko/Lytvynenko12.jpg",
+    "assets/team/women/Lytvynenko/Lytvynenko13.jpg",
+    "assets/team/women/Lytvynenko/Lytvynenko14.jpg"
+  ],
+  "achievements": [
+    {
+      "type": "bronze",
+      "title": "Чемпіонат світу Ташкент-2022",
+      "year": 2022,
+      "location": "Ташкент, Узбекистан",
+      "description": "Бронзова призерка чемпіонату світу - найвище досягнення в кар'єрі"
+    },
+    {
+      "type": "bronze",
+      "title": "Masters Будапешт-2023",
+      "year": 2023,
+      "location": "Будапешт, Угорщина",
+      "description": "Бронзова призерка турніру найвищого рівня IJF Masters"
+    },
+    {
+      "type": "silver",
+      "title": "Grand Prix Алмада-2023",
+      "year": 2023,
+      "location": "Алмада, Португалія",
+      "description": "Срібна призерка Grand Prix"
+    },
+    {
+      "type": "bronze",
+      "title": "Grand Slam Баку-2024",
+      "year": 2024,
+      "location": "Баку, Азербайджан",
+      "description": "Бронзова призерка Grand Slam"
+    },
+    {
+      "type": "bronze",
+      "title": "Grand Prix Лінц-2023",
+      "year": 2023,
+      "location": "Лінц, Австрія",
+      "description": "Бронзова призерка Grand Prix"
+    },
+    {
+      "type": "bronze",
+      "title": "Grand Prix Лінц-2024",
+      "year": 2024,
+      "location": "Лінц, Австрія",
+      "description": "Бронзова призерка Grand Prix"
+    },
+    {
+      "type": "gold",
+      "title": "Чемпіонат Європи U21 Прага-2022",
+      "year": 2022,
+      "location": "Прага, Чехія",
+      "description": "Чемпіонка Європи U21"
+    },
+    {
+      "type": "gold",
+      "title": "Чемпіонат Європи U18 Рига-2021",
+      "year": 2021,
+      "location": "Рига, Латвія",
+      "description": "Чемпіонка Європи U18"
+    },
+    {
+      "type": "gold",
+      "title": "ЄЮОФ Банська-Бистриця-2022",
+      "year": 2022,
+      "location": "Банська-Бистриця, Словаччина",
+      "description": "Чемпіонка Європейського юнацького олімпійського фестивалю"
+    },
+    {
+      "type": "bronze",
+      "title": "European Open Мадрид-2022",
+      "year": 2022,
+      "location": "Мадрид, Іспанія",
+      "description": "Бронзова призерка European Open"
+    },
+    {
+      "type": "gold",
+      "title": "Кубок Європи U21 Афіни-2022",
+      "year": 2022,
+      "location": "Афіни, Греція",
+      "description": "Переможниця Кубка Європи U21"
+    },
+    {
+      "type": "gold",
+      "title": "Кубок Європи U18 Пореч-2021",
+      "year": 2021,
+      "location": "Пореч, Хорватія",
+      "description": "Переможниця Кубка Європи U18"
+    },
+    {
+      "type": "silver",
+      "title": "Кубок Європи U18 Гйор-2019",
+      "year": 2019,
+      "location": "Гйор, Угорщина",
+      "description": "Срібна призерка Кубка Європи U18"
+    },
+    {
+      "type": "gold",
+      "title": "Чемпіонат України U23-2021",
+      "year": 2021,
+      "location": "Україна",
+      "description": "Чемпіонка України U23"
+    },
+    {
+      "type": "gold",
+      "title": "Кубок України-2021",
+      "year": 2021,
+      "location": "Україна",
+      "description": "Переможниця Кубка України"
+    }
+  ],
+  "biography": {
+    "birthDate": "11 лютого 2004 року",
+    "birthPlace": "Дніпро, Україна",
+    "careerStart": 2015,
+    "coach": "Блошенко Артем Олексійович, Чимчиурі Ілля Валікоєвич",
+    "club": "Збройні Сили України",
+    "education": "Студентка",
+    "fullBiography": "Литвиненко Єлизавета Анатоліївна народилася 11 лютого 2004 року в Дніпрі. Дзюдо почала займатися з 11 років. Представляє Дніпропетровську область у складі Збройних Сил України. Спеціалізується у ваговій категорії -70кг. Має звання Заслуженого майстра спорту України. Найяскравіша зірка сучасного українського жіночого дзюдо після Дар'ї Білодід. Бронзова призерка чемпіонату світу-2022 в Ташкенті та дворазова чемпіонка Європи серед молоді. Служить у ЗСУ, демонструючи патріотизм та відданість Україні."
+  },
+  "statistics": {
+    "competitions": 55,
+    "wins": 48,
+    "goldMedals": 7,
+    "silverMedals": 2,
+    "bronzeMedals": 6,
+    "worldRanking": 8,
+    "europeRanking": 5,
+    "nationalTitles": 2,
+    "europeanTitles": 2,
+    "worldTitles": 0
+  },
+  "techniques": [
+    "Учі-мата",
+    "Харай-гоші",
+    "Сеой-наге",
+    "Осото-гарі",
+    "Тай-отоші",
+    "О-учі-гарі",
+    "Коучі-гарі",
+    "Томое-наге"
+  ],
+  "careerHighlights": [
+    "Бронзова призерка чемпіонату світу Ташкент-2022",
+    "Бронзова призерка IJF Masters Будапешт-2023",
+    "Дворазова чемпіонка Європи серед молоді (U18, U21)",
+    "Призерка 6 турнірів серії Grand Slam/Grand Prix",
+    "Чемпіонка Європейського юнацького олімпійського фестивалю",
+    "Топ-10 світового рейтингу IJF",
+    "Найкраща українська дзюдоїстка в категорії -70кг",
+    "Військовослужбовець Збройних Сил України"
+  ],
+  "militaryService": {
+    "branch": "Збройні Сили України",
+    "serviceYears": "2022-теперішній час",
+    "rank": "Сержант",
+    "duties": "Військовослужбовець, спортсмен-інструктор",
+    "patriotism": "Захисниця честі України на міжнародній арені"
+  },
+  "socialMedia": {
+    "instagram": "@lizajudo"
+  },
+  "quotes": [
+    "Бронза чемпіонату світу довела мені, що можу змагатися з найкращими у світі.",
+    "Служба в ЗСУ дає мені силу та мотивацію перемагати на татамі.",
+    "Дніпро - це моя сила. Я пишаюся тим, що представляю свій регіон."
+  ],
+  "worldClassAthlete": {
+    "age": 20,
+    "level": "Світовий рівень",
+    "achievements": "Бронза чемпіонату світу, призер IJF Masters",
+    "ranking": "Топ-10 світового рейтингу",
+    "potential": "Кандидат на олімпійське золото"
+  }
+} 

@@ -319,6 +319,214 @@
       "weight": "-90кг",
       "rank": 1,
       "image": "assets/team/men/Iudanov/Iudanov1.jpg"
+    },
+    {
+      "id": "marharyta-miroshnichenko",
+      "name": "Маргарита Мірошніченко",
+      "category": "women",
+      "weight": "-48кг",
+      "rank": 1,
+      "image": "assets/team/women/Miroshnichenko/Miroshnichenko1-1.jpg"
+    },
+    {
+      "id": "anastasia-sykish",
+      "name": "Анастасія Сикіш",
+      "category": "women",
+      "weight": "-48кг",
+      "rank": 2,
+      "image": "assets/team/women/Sykish.jpg"
+    },
+    {
+      "id": "anastasiia-sykish",
+      "name": "Анастасія Сикіш",
+      "category": "women",
+      "weight": "-48кг",
+      "rank": 2,
+      "image": ""
+    },
+    {
+      "id": "anastasiia-levchenko",
+      "name": "Анастасія Левченко",
+      "category": "women",
+      "weight": "-52кг",
+      "rank": 1,
+      "image": "assets/team/women/levchenko/levchenko1av.jpg"
+    },
+    {
+      "id": "tetiana-limzaeva",
+      "name": "Тетяна Лімзаєва",
+      "category": "women",
+      "weight": "-52кг",
+      "rank": 2,
+      "image": "assets/team/women/limzaeva.jpg"
+    },
+    {
+      "id": "inna-shynkarenko",
+      "name": "Інна Шинкаренко",
+      "category": "women",
+      "weight": "-52кг",
+      "rank": 3,
+      "image": "assets/team/women/Shynkarenko2.jpg"
+    },
+    {
+      "id": "daria-bilodid",
+      "name": "Дар'я Білодід",
+      "category": "women",
+      "weight": "-57кг",
+      "rank": 1,
+      "image": "assets/team/women/Bilodid/Bilodid1.jpg"
+    },
+    {
+      "id": "sofia-bordinskih",
+      "name": "Софія Бордінських",
+      "category": "women",
+      "weight": "-57кг",
+      "rank": 2,
+      "image": "assets/team/women/Bordinskih/Bordinskih1-1.jpg"
+    },
+    {
+      "id": "snizhana-plish",
+      "name": "Сніжана Пліш",
+      "category": "women",
+      "weight": "-57кг",
+      "rank": 3,
+      "image": "assets/team/women/Plish.jpg"
+    },
+    {
+      "id": "anastasiia-severin",
+      "name": "Анастасія Северин",
+      "category": "women",
+      "weight": "-57кг",
+      "rank": 4,
+      "image": "assets/team/women/Severyn/Severyn1.jpg"
+    },
+    {
+      "id": "anastasia-chyzhevska",
+      "name": "Анастасія Чижевська",
+      "category": "women",
+      "weight": "-57кг",
+      "rank": 5,
+      "image": "assets/team/women/chyzhevska/chyzhevska1.jpg"
+    },
+    {
+      "id": "alina-shylova",
+      "name": "Аліна Шилова",
+      "category": "women",
+      "weight": "-57кг",
+      "rank": 6,
+      "image": "assets/team/women/Shylova/Shylova.jpg"
+    },
+    {
+      "id": "daria-boychenko",
+      "name": "Дар'я Бойченко",
+      "category": "women",
+      "weight": "-63кг",
+      "rank": 2,
+      "image": "assets/team/women/boychenko/boychenko1.jpg"
+    },
+    {
+      "id": "yelyzaveta-lytvynenko",
+      "name": "Єлизавета Литвиненко",
+      "category": "women",
+      "weight": "-70кг",
+      "rank": 1,
+      "image": "assets/team/women/Lytvynenko/Lytvynenko.jpg"
+    },
+    {
+      "id": "alisa-videneeva",
+      "name": "Аліса Віденеєва",
+      "category": "women",
+      "weight": "-70кг",
+      "rank": 2,
+      "image": "assets/team/women/Videneva/Videneva1.jpg"
+    },
+    {
+      "id": "anna-oliinyk-korniiko",
+      "name": "Анна Олійник-Корнійко",
+      "category": "women",
+      "weight": "-70кг",
+      "rank": 3,
+      "image": "assets/team/women/Oliinyk/Oliinyk.jpg"
+    },
+    {
+      "id": "maria-rytska",
+      "name": "Марія Рицька",
+      "category": "women",
+      "weight": "-70кг",
+      "rank": 4,
+      "image": "assets/team/women/Rytska.jpg"
+    },
+    {
+      "id": "yulia-kurchenko",
+      "name": "Юлія Курченко",
+      "category": "women",
+      "weight": "-78кг",
+      "rank": 1,
+      "image": "assets/team/women/Kurchenko/Kurchenko1.jpg"
+    },
+    {
+      "id": "halyna-kovalska",
+      "name": "Галина Ковальська",
+      "category": "women",
+      "weight": "-78кг",
+      "rank": 2,
+      "image": "assets/team/women/Kovalska/Kovalska1.jpg"
+    },
+    {
+      "id": "diana-semchenko",
+      "name": "Діана Семченко",
+      "category": "women",
+      "weight": "+78кг",
+      "rank": 1,
+      "image": "assets/team/women/Semchenko/Semchenko1.jpg"
+    },
+    {
+      "id": "khrystyna-homan",
+      "name": "Христина Гоман",
+      "category": "women",
+      "weight": "+78кг",
+      "rank": 2,
+      "image": "assets/team/women/Homan/Homan1.jpg"
+    },
+    {
+      "id": "yulia-grebenozhko",
+      "name": "Юлія Гребеножко",
+      "category": "women",
+      "weight": "-63кг",
+      "rank": 1,
+      "image": "assets/team/women/grebenozhko/grebenozhko1.jpg"
+    },
+    {
+      "id": "anastasia-antipina",
+      "name": "Анастасія Антіпіна",
+      "category": "women",
+      "weight": "-63кг",
+      "rank": 1,
+      "image": "assets/team/women/Antipina/Antipina1.jpg"
+    },
+    {
+      "id": "kristina-opanasenko",
+      "name": "Крістіна Опанасенко",
+      "category": "women",
+      "weight": "-63кг",
+      "rank": 3,
+      "image": "assets/team/women/Opanasenko/Opanasenko1.jpg"
+    },
+    {
+      "id": "olga-tsimko",
+      "name": "Ольга Цімко",
+      "category": "women",
+      "weight": "-63кг",
+      "rank": 4,
+      "image": "assets/team/women/tsimko/tsimko.jpg"
+    },
+    {
+      "id": "anna-kazakova",
+      "name": "Анна Казакова",
+      "category": "women",
+      "weight": "-78кг",
+      "rank": 1,
+      "image": "assets/team/women/Kazakova/Kazakova1.jpg"
     }
   ]
 } 

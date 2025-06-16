@@ -510,7 +510,7 @@ document.addEventListener('DOMContentLoaded', function() {
      * Apply all active filters
      */
     function applyAllFilters() {
-        const searchInput = document.querySelector('.team-search');
+        const searchInput = document.querySelector('.enhanced-search-input');
         const searchTerm = searchInput ? searchInput.value.toLowerCase() : '';
         
         filteredAthletes = allAthletes.filter(athlete => {
@@ -570,31 +570,22 @@ document.addEventListener('DOMContentLoaded', function() {
      * Update results count display
      */
     function updateResultsCount() {
-        let resultsCountElement = document.querySelector('.results-count');
-        if (!resultsCountElement) {
-            // Create results count element if it doesn't exist
-            const athletesGrid = document.getElementById('athletes-grid');
-            if (athletesGrid && athletesGrid.parentNode) {
-                resultsCountElement = document.createElement('div');
-                resultsCountElement.className = 'results-count';
-                resultsCountElement.style.cssText = `
-                    text-align: center;
-                    margin: 1rem 0;
-                    color: var(--text-muted);
-                    font-size: 0.9rem;
-                `;
-                athletesGrid.parentNode.insertBefore(resultsCountElement, athletesGrid);
-            }
+        const countElement = document.querySelector('.results-count strong');
+        if (countElement) {
+            countElement.textContent = filteredAthletes.length;
         }
         
-        if (resultsCountElement) {
-            const count = filteredAthletes.length;
-            const total = allAthletes.length;
+        // Update pagination info if exists
+        const paginationInfo = document.querySelector('.pagination-info');
+        if (paginationInfo) {
+            const totalPages = Math.ceil(filteredAthletes.length / athletesPerPage);
+            const startIndex = (currentPage - 1) * athletesPerPage + 1;
+            const endIndex = Math.min(currentPage * athletesPerPage, filteredAthletes.length);
             
-            if (count === total) {
-                resultsCountElement.textContent = `Показано всі ${total} спортсменів`;
+            if (filteredAthletes.length === 0) {
+                paginationInfo.textContent = 'Спортсменів не знайдено';
             } else {
-                resultsCountElement.textContent = `Знайдено ${count} з ${total} спортсменів`;
+                paginationInfo.textContent = `Показано ${startIndex}-${endIndex} з ${filteredAthletes.length} спортсменів`;
             }
         }
     }
@@ -715,34 +706,53 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     /**
-     * Initialize search functionality for athletes
+     * Initialize enhanced search functionality
      */
     function initSearch() {
-        const searchInput = document.querySelector('.team-search');
+        const searchInput = document.querySelector('.enhanced-search-input');
+        const searchClearBtn = document.querySelector('.search-clear-btn');
+        
         if (!searchInput) return;
         
-        // Add debounced search functionality
         let searchTimeout;
-        searchInput.addEventListener('input', function() {
-            const searchTerm = this.value.toLowerCase().trim();
-            currentFilters.search = searchTerm;
-            
-            // Debounce search for better performance
+        
+        // Handle input with debouncing
+        searchInput.addEventListener('input', (e) => {
             clearTimeout(searchTimeout);
             searchTimeout = setTimeout(() => {
+                currentFilters.search = e.target.value.toLowerCase();
                 applyAllFilters();
             }, 300);
         });
         
-        // Add focus/blur effects
-        searchInput.addEventListener('focus', function() {
-            this.style.borderColor = '#3498db';
+        // Handle clear button
+        if (searchClearBtn) {
+            searchClearBtn.addEventListener('click', () => {
+                searchInput.value = '';
+                currentFilters.search = '';
+                applyAllFilters();
+                searchInput.focus();
+            });
+        }
+        
+        // Handle Enter key
+        searchInput.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                currentFilters.search = e.target.value.toLowerCase();
+                applyAllFilters();
+            }
         });
         
-        searchInput.addEventListener('blur', function() {
-            if (!this.value) {
-                this.style.borderColor = '#e0e0e0';
-            }
+        // Handle focus/blur effects
+        searchInput.addEventListener('focus', () => {
+            const wrapper = searchInput.closest('.search-input-wrapper');
+            wrapper?.classList.add('focused');
+        });
+        
+        searchInput.addEventListener('blur', () => {
+            const wrapper = searchInput.closest('.search-input-wrapper');
+            wrapper?.classList.remove('focused');
         });
     }
     
