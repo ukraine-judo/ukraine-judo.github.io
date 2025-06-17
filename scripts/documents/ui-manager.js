@@ -406,40 +406,7 @@ class DocumentsUIManager {
         }
         
         const styles = document.createElement('style');
-        styles.id = 'documents-ui-styles';
-        styles.textContent = `
-            .empty-state, .error-state, .loading-state {
-                text-align: center;
-                padding: 3rem 2rem;
-                color: #666;
-            }
-            
-            .empty-state svg, .error-state svg {
-                width: 48px;
-                height: 48px;
-                margin-bottom: 1rem;
-                fill: #ccc;
-            }
-            
-            .loading-spinner {
-                width: 40px;
-                height: 40px;
-                border: 4px solid #f3f3f3;
-                border-top: 4px solid var(--primary-color);
-                border-radius: 50%;
-                animation: spin 1s linear infinite;
-                margin: 0 auto 1rem;
-            }
-            
-            @keyframes spin {
-                0% { transform: rotate(0deg); }
-                100% { transform: rotate(360deg); }
-            }
-            
-            .document-item.hidden {
-                display: none !important;
-            }
-        `;
+
         
         document.head.appendChild(styles);
     }

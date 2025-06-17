@@ -270,6 +270,47 @@ img {
     margin: 0 auto;
 }
 
+/* Mobile container optimizations */
+@media (max-width: 768px) {
+    .container {
+        padding: 0 1rem;
+    }
+    
+    .container-fluid {
+        padding: 0 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 0 0.75rem;
+    }
+    
+    .container-fluid {
+        padding: 0 0.75rem;
+    }
+}
+
+@media (max-width: 375px) {
+    .container {
+        padding: 0 0.5rem;
+    }
+    
+    .container-fluid {
+        padding: 0 0.5rem;
+    }
+}
+
+@media (max-width: 320px) {
+    .container {
+        padding: 0 0.25rem;
+    }
+    
+    .container-fluid {
+        padding: 0 0.25rem;
+    }
+}
+
 /* iPhone XR specific optimizations */
 @media (max-width: 414px) and (min-width: 375px) {
     .page-header {

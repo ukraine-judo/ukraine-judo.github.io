@@ -304,7 +304,7 @@ class DocumentsStatsManager {
             }
             
             .stats-highlight {
-                color: var(--primary-color);
+                color: white;
                 font-weight: 600;
             }
             
