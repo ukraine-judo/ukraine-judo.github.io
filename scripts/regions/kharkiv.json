@@ -1,0 +1,25 @@
+{
+  "kharkiv": {
+    "id": "kharkiv",
+    "name": "Харківська область",
+    "nameEn": "Kharkiv Oblast",
+    "capital": "Харків",
+    "zone": "east",
+    "clubs": 28,
+    "athletes": 892,
+    "president": "Петренко Андрій Миколайович",
+    "phone": "+38 (057) 234-56-78",
+    "email": "kharkiv@judo.org.ua",
+    "website": "kharkiv-judo.org.ua",
+    "address": "м. Харків, пр. Науки, 14",
+    "established": 1989,
+    "description": "Харківська обласна федерація дзюдо - провідний центр розвитку дзюдо у східній Україні.",
+    "achievements": [
+      "Чемпіони Європи",
+      "Призери Олімпійських ігор",
+      "Провідний тренерський склад",
+      "Міжнародні турніри"
+    ],
+    "available": true
+  }
+}

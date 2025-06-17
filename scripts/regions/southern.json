@@ -1,0 +1,69 @@
+{
+  "odessa": {
+    "id": "odessa",
+    "name": "Одеська область",
+    "nameEn": "Odessa Oblast",
+    "capital": "Одеса",
+    "zone": "south",
+    "clubs": 26,
+    "athletes": 789,
+    "president": "Морозов Дмитро Олександрович",
+    "phone": "+38 (048) 234-56-78",
+    "email": "odessa@judo.org.ua",
+    "website": "odessa-judo.org.ua",
+    "address": "м. Одеса, вул. Дерибасівська, 12",
+    "established": 1989,
+    "description": "Одеська обласна федерація дзюдо - провідний центр морського міста та південного регіону.",
+    "achievements": [
+      "Олімпійські призери",
+      "Чемпіони світу",
+      "Міжнародні турніри"
+    ],
+    "available": true
+  },
+  "mykolaiv": {
+    "id": "mykolaiv",
+    "name": "Миколаївська область",
+    "nameEn": "Mykolaiv Oblast",
+    "capital": "Миколаїв",
+    "zone": "south",
+    "clubs": 14,
+    "athletes": 423,
+    "president": "Коренев Олексій Петрович",
+    "phone": "+38 (0512) 5-67-89",
+    "email": "mykolaiv@judo.org.ua",
+    "website": "mykolaiv-judo.org.ua",
+    "address": "м. Миколаїв, вул. Адміральська, 8",
+    "established": 1992,
+    "description": "Миколаївська федерація розвиває дзюдо в суднобудівному регіоні України.",
+    "achievements": [
+      "Морські традиції",
+      "Молодіжний спорт",
+      "Регіональні змагання"
+    ],
+    "available": true
+  },
+  "kherson": {
+    "id": "kherson",
+    "name": "Херсонська область",
+    "nameEn": "Kherson Oblast",
+    "capital": "Херсон",
+    "zone": "south",
+    "clubs": 9,
+    "athletes": 198,
+    "president": "Іванченко Світлана Василівна",
+    "phone": "+38 (0552) 4-56-78",
+    "email": "kherson@judo.org.ua",
+    "website": "kherson-judo.org.ua",
+    "address": "м. Херсон, вул. Ушакова, 15",
+    "established": 1994,
+    "description": "Херсонська федерація продовжує розвиток дзюдо в складних умовах прифронтової зони.",
+    "achievements": [
+      "Стійкість та мужність",
+      "Збереження традицій",
+      "Підтримка спортсменів"
+    ],
+    "available": true,
+    "wartime": true
+  }
+} 

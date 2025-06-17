@@ -1,0 +1,90 @@
+{
+  "lviv": {
+    "id": "lviv",
+    "name": "Львівська область",
+    "nameEn": "Lviv Oblast",
+    "capital": "Львів",
+    "zone": "west",
+    "clubs": 24,
+    "athletes": 687,
+    "president": "Стефанишин Ярослав Іванович",
+    "phone": "+38 (032) 245-67-89",
+    "email": "lviv@judo.org.ua",
+    "website": "lviv-judo.org.ua",
+    "address": "м. Львів, вул. Городоцька, 17",
+    "established": 1990,
+    "description": "Львівська обласна федерація дзюдо - провідна організація західного регіону.",
+    "achievements": [
+      "Чемпіони України",
+      "Європейські медалісти",
+      "Розвинена тренерська школа"
+    ],
+    "available": true
+  },
+  "volun": {
+    "id": "volun",
+    "name": "Волинська область",
+    "nameEn": "Volyn Oblast",
+    "capital": "Луцьк",
+    "zone": "west",
+    "clubs": 18,
+    "athletes": 523,
+    "president": "Петренко Ольга Василівна",
+    "phone": "+38 (03322) 5-67-89",
+    "email": "volyn@judo.org.ua",
+    "website": "volyn-judo.org.ua",
+    "address": "м. Луцьк, вул. Олімпійська, 8",
+    "established": 1992,
+    "description": "Волинська федерація дзюдо - одна з найактивніших в західному регіоні України.",
+    "achievements": [
+      "Чемпіони України",
+      "3 учасники Олімпійських ігор",
+      "Розвинена система підготовки кадрів"
+    ],
+    "available": true
+  },
+  "rivne": {
+    "id": "rivne",
+    "name": "Рівненська область",
+    "nameEn": "Rivne Oblast",
+    "capital": "Рівне",
+    "zone": "west",
+    "clubs": 15,
+    "athletes": 456,
+    "president": "Сидоренко Микола Петрович",
+    "phone": "+38 (0362) 4-56-78",
+    "email": "rivne@judo.org.ua",
+    "website": "rivne-judo.org.ua",
+    "address": "м. Рівне, вул. Героїв Майдану, 22",
+    "established": 1994,
+    "description": "Рівненська обласна федерація дзюдо забезпечує розвиток спорту в регіоні.",
+    "achievements": [
+      "Призери чемпіонатів Європи",
+      "Молодіжні таланти",
+      "Міжнародна співпраця"
+    ],
+    "available": true
+  },
+  "ternopil": {
+    "id": "ternopil",
+    "name": "Тернопільська область",
+    "nameEn": "Ternopil Oblast",
+    "capital": "Тернопіль",
+    "zone": "west",
+    "clubs": 12,
+    "athletes": 367,
+    "president": "Мазур Роман Богданович",
+    "phone": "+38 (0352) 4-56-78",
+    "email": "ternopil@judo.org.ua",
+    "website": "ternopil-judo.org.ua",
+    "address": "м. Тернопіль, вул. Руська, 14",
+    "established": 1993,
+    "description": "Тернопільська федерація розвиває дзюдо та спортивні традиції області.",
+    "achievements": [
+      "Молодіжні чемпіони",
+      "Регіональні турніри",
+      "Спортивне виховання"
+    ],
+    "available": true
+  }
+} 

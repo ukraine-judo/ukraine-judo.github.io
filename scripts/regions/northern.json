@@ -1,0 +1,68 @@
+{
+  "chernigov": {
+    "id": "chernigov",
+    "name": "Чернігівська область",
+    "nameEn": "Chernihiv Oblast",
+    "capital": "Чернігів",
+    "zone": "north",
+    "clubs": 12,
+    "athletes": 345,
+    "president": "Іванов Петро Миколайович",
+    "phone": "+38 (04622) 3-45-67",
+    "email": "chernigiv@judo.org.ua",
+    "website": "chernigiv-judo.org.ua",
+    "address": "м. Чернігів, вул. Спортивна, 15",
+    "established": 1995,
+    "description": "Чернігівська обласна федерація дзюдо активно розвиває дзюдо в північних регіонах України.",
+    "achievements": [
+      "5 майстрів спорту міжнародного класу",
+      "Переможці молодіжних змагань",
+      "Розвиток дитячого дзюдо"
+    ],
+    "available": true
+  },
+  "zhytomir": {
+    "id": "zhytomir",
+    "name": "Житомирська область",
+    "nameEn": "Zhytomyr Oblast",
+    "capital": "Житомир",
+    "zone": "north",
+    "clubs": 14,
+    "athletes": 398,
+    "president": "Коваленко Андрій Іванович",
+    "phone": "+38 (0412) 3-78-90",
+    "email": "zhytomyr@judo.org.ua",
+    "website": "zhytomyr-judo.org.ua",
+    "address": "м. Житомир, вул. Космонавтів, 11",
+    "established": 1993,
+    "description": "Житомирська федерація розвиває дзюдо та виховує майбутніх чемпіонів.",
+    "achievements": [
+      "Майстри спорту України",
+      "Юнацькі чемпіони",
+      "Спортивні школи"
+    ],
+    "available": true
+  },
+  "sumy": {
+    "id": "sumy",
+    "name": "Сумська область",
+    "nameEn": "Sumy Oblast",
+    "capital": "Суми",
+    "zone": "north",
+    "clubs": 11,
+    "athletes": 321,
+    "president": "Лисенко Сергій Миколайович",
+    "phone": "+38 (0542) 8-90-12",
+    "email": "sumy@judo.org.ua",
+    "website": "sumy-judo.org.ua",
+    "address": "м. Суми, вул. Покровська, 25",
+    "established": 1995,
+    "description": "Сумська федерація забезпечує розвиток дзюдо в північно-східному регіоні.",
+    "achievements": [
+      "Регіональні лідери",
+      "Дитячий спорт",
+      "Тренерська школа"
+    ],
+    "available": true
+  }
+} 

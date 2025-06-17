@@ -1,0 +1,90 @@
+{
+  "cherkassy": {
+    "id": "cherkassy",
+    "name": "Черкаська область",
+    "nameEn": "Cherkasy Oblast",
+    "capital": "Черкаси",
+    "zone": "central",
+    "clubs": 16,
+    "athletes": 467,
+    "president": "Гриценко Тетяна Миколаївна",
+    "phone": "+38 (0472) 5-67-89",
+    "email": "cherkasy@judo.org.ua",
+    "website": "cherkasy-judo.org.ua",
+    "address": "м. Черкаси, вул. Сміляна, 28",
+    "established": 1992,
+    "description": "Черкаська федерація активно розвиває дзюдо в центральному регіоні.",
+    "achievements": [
+      "Призери України",
+      "Молодіжний спорт",
+      "Регіональні турніри"
+    ],
+    "available": true
+  },
+  "vinnitsya": {
+    "id": "vinnitsya",
+    "name": "Вінницька область",
+    "nameEn": "Vinnytsia Oblast",
+    "capital": "Вінниця",
+    "zone": "central",
+    "clubs": 19,
+    "athletes": 578,
+    "president": "Ткаченко Олексій Вікторович",
+    "phone": "+38 (0432) 6-78-90",
+    "email": "vinnytsia@judo.org.ua",
+    "website": "vinnytsia-judo.org.ua",
+    "address": "м. Вінниця, вул. Соборна, 33",
+    "established": 1991,
+    "description": "Вінницька федерація забезпечує високий рівень підготовки спортсменів.",
+    "achievements": [
+      "Чемпіони України",
+      "Міжнародні успіхи",
+      "Розвиток інфраструктури"
+    ],
+    "available": true
+  },
+  "kirovograd": {
+    "id": "kirovograd",
+    "name": "Кіровоградська область",
+    "nameEn": "Kirovohrad Oblast",
+    "capital": "Кропивницький",
+    "zone": "central",
+    "clubs": 13,
+    "athletes": 389,
+    "president": "Шевченко Ігор Олександрович",
+    "phone": "+38 (0522) 4-56-78",
+    "email": "kirovohrad@judo.org.ua",
+    "website": "kirovohrd-judo.org.ua",
+    "address": "м. Кропивницький, вул. Велика Перспективна, 19",
+    "established": 1994,
+    "description": "Кіровоградська федерація розвиває дзюдо в центральній Україні.",
+    "achievements": [
+      "Талановита молодь",
+      "Регіональні чемпіонати",
+      "Підготовка кадрів"
+    ],
+    "available": true
+  },
+  "poltava": {
+    "id": "poltava",
+    "name": "Полтавська область",
+    "nameEn": "Poltava Oblast",
+    "capital": "Полтава",
+    "zone": "central",
+    "clubs": 17,
+    "athletes": 498,
+    "president": "Кравченко Наталія Петрівна",
+    "phone": "+38 (0532) 7-89-01",
+    "email": "poltava@judo.org.ua",
+    "website": "poltava-judo.org.ua",
+    "address": "м. Полтава, вул. Європейська, 12",
+    "established": 1993,
+    "description": "Полтавська федерація активно працює над розвитком дзюдо в регіоні.",
+    "achievements": [
+      "Успішні спортсмени",
+      "Молодіжні програми",
+      "Спортивні досягнення"
+    ],
+    "available": true
+  }
+} 
