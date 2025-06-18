@@ -17,7 +17,128 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-
+    <style>
+        /* Стили для плашки неофициального сайта */
+        .unofficial-banner {
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a52 100%);
+            color: white;
+            padding: 12px 0;
+            text-align: center;
+            position: relative;
+            box-shadow: 0 2px 10px rgba(255, 107, 107, 0.3);
+            z-index: 1000;
+            animation: slideDown 0.5s ease-out;
+        }
+        
+        @keyframes slideDown {
+            from {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+        
+        .unofficial-banner-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        
+        .unofficial-banner-icon {
+            font-size: 18px;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+        
+        .unofficial-banner-text {
+            color: white;
+            font: var(--font-family);
+            font-size: 14px;
+            font-weight: 500;
+            margin: 0;
+            line-height: 1.4;
+        }
+        
+        .unofficial-banner-close {
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: white;
+            font-size: 20px;
+            cursor: pointer;
+            padding: 5px;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .unofficial-banner-close:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-50%) rotate(90deg);
+        }
+        
+        /* Адаптивность */
+        @media (max-width: 768px) {
+            .unofficial-banner {
+                padding: 10px 0;
+            }
+            
+            .unofficial-banner-content {
+                padding: 0 15px;
+                gap: 10px;
+            }
+            
+            .unofficial-banner-text {
+                font-size: 13px;
+                text-align: center;
+            }
+            
+            .unofficial-banner-close {
+                right: 15px;
+                font-size: 18px;
+                width: 28px;
+                height: 28px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .unofficial-banner-content {
+                flex-direction: column;
+                gap: 5px;
+            }
+            
+            .unofficial-banner-text {
+                font-size: 12px;
+            }
+        }
+        body {
+            padding-top: 0;
+        }
+        
+        .header {
+            position: relative;
+            z-index: 999;
+        }
+    </style>
 </head>
 <body>
     <!-- Плашка неофициального сайта -->
