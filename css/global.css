@@ -190,6 +190,14 @@
                 font-size: 12px;
             }
         }
+        body {
+            padding-top: 0;
+        }
+        
+        .header {
+            position: relative;
+            z-index: 999;
+        }
         
 
 html {
