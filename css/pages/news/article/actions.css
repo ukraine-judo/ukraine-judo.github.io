@@ -1,0 +1,572 @@
+/* Article Actions & Tags */
+
+/* Article Tags */
+.article-tags {
+    padding: 1.5rem 2.5rem;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.article-tags .tag {
+    display: inline-block;
+    background: rgba(26, 63, 103, 0.08);
+    color: var(--primary-color);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    margin-right: 0.75rem;
+    margin-bottom: 0.75rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(26, 63, 103, 0.12);
+    position: relative;
+    overflow: hidden;
+}
+
+.article-tags .tag::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+    transition: left 0.6s ease;
+}
+
+.article-tags .tag:hover {
+    background: var(--primary-color);
+    color: white;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(26, 63, 103, 0.2);
+}
+
+.article-tags .tag:hover::before {
+    left: 100%;
+}
+
+/* Article Actions */
+.article-actions {
+    padding: 2rem 2.5rem;
+    background: #f8f9fa;
+    border-top: 1px solid #e9ecef;
+    position: relative;
+}
+
+.article-actions::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 2.5rem;
+    right: 2.5rem;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(26, 63, 103, 0.1), transparent);
+}
+
+/* Share Buttons */
+.share-buttons {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.share-label {
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-right: 0.5rem;
+    font-size: 0.95rem;
+}
+
+.share-btn {
+    background: white;
+    border: 2px solid #e9ecef;
+    color: #666;
+    padding: 0.6rem 1.2rem;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.875rem;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.share-btn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    transform: translate(-50%, -50%);
+    z-index: 0;
+}
+
+.share-btn span {
+    position: relative;
+    z-index: 1;
+}
+
+.share-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.share-btn:hover::before {
+    width: 100px;
+    height: 100px;
+}
+
+.facebook-btn:hover {
+    border-color: #4267B2;
+    color: white;
+}
+
+.facebook-btn:hover::before {
+    background: #4267B2;
+}
+
+.twitter-btn:hover {
+    border-color: #1DA1F2;
+    color: white;
+}
+
+.twitter-btn:hover::before {
+    background: #1DA1F2;
+}
+
+.telegram-btn:hover {
+    border-color: #0088cc;
+    color: white;
+}
+
+.telegram-btn:hover::before {
+    background: #0088cc;
+}
+
+.copy-btn:hover {
+    border-color: #28a745;
+    color: white;
+}
+
+.copy-btn:hover::before {
+    background: #28a745;
+}
+
+/* Copy success animation */
+.copy-btn.copied {
+    background: #28a745;
+    border-color: #28a745;
+    color: white;
+    animation: copySuccess 0.3s ease;
+}
+
+@keyframes copySuccess {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+.copy-btn.copied::after {
+    content: '✓ Скопійовано!';
+    position: absolute;
+    top: -35px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #28a745;
+    color: white;
+    padding: 0.25rem 0.75rem;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    white-space: nowrap;
+    opacity: 1;
+    animation: fadeOut 2s ease forwards;
+}
+
+@keyframes fadeOut {
+    0% { opacity: 1; transform: translateX(-50%) translateY(0); }
+    100% { opacity: 0; transform: translateX(-50%) translateY(-10px); }
+}
+
+/* Print & Save Actions */
+.additional-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #e9ecef;
+}
+
+.action-btn {
+    background: transparent;
+    border: none;
+    color: var(--primary-color);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-weight: 500;
+    font-size: 0.875rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.action-btn:hover {
+    background: rgba(26, 63, 103, 0.08);
+    transform: translateY(-1px);
+}
+
+.action-btn svg {
+    width: 16px;
+    height: 16px;
+    stroke: currentColor;
+}
+
+/* Like/Reaction buttons */
+.reaction-buttons {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-top: 1rem;
+}
+
+.reaction-btn {
+    background: white;
+    border: 2px solid #e9ecef;
+    border-radius: 25px;
+    padding: 0.5rem 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 0.875rem;
+    color: #666;
+}
+
+.reaction-btn:hover {
+    border-color: rgba(26, 63, 103, 0.3);
+    transform: scale(1.05);
+}
+
+.reaction-btn.active {
+    background: var(--primary-color);
+    border-color: var(--primary-color);
+    color: white;
+}
+
+.reaction-emoji {
+    font-size: 1.2rem;
+    transition: transform 0.3s ease;
+}
+
+.reaction-btn:hover .reaction-emoji {
+    transform: scale(1.2);
+}
+
+.reaction-count {
+    font-weight: 600;
+    min-width: 20px;
+    text-align: center;
+}
+
+/* Article Rating */
+.article-rating {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 1.5rem;
+    padding: 1rem;
+    background: white;
+    border-radius: 12px;
+    border: 1px solid #e9ecef;
+}
+
+.rating-label {
+    font-weight: 600;
+    color: var(--primary-color);
+    font-size: 0.95rem;
+}
+
+.rating-stars {
+    display: flex;
+    gap: 0.25rem;
+}
+
+.rating-star {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: #ddd;
+}
+
+.rating-star:hover,
+.rating-star.active {
+    color: #ffd700;
+    transform: scale(1.1);
+}
+
+.rating-star svg {
+    width: 100%;
+    height: 100%;
+    fill: currentColor;
+}
+
+.rating-average {
+    margin-left: 1rem;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+    .article-actions {
+        padding: 1.5rem;
+    }
+    
+    .share-buttons {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.75rem;
+    }
+    
+    .share-buttons .share-label {
+        margin-bottom: 0.5rem;
+    }
+    
+    .share-btn {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .additional-actions {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.75rem;
+    }
+    
+    .reaction-buttons {
+        justify-content: space-between;
+        width: 100%;
+    }
+    
+    .article-rating {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.75rem;
+    }
+}
+
+/* FHD Screen Optimization (1920px+) */
+@media (min-width: 1920px) {
+    .article-tags {
+        padding: 2rem 3rem;
+    }
+    
+    .article-tags .tag {
+        padding: 0.75rem 1.5rem;
+        font-size: 1rem;
+        margin-right: 1rem;
+        margin-bottom: 1rem;
+        border-radius: 25px;
+    }
+    
+    .article-actions {
+        padding: 3rem;
+        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        backdrop-filter: blur(10px);
+    }
+    
+    .share-label {
+        font-size: 1.1rem;
+        margin-right: 1rem;
+    }
+    
+    .share-buttons {
+        gap: 1.5rem;
+    }
+    
+    .share-btn {
+        padding: 0.875rem 1.75rem;
+        font-size: 1rem;
+        border-radius: 30px;
+        border-width: 3px;
+    }
+    
+    .action-btn {
+        padding: 0.75rem 1.5rem;
+        font-size: 1rem;
+        border-radius: 25px;
+    }
+    
+    .action-btn svg {
+        width: 20px;
+        height: 20px;
+    }
+    
+    .additional-actions {
+        gap: 1.5rem;
+        margin-top: 2rem;
+        padding-top: 2rem;
+    }
+    
+    .reaction-buttons {
+        gap: 1.25rem;
+        margin-top: 1.5rem;
+    }
+    
+    .reaction-btn {
+        padding: 0.75rem 1.5rem;
+        font-size: 1rem;
+        border-radius: 30px;
+        border-width: 3px;
+    }
+    
+    .reaction-emoji {
+        font-size: 1.5rem;
+    }
+    
+    .article-rating {
+        padding: 1.5rem;
+        border-radius: 16px;
+        gap: 1.5rem;
+        margin-top: 2rem;
+        border-width: 2px;
+    }
+    
+    .rating-label {
+        font-size: 1.1rem;
+    }
+    
+    .rating-stars {
+        gap: 0.5rem;
+    }
+    
+    .rating-star {
+        width: 32px;
+        height: 32px;
+    }
+    
+    .rating-average {
+        font-size: 1rem;
+        margin-left: 1.5rem;
+    }
+}
+
+/* QHD Screen Optimization (2560px+) */
+@media (min-width: 2560px) {
+    .article-tags {
+        padding: 2.5rem 4.5rem;
+    }
+    
+    .article-tags .tag {
+        padding: 0.875rem 1.75rem;
+        font-size: 1.1rem;
+        margin-right: 1.25rem;
+        margin-bottom: 1.25rem;
+        border-radius: 25px;
+        border-width: 2px;
+    }
+    
+    .article-actions {
+        padding: 3.5rem 4.5rem;
+    }
+    
+    .share-label {
+        font-size: 1.2rem;
+        margin-right: 1.25rem;
+    }
+    
+    .share-buttons {
+        gap: 1.75rem;
+    }
+    
+    .share-btn {
+        padding: 1.125rem 2.25rem;
+        font-size: 1.1rem;
+        border-radius: 30px;
+        border-width: 3px;
+        box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
+    }
+    
+    .share-btn:hover {
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+        transform: translateY(-2px);
+    }
+    
+    .action-btn {
+        padding: 0.875rem 1.75rem;
+        font-size: 1.1rem;
+        border-radius: 25px;
+    }
+    
+    .action-btn svg {
+        width: 22px;
+        height: 22px;
+    }
+    
+    .additional-actions {
+        gap: 1.75rem;
+        margin-top: 2.5rem;
+        padding-top: 2.5rem;
+    }
+    
+    .reaction-buttons {
+        gap: 1.75rem;
+        margin-top: 1.75rem;
+    }
+    
+    .reaction-btn {
+        padding: 0.875rem 1.75rem;
+        font-size: 1.1rem;
+        border-radius: 30px;
+        border-width: 3px;
+    }
+    
+    .reaction-emoji {
+        font-size: 1.6rem;
+    }
+    
+    .article-rating {
+        padding: 1.75rem;
+        border-radius: 16px;
+        gap: 1.75rem;
+        margin-top: 2.5rem;
+        border-width: 2px;
+        box-shadow: 0 8px 25px rgba(26, 63, 103, 0.08);
+    }
+    
+    .rating-label {
+        font-size: 1.2rem;
+    }
+    
+    .rating-stars {
+        gap: 0.625rem;
+    }
+    
+    .rating-star {
+        width: 36px;
+        height: 36px;
+    }
+    
+    .rating-average {
+        font-size: 1.1rem;
+        margin-left: 1.75rem;
+    }
+    
+    .copy-btn.copied::after {
+        font-size: 0.95rem;
+        padding: 0.4rem 0.875rem;
+        top: -40px;
+    }
+} 

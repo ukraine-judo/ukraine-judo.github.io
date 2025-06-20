@@ -1,0 +1,243 @@
+/* News Page Hero Section */
+
+.news-hero {
+    padding: 50px 0px 40px 0px;
+    background: linear-gradient(180deg, #ffffff 0%, #f8f9fa 100%);
+    text-align: center;
+    position: relative;
+    margin-top: 70px;
+    overflow: hidden;
+}
+
+.news-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 50% 50%, rgba(26, 63, 103, 0.03) 0%, transparent 70%);
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(26, 63, 103, 0.08);
+    color: var(--primary-color, #1a3f67);
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 2rem;
+    border: 1px solid rgba(26, 63, 103, 0.12);
+}
+
+.hero-badge svg {
+    width: 16px;
+    height: 16px;
+    stroke: currentColor;
+}
+
+.hero-title {
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    font-weight: 700;
+    color: var(--primary-color, #1a3f67);
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+}
+
+.hero-description {
+    font-size: 1.125rem;
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 3rem;
+    max-width: 480px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.hero-stats {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    padding: 1.5rem 2rem;
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(26, 63, 103, 0.08);
+    border: 1px solid rgba(26, 63, 103, 0.06);
+    max-width: 320px;
+    margin: 0 auto;
+}
+
+.stat-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+.stat-number {
+    font-size: 1.75rem;
+    font-weight: 800;
+    color: var(--primary-color, #1a3f67);
+    line-height: 1;
+}
+
+.stat-label {
+    font-size: 0.875rem;
+    color: #666;
+    font-weight: 500;
+    text-transform: lowercase;
+}
+
+.stat-divider {
+    width: 1px;
+    height: 3rem;
+    background: rgba(26, 63, 103, 0.12);
+}
+
+/* Loading states */
+.hero-stats .loading {
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+/* FHD Screen Optimization (1920px+) */
+@media (min-width: 1920px) {
+    .news-hero {
+        padding: 80px 0px 60px 0px;
+        margin-top: 80px;
+    }
+
+    .hero-content {
+        max-width: 800px;
+    }
+
+    .hero-badge {
+        padding: 0.75rem 1.5rem;
+        font-size: 1rem;
+        margin-bottom: 3rem;
+        border-radius: 60px;
+    }
+
+    .hero-badge svg {
+        width: 20px;
+        height: 20px;
+    }
+
+    .hero-title {
+        font-size: clamp(3.5rem, 6vw, 4.5rem);
+        margin-bottom: 2rem;
+        letter-spacing: -0.03em;
+    }
+
+    .hero-description {
+        font-size: 1.25rem;
+        line-height: 1.7;
+        margin-bottom: 4rem;
+        max-width: 600px;
+    }
+
+    .hero-stats {
+        gap: 3rem;
+        padding: 2rem 3rem;
+        border-radius: 20px;
+        max-width: 400px;
+    }
+
+    .stat-item {
+        gap: 0.5rem;
+    }
+
+    .stat-number {
+        font-size: 2.25rem;
+    }
+
+    .stat-label {
+        font-size: 1rem;
+    }
+
+    .stat-divider {
+        height: 4rem;
+    }
+}
+
+/* QHD Screen Optimization (2560px+) */
+@media (min-width: 2560px) {
+    .news-hero {
+        padding: 100px 0px 80px 0px;
+        margin-top: 100px;
+    }
+
+    .hero-content {
+        max-width: 1000px;
+    }
+
+    .hero-badge {
+        padding: 1rem 2rem;
+        font-size: 1.125rem;
+        margin-bottom: 4rem;
+        border-radius: 70px;
+        border-width: 2px;
+    }
+
+    .hero-badge svg {
+        width: 24px;
+        height: 24px;
+    }
+
+    .hero-title {
+        font-size: clamp(4rem, 7vw, 5.5rem);
+        margin-bottom: 2.5rem;
+        letter-spacing: -0.04em;
+    }
+
+    .hero-description {
+        font-size: 1.5rem;
+        line-height: 1.8;
+        margin-bottom: 5rem;
+        max-width: 750px;
+    }
+
+    .hero-stats {
+        gap: 4rem;
+        padding: 2.5rem 4rem;
+        border-radius: 24px;
+        max-width: 500px;
+        border-width: 2px;
+    }
+
+    .stat-item {
+        gap: 0.75rem;
+    }
+
+    .stat-number {
+        font-size: 2.75rem;
+    }
+
+    .stat-label {
+        font-size: 1.125rem;
+    }
+
+    .stat-divider {
+        height: 5rem;
+        width: 2px;
+    }
+}

@@ -1175,4 +1175,409 @@
     }
 }
 
+/* FHD Screen Optimization (1920px+) */
+@media (min-width: 1920px) {
+    .nav {
+        padding: 1.5rem 3rem;
+        max-width: 1600px;
+    }
+    
+    .nav-brand {
+        gap: 1rem;
+    }
+    
+    .logo {
+        width: 56px;
+        height: 56px;
+        border-radius: 14px;
+        filter: drop-shadow(0 3px 12px rgba(26, 63, 103, 0.25));
+    }
+    
+    .logo:hover {
+        filter: drop-shadow(0 5px 16px rgba(26, 63, 103, 0.35));
+    }
+    
+    .brand-text strong {
+        font-size: 1.75rem;
+    }
+    
+    .brand-subtitle-full,
+    .brand-subtitle-short {
+        font-size: 1rem;
+    }
+    
+    .nav-menu {
+        gap: 1.5rem;
+    }
+    
+    .nav-menu a {
+        font-size: 1.1rem;
+        padding: 1rem 1.5rem;
+        border-radius: 12px;
+    }
+    
+    .nav-menu a:hover,
+    .nav-menu a.active {
+        transform: translateY(-3px);
+        box-shadow: 0 12px 30px rgba(26, 63, 103, 0.3);
+    }
+    
+    .submenu {
+        padding: 2rem;
+        min-width: 320px;
+        max-width: 380px;
+        border-radius: 20px;
+        box-shadow: 0 12px 50px rgba(26, 63, 103, 0.18);
+        backdrop-filter: blur(15px);
+    }
+    
+    .submenu-title {
+        font-size: 1.2rem;
+        margin-bottom: 1.5rem;
+        padding-bottom: 1rem;
+    }
+    
+    .submenu-title::after {
+        width: 40px;
+        height: 3px;
+    }
+    
+    .submenu-links {
+        gap: 0.75rem;
+    }
+    
+    .submenu-link {
+        padding: 1rem;
+        border-radius: 16px;
+        gap: 1rem;
+    }
+    
+    .submenu-link-icon {
+        width: 48px;
+        height: 48px;
+        border-radius: 12px;
+        font-size: 1.4rem;
+    }
+    
+    .submenu-link-title {
+        font-size: 1rem;
+    }
+    
+    .submenu-link-desc {
+        font-size: 0.9rem;
+    }
+    
+    .nav-search input {
+        padding: 0.75rem 1rem 0.75rem 3rem;
+        font-size: 1rem;
+        width: 250px;
+        border-radius: 25px;
+        border-width: 2px;
+    }
+    
+    .nav-search input:focus {
+        width: 300px;
+        box-shadow: 0 6px 20px rgba(26, 63, 103, 0.15);
+    }
+    
+    .nav-search::before {
+        left: 1rem;
+        font-size: 1rem;
+    }
+    
+    .submenu-arrow {
+        font-size: 0.8rem;
+    }
+}
+
+/* QHD Screen Optimization (2560px+) */
+@media (min-width: 2560px) {
+    .nav {
+        padding: 2rem 1.5rem;
+        max-width: 2400px;
+    }
+    
+    .nav-brand {
+        gap: 1.25rem;
+    }
+    
+    .logo {
+        width: 64px;
+        height: 64px;
+        border-radius: 16px;
+        filter: drop-shadow(0 4px 15px rgba(26, 63, 103, 0.3));
+    }
+    
+    .logo:hover {
+        filter: drop-shadow(0 6px 20px rgba(26, 63, 103, 0.4));
+    }
+    
+    .brand-text strong {
+        font-size: 2rem;
+    }
+    
+    .brand-subtitle-full,
+    .brand-subtitle-short {
+        font-size: 1.1rem;
+    }
+    
+    .nav-menu {
+        gap: 2rem;
+    }
+    
+    .nav-menu a {
+        font-size: 1.2rem;
+        padding: 1.25rem 2rem;
+        border-radius: 14px;
+    }
+    
+    .nav-menu a:hover,
+    .nav-menu a.active {
+        transform: translateY(-3px);
+        box-shadow: 0 15px 35px rgba(26, 63, 103, 0.35);
+    }
+    
+    .submenu {
+        padding: 2.5rem;
+        min-width: 380px;
+        max-width: 450px;
+        border-radius: 24px;
+        box-shadow: 0 15px 60px rgba(26, 63, 103, 0.2);
+        backdrop-filter: blur(20px);
+    }
+    
+    .submenu-title {
+        font-size: 1.4rem;
+        margin-bottom: 2rem;
+        padding-bottom: 1.25rem;
+    }
+    
+    .submenu-title::after {
+        width: 50px;
+        height: 4px;
+    }
+    
+    .submenu-links {
+        gap: 1rem;
+    }
+    
+    .submenu-link {
+        padding: 1.25rem;
+        border-radius: 18px;
+        gap: 1.25rem;
+    }
+    
+    .submenu-link-icon {
+        width: 56px;
+        height: 56px;
+        border-radius: 14px;
+        font-size: 1.6rem;
+    }
+    
+    .submenu-link-title {
+        font-size: 1.1rem;
+    }
+    
+    .submenu-link-desc {
+        font-size: 1rem;
+    }
+    
+    .nav-search {
+        margin-left: 2rem;
+    }
+    
+    .nav-search input {
+        padding: 1rem 1.25rem 1rem 3.5rem;
+        font-size: 1.1rem;
+        width: 300px;
+        border-radius: 30px;
+        border-width: 3px;
+    }
+    
+    .nav-search input:focus {
+        width: 380px;
+        box-shadow: 0 8px 25px rgba(26, 63, 103, 0.18);
+    }
+    
+    .nav-search::before {
+        left: 1.25rem;
+        font-size: 1.1rem;
+    }
+    
+    .submenu-arrow {
+        font-size: 0.9rem;
+    }
+    
+    .header.scrolled {
+        box-shadow: 0 6px 30px rgba(26, 63, 103, 0.12);
+    }
+}
+
+.header.scrolled {
+    box-shadow: 0 6px 30px rgba(26, 63, 103, 0.12);
+}
+
+/* 4K Screen Optimization (3840px+) */
+@media (min-width: 3840px) {
+    .nav {
+        padding: 3rem 2rem;
+        max-width: 3600px;
+    }
+    
+    .nav-brand {
+        gap: 1.5rem;
+    }
+    
+    .logo {
+        width: 80px;
+        height: 80px;
+        border-radius: 20px;
+        filter: drop-shadow(0 6px 20px rgba(26, 63, 103, 0.35));
+    }
+    
+    .logo:hover {
+        filter: drop-shadow(0 8px 25px rgba(26, 63, 103, 0.45));
+        transform: scale(1.08);
+    }
+    
+    .brand-text strong {
+        font-size: 2.5rem;
+    }
+    
+    .brand-subtitle-full,
+    .brand-subtitle-short {
+        font-size: 1.3rem;
+        letter-spacing: 0.75px;
+    }
+    
+    .nav-menu {
+        gap: 2.5rem;
+    }
+    
+    .nav-menu a {
+        font-size: 1.4rem;
+        padding: 1.5rem 2.5rem;
+        border-radius: 16px;
+        font-weight: 600;
+    }
+    
+    .nav-menu a:hover,
+    .nav-menu a.active {
+        transform: translateY(-4px);
+        box-shadow: 0 20px 45px rgba(26, 63, 103, 0.4);
+    }
+    
+    .submenu {
+        padding: 3rem;
+        min-width: 450px;
+        max-width: 550px;
+        border-radius: 28px;
+        box-shadow: 0 20px 80px rgba(26, 63, 103, 0.25);
+        backdrop-filter: blur(25px);
+        border-width: 2px;
+    }
+    
+    .submenu::before {
+        width: 20px;
+        height: 20px;
+        top: -10px;
+    }
+    
+    .submenu-title {
+        font-size: 1.6rem;
+        margin-bottom: 2.5rem;
+        padding-bottom: 1.5rem;
+        font-weight: 800;
+    }
+    
+    .submenu-title::after {
+        width: 60px;
+        height: 5px;
+    }
+    
+    .submenu-links {
+        gap: 1.25rem;
+    }
+    
+    .submenu-link {
+        padding: 1.5rem;
+        border-radius: 20px;
+        gap: 1.5rem;
+    }
+    
+    .submenu-link:hover {
+        transform: translateX(6px);
+        background: rgba(26, 63, 103, 0.08);
+    }
+    
+    .submenu-link-icon {
+        width: 64px;
+        height: 64px;
+        border-radius: 16px;
+        font-size: 1.8rem;
+    }
+    
+    .submenu-link:hover .submenu-link-icon {
+        transform: scale(1.15);
+    }
+    
+    .submenu-link-title {
+        font-size: 1.25rem;
+        font-weight: 600;
+    }
+    
+    .submenu-link-desc {
+        font-size: 1.1rem;
+        line-height: 1.4;
+    }
+    
+    .nav-search {
+        margin-left: 2.5rem;
+    }
+    
+    .nav-search input {
+        padding: 1.25rem 1.5rem 1.25rem 4rem;
+        font-size: 1.2rem;
+        width: 350px;
+        border-radius: 35px;
+        border-width: 3px;
+        height: 60px;
+    }
+    
+    .nav-search input:focus {
+        width: 450px;
+        box-shadow: 0 10px 35px rgba(26, 63, 103, 0.2);
+        border-width: 4px;
+    }
+    
+    .nav-search::before {
+        left: 1.5rem;
+        font-size: 1.2rem;
+    }
+    
+    .submenu-arrow {
+        font-size: 1rem;
+    }
+    
+    .header {
+        min-height: 100px;
+    }
+    
+    .header.scrolled {
+        box-shadow: 0 8px 40px rgba(26, 63, 103, 0.15);
+        backdrop-filter: blur(20px);
+    }
+    
+    .nav-toggle span {
+        width: 32px;
+        height: 4px;
+        border-radius: 3px;
+    }
+    
+    .nav-toggle {
+        padding: 1rem;
+        border-radius: 12px;
+    }
+}
+
  

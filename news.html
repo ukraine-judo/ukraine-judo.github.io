@@ -8,7 +8,12 @@
     <link rel="stylesheet" href="css/navigation.css">
     <link rel="stylesheet" href="css/components.css">
     <link rel="stylesheet" href="css/footer.css">
-    <link rel="stylesheet" href="css/pages/news.css">
+    <link rel="stylesheet" href="css/pages/news/index/hero.css">
+    <link rel="stylesheet" href="css/pages/news/index/filter.css">
+    <link rel="stylesheet" href="css/pages/news/index/articles.css">
+    <link rel="stylesheet" href="css/pages/news/index/sidebar.css">
+    <link rel="stylesheet" href="css/pages/news/index/layout.css">
+    <link rel="stylesheet" href="css/pages/news/index/responsive.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -19,7 +24,8 @@
                 <span class="brand-text">
                     <strong class="brand-full">Федерація Дзюдо України</strong>
                     <strong class="brand-short">ФДУ</strong>
-                    <small>FJU</small>
+                    <small class="brand-subtitle-full">Federation Judo Ukraine</small>
+                    <small class="brand-subtitle-short">FJU</small>
                 </span>
             </div>
             <ul class="nav-menu">
@@ -132,170 +138,27 @@
                         </div>
                     </div>
                 </div>
-                <div class="news-grid">
-                    <div class="main-articles">
-                        <article class="featured-article" data-category="achievements">
-                            <div class="article-image"></div>
-                            <div class="article-content">
-                                <span class="article-category">Досягнення</span>
-                                <h2 class="article-title">Українські дзюдоїсти здобули медалі на міжнародному турнірі</h2>
-                                <p class="article-excerpt">Збірна команда України з дзюдо показала відмінні результати на престижному міжнародному турнірі, завоювавши три медалі різного достоїнства. Це черговий крок до підготовки до важливих стартів року.</p>
-                                <div class="article-meta">
-                                    <span class="article-date">15 грудня 2024</span>
-                                    <a href="#" class="read-more-btn">Читати далі</a>
-                                </div>
-                            </div>
-                        </article>
-
-                        <article class="regular-article" data-category="competitions">
-                            <span class="article-category">Змагання</span>
-                            <h3 class="article-title">Відкрита першість України серед молоді</h3>
-                            <p class="article-excerpt">У Києві пройшла відкрита першість України з дзюдо серед молоді, в якій взяли участь понад 300 спортсменів з усіх регіонів країни.</p>
-                            <div class="article-meta">
-                                <span class="article-date">12 грудня 2024</span>
-                                <a href="#" class="read-more-btn">Читати далі</a>
-                            </div>
-                        </article>
-
-                        <article class="regular-article" data-category="events">
-                            <span class="article-category">Події</span>
-                            <h3 class="article-title">Семінар з підготовки суддів</h3>
-                            <p class="article-excerpt">Федерація провела важливий семінар з підготовки та підвищення кваліфікації суддів з дзюдо, в якому взяли участь понад 50 арбітрів з усієї України.</p>
-                            <div class="article-meta">
-                                <span class="article-date">10 грудня 2024</span>
-                                <a href="#" class="read-more-btn">Читати далі</a>
-                            </div>
-                        </article>
-
-                        <article class="regular-article" data-category="announcements">
-                            <span class="article-category">Анонси</span>
-                            <h3 class="article-title">Тренувальний збір збірної команди</h3>
-                            <p class="article-excerpt">Запрошуємо спортсменів на тренувальний збір збірної команди України, який відбудеться з 20 по 30 грудня в Києві.</p>
-                            <div class="article-meta">
-                                <span class="article-date">8 грудня 2024</span>
-                                <a href="#" class="read-more-btn">Читати далі</a>
-                            </div>
-                        </article>
-
-                        <article class="regular-article" data-category="achievements">
-                            <span class="article-category">Досягнення</span>
-                            <h3 class="article-title">Новий рекорд української дзюдо</h3>
-                            <p class="article-excerpt">Наш спортсмен встановив новий національний рекорд, ставши наймолодшим чемпіоном в історії української дзюдо в своїй ваговій категорії.</p>
-                            <div class="article-meta">
-                                <span class="article-date">5 грудня 2024</span>
-                                <a href="#" class="read-more-btn">Читати далі</a>
-                            </div>
-                        </article>
-
-                        <article class="regular-article" data-category="competitions">
-                            <span class="article-category">Змагання</span>
-                            <h3 class="article-title">Кубок України з дзюдо 2024</h3>
-                            <p class="article-excerpt">Завершився фінальний етап Кубка України з дзюдо, в якому визначилися переможці в усіх вагових категоріях серед чоловіків та жінок.</p>
-                            <div class="article-meta">
-                                <span class="article-date">3 грудня 2024</span>
-                                <a href="#" class="read-more-btn">Читати далі</a>
-                            </div>
-                        </article>
-                    </div>
-
-                    <aside class="news-sidebar">
-                        <div class="sidebar-widget">
-                            <h3 class="widget-title">Останні новини</h3>
-                            <div class="recent-articles">
-                                <a href="#" class="recent-article">
-                                    <div class="recent-article-image"></div>
-                                    <div class="recent-article-content">
-                                        <h4 class="recent-article-title">Підсумки року українського дзюдо</h4>
-                                        <span class="recent-article-date">18 грудня 2024</span>
-                                    </div>
-                                </a>
-                                <a href="#" class="recent-article">
-                                    <div class="recent-article-image"></div>
-                                    <div class="recent-article-content">
-                                        <h4 class="recent-article-title">Новорічний турнір для дітей</h4>
-                                        <span class="recent-article-date">16 грудня 2024</span>
-                                    </div>
-                                </a>
-                                <a href="#" class="recent-article">
-                                    <div class="recent-article-image"></div>
-                                    <div class="recent-article-content">
-                                        <h4 class="recent-article-title">Міжнародне співробітництво</h4>
-                                        <span class="recent-article-date">14 грудня 2024</span>
-                                    </div>
-                                </a>
-                                <a href="#" class="recent-article">
-                                    <div class="recent-article-image"></div>
-                                    <div class="recent-article-content">
-                                        <h4 class="recent-article-title">Нові ініціативи федерації</h4>
-                                        <span class="recent-article-date">13 грудня 2024</span>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-
-                        <div class="sidebar-widget">
-                            <h3 class="widget-title">Архів новин</h3>
-                            <ul class="archive-list">
-                                <li>
-                                    <a href="#">Грудень 2024</a>
-                                    <span class="archive-count">15</span>
-                                </li>
-                                <li>
-                                    <a href="#">Листопад 2024</a>
-                                    <span class="archive-count">12</span>
-                                </li>
-                                <li>
-                                    <a href="#">Жовтень 2024</a>
-                                    <span class="archive-count">18</span>
-                                </li>
-                                <li>
-                                    <a href="#">Вересень 2024</a>
-                                    <span class="archive-count">22</span>
-                                </li>
-                                <li>
-                                    <a href="#">Серпень 2024</a>
-                                    <span class="archive-count">9</span>
-                                </li>
-                                <li>
-                                    <a href="#">Липень 2024</a>
-                                    <span class="archive-count">14</span>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="sidebar-widget">
-                            <h3 class="widget-title">Наші партнери</h3>
-                            <div class="sponsors-grid">
-                                <div class="sponsor-item">
-                                    <img src="assets/TAS_logo.png" alt="TAS" class="sponsor-logo">
-                                </div>
-                                <div class="sponsor-item">
-                                    <img src="assets/etg-logo.png" alt="ETG" class="sponsor-logo">
-                                </div>
-                                <div class="sponsor-item">
-                                    <img src="assets/frutex-logo.png" alt="Frutex" class="sponsor-logo">
-                                </div>
-                                <div class="sponsor-item">
-                                    <img src="assets/leon-logo.png" alt="Leon" class="sponsor-logo">
-                                </div>
-                                <div class="sponsor-item">
-                                    <img src="assets/mir-logo.png" alt="Mir" class="sponsor-logo">
-                                </div>
-                                <div class="sponsor-item">
-                                    <img src="assets/petrikiv-logo.png" alt="Petrikiv" class="sponsor-logo">
-                                </div>
-                            </div>
-                        </div>
-                    </aside>
+                <!-- Индикатор загрузки -->
+                <div class="loading-overlay" style="display: none;">
+                    <div class="spinner"></div>
+                    <p>Завантаження новин...</p>
                 </div>
 
-                <div class="pagination">
-                    <a href="#">«</a>
-                    <span class="current">1</span>
-                    <a href="#">2</a>
-                    <a href="#">3</a>
-                    <span>...</span>
-                    <a href="#">8</a>
-                    <a href="#">»</a>
+                <!-- Сообщение об ошибке -->
+                <div class="error-message" style="display: none;">
+                    Помилка завантаження новин. Спробуйте пізніше.
+                </div>
+
+                <div class="news-grid">
+                    <!-- Основные статьи - будут загружены динамически -->
+                    <div class="main-articles">
+                        <!-- Статьи и пагинация будут загружены динамически через NewsManager -->
+                    </div>
+
+                    <!-- Боковая панель - будет загружена динамически -->
+                    <aside class="news-sidebar">
+                        <!-- Сайдбар будет загружен через NewsManager -->
+                    </aside>
                 </div>
             </div>
         </section>
@@ -375,6 +238,10 @@
 
     <script src="security-config.js"></script>
     <script src="script.js"></script>
-    <script src="scripts/news/news.js"></script>
+    <script src="scripts/news/NewsLoader.js"></script>
+    <script src="scripts/news/NewsManager.js"></script>
+    <script src="scripts/news/NewsPagination.js"></script>
+    <script src="scripts/news/NewsArticle.js"></script>
+    <script src="scripts/news/NewsInit.js"></script>
 </body>
 </html> 
