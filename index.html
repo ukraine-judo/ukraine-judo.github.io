@@ -12,7 +12,14 @@
     <link rel="stylesheet" href="css/pages/home/hero.css">
     <link rel="stylesheet" href="css/pages/home/events.css">
     <link rel="stylesheet" href="css/pages/home/news.css">
+    <link rel="stylesheet" href="css/components/news-hero.css">
+          <script src="scripts/news/NewsLoader.js"></script>
+      <script src="scripts/news/NewsManager.js"></script>
+      <script src="scripts/news/NewsArticle.js"></script>
+      <script src="scripts/news/NewsPagination.js"></script>
+      <script src="scripts/news/newsUtils.js"></script>
     <script src="scripts/news/news.js"></script>
+    <script src="script.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -291,89 +298,22 @@
                     <a href="news.html" class="view-all-link">Переглянути всі новини →</a>
                 </div>
                 
-                <div class="news-slider">
-                    <div class="news-slider-container">
-                        <div class="news-card active">
-                            <div class="news-card-image">
-                                <img src="https://images.unsplash.com/photo-1544623280-6ba3e50d2f24?w=400&h=250&fit=crop" alt="Новина 1">
-                                <div class="news-card-date">15 Січ</div>
-                            </div>
-                            <div class="news-card-content">
-                                <span class="news-card-category">Змагання</span>
-                                <h3 class="news-card-title">Чемпіонат України з дзюдо: підсумки та результати</h3>
-                                <p class="news-card-excerpt">Аналізуємо досягнення наших спортсменів у Чемпіонаті України та виділяємо найяскравіші моменти змагань...</p>
-                                <a href="#" class="news-card-link">Читати далі</a>
-                            </div>
-                        </div>
-                        
-                        <div class="news-card">
-                            <div class="news-card-image">
-                                <img src="https://images.unsplash.com/photo-1551698618-1dfe5d97d256?w=400&h=250&fit=crop" alt="Новина 2">
-                                <div class="news-card-date">12 Січ</div>
-                    </div>
-                            <div class="news-card-content">
-                                <span class="news-card-category">Спортсмени</span>
-                                <h3 class="news-card-title">Нові таланти у збірній України з дзюдо</h3>
-                                <p class="news-card-excerpt">Знайомимося з молодими перспективними спортсменами, які поповнили лави національної збірної...</p>
-                                <a href="#" class="news-card-link">Читати далі</a>
-                            </div>
-                        </div>
-                        
-                        <div class="news-card">
-                            <div class="news-card-image">
-                                <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=250&fit=crop" alt="Новина 3">
-                                <div class="news-card-date">10 Січ</div>
-                    </div>
-                            <div class="news-card-content">
-                                <span class="news-card-category">Тренування</span>
-                                <h3 class="news-card-title">Новий тренувальний центр відкрито в Києві</h3>
-                                <p class="news-card-excerpt">Сучасний центр для підготовки спортсменів високого рівня з найкращим обладнанням та тренерами...</p>
-                                <a href="#" class="news-card-link">Читати далі</a>
-                            </div>
-                        </div>
-                        
-                        <div class="news-card">
-                            <div class="news-card-image">
-                                <img src="https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=400&h=250&fit=crop" alt="Новина 4">
-                                <div class="news-card-date">08 Січ</div>
-                    </div>
-                            <div class="news-card-content">
-                                <span class="news-card-category">Міжнародні змагання</span>
-                                <h3 class="news-card-title">Участь українських дзюдоїстів у Кубку Європи</h3>
-                                <p class="news-card-excerpt">Наші спортсмени успішно виступили на міжнародних змаганнях і здобули призові місця...</p>
-                                <a href="#" class="news-card-link">Читати далі</a>
-            </div>
-                        </div>
-                        
-                        <div class="news-card">
-                            <div class="news-card-image">
-                                <img src="https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?w=400&h=250&fit=crop" alt="Новина 5">
-                                <div class="news-card-date">05 Січ</div>
-                        </div>
-                            <div class="news-card-content">
-                                <span class="news-card-category">Освіта</span>
-                                <h3 class="news-card-title">Семінар для тренерів: підвищення кваліфікації</h3>
-                                <p class="news-card-excerpt">Програма розвитку тренерів федерації включає новітні методики підготовки спортсменів...</p>
-                                <a href="#" class="news-card-link">Читати далі</a>
-                            </div>
-                        </div>
+                <div class="news-hero-slider">
+                    <div class="news-hero-container">
+                        <!-- Новости будут загружены динамически -->
                     </div>
                     
-                    <div class="news-slider-controls">
-                        <button class="news-slider-btn prev" aria-label="Попередня новина">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <div class="news-hero-controls">
+                        <button class="news-hero-btn prev" aria-label="Попередня новина">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
                                 <path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                             </svg>
                         </button>
-                        <div class="news-slider-dots">
-                            <span class="dot active" data-slide="0"></span>
-                            <span class="dot" data-slide="1"></span>
-                            <span class="dot" data-slide="2"></span>
-                            <span class="dot" data-slide="3"></span>
-                            <span class="dot" data-slide="4"></span>
+                        <div class="news-hero-dots">
+                            <!-- Dots будут созданы динамически -->
                         </div>
-                        <button class="news-slider-btn next" aria-label="Наступна новина">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <button class="news-hero-btn next" aria-label="Наступна новина">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
                                 <path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                             </svg>
                         </button>
@@ -513,7 +453,7 @@
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script src="scripts/script.js"></script>
     <script src="scripts/calendar/calendar.js"></script>
     <script src="scripts/home.js"></script>
     

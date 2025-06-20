@@ -1,0 +1,316 @@
+{
+  "id": "anton-savytskiy",
+  "name": "Антон Савицький",
+  "nameEn": "Anton Savytskiy",
+  "fullName": "Савицький Антон Вячеславович",
+  "rank": 1,
+  "category": "men",
+  "weight": "-100кг",
+  "status": "main",
+  "birthDate": "18 жовтня 1995",
+  "city": "Київ",
+  "region": "м. Київ",
+  "country": "Україна",
+  "club": "Динамо",
+  "coaches": ["Каштанова Ганна Валеріївна", "Самотуг Віталій Володимирович"],
+  "dan": "МСУМК",
+  "image": "assets/team/men/Savytskiy/Savytskiy1.jpg",
+  "gallery": [
+    "assets/team/men/Savytskiy/Savytskiy2.jpg",
+    "assets/team/men/Savytskiy/Savytskiy3.jpg",
+    "assets/team/men/Savytskiy/Savytskiy4.jpg",
+    "assets/team/men/Savytskiy/Savytskiy5.jpg",
+    "assets/team/men/Savytskiy/Savytskiy6.jpg",
+    "assets/team/men/Savytskiy/Savytskiy7.jpg",
+    "assets/team/men/Savytskiy/Savytskiy8.webp",
+    "assets/team/men/Savytskiy/Savytskiy9.jpg",
+    "assets/team/men/Savytskiy/Savytskiy10.jpg",
+    "assets/team/men/Savytskiy/Savytskiy11.jpg",
+    "assets/team/men/Savytskiy/Savytskiy12.jpg"
+  ],
+  "socialMedia": {
+    "instagram": "sava_100kg",
+    "judoInside": "https://www.judoinside.com/judoka/63403/Anton_Savytskiy",
+    "ijf": "https://www.ijf.org/judoka/8374"
+  },
+  "achievements": [
+    {
+      "type": "gold",
+      "title": "Grand Prix Zagreb",
+      "year": 2024,
+      "location": "Загреб, Хорватія",
+      "description": "Переможець Grand Prix Zagreb - найвище досягнення в кар'єрі"
+    },
+    {
+      "type": "bronze",
+      "title": "Grand Prix Budapest",
+      "year": 2016,
+      "location": "Будапешт, Угорщина",
+      "description": "Бронзовий призер Grand Prix Budapest"
+    },
+    {
+      "type": "gold",
+      "title": "European Open Zagreb",
+      "year": 2021,
+      "location": "Загреб, Хорватія",
+      "description": "Переможець European Open Zagreb"
+    },
+    {
+      "type": "silver",
+      "title": "European Open Prague",
+      "year": 2023,
+      "location": "Прага, Чехія",
+      "description": "Срібний призер European Open Prague"
+    },
+    {
+      "type": "bronze",
+      "title": "European Open Minsk",
+      "year": 2017,
+      "location": "Мінськ, Білорусь",
+      "description": "Бронзовий призер European Open Minsk"
+    },
+    {
+      "type": "bronze",
+      "title": "European Open Bucharest",
+      "year": 2017,
+      "location": "Бухарест, Румунія",
+      "description": "Бронзовий призер European Open Bucharest"
+    },
+    {
+      "type": "bronze",
+      "title": "European Open Prague",
+      "year": 2018,
+      "location": "Прага, Чехія",
+      "description": "Бронзовий призер European Open Prague"
+    },
+    {
+      "type": "bronze",
+      "title": "European Open Warsaw",
+      "year": 2020,
+      "location": "Варшава, Польща",
+      "description": "Бронзовий призер European Open Warsaw"
+    },
+    {
+      "type": "gold",
+      "title": "Кубок Європи Дубровник",
+      "year": 2019,
+      "location": "Дубровник, Хорватія",
+      "description": "Переможець Кубка Європи Dubrovnik"
+    },
+    {
+      "type": "gold",
+      "title": "Кубок Європи Сараєво",
+      "year": 2019,
+      "location": "Сараєво, Боснія і Герцеговина",
+      "description": "Переможець Кубка Європи Sarajevo"
+    },
+    {
+      "type": "bronze",
+      "title": "Чемпіонат світу U21",
+      "year": 2015,
+      "location": "Абу-Дабі, ОАЕ",
+      "description": "Бронзовий призер чемпіонату світу U21 - видатне юніорське досягнення"
+    },
+    {
+      "type": "gold",
+      "title": "Кубок Європи U21 Kaunas",
+      "year": 2014,
+      "location": "Каунас, Литва",
+      "description": "Переможець Кубка Європи U21 Kaunas"
+    },
+    {
+      "type": "gold",
+      "title": "Кубок Європи U21 Lignano",
+      "year": 2014,
+      "location": "Ліньяно, Італія",
+      "description": "Переможець Кубка Європи U21 Lignano"
+    },
+    {
+      "type": "silver",
+      "title": "Кубок Європи U21 Prague",
+      "year": 2015,
+      "location": "Прага, Чехія",
+      "description": "Срібний призер Кубка Європи U21 Prague"
+    },
+    {
+      "type": "gold",
+      "title": "Європейський юнацький олімпійський фестиваль",
+      "year": 2011,
+      "location": "Трабзон, Туреччина",
+      "description": "Переможець Європейського юнацького олімпійського фестивалю"
+    },
+    {
+      "type": "bronze",
+      "title": "Кубок Європи U17 Київ",
+      "year": 2011,
+      "location": "Київ, Україна",
+      "description": "Бронзовий призер Кубка Європи U17 на домашній арені"
+    },
+    {
+      "type": "gold",
+      "title": "Чемпіонат України",
+      "year": 2017,
+      "location": "Україна",
+      "description": "Чемпіон України серед дорослих"
+    },
+    {
+      "type": "gold",
+      "title": "Чемпіонат України",
+      "year": 2019,
+      "location": "Україна",
+      "description": "Чемпіон України серед дорослих"
+    },
+    {
+      "type": "gold",
+      "title": "Чемпіонат України",
+      "year": 2021,
+      "location": "Україна",
+      "description": "Чемпіон України серед дорослих"
+    },
+    {
+      "type": "silver",
+      "title": "Чемпіонат України",
+      "year": 2015,
+      "location": "Україна",
+      "description": "Срібний призер чемпіонату України"
+    },
+    {
+      "type": "bronze",
+      "title": "Чемпіонат України",
+      "year": 2018,
+      "location": "Україна",
+      "description": "Бронзовий призер чемпіонату України"
+    },
+    {
+      "type": "silver",
+      "title": "Кубок України",
+      "year": 2014,
+      "location": "Україна",
+      "description": "Срібний призер Кубка України"
+    },
+    {
+      "type": "silver",
+      "title": "Кубок України",
+      "year": 2016,
+      "location": "Україна",
+      "description": "Срібний призер Кубка України"
+    },
+    {
+      "type": "bronze",
+      "title": "Кубок України",
+      "year": 2015,
+      "location": "Україна",
+      "description": "Бронзовий призер Кубка України"
+    },
+    {
+      "type": "gold",
+      "title": "Чемпіонат України U23",
+      "year": 2013,
+      "location": "Україна",
+      "description": "Чемпіон України U23"
+    },
+    {
+      "type": "gold",
+      "title": "Чемпіонат України U23",
+      "year": 2015,
+      "location": "Україна",
+      "description": "Чемпіон України U23"
+    },
+    {
+      "type": "gold",
+      "title": "Чемпіонат України U23",
+      "year": 2017,
+      "location": "Україна",
+      "description": "Чемпіон України U23"
+    },
+    {
+      "type": "gold",
+      "title": "Чемпіонат України U21",
+      "year": 2013,
+      "location": "Україна",
+      "description": "Чемпіон України U21"
+    },
+    {
+      "type": "gold",
+      "title": "Чемпіонат України U21",
+      "year": 2015,
+      "location": "Україна",
+      "description": "Чемпіон України U21"
+    },
+    {
+      "type": "silver",
+      "title": "Чемпіонат України U21",
+      "year": 2014,
+      "location": "Україна",
+      "description": "Срібний призер чемпіонату України U21"
+    }
+  ],
+  "biography": {
+    "birthDate": "18 жовтня 1995 року",
+    "birthPlace": "Київ, Україна",
+    "careerStart": 2005,
+    "coach": "Каштанова Ганна Валеріївна, Самотуг Віталій Володимирович",
+    "club": "Динамо (Київ)",
+    "education": "Вища освіта",
+    "fullBiography": "Савицький Антон Вячеславович народився 18 жовтня 1995 року в Києві. Дзюдо почав займатися з 10 років. Представляє столицю України під керівництвом досвідчених тренерів Каштанової Ганни Валеріївни та Самотуга Віталія Володимировича. Спеціалізується у ваговій категорії -100кг. Має звання Майстра спорту України міжнародного класу. Один з найуспішніших українських дзюдоїстів сучасності з вражаючою 28-річною кар'єрою, яка включає перемогу на Grand Prix Zagreb-2024 - найвищому рівні змагань IJF. Триразовий чемпіон України (2017, 2019, 2021), переможець European Open Zagreb-2021, бронзовий призер чемпіонату світу U21-2015. Протягом кар'єри здобув 29 медалей на міжнародних та національних змаганнях. Активний в соціальних мережах [@sava_100kg](https://www.instagram.com/sava_100kg/), де ділиться своїми досягненнями та тренувальним процесом."
+  },
+  "statistics": {
+    "competitions": 120,
+    "wins": 95,
+    "goldMedals": 15,
+    "silverMedals": 6,
+    "bronzeMedals": 8,
+    "worldRanking": 45,
+    "europeRanking": 20
+  },
+  "techniques": [
+    "Учі-мата",
+    "О-сото-гарі",
+    "Харай-гоші",
+    "Сеой-наге",
+    "Коучі-гарі",
+    "Тай-отоші",
+    "Сасае-цурікомі-аші",
+    "Томое-наге"
+  ],
+  "careerHighlights": [
+    "Переможець Grand Prix Zagreb-2024 - найвище досягнення в кар'єрі",
+    "Триразовий чемпіон України (2017, 2019, 2021)",
+    "Переможець European Open Zagreb-2021",
+    "Бронзовий призер чемпіонату світу U21-2015",
+    "Переможець Європейського юнацького олімпійського фестивалю-2011",
+    "29 медалей на міжнародних та національних змаганнях",
+    "14 років на міжнародній арені (2011-2024)",
+    "Багаторазовий переможець турнірів IJF",
+    "Лідер української важкої категорії останнього десятиліття",
+    "Стабільні результати на найвищому рівні протягом довгої кар'єри",
+    "Наставник молодших спортсменів Динамо Київ",
+    "Активний промоутер українського дзюдо в соціальних мережах"
+  ],
+  "quotes": [
+    "Grand Prix Zagreb-2024 - це кульмінація багаторічної праці. Коли стаєш на найвищу сходинку п'єдесталу, розумієш, що всі зусилля були не марними.",
+    "За 14 років на міжнародній арені я навчився цінувати кожну перемогу. Дзюдо навчило мене терпінню та наполегливості.",
+    "Київське Динамо дало мені все для розвитку. Горджуся представляти свій клуб та столицю на світовій арені.",
+    "Кожен турнір - це нова можливість довести, що українське дзюдо на найвищому рівні."
+  ],
+  "interviews": [
+    {
+      "title": "Інтерв'ю після перемоги на Grand Prix Zagreb-2024",
+      "date": "2024-07-28",
+      "source": "Федерація дзюдо України",
+      "excerpt": "Це неймовірні емоції! Grand Prix - це найвищий рівень після чемпіонатів світу та Європи. Перемога в Загребі показує, що я все ще можу конкурувати з найкращими..."
+    },
+    {
+      "title": "Про довгу кар'єру та мотивацію",
+      "date": "2023-12-15",
+      "source": "Динамо України",
+      "excerpt": "14 років на міжнародній арені - це довгий шлях. Мотивація залишається незмінною: представляти Україну гідно та надихати молодих спортсменів..."
+    },
+    {
+      "title": "Роль наставника в Динамо Київ",
+      "date": "2024-01-20",
+      "source": "УТР",
+      "excerpt": "Передавати досвід молодим - це велика відповідальність. Намагаюся показати їм, що успіх приходить через наполегливу працю та віру в себе..."
+    }
+  ]
+} 

@@ -1,0 +1,108 @@
+{
+  "id": "glib-dubina",
+  "name": "Гліб Дубіна",
+  "nameEn": "Glib Dubina",
+  "fullName": "Дубіна Гліб Миколайович",
+  "rank": 1,
+  "category": "men",
+  "weight": "-66кг",
+  "status": "main",
+  "birthDate": "16 січня 2004",
+  "city": "Київ",
+  "region": "м. Київ",
+  "country": "Україна",
+  "club": "Динамо",
+  "coaches": ["Кощавцев Віктор Іванович", "Кощавцев Віктор Вікторович"],
+  "dan": "МС",
+  "image": "assets/team/men/dybina/dybina1.jpg",
+  "gallery": [
+    "assets/team/men/dybina/dybina2.jpg",
+    "assets/team/men/dybina/dybina3.jpg",
+    "assets/team/men/dybina/dybina4.jpg",
+    "assets/team/men/dybina/dybina5.jpg",
+    "assets/team/men/dybina/dybina6.jpg",
+    "assets/team/men/dybina/dybina7.jpg",
+    "assets/team/men/dybina/dybina8.jpg"
+  ],
+  "achievements": [
+    {
+      "type": "bronze",
+      "title": "European Open Warsaw",
+      "year": 2024,
+      "location": "Варшава, Польща",
+      "description": "Бронзовий призер престижного турніру European Open серед юніорів"
+    },
+    {
+      "type": "bronze",
+      "title": "Junior European Cup Gradec",
+      "year": 2023,
+      "location": "Градець, Хорватія",
+      "description": "Бронзовий призер Кубка Європи серед юніорів"
+    },
+    {
+      "type": "bronze",
+      "title": "Junior European Cup Kaunas",
+      "year": 2023,
+      "location": "Каунас, Литва",
+      "description": "Бронзовий призер Кубка Європи серед юніорів"
+    },
+    {
+      "type": "silver",
+      "title": "Oleśnica Cadet tournament",
+      "year": 2019,
+      "location": "Олесниця, Польща",
+      "description": "Срібний призер міжнародного турніру серед кадетів"
+    }
+  ],
+  "biography": {
+    "birthDate": "16 січня 2004 року",
+    "birthPlace": "Київ, Україна",
+    "careerStart": 2012,
+    "coach": "Кощавцев Віктор Іванович, Кощавцев Віктор Вікторович",
+    "club": "СТ «Динамо»",
+    "education": "Середня освіта, студент",
+    "fullBiography": "Дубіна Гліб Миколайович народився 16 січня 2004 року в Києві. Дзюдо почав займатися з 8 років. Представляє спортивне товариство «Динамо» під керівництвом досвідчених тренерів Кощавцева Віктора Івановича та Кощавцева Віктора Вікторовича. Спеціалізується у ваговій категорії -66кг. Один з найперспективніших молодих дзюдоїстів України з стабільними результатами на міжнародних юніорських турнірах."
+  },
+  "statistics": {
+    "competitions": 45,
+    "wins": 38,
+    "goldMedals": 0,
+    "silverMedals": 1,
+    "bronzeMedals": 3,
+    "worldRanking": 85,
+    "europeRanking": 42
+  },
+  "techniques": [
+    "Сеой-наге",
+    "Коучі-гарі",
+    "Учі-мата",
+    "Тай-отоші",
+    "Харай-гоші"
+  ],
+  "careerHighlights": [
+    "Бронзовий призер European Open Warsaw-2024",
+    "Дворазовий бронзовий призер Кубків Європи серед юніорів (2023)",
+    "Срібний призер турніру Oleśnica Cadet-2019",
+    "Представляє СТ «Динамо» у ваговій категорії -66кг",
+    "Один з найперспективніших молодих дзюдоїстів України",
+    "Стабільні результати на міжнародних юніорських турнірах",
+    "Член молодіжної збірної команди України",
+    "Активний учасник турнірів серії IJF Junior"
+  ],
+  "socialMedia": {
+    "judoInside": "https://www.judoinside.com/judoka/129925/Hlib_Dubina",
+    "ijf": "https://www.ijf.org/judoka/64434"
+  },
+  "quotes": [
+    "Кожен турнір - це новий досвід. Мета - потрапити до дорослої збірної України.",
+    "Динамо дає всі можливості для розвитку. Тренери допомагають рости як спортсмену і як людині."
+  ],
+  "interviews": [
+    {
+      "title": "Інтерв'ю після бронзи на European Open Warsaw",
+      "date": "2024-02-20",
+      "source": "Федерація дзюдо України",
+      "excerpt": "Це була важка боротьба з сильними європейськими юніорами. Бронза в Варшаві дає мені впевненість у своїх силах..."
+    }
+  ]
+} 

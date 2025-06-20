@@ -9,10 +9,11 @@
     <link rel="stylesheet" href="css/navigation.css">
     <link rel="stylesheet" href="css/components.css">
     <link rel="stylesheet" href="css/footer.css">
-    <link rel="stylesheet" href="css/pages/athlete.css">
+    <link rel="stylesheet" href="css/pages/team/athletes/index.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script src="script.js"></script>
 </head>
 <body>
     <header class="header">
@@ -122,59 +123,71 @@
                 <div class="container">
                     <div class="athlete-hero-content">
                         <div class="athlete-hero-image">
-                            <img id="athlete-image" src="" alt="" class="athlete-main-image">
-                            <div class="athlete-badges">
-                                <div id="athlete-rank" class="athlete-badge rank"></div>
-                                <div id="athlete-weight" class="athlete-badge weight"></div>
+                            <div class="athlete-image-wrapper">
+                                <img id="athlete-image" src="" alt="" class="athlete-main-image">
+                                <div class="athlete-badges">
+                                    <div id="athlete-team-status" class="athlete-badge team-status"></div>
+                                    <div id="athlete-weight" class="athlete-badge weight"></div>
+                                </div>
                             </div>
                         </div>
                         
                         <div class="athlete-hero-info">
-                            <h1 id="athlete-name" class="athlete-hero-title"></h1>
-                            <p id="athlete-name-en" class="athlete-hero-subtitle"></p>
+                            <div class="athlete-name-section">
+                                <h1 id="athlete-name"></h1>
+                                <p id="athlete-name-en" class="athlete-hero-subtitle"></p>
+
+                            </div>
                             
-                            <div class="athlete-basic-info">
-                                <div class="info-item">
-                                    <span class="info-icon">
-                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <div class="athlete-stats-grid">
+                                <div class="athlete-stat-card">
+                                    <div class="stat-header">
+                                        <svg class="stat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                             <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
                                             <circle cx="12" cy="10" r="3"/>
                                         </svg>
-                                    </span>
-                                    <span id="athlete-location"></span>
+                                        <div class="stat-label">Регіон</div>
+                                    </div>
+                                    <div class="stat-value" id="athlete-location"></div>
                                 </div>
-                                <div class="info-item">
-                                    <span class="info-icon">
-                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                
+                                <div class="athlete-stat-card">
+                                    <div class="stat-header">
+                                        <svg class="stat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                             <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
                                             <line x1="16" y1="2" x2="16" y2="6"/>
                                             <line x1="8" y1="2" x2="8" y2="6"/>
                                             <line x1="3" y1="10" x2="21" y2="10"/>
                                         </svg>
-                                    </span>
-                                    <span id="athlete-age"></span>
+                                        <div class="stat-label">Вік</div>
+                                    </div>
+                                    <div class="stat-value" id="athlete-age"></div>
                                 </div>
-                                <div class="info-item">
-                                    <span class="info-icon">
-                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                
+                                <div class="athlete-stat-card">
+                                    <div class="stat-header">
+                                        <svg class="stat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                             <path d="M12 2L2 7v10c0 5.55 3.84 9.74 9 11 5.16-1.26 9-5.45 9-11V7l-10-5z"/>
                                             <path d="M9 12l2 2 4-4"/>
                                         </svg>
-                                    </span>
-                                    <span id="athlete-dan"></span>
+                                        <div class="stat-label">Дан/Звання</div>
+                                    </div>
+                                    <div class="stat-value dan-title" id="athlete-dan"></div>
                                 </div>
-                                <div class="info-item">
-                                    <span class="info-icon">
-                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                
+                                <div class="athlete-stat-card">
+                                    <div class="stat-header">
+                                        <svg class="stat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                             <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
                                             <polyline points="9,22 9,12 15,12 15,22"/>
                                         </svg>
-                                    </span>
-                                    <span id="athlete-club"></span>
+                                        <div class="stat-label">Клуб</div>
+                                    </div>
+                                    <div class="stat-value" id="athlete-club"></div>
                                 </div>
                             </div>
 
-                            <div id="athlete-medals" class="athlete-quick-medals"></div>
+
                         </div>
                     </div>
                 </div>
@@ -201,11 +214,18 @@
             <section class="athlete-biography">
                 <div class="container biography-container">
                     <div class="biography-header">
-                        <h2>Біографія та Кар'єра</h2>
+                        <h2>Особиста Інформація</h2>
                     </div>
                     
+                    <div class="biography-grid">
                         <div class="biography-section">
-                            <h3>Особиста інформація</h3>
+                            <h3>
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                                    <circle cx="12" cy="7" r="4"/>
+                                </svg>
+                                Особисті дані
+                            </h3>
                             <div class="biography-details">
                                 <div class="bio-item">
                                     <div class="bio-icon">
@@ -271,6 +291,44 @@
                                 <div class="bio-item">
                                     <div class="bio-icon">
                                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                                            <circle cx="12" cy="10" r="3"/>
+                                        </svg>
+                                    </div>
+                                    <div class="bio-content">
+                                        <div class="bio-label">Місце народження</div>
+                                        <div class="bio-value" id="bio-birth-place"></div>
+                                    </div>
+                                </div>
+                                <div class="bio-item">
+                                    <div class="bio-icon">
+                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <circle cx="12" cy="12" r="10"/>
+                                            <line x1="2" y1="12" x2="22" y2="12"/>
+                                            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+                                        </svg>
+                                    </div>
+                                    <div class="bio-content">
+                                        <div class="bio-label">Регіон</div>
+                                        <div class="bio-value" id="bio-region"></div>
+                                    </div>
+                                </div>
+                                <div class="bio-item">
+                                    <div class="bio-icon">
+                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M12 2a3 3 0 0 0-3 3v1H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-2V5a3 3 0 0 0-3-3z"/>
+                                            <path d="M9 12h6"/>
+                                            <path d="M12 9v6"/>
+                                        </svg>
+                                    </div>
+                                    <div class="bio-content">
+                                        <div class="bio-label">Вага</div>
+                                        <div class="bio-value" id="bio-weight"></div>
+                                    </div>
+                                </div>
+                                <div class="bio-item">
+                                    <div class="bio-icon">
+                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                             <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
                                             <path d="M6 12v5c3 3 9 3 12 0v-5"/>
                                         </svg>
@@ -282,8 +340,8 @@
                                 </div>
                             </div>
                         </div>
-                        
                     </div>
+                </div>
                 </div>
             </section>
 
@@ -298,14 +356,13 @@
                 </div>
             </section>
 
-            <!-- Social Media -->
+            <!-- Social Media & Professional Links -->
             <section class="athlete-social">
                 <div class="container social-container">
                     <div class="social-header">
-                        <h2>Соціальні мережі</h2>
-                        <p>Слідкуйте за новинами та досягненнями спортсмена</p>
+                        <h2>Профілі спортсмена</h2>
                     </div>
-                    <div id="social-links2" class="social-links2"></div>
+                    <div id="athlete-social-links" class="athlete-social-links"></div>
                 </div>
             </section>
         </div>
@@ -313,10 +370,13 @@
 
     <!-- Gallery Modal -->
     <div id="gallery-modal" class="gallery-modal">
-        <div class="gallery-modal-content">
+        <div class="gallery-modal-overlay" onclick="closeGalleryModal()"></div>
+        
+        <div class="gallery-modal-container">
+            <!-- Header -->
             <div class="gallery-modal-header">
-                <div id="gallery-counter" class="gallery-counter">1 з 10</div>
-                <button class="gallery-modal-close" onclick="closeGalleryModal()">
+                <div id="gallery-counter" class="gallery-counter">1 / 10</div>
+                <button class="gallery-close-btn" onclick="closeGalleryModal()">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <line x1="18" y1="6" x2="6" y2="18"></line>
                         <line x1="6" y1="6" x2="18" y2="18"></line>
@@ -324,26 +384,28 @@
                 </button>
             </div>
             
-            <div class="gallery-modal-body">
-                <button class="gallery-nav-btn gallery-prev" onclick="previousImage()">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <!-- Main Image Area -->
+            <div class="gallery-modal-main">
+                <button class="gallery-nav-btn gallery-prev-btn" onclick="previousImage()">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <polyline points="15,18 9,12 15,6"></polyline>
                     </svg>
                 </button>
                 
-                <div class="gallery-main-image-container">
-                    <img id="gallery-modal-image" class="gallery-modal-image" src="" alt="">
+                <div class="gallery-image-container">
+                    <img id="gallery-modal-image" class="gallery-main-image" src="" alt="">
                 </div>
                 
-                <button class="gallery-nav-btn gallery-next" onclick="nextImage()">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <button class="gallery-nav-btn gallery-next-btn" onclick="nextImage()">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <polyline points="9,18 15,12 9,6"></polyline>
                     </svg>
                 </button>
             </div>
             
+            <!-- Thumbnails -->
             <div class="gallery-modal-footer">
-                <div id="gallery-thumbnails" class="gallery-thumbnails"></div>
+                <div id="gallery-thumbnails" class="gallery-thumbnails-container"></div>
             </div>
         </div>
     </div>
@@ -420,7 +482,7 @@
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script src="scripts/script.js"></script>
     <script src="scripts/athlete.js"></script>
 </body>
 </html> 

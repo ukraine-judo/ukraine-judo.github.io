@@ -1,0 +1,183 @@
+/* Social Section */
+.athlete-social {
+    padding: 4rem 0;
+    background: #f8f9fa;
+    position: relative;
+}
+
+.social-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.social-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.social-header h2 {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    position: relative;
+    display: inline-block;
+}
+
+.social-header h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 4px;
+    background: linear-gradient(90deg, #ffd700, #ffed4a);
+    border-radius: 2px;
+}
+
+.social-header p {
+    color: #666;
+    font-size: 1.1rem;
+}
+
+.athlete-social-links {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.athlete-social-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1.5rem;
+    background: white;
+    border: 2px solid #e9ecef;
+    border-radius: 8px;
+    text-decoration: none;
+    color: #495057;
+    font-weight: 500;
+    font-size: 0.9rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.athlete-social-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    transition: left 0.5s ease;
+}
+
+.athlete-social-btn:hover::before {
+    left: 100%;
+}
+
+.athlete-social-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+.social-btn-icon {
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.social-btn-icon svg {
+    width: 100%;
+    height: 100%;
+}
+
+.social-btn-text {
+    font-weight: 500;
+    letter-spacing: 0.02em;
+}
+
+.athlete-social-btn.instagram {
+    border-color: #e4405f;
+    color: #e4405f;
+}
+
+.athlete-social-btn.instagram:hover {
+    background: #e4405f;
+    color: white;
+}
+
+.athlete-social-btn.facebook {
+    border-color: #1877f2;
+    color: #1877f2;
+}
+
+.athlete-social-btn.facebook:hover {
+    background: #1877f2;
+    color: white;
+}
+
+.athlete-social-btn.judoinside {
+    border-color: #ff6b35;
+    color: #ff6b35;
+}
+
+.athlete-social-btn.judoinside:hover {
+    background: #ff6b35;
+    color: white;
+}
+
+.athlete-social-btn.judobase {
+    border-color: #2ecc71;
+    color: #2ecc71;
+}
+
+.athlete-social-btn.judobase:hover {
+    background: #2ecc71;
+    color: white;
+}
+
+.athlete-social-btn.ijf {
+    border-color: #1a3f67;
+    color: #1a3f67;
+}
+
+.athlete-social-btn.ijf:hover {
+    background: #1a3f67;
+    color: white;
+}
+
+/* Medal Component */
+.medal {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 0.875rem;
+    color: white;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.medal.gold {
+    background: linear-gradient(135deg, #ffd700, #ffed4a);
+    color: #1a1a1a;
+}
+
+.medal.silver {
+    background: linear-gradient(135deg, #c0c0c0, #e8e8e8);
+    color: #1a1a1a;
+}
+
+.medal.bronze {
+    background: linear-gradient(135deg, #cd7f32, #daa520);
+} 

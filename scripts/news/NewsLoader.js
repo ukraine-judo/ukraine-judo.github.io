@@ -153,7 +153,7 @@ class NewsLoader {
 
         // Загружаем статьи пакетами
         const batchSize = 5;
-        
+
         while (fileIndex <= maxFiles) {
             const batch = [];
             
@@ -168,7 +168,7 @@ class NewsLoader {
 
             // Прерываем если нашли несколько файлов подряд которых нет
             if (batchResults.every(result => result === null)) {
-                break;
+                    break;
             }
         }
 
@@ -331,7 +331,7 @@ class NewsLoader {
         if (priority === 'low') {
             setTimeout(() => Promise.allSettled(preloadPromises), 100);
         } else {
-            await Promise.allSetled(preloadPromises);
+                         await Promise.allSettled(preloadPromises);
         }
     }
 

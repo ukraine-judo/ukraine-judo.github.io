@@ -20,27 +20,38 @@ document.addEventListener('DOMContentLoaded', function() {
         try {
             showLoading();
             
-            // First, load the athletes index to determine category
-            const indexResponse = await fetch('scripts/team/athletes.json');
-            const indexData = await indexResponse.json();
+            // Try to load from men folder first, then women folder
+            let athleteData = null;
+            let loadSuccess = false;
             
-            // Find the athlete in the index to get category
-            const athleteIndex = indexData.athletes.find(athlete => athlete.id === id);
-            
-            if (!athleteIndex) {
-                throw new Error('Спортсмен не знайдений в індексі');
+            // Try men folder
+            try {
+                const menResponse = await fetch(`scripts/team/men/${id}.json`);
+                if (menResponse.ok) {
+                    athleteData = await menResponse.json();
+                    loadSuccess = true;
+                }
+            } catch (error) {
+                console.log('Not found in men folder, trying women folder...');
             }
             
-            // Determine the correct folder based on athlete category
-            const folder = (athleteIndex.category === 'women' || athleteIndex.category === 'women veterans') ? 'women' : 'men';
-            
-            const response = await fetch(`scripts/team/articles/${folder}/${id}.json`);
-            
-            if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
+            // If not found in men, try women folder
+            if (!loadSuccess) {
+                try {
+                    const womenResponse = await fetch(`scripts/team/women/${id}.json`);
+                    if (womenResponse.ok) {
+                        athleteData = await womenResponse.json();
+                        loadSuccess = true;
+                    }
+                } catch (error) {
+                    console.log('Not found in women folder either');
+                }
             }
             
-            const athleteData = await response.json();
+            if (!loadSuccess || !athleteData) {
+                throw new Error('Спортсмен не знайдений');
+            }
+            
             displayAthleteData(athleteData);
             hideLoading();
             
@@ -88,23 +99,27 @@ document.addEventListener('DOMContentLoaded', function() {
             existingImg.onerror = function() {
                 // If image fails to load, replace with placeholder
                 imageContainer.innerHTML = `
-                    <div class="athlete-placeholder athlete-hero-placeholder">
-                        <div class="athlete-placeholder-initials">${initials}</div>
-                    </div>
-                    <div class="athlete-badges">
-                        <div id="athlete-rank" class="athlete-badge rank"></div>
-                        <div id="athlete-weight" class="athlete-badge weight"></div>
+                    <div class="athlete-image-wrapper">
+                        <div class="athlete-placeholder athlete-hero-placeholder">
+                            <div class="athlete-placeholder-initials">${initials}</div>
+                        </div>
+                        <div class="athlete-badges">
+                            <div id="athlete-team-status" class="athlete-badge team-status"></div>
+                            <div id="athlete-weight" class="athlete-badge weight"></div>
+                        </div>
                     </div>`;
             };
         } else {
             // No image or placeholder path, show placeholder directly
             imageContainer.innerHTML = `
-                <div class="athlete-placeholder athlete-hero-placeholder">
-                    <div class="athlete-placeholder-initials">${initials}</div>
-                </div>
-                <div class="athlete-badges">
-                    <div id="athlete-rank" class="athlete-badge rank"></div>
-                    <div id="athlete-weight" class="athlete-badge weight"></div>
+                <div class="athlete-image-wrapper">
+                    <div class="athlete-placeholder athlete-hero-placeholder">
+                        <div class="athlete-placeholder-initials">${initials}</div>
+                    </div>
+                    <div class="athlete-badges">
+                        <div id="athlete-team-status" class="athlete-badge team-status"></div>
+                        <div id="athlete-weight" class="athlete-badge weight"></div>
+                    </div>
                 </div>`;
         }
     }
@@ -115,8 +130,10 @@ document.addEventListener('DOMContentLoaded', function() {
     function displayAthleteData(athlete) {
         // Update page title and meta
         document.getElementById('page-title').textContent = `${athlete.name} - Федерація Дзюдо України`;
+        
+        const metaStatusText = athlete.status === 'main' ? 'основний склад' : 'резерв';
         document.getElementById('page-description').setAttribute('content', 
-            `Профіль ${athlete.name} - ${athlete.weight}, ${athlete.dan}, національна збірна України з дзюдо`);
+            `Профіль ${athlete.name} - ${athlete.weight}, ${athlete.dan}, ${metaStatusText} національної збірної України з дзюдо`);
         document.getElementById('breadcrumb-name').textContent = athlete.name;
         
         // Hero section - handle image with placeholder fallback
@@ -125,14 +142,24 @@ document.addEventListener('DOMContentLoaded', function() {
         // Update hero section elements with null checks
         const athleteName = document.getElementById('athlete-name');
         const athleteNameEn = document.getElementById('athlete-name-en');
-        const athleteRank = document.getElementById('athlete-rank');
+        const athleteTeamStatus = document.getElementById('athlete-team-status');
         const athleteWeight = document.getElementById('athlete-weight');
         
         if (athleteName) athleteName.textContent = athlete.name;
         if (athleteNameEn) athleteNameEn.textContent = athlete.nameEn;
-        if (athleteRank) athleteRank.textContent = typeof athlete.rank === 'number' ? `#${athlete.rank}` : athlete.rank;
+        if (athleteTeamStatus) {
+            if (athlete.status === 'main') {
+                athleteTeamStatus.textContent = 'Основний склад';
+                athleteTeamStatus.className = 'athlete-badge team-status';
+            } else {
+                athleteTeamStatus.textContent = 'Резерв';
+                athleteTeamStatus.className = 'athlete-badge team-status reserve';
+            }
+        }
         if (athleteWeight) athleteWeight.textContent = athlete.weight;
         
+
+
         // Basic info with null checks
         const athleteLocation = document.getElementById('athlete-location');
         const athleteAge = document.getElementById('athlete-age');
@@ -146,7 +173,7 @@ document.addEventListener('DOMContentLoaded', function() {
             danElement.textContent = athlete.dan;
             
             // Add class based on sport title
-            danElement.className = '';
+            danElement.className = 'stat-value dan-title';
             if (athlete.dan === 'МСУМК') {
                 danElement.classList.add('title-msmk');
             } else if (athlete.dan === 'МС') {
@@ -160,10 +187,7 @@ document.addEventListener('DOMContentLoaded', function() {
             athleteClub.textContent = athlete.biography.club;
         }
         
-        // Quick medals
-        if (athlete.achievements && athlete.achievements.length > 0) {
-            displayQuickMedals(athlete.achievements);
-        }
+
         
 
         
@@ -174,7 +198,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Biography
         if (athlete.biography) {
-            displayBiography(athlete.biography);
+            displayBiography(athlete.biography, athlete);
         }
         
 
@@ -207,27 +231,7 @@ document.addEventListener('DOMContentLoaded', function() {
         initScrollAnimations();
     }
     
-    /**
-     * Display quick medals in hero section
-     */
-    function displayQuickMedals(achievements) {
-        const medalsContainer = document.getElementById('athlete-medals');
-        medalsContainer.innerHTML = '';
-        
-        achievements.slice(0, 3).forEach(achievement => {
-            const medal = document.createElement('span');
-            medal.className = `medal ${achievement.type}`;
-            
-            const emoji = {
-                'gold': '🥇',
-                'silver': '🥈',
-                'bronze': '🥉'
-            };
-            
-            medal.innerHTML = `${emoji[achievement.type]} ${achievement.title}`;
-            medalsContainer.appendChild(medal);
-        });
-    }
+
     
     /**
      * Display achievements section
@@ -244,10 +248,19 @@ document.addEventListener('DOMContentLoaded', function() {
             const achievementDiv = document.createElement('div');
             achievementDiv.className = `achievement-item ${achievement.type}`;
             
-            const emoji = {
-                'gold': '🥇',
-                'silver': '🥈',
-                'bronze': '🥉'
+            const medalSvg = {
+                'gold': `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="8" r="7"/>
+                    <polyline points="8.21,13.89 7,23 12,20 17,23 15.79,13.88"/>
+                </svg>`,
+                'silver': `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="8" r="7"/>
+                    <polyline points="8.21,13.89 7,23 12,20 17,23 15.79,13.88"/>
+                </svg>`,
+                'bronze': `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="8" r="7"/>
+                    <polyline points="8.21,13.89 7,23 12,20 17,23 15.79,13.88"/>
+                </svg>`
             };
             
             const rankText = {
@@ -258,14 +271,20 @@ document.addEventListener('DOMContentLoaded', function() {
             
             achievementDiv.innerHTML = `
                 <div class="achievement-medal-section">
-                    <span class="achievement-medal">${emoji[achievement.type]}</span>
+                    <div class="achievement-medal">${medalSvg[achievement.type]}</div>
                     <div class="achievement-rank">${rankText[achievement.type]}</div>
                 </div>
                 <div class="achievement-content">
                     <h3 class="achievement-title">${achievement.title}</h3>
                     <div class="achievement-meta">
                         <span class="achievement-year">${achievement.year}</span>
-                        <span class="achievement-location">📍 ${achievement.location}</span>
+                        <span class="achievement-location">
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right: 4px; vertical-align: middle;">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                                <circle cx="12" cy="10" r="3"/>
+                            </svg>
+                            ${achievement.location}
+                        </span>
                     </div>
                     <p class="achievement-description">${achievement.description}</p>
                 </div>
@@ -318,17 +337,26 @@ document.addEventListener('DOMContentLoaded', function() {
     /**
      * Display biography information
      */
-    function displayBiography(biography) {
+    function displayBiography(biography, athlete) {
         document.getElementById('bio-birth-date').textContent = biography.birthDate || '—';
         document.getElementById('bio-start-year').textContent = biography.careerStart ? `${biography.careerStart} рік` : (biography.startYear ? `${biography.startYear} рік` : '—');
         document.getElementById('bio-coach').textContent = biography.coach || '—';
         document.getElementById('bio-club').textContent = biography.club || '—';
+        document.getElementById('bio-birth-place').textContent = biography.birthPlace || '—';
+        
+        // Fill region and weight from main athlete data
+        document.getElementById('bio-region').textContent = athlete.region || '—';
+        document.getElementById('bio-weight').textContent = athlete.weight || '—';
+        
         document.getElementById('bio-education').textContent = biography.education || '—';
         
         // Hide height section since we removed height data
-        const heightItem = document.getElementById('bio-height').closest('.bio-item');
+        const heightItem = document.getElementById('bio-height');
         if (heightItem) {
-            heightItem.style.display = 'none';
+            const heightBioItem = heightItem.closest('.bio-item');
+            if (heightBioItem) {
+                heightBioItem.style.display = 'none';
+            }
         }
     }
     
@@ -337,26 +365,26 @@ document.addEventListener('DOMContentLoaded', function() {
 
     
     /**
-     * Display social media links
+     * Display social media and professional links
      */
     function displaySocialMedia(socialMedia) {
-        const socialContainer = document.getElementById('social-links2');
+        const socialContainer = document.getElementById('athlete-social-links');
         socialContainer.innerHTML = '';
         
         if (socialMedia.instagram) {
             const instagramLink = document.createElement('a');
             instagramLink.href = `https://www.instagram.com/${socialMedia.instagram.replace('@', '')}`;
-            instagramLink.className = 'social-link instagram';
+            instagramLink.className = 'athlete-social-btn instagram';
             instagramLink.target = '_blank';
             instagramLink.innerHTML = `
-                <span class="social-icon">
+                <div class="social-btn-icon">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
                         <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
                         <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
                     </svg>
-                </span>
-                <span>Instagram</span>
+                </div>
+                <span class="social-btn-text">Instagram</span>
             `;
             socialContainer.appendChild(instagramLink);
         }
@@ -364,17 +392,73 @@ document.addEventListener('DOMContentLoaded', function() {
         if (socialMedia.facebook) {
             const facebookLink = document.createElement('a');
             facebookLink.href = `https://facebook.com/${socialMedia.facebook}`;
-            facebookLink.className = 'social-link facebook';
+            facebookLink.className = 'athlete-social-btn facebook';
             facebookLink.target = '_blank';
             facebookLink.innerHTML = `
-                <span class="social-icon">
+                <div class="social-btn-icon">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
                         <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
                     </svg>
-                </span>
-                <span>Facebook</span>
+                </div>
+                <span class="social-btn-text">Facebook</span>
             `;
             socialContainer.appendChild(facebookLink);
+        }
+
+        if (socialMedia.judoInside) {
+            const judoInsideLink = document.createElement('a');
+            judoInsideLink.href = socialMedia.judoInside;
+            judoInsideLink.className = 'athlete-social-btn judoinside';
+            judoInsideLink.target = '_blank';
+            judoInsideLink.innerHTML = `
+                <div class="social-btn-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"/>
+                        <path d="M12 6v6l4 2"/>
+                        <path d="M8 12h8"/>
+                    </svg>
+                </div>
+                <span class="social-btn-text">JudoInside</span>
+            `;
+            socialContainer.appendChild(judoInsideLink);
+        }
+
+        if (socialMedia.judoBase) {
+            const judoBaseLink = document.createElement('a');
+            judoBaseLink.href = socialMedia.judoBase;
+            judoBaseLink.className = 'athlete-social-btn judobase';
+            judoBaseLink.target = '_blank';
+            judoBaseLink.innerHTML = `
+                <div class="social-btn-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                        <polyline points="14,2 14,8 20,8"/>
+                        <line x1="16" y1="13" x2="8" y2="13"/>
+                        <line x1="16" y1="17" x2="8" y2="17"/>
+                        <polyline points="10,9 9,9 8,9"/>
+                    </svg>
+                </div>
+                <span class="social-btn-text">JudoBase</span>
+            `;
+            socialContainer.appendChild(judoBaseLink);
+        }
+
+        if (socialMedia.ijf) {
+            const ijfLink = document.createElement('a');
+            ijfLink.href = socialMedia.ijf;
+            ijfLink.className = 'athlete-social-btn ijf';
+            ijfLink.target = '_blank';
+            ijfLink.innerHTML = `
+                <div class="social-btn-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 2L2 7v10c0 5.55 3.84 9.74 9 11 5.16-1.26 9-5.45 9-11V7l-10-5z"/>
+                        <path d="M9 12l2 2 4-4"/>
+                        <circle cx="12" cy="8" r="2"/>
+                    </svg>
+                </div>
+                <span class="social-btn-text">IJF Profile</span>
+            `;
+            socialContainer.appendChild(ijfLink);
         }
     }
     
@@ -596,7 +680,7 @@ function openGalleryModal(index, images) {
     modalImage.alt = `Фото ${index + 1}`;
     
     // Update counter
-    imageCounter.textContent = `${index + 1} з ${images.length}`;
+    imageCounter.textContent = `${index + 1} / ${images.length}`;
     
     // Generate thumbnails
     generateThumbnails(thumbnailsContainer, images, index);
@@ -616,13 +700,11 @@ function generateThumbnails(container, images, currentIndex) {
     container.innerHTML = '';
     
     images.forEach((imagePath, index) => {
-        const thumbnail = document.createElement('div');
+        const thumbnail = document.createElement('img');
         thumbnail.className = `gallery-thumbnail ${index === currentIndex ? 'active' : ''}`;
+        thumbnail.src = imagePath;
+        thumbnail.alt = `Мініатюра ${index + 1}`;
         thumbnail.onclick = () => goToImage(index);
-        
-        thumbnail.innerHTML = `
-            <img src="${imagePath}" alt="Мініатюра ${index + 1}">
-        `;
         
         container.appendChild(thumbnail);
     });
@@ -639,16 +721,26 @@ function goToImage(index) {
     const imageCounter = document.getElementById('gallery-counter');
     const thumbnailsContainer = document.getElementById('gallery-thumbnails');
     
-    // Update main image with fade effect
-    modalImage.style.opacity = '0';
+    // Add loading class for smooth transition
+    modalImage.classList.add('loading');
+    
+    // Update main image with enhanced fade effect
     setTimeout(() => {
         modalImage.src = galleryImages[index];
         modalImage.alt = `Фото ${index + 1}`;
-        modalImage.style.opacity = '1';
-    }, 150);
+        
+        // Remove loading class after image loads
+        modalImage.onload = () => {
+            modalImage.classList.remove('loading');
+        };
+    }, 200);
     
-    // Update counter
-    imageCounter.textContent = `${index + 1} з ${galleryImages.length}`;
+    // Update counter with smooth animation
+    imageCounter.style.transform = 'scale(0.9)';
+    setTimeout(() => {
+        imageCounter.textContent = `${index + 1} / ${galleryImages.length}`;
+        imageCounter.style.transform = 'scale(1)';
+    }, 150);
     
     // Update thumbnails
     const thumbnails = thumbnailsContainer.querySelectorAll('.gallery-thumbnail');
@@ -656,10 +748,14 @@ function goToImage(index) {
         thumb.classList.toggle('active', i === index);
     });
     
-    // Scroll active thumbnail into view
+    // Scroll active thumbnail into view with smooth animation
     const activeThumbnail = thumbnailsContainer.querySelector('.gallery-thumbnail.active');
     if (activeThumbnail) {
-        activeThumbnail.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+        activeThumbnail.scrollIntoView({ 
+            behavior: 'smooth', 
+            block: 'nearest', 
+            inline: 'center' 
+        });
     }
 }
 
@@ -669,6 +765,13 @@ function goToImage(index) {
 function previousImage() {
     const newIndex = currentImageIndex > 0 ? currentImageIndex - 1 : galleryImages.length - 1;
     goToImage(newIndex);
+    
+    // Add visual feedback
+    const prevBtn = document.querySelector('.gallery-prev-btn');
+    prevBtn.style.transform = 'translateY(-50%) scale(0.9)';
+    setTimeout(() => {
+        prevBtn.style.transform = 'translateY(-50%) scale(1)';
+    }, 150);
 }
 
 /**
@@ -677,6 +780,13 @@ function previousImage() {
 function nextImage() {
     const newIndex = currentImageIndex < galleryImages.length - 1 ? currentImageIndex + 1 : 0;
     goToImage(newIndex);
+    
+    // Add visual feedback
+    const nextBtn = document.querySelector('.gallery-next-btn');
+    nextBtn.style.transform = 'translateY(-50%) scale(0.9)';
+    setTimeout(() => {
+        nextBtn.style.transform = 'translateY(-50%) scale(1)';
+    }, 150);
 }
 
 /**
@@ -692,6 +802,32 @@ function addGalleryEventListeners() {
     // Add new listeners
     modal.addEventListener('click', handleModalClick);
     document.addEventListener('keydown', handleKeyDown);
+    
+    // Add touch/swipe support for mobile
+    let touchStartX = 0;
+    let touchEndX = 0;
+    
+    modal.addEventListener('touchstart', (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+    });
+    
+    modal.addEventListener('touchend', (e) => {
+        touchEndX = e.changedTouches[0].screenX;
+        handleSwipe();
+    });
+    
+    function handleSwipe() {
+        const swipeThreshold = 50;
+        const diff = touchStartX - touchEndX;
+        
+        if (Math.abs(diff) > swipeThreshold) {
+            if (diff > 0) {
+                nextImage(); // Swipe left - next image
+            } else {
+                previousImage(); // Swipe right - previous image
+            }
+        }
+    }
 }
 
 /**
@@ -699,7 +835,9 @@ function addGalleryEventListeners() {
  */
 function handleModalClick(e) {
     const modal = document.getElementById('gallery-modal');
-    if (e.target === modal) {
+    const overlay = document.querySelector('.gallery-modal-overlay');
+    
+    if (e.target === modal || e.target === overlay) {
         closeGalleryModal();
     }
 }
@@ -713,15 +851,32 @@ function handleKeyDown(e) {
     
     switch(e.key) {
         case 'Escape':
+            e.preventDefault();
             closeGalleryModal();
             break;
         case 'ArrowLeft':
+        case 'a':
+        case 'A':
             e.preventDefault();
             previousImage();
             break;
         case 'ArrowRight':
+        case 'd':
+        case 'D':
             e.preventDefault();
             nextImage();
+            break;
+        case ' ': // Space bar
+            e.preventDefault();
+            nextImage();
+            break;
+        case 'Home':
+            e.preventDefault();
+            goToImage(0);
+            break;
+        case 'End':
+            e.preventDefault();
+            goToImage(galleryImages.length - 1);
             break;
     }
 }
@@ -731,16 +886,23 @@ function handleKeyDown(e) {
  */
 function closeGalleryModal() {
     const modal = document.getElementById('gallery-modal');
-    modal.classList.remove('active');
-    document.body.style.overflow = '';
     
-    // Remove event listeners
-    modal.removeEventListener('click', handleModalClick);
-    document.removeEventListener('keydown', handleKeyDown);
+    // Add closing animation
+    modal.style.opacity = '0';
     
-    // Reset variables
-    currentImageIndex = 0;
-    galleryImages = [];
+    setTimeout(() => {
+        modal.classList.remove('active');
+        modal.style.opacity = '';
+        document.body.style.overflow = '';
+        
+        // Remove event listeners
+        modal.removeEventListener('click', handleModalClick);
+        document.removeEventListener('keydown', handleKeyDown);
+        
+        // Reset variables
+        currentImageIndex = 0;
+        galleryImages = [];
+    }, 300);
 }
 
 /**

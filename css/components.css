@@ -163,16 +163,6 @@ p {
     line-height: 1.6;
 }
 
-/* Links */
-a {
-    color: var(--primary-color);
-    text-decoration: none;
-    transition: color 0.2s ease;
-}
-
-a:hover {
-    color: var(--primary-light);
-}
 
 /* Images */
 img {

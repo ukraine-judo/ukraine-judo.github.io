@@ -1,138 +1,242 @@
-// Team Page JavaScript
+// Team Page JavaScript - Optimized Version
 document.addEventListener('DOMContentLoaded', function() {
     
-    // Pagination variables
+    // Core variables
     let allAthletes = [];
     let filteredAthletes = [];
+    let athleteDetailsCache = new Map();
     let currentPage = 1;
-    const athletesPerPage = 6;
+    const athletesPerPage = 6; // Увеличено для лучшей производительности
     let currentFilters = {
         gender: 'all',
         age: 'all',
         weight: 'all',
+        status: 'all', // all, main, reserve
         search: ''
     };
     
-    // Initialize team page functionality
-    initTeamFiltering();
-    initScrollAnimations();
-    initStatCounters();
-    loadAthletesData();
-    loadCoachesData();
+    // Performance tracking
+    let isLoading = false;
+    let detailsLoadQueue = [];
+    
+    // Initialize optimized functionality
+    initOptimizedSystem();
     
     /**
-     * Load athletes data from JSON files
+     * Optimized system initialization
      */
-    async function loadAthletesData() {
+    async function initOptimizedSystem() {
         try {
-            const response = await fetch('scripts/team/athletes.json');
-            const data = await response.json();
+            // Start with basic animations and controls
+    initScrollAnimations();
+    initStatCounters();
+            initTeamFiltering();
             
+            // Load athlete data from folders
+            await loadBasicAthletesData();
+            
+            // Load coaches separately
+    loadCoachesData();
+            
+        } catch (error) {
+            showError('Помилка ініціалізації системи');
+        }
+    }
+
+    /**
+     * Fast initial load - only basic data
+     */
+    async function loadBasicAthletesData() {
+        if (isLoading) return;
+        isLoading = true;
+        
+        try {
             const athletesGrid = document.getElementById('athletes-grid');
+            if (!athletesGrid) return;
             
             // Remove loading indicator
             const loadingElement = athletesGrid.querySelector('.loading-athletes');
-            if (loadingElement) {
-                loadingElement.remove();
-            }
+            loadingElement?.remove();
             
-            // Load detailed data for all athletes
-            allAthletes = [];
-            for (const athlete of data.athletes) {
-                // Load detailed athlete data for filtering
-                let detailedData = null;
-                try {
-                    const folder = (athlete.category === 'women' || athlete.category === 'women veterans') ? 'women' : 'men';
-                    const response = await fetch(`scripts/team/articles/${folder}/${athlete.id}.json`);
-                    detailedData = await response.json();
-                } catch (error) {
-                    console.warn(`Could not load detailed data for ${athlete.id}`);
-                }
-
-                const athleteCard = await createAthleteCard(athlete, detailedData);
-                allAthletes.push({
-                    element: athleteCard,
-                    data: athlete,
-                    detailedData: detailedData // Add detailed data for filtering
-                });
-            }
+            // Load athletes from both men and women folders
+            const [menAthletes, womenAthletes] = await Promise.all([
+                loadAthletesFromFolder('men'),
+                loadAthletesFromFolder('women')
+            ]);
             
-            // Initialize filtering and pagination
+            // Combine and sort athletes by rank
+            allAthletes = [...menAthletes, ...womenAthletes]
+                .sort((a, b) => (a.data.rank || 999) - (b.data.rank || 999));
+            
             filteredAthletes = [...allAthletes];
+            updateResultsCount();
             renderCurrentPage();
             initPagination();
-            initTeamFiltering();
-            updateResultsCount();
             
         } catch (error) {
-            console.error('Error loading athletes data:', error);
-            
-            // Show error message
-            const athletesGrid = document.getElementById('athletes-grid');
-            athletesGrid.innerHTML = `
-                <div class="loading-athletes">
-                    <p style="color: #e74c3c;">❌ Помилка завантаження спортсменів</p>
-                    <button onclick="location.reload()" style="margin-top: 10px; padding: 10px 20px; background: var(--color-primary); color: white; border: none; border-radius: 5px; cursor: pointer;">
-                        Спробувати знову
-                    </button>
-                </div>
-            `;
+            showError('Помилка завантаження спортсменів');
+        } finally {
+            isLoading = false;
         }
     }
     
     /**
-     * Create athlete card element
+     * Load athletes from specific folder
      */
-    async function createAthleteCard(athlete, detailedData = null) {
-        // If detailed data not provided, try to load it
-        if (!detailedData) {
-            try {
-                // Determine the correct folder based on athlete category
-                const folder = (athlete.category === 'women' || athlete.category === 'women veterans') ? 'women' : 'men';
-                const response = await fetch(`scripts/team/articles/${folder}/${athlete.id}.json`);
-                detailedData = await response.json();
+    async function loadAthletesFromFolder(folderName) {
+        const athletes = [];
+        const athleteFiles = getAthleteFilesList(folderName);
+        
+        // Load athletes in batches for better performance
+        const batchSize = 5;
+        for (let i = 0; i < athleteFiles.length; i += batchSize) {
+            const batch = athleteFiles.slice(i, i + batchSize);
+            const batchPromises = batch.map(async (fileName) => {
+                try {
+                    const response = await fetch(`scripts/team/${folderName}/${fileName}`);
+                    if (response.ok) {
+                        const athleteData = await response.json();
+                        return {
+                            data: {
+                                id: athleteData.id,
+                                name: athleteData.name,
+                                rank: athleteData.rank || 999,
+                                category: athleteData.category,
+                                weight: athleteData.weight,
+                                city: athleteData.city,
+                                club: athleteData.club,
+                                dan: athleteData.dan,
+                                image: athleteData.image,
+                                status: athleteData.status || 'main' // main or reserve
+                            },
+                            detailedData: athleteData, // Store full data immediately
+                            element: null
+                        };
+                    }
             } catch (error) {
-                console.warn(`Could not load detailed data for ${athlete.id}`);
-            }
+                    return null;
+                }
+            });
+            
+            const batchResults = await Promise.all(batchPromises);
+            athletes.push(...batchResults.filter(athlete => athlete !== null));
         }
         
+        return athletes;
+    }
+
+    /**
+     * Get list of athlete files from folder
+     */
+    function getAthleteFilesList(folderName) {
+        const knownFiles = {
+            'men': [
+                'nikita-yudanov.json', 'nazar-viskov.json', 'anton-savytskiy.json', 
+                'artem-lesiuk.json', 'mykhailo-solyanik.json', 'mykhailo-svidrak.json',
+                'mykola-hrybyk.json', 'mykyta-holoborodko.json', 'nazar-kulieshov.json',
+                'nikita-batii.json', 'oleksandr-koshlyak.json', 'oleksiy-yershov.json',
+                'said-magoomed-khalidov.json', 'sergiy-kim.json', 'sergiy-nebotov.json',
+                'stanislav-gunchenko.json', 'stanislav-semkov.json', 'taras-nelzev.json',
+                'vladyslav-kolobov.json', 'zaur-duniamaliev.json', 'yevgeniy-balievskiy.json',
+                'yaroslav-omelchenko.json', 'yakiv-khammo.json', 'tymur-valeyev.json',
+                'bogdan-yadov.json', 'danylo-kravchenko.json', 'denys-tupytskiy.json',
+                'dilshot-khalmatov.json', 'dmytro-lebid.json', 'gagik-martirosyan.json',
+                'glib-dubina.json', 'gevorg-manukian.json', 'ivan-kutenkov.json',
+                'karo-marandyan.json', 'khazar-heydarov.json', 'kyrylo-samotug.json',
+                'marat-kryzhanskiy.json', 'andriy-kolesnik.json', 'aleksey-moiseiev.json',
+                'vladyslav-kazimirov.json'
+            ],
+            'women': [
+                'inna-shynkarenko.json', 'alina-shylova.json', 'anastasia-chyzhevska.json',
+                'olga-tsimko.json', 'anastasia-sykish.json', 'tetiana-limzaeva.json',
+                'anastasiia-severin.json', 'diana-semchenko.json', 'maria-rytska.json',
+                'kristina-opanasenko.json', 'snizhana-plish.json', 'anna-oliinyk-korniiko.json',
+                'marharyta-miroshnichenko.json', 'yelyzaveta-lytvynenko.json', 'anastasiia-levchenko.json',
+                'halyna-kovalska.json', 'yulia-kurchenko.json', 'anna-kazakova.json',
+                'yulia-grebenozhko.json', 'khrystyna-homan.json', 'alisa-videneeva.json',
+                'sofia-bordinskih.json', 'daria-bilodid.json', 'daria-boychenko.json',
+                'anastasia-antipina.json'
+            ]
+        };
+        
+        return knownFiles[folderName] || [];
+    }
+
+    /**
+     * Since we now load full data immediately, these lazy loading functions are simplified
+     */
+    async function startLazyDetailsLoading() {
+        // No longer needed as we load full data immediately
+        return;
+    }
+
+    async function processDetailsQueue() {
+        // No longer needed as we load full data immediately
+        return;
+    }
+
+    async function loadAthleteDetails(athleteId) {
+        // No longer needed as we load full data immediately
+        return;
+    }
+
+    /**
+     * Get currently visible athletes
+     */
+    function getVisibleAthletes() {
+        const startIndex = (currentPage - 1) * athletesPerPage;
+        const endIndex = startIndex + athletesPerPage;
+        return filteredAthletes.slice(startIndex, endIndex);
+    }
+
+    /**
+     * Update athlete card with detailed data (simplified since data is always available)
+     */
+    function updateAthleteCard(athlete) {
+        // No longer needed since we create cards with full data immediately
+        return;
+    }
+    
+    /**
+     * Create optimized athlete card element with new design
+     */
+    function createAthleteCard(athleteData, detailedData = null) {
         const card = document.createElement('div');
         card.className = 'athlete-card';
-        card.setAttribute('data-category', athlete.category);
+        card.setAttribute('data-category', athleteData.category);
+        card.setAttribute('data-status', athleteData.status || 'main');
+        card.setAttribute('data-id', athleteData.id);
         
-        // Create achievements medals
-        let medalsHTML = '';
-        if (detailedData && detailedData.achievements) {
-            detailedData.achievements.slice(0, 3).forEach(achievement => {
-                const emoji = {
-                    'gold': '🥇',
-                    'silver': '🥈',
-                    'bronze': '🥉'
-                };
-                medalsHTML += `<span class="athlete-medal ${achievement.type}">${emoji[achievement.type]} ${achievement.title}</span>`;
-            });
-        }
-        
-        // Get basic info
+        // Get basic info with fallbacks
         const age = detailedData ? calculateAge(detailedData.birthDate) : '—';
-        const dan = detailedData ? detailedData.dan : '—';
-        const city = detailedData ? detailedData.city : '—';
-        const rankDisplay = typeof athlete.rank === 'number' ? `#${athlete.rank}` : athlete.rank;
+        const dan = detailedData?.dan || athleteData.dan || '—';
+        const city = detailedData?.city || athleteData.city || '—';
+        const rankDisplay = typeof athleteData.rank === 'number' ? `#${athleteData.rank}` : athleteData.rank;
+        const status = athleteData.status || 'main';
+        const statusText = status === 'main' ? 'Основа' : 'Резерв';
         
-        // Create image element with placeholder fallback
-        const imageContent = createAthleteImageContent(athlete);
+        // Create image element with optimized loading
+        const imageContent = createAthleteImageContent(athleteData);
         
+        // Base card structure with new design
         card.innerHTML = `
             <div class="athlete-image-container">
                 ${imageContent}
                 <div class="athlete-overlay">
-                    <div class="athlete-rank">${rankDisplay}</div>
-                    <div class="athlete-weight">${athlete.weight}</div>
+                    <div class="athlete-status-display ${status}">
+                        ${status === 'main' ? 
+                            '<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/></svg>' :
+                            '<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>'
+                        }
+                        <span class="status-text">${statusText}</span>
                 </div>
+                    <div class="athlete-weight">${athleteData.weight}</div>
             </div>
+            </div>
+            
             <div class="athlete-content">
                 <div class="athlete-header">
-                    <h3 class="athlete-name">${athlete.name}</h3>
+                    <h3 class="athlete-name">${athleteData.name}</h3>
                     <div class="athlete-dan-badge ${getDanClass(dan)}">${dan}</div>
                 </div>
                 
@@ -155,16 +259,12 @@ document.addEventListener('DOMContentLoaded', function() {
                     </div>
                 </div>
                 
-                ${medalsHTML ? `
                 <div class="athlete-achievements">
-                    <div class="athlete-medals-preview">
-                        ${medalsHTML}
+                    ${detailedData && detailedData.achievements ? createAchievementsHTML(detailedData.achievements) : ''}
                     </div>
-                </div>
-                ` : ''}
                 
                 <div class="athlete-actions">
-                    <button class="athlete-btn athlete-btn-primary" onclick="window.location.href='athlete.html?id=${athlete.id}'">
+                    <button class="athlete-btn athlete-btn-primary" onclick="window.location.href='athlete.html?id=${athleteData.id}'">
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
                             <circle cx="12" cy="12" r="3"/>
@@ -176,6 +276,62 @@ document.addEventListener('DOMContentLoaded', function() {
         `;
         
         return card;
+    }
+
+    /**
+     * Create achievements HTML with improved design
+     */
+    function createAchievementsHTML(achievements) {
+        if (!achievements || achievements.length === 0) return '';
+        
+        // Count medals by type
+        const medalCount = {
+            gold: achievements.filter(a => a.type === 'gold').length,
+            silver: achievements.filter(a => a.type === 'silver').length,
+            bronze: achievements.filter(a => a.type === 'bronze').length
+        };
+        
+        let medalsHTML = '';
+        
+        // Show medal counts instead of individual medals
+        if (medalCount.gold > 0) {
+            medalsHTML += `<div class="medal-count gold">
+                <div class="medal-icon">🥇</div>
+                <span class="medal-number">${medalCount.gold}</span>
+            </div>`;
+        }
+        
+        if (medalCount.silver > 0) {
+            medalsHTML += `<div class="medal-count silver">
+                <div class="medal-icon">🥈</div>
+                <span class="medal-number">${medalCount.silver}</span>
+            </div>`;
+        }
+        
+        if (medalCount.bronze > 0) {
+            medalsHTML += `<div class="medal-count bronze">
+                <div class="medal-icon">🥉</div>
+                <span class="medal-number">${medalCount.bronze}</span>
+            </div>`;
+        }
+        
+        // Show latest achievement title
+        const latestAchievement = achievements.sort((a, b) => (b.year || 0) - (a.year || 0))[0];
+        const achievementTitle = latestAchievement.title.length > 25 
+            ? latestAchievement.title.substring(0, 25) + '...' 
+            : latestAchievement.title;
+        
+        return `
+            <div class="athlete-medals-preview">
+                <div class="medal-counts">
+                    ${medalsHTML}
+                </div>
+                <div class="latest-achievement">
+                    <span class="achievement-text">${achievementTitle}</span>
+                    <span class="achievement-year">${latestAchievement.year}</span>
+                </div>
+            </div>
+        `;
     }
     
     /**
@@ -270,11 +426,16 @@ document.addEventListener('DOMContentLoaded', function() {
     /**
      * Render current page of athletes
      */
+    /**
+     * Optimized page rendering with lazy loading
+     */
     function renderCurrentPage() {
         const athletesGrid = document.getElementById('athletes-grid');
+        if (!athletesGrid) return;
+        
+        // Clear current content
         athletesGrid.innerHTML = '';
         
-        // Check if no results
         if (filteredAthletes.length === 0) {
             renderNoResults(athletesGrid);
             updatePaginationControls();
@@ -283,18 +444,45 @@ document.addEventListener('DOMContentLoaded', function() {
         
         const startIndex = (currentPage - 1) * athletesPerPage;
         const endIndex = startIndex + athletesPerPage;
-        const athletesToShow = filteredAthletes.slice(startIndex, endIndex);
+        const currentAthletes = filteredAthletes.slice(startIndex, endIndex);
         
-        athletesToShow.forEach((athlete, index) => {
-            athletesGrid.appendChild(athlete.element);
+        // Create fragment for better performance
+        const fragment = document.createDocumentFragment();
+        
+        // Render athlete cards
+        currentAthletes.forEach((athlete, index) => {
+            if (!athlete.element) {
+                athlete.element = createAthleteCard(athlete.data, athlete.detailedData);
+            }
+            fragment.appendChild(athlete.element);
             
-            // Add animation
+            // Add staggered animation
+            requestAnimationFrame(() => {
             setTimeout(() => {
                 athlete.element.classList.add('animate-in');
-            }, index * 100);
+                }, index * 50); // Reduced delay for faster feel
+            });
         });
         
+        athletesGrid.appendChild(fragment);
         updatePaginationControls();
+    }
+
+    /**
+     * Show error message
+     */
+    function showError(message) {
+        const athletesGrid = document.getElementById('athletes-grid');
+        if (athletesGrid) {
+            athletesGrid.innerHTML = `
+                <div class="loading-athletes">
+                    <p style="color: #e74c3c;">❌ ${message}</p>
+                    <button onclick="location.reload()" style="margin-top: 10px; padding: 10px 20px; background: var(--primary-color); color: white; border: none; border-radius: 5px; cursor: pointer;">
+                        Спробувати знову
+                    </button>
+                </div>
+            `;
+        }
     }
     
     /**
@@ -424,7 +612,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     /**
-     * Update page numbers
+     * Smart page numbers with ellipsis
      */
     function updatePageNumbers(totalPages) {
         const pageNumbersContainer = document.getElementById('page-numbers');
@@ -432,16 +620,79 @@ document.addEventListener('DOMContentLoaded', function() {
         
         pageNumbersContainer.innerHTML = '';
         
+        // Simple pagination for small number of pages
+        if (totalPages <= 7) {
         for (let i = 1; i <= totalPages; i++) {
-            const pageBtn = document.createElement('button');
-            pageBtn.className = `page-number ${i === currentPage ? 'active' : ''}`;
-            pageBtn.textContent = i;
-            pageBtn.addEventListener('click', () => {
-                currentPage = i;
-                renderCurrentPage();
-            });
-            pageNumbersContainer.appendChild(pageBtn);
+                createPageButton(i, pageNumbersContainer);
+            }
+            return;
         }
+        
+        // Advanced pagination with ellipsis
+        const showPages = [];
+        
+        // Always show first page
+        showPages.push(1);
+        
+        // Calculate range around current page
+        const startRange = Math.max(2, currentPage - 1);
+        const endRange = Math.min(totalPages - 1, currentPage + 1);
+        
+        // Add ellipsis after first page if needed
+        if (startRange > 2) {
+            showPages.push('...');
+        }
+        
+        // Add pages around current page
+        for (let i = startRange; i <= endRange; i++) {
+            if (i !== 1 && i !== totalPages) {
+                showPages.push(i);
+            }
+        }
+        
+        // Add ellipsis before last page if needed
+        if (endRange < totalPages - 1) {
+            showPages.push('...');
+        }
+        
+        // Always show last page
+        if (totalPages > 1) {
+            showPages.push(totalPages);
+        }
+        
+        // Create buttons
+        showPages.forEach(page => {
+            if (page === '...') {
+                const ellipsis = document.createElement('span');
+                ellipsis.className = 'page-ellipsis';
+                ellipsis.textContent = '...';
+                pageNumbersContainer.appendChild(ellipsis);
+            } else {
+                createPageButton(page, pageNumbersContainer);
+            }
+        });
+    }
+
+    /**
+     * Create page button
+     */
+    function createPageButton(pageNumber, container) {
+            const pageBtn = document.createElement('button');
+        pageBtn.className = `page-number ${pageNumber === currentPage ? 'active' : ''}`;
+        pageBtn.textContent = pageNumber;
+            pageBtn.addEventListener('click', () => {
+            if (pageNumber !== currentPage) {
+                currentPage = pageNumber;
+                renderCurrentPage();
+                
+                // Scroll to top of results
+                const athletesGrid = document.getElementById('athletes-grid');
+                if (athletesGrid) {
+                    athletesGrid.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            }
+        });
+        container.appendChild(pageBtn);
     }
 
     /**
@@ -481,6 +732,24 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         }
 
+        // Status filter buttons
+        const statusButtons = document.querySelectorAll('.team-status-btn');
+        statusButtons.forEach(button => {
+            button.addEventListener('click', (e) => {
+                e.preventDefault();
+                
+                // Remove active class from all status buttons
+                statusButtons.forEach(btn => btn.classList.remove('active'));
+                
+                // Add active class to clicked button
+                button.classList.add('active');
+                
+                // Update filter
+                currentFilters.status = button.dataset.status;
+                applyAllFilters();
+            });
+        });
+
         // Search functionality
         initSearch();
     }
@@ -508,54 +777,76 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     /**
-     * Apply all active filters
+     * Optimized filter application with performance improvements
      */
     function applyAllFilters() {
         const searchInput = document.querySelector('.enhanced-search-input');
-        const searchTerm = searchInput ? searchInput.value.toLowerCase() : '';
-        
-        filteredAthletes = allAthletes.filter(athlete => {
-            // Gender filter
-            let genderMatch = true;
-            if (currentFilters.gender !== 'all') {
-                genderMatch = athlete.data.category === currentFilters.gender;
-            }
-            
-            // Age filter
-            let ageMatch = true;
-            if (currentFilters.age !== 'all') {
-                const birthDate = athlete.detailedData ? athlete.detailedData.birthDate : null;
-                const athleteAgeCategory = getAgeCategory(birthDate);
-                ageMatch = athleteAgeCategory === currentFilters.age;
-            }
-            
-            // Weight filter
-            let weightMatch = true;
-            if (currentFilters.weight !== 'all') {
-                weightMatch = athlete.data.weight === currentFilters.weight;
-            }
-            
-            // Search filter
-            let searchMatch = true;
-            if (searchTerm) {
-                const name = athlete.data.name.toLowerCase();
-                const weight = athlete.data.weight.toLowerCase();
-                const city = athlete.data.city ? athlete.data.city.toLowerCase() : '';
-                const club = athlete.data.club ? athlete.data.club.toLowerCase() : '';
-                
-                searchMatch = name.includes(searchTerm) || 
-                             weight.includes(searchTerm) ||
-                             city.includes(searchTerm) ||
-                             club.includes(searchTerm);
-            }
-            
-            return genderMatch && ageMatch && weightMatch && searchMatch;
-        });
+        const searchTerm = searchInput ? searchInput.value.toLowerCase().trim() : '';
         
         // Reset to first page when filtering
         currentPage = 1;
-        renderCurrentPage();
+        
+        // Use single filter pass for better performance
+        filteredAthletes = allAthletes.filter(athlete => {
+            // Gender filter
+            if (currentFilters.gender !== 'all' && athlete.data.category !== currentFilters.gender) {
+                return false;
+            }
+            
+            // Status filter (main/reserve)
+            if (currentFilters.status !== 'all' && (athlete.data.status || 'main') !== currentFilters.status) {
+                return false;
+            }
+            
+            // Weight filter (fast check first)
+            if (currentFilters.weight !== 'all' && athlete.data.weight !== currentFilters.weight) {
+                return false;
+            }
+            
+            // Search filter (optimize string operations)
+            if (searchTerm) {
+                const name = athlete.data.name.toLowerCase();
+                if (name.includes(searchTerm)) {
+                    return true; // Early return for name match
+                }
+                
+                // Check other fields only if name doesn't match
+                const weight = athlete.data.weight.toLowerCase();
+                if (weight.includes(searchTerm)) {
+                    return true;
+                }
+                
+                // Check detailed data from cache if available
+                const cachedData = athleteDetailsCache.get(athlete.data.id);
+                if (cachedData) {
+                    const city = cachedData.city?.toLowerCase() || '';
+                    const club = cachedData.club?.toLowerCase() || '';
+                    if (city.includes(searchTerm) || club.includes(searchTerm)) {
+                        return true;
+                    }
+                }
+                
+                return false; // No search match found
+            }
+            
+            // Age filter (most expensive, do last)
+            if (currentFilters.age !== 'all') {
+                const cachedData = athleteDetailsCache.get(athlete.data.id);
+                const birthDate = athlete.detailedData?.birthDate || cachedData?.birthDate;
+                
+                if (!birthDate) {
+                    return false; // Skip athletes without birth date
+                }
+                
+                const athleteAgeCategory = getAgeCategory(birthDate);
+                return athleteAgeCategory === currentFilters.age;
+            }
+            
+            return true;
+        });
+        
         updateResultsCount();
+        renderCurrentPage();
     }
 
     /**
@@ -700,8 +991,10 @@ document.addEventListener('DOMContentLoaded', function() {
         
         coachCards.forEach(card => {
             card.addEventListener('click', function() {
-                const coachName = this.querySelector('.coach-name').textContent;
-                console.log(`Clicked on coach: ${coachName}`);
+                const coachId = this.getAttribute('data-coach-id');
+                if (coachId) {
+                    window.location.href = `coach.html?id=${coachId}`;
+                }
             });
         });
     }
@@ -785,51 +1078,112 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     /**
-     * Load coaches data from JSON files
+     * Load coaches data from folder structure
      */
     async function loadCoachesData() {
         try {
-            const response = await fetch('scripts/team/coaches.json');
-            const data = await response.json();
-            
             const coachesGrid = document.getElementById('coaches-grid');
+            if (!coachesGrid) return;
             
             // Remove loading indicator
             const loadingElement = coachesGrid.querySelector('.loading-coaches');
-            if (loadingElement) {
-                loadingElement.remove();
-            }
+            loadingElement?.remove();
             
-            // Load detailed data for all coaches
+            // Load coaches from coaches folder
+            const coaches = await loadCoachesFromFolder();
+            
+            // Create coaches array
             const allCoaches = [];
-            for (const coach of data.coaches) {
-                // Load detailed coach data for filtering
-                let detailedData = null;
-                try {
-                    const response = await fetch(`scripts/team/articles/coaches/${coach.id}.json`);
-                    detailedData = await response.json();
-                } catch (error) {
-                    console.warn(`Could not load detailed data for coach ${coach.id}`);
-                }
-
-                const coachCard = await createCoachCard(coach, detailedData);
+            const fragment = document.createDocumentFragment();
+            
+            for (const coach of coaches) {
+                const coachCard = await createCoachCard(coach.data, coach.detailedData);
                 allCoaches.push({
                     element: coachCard,
-                    data: coach,
-                    detailedData: detailedData
+                    data: coach.data,
+                    detailedData: coach.detailedData
                 });
                 
-                coachesGrid.appendChild(coachCard);
+                fragment.appendChild(coachCard);
             }
             
-            // Initialize coach filtering
+            coachesGrid.appendChild(fragment);
             initCoachFiltering(allCoaches);
             
         } catch (error) {
-            console.error('Error loading coaches data:', error);
+            showCoachError();
+        }
+    }
+
+    /**
+     * Load coaches from coaches folder
+     */
+    async function loadCoachesFromFolder() {
+        const coaches = [];
+        const coachFiles = getCoachFilesList();
+        
+        // Load coaches in batches
+        const batchSize = 3;
+        for (let i = 0; i < coachFiles.length; i += batchSize) {
+            const batch = coachFiles.slice(i, i + batchSize);
+            const batchPromises = batch.map(async (fileName) => {
+                try {
+                    const response = await fetch(`scripts/team/coaches/${fileName}`);
+                    if (response.ok) {
+                        const coachData = await response.json();
+                        return {
+                            data: {
+                                id: coachData.id,
+                                name: coachData.name,
+                                position: coachData.position,
+                                category: coachData.category,
+                                experience: coachData.experience,
+                                image: coachData.image
+                            },
+                            detailedData: coachData
+                        };
+                    }
+                } catch (error) {
+                    return null;
+                }
+            });
             
-            // Show error message
+            const batchResults = await Promise.all(batchPromises);
+            coaches.push(...batchResults.filter(coach => coach !== null));
+        }
+        
+        return coaches;
+    }
+
+    /**
+     * Get list of coach files
+     */
+    function getCoachFilesList() {
+        return [
+            'serhiy-drebot.json', 'andriy-bloshenko.json', 'niabali-kedjau.json',
+            'dmytro-bondarchuk.json', 'hanna-kashtanova.json', 'vitaliy-dubrova.json',
+            'ivanna-makukha.json', 'andriy-burdun.json', 'oleksandr-kosinov.json',
+            'mykhailo-rudenko.json'
+        ];
+    }
+
+    /**
+     * These functions are no longer needed since we load full data immediately
+     */
+    async function loadCoachDetails(coachId, coachCard) {
+        return; // No longer needed
+    }
+
+    function updateCoachCard(coachCard, detailedData) {
+        return; // No longer needed
+    }
+
+    /**
+     * Show coach loading error
+     */
+    function showCoachError() {
             const coachesGrid = document.getElementById('coaches-grid');
+        if (coachesGrid) {
             coachesGrid.innerHTML = `
                 <div class="loading-coaches">
                     <p style="color: #e74c3c;">❌ Помилка завантаження тренерського штабу</p>
@@ -853,9 +1207,9 @@ document.addEventListener('DOMContentLoaded', function() {
         const imageContent = createCoachImageContent(coach);
         
         // Get additional info from detailed data
-        const achievements = detailedData?.achievements?.length || 0;
-        const experience = coach.experience || '—';
-        const specialization = coach.specialization || '';
+        const achievements = detailedData?.awards?.length || 0;
+        const experience = coach.experience || detailedData?.experience || '—';
+        const specialization = coach.specialization || detailedData?.position || '';
         
         card.innerHTML = `
             <div class="coach-category-badge ${coach.category}">${getCategoryName(coach.category)}</div>

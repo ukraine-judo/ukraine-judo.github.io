@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Тест плавного скролла</title>
+    <link rel="stylesheet" href="css/global.css">
+    <script src="script.js"></script>
+    <style>
+        /* Дополнительные стили для теста */
+        .test-section {
+            min-height: 100vh;
+            padding: 4rem 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            font-size: 2rem;
+            font-weight: bold;
+            text-align: center;
+        }
+        
+        .test-section:nth-child(1) { background: #ffebee; color: #c62828; }
+        .test-section:nth-child(2) { background: #e8f5e8; color: #2e7d32; }
+        .test-section:nth-child(3) { background: #e3f2fd; color: #1565c0; }
+        .test-section:nth-child(4) { background: #fff3e0; color: #ef6c00; }
+        .test-section:nth-child(5) { background: #f3e5f5; color: #7b1fa2; }
+        
+        .debug-info {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: rgba(0,0,0,0.8);
+            color: white;
+            padding: 1rem;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            z-index: 1000;
+        }
+        
+        .debug-info button {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            margin: 0.25rem;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        
+        .debug-info button:hover {
+            background: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="debug-info">
+        <div>Тест плавного скролла</div>
+        <button onclick="window.debugSmoothScroll()">Debug Info</button>
+        <button onclick="window.disableSmoothScroll()">Выключить</button>
+        <button onclick="window.enableSmoothScroll()">Включить</button>
+    </div>
+
+    <section class="test-section">
+        <h1>Секция 1</h1>
+        <p>Прокрутите страницу вниз, чтобы увидеть плавный скролл в действии</p>
+        <p>Используйте колесо мыши или touchpad</p>
+    </section>
+
+    <section class="test-section">
+        <h1>Секция 2</h1>
+        <p>Если плавный скролл работает, прокрутка должна быть очень плавной</p>
+        <p>Не резкой, а с эффектом инерции</p>
+    </section>
+
+    <section class="test-section">
+        <h1>Секция 3</h1>
+        <p>Откройте консоль браузера (F12)</p>
+        <p>Там должны быть сообщения о статусе скролла</p>
+    </section>
+
+    <section class="test-section">
+        <h1>Секция 4</h1>
+        <p>Используйте кнопки справа для отладки</p>
+        <p>Debug Info покажет состояние скрипта</p>
+    </section>
+
+    <section class="test-section">
+        <h1>Секция 5</h1>
+        <p>Последняя секция для тестирования</p>
+        <p>Прокрутите обратно вверх</p>
+    </section>
+</body>
+</html> 

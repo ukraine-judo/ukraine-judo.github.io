@@ -467,597 +467,16 @@ class HomeEventsWidget {
     }
 }
 
-// Home News Widget - integrates with news system
-class HomeNewsWidget {
-    constructor() {
-        this.newsContainer = document.querySelector('.news-slider-container');
-        this.dotsContainer = document.querySelector('.news-slider-dots');
-        this.isLoaded = false;
-        
-        if (this.newsContainer) {
-            this.init();
-        }
-    }
+// News widget functionality moved to optimized news.js system
 
-    async init() {
-        try {
-            console.log('Initializing HomeNewsWidget...');
-            
-            // Show loading animation
-            this.showLoading();
-            
-            // Wait for newsLoader to be available
-            if (!window.newsLoader) {
-                console.warn('newsLoader not available, using static content');
-                this.showError('Система новин недоступна');
-                return;
-            }
-
-            // Add minimum loading time for better UX
-            const [allNews] = await Promise.all([
-                window.newsLoader.loadArticlesList(),
-                new Promise(resolve => setTimeout(resolve, 1000)) // Minimum 1 second loading
-            ]);
-            
-            const latestNews = allNews.slice(0, 5); // Get 5 latest news
-
-            if (latestNews.length > 0) {
-                // Show skeleton first, then real content
-                this.showSkeleton();
-                await new Promise(resolve => setTimeout(resolve, 500)); // Show skeleton for 0.5s
-                
-                this.renderNews(latestNews);
-                this.updateDots(latestNews.length);
-                this.isLoaded = true;
-                
-                // Trigger slider reinitialization
-                this.triggerSliderInit();
-                
-                console.log(`Loaded ${latestNews.length} news articles`);
-            } else {
-                this.showError('Новини не знайдено');
-            }
-        } catch (error) {
-            console.error('Error loading news for home widget:', error);
-            this.showError('Помилка завантаження новин');
-        }
-    }
-
-    renderNews(newsArray) {
-        if (!this.newsContainer) return;
-
-        let html = '';
-        
-        newsArray.forEach((news, index) => {
-            const categoryName = this.getCategoryName(news.category);
-            const formattedDate = this.formatDateShort(news.publishedAt);
-            const isActive = index === 0 ? 'active' : '';
-            
-            html += `
-                <div class="news-card ${isActive}">
-                    <div class="news-card-image">
-                        <img src="${news.image?.url || news.image}" alt="${news.title}" loading="lazy">
-                        <div class="news-card-date">${formattedDate}</div>
-                    </div>
-                    <div class="news-card-content">
-                        <span class="news-card-category">${categoryName}</span>
-                        <h3 class="news-card-title">${news.title}</h3>
-                        <p class="news-card-excerpt">${news.excerpt}</p>
-                        <a href="news-article.html?id=${news.id}" class="news-card-link">Читати далі</a>
-                    </div>
-                </div>
-            `;
-        });
-
-        this.newsContainer.innerHTML = html;
-        
-        // Add fade-in animation
-        this.newsContainer.style.opacity = '0';
-        this.newsContainer.style.transform = 'translateY(20px)';
-        
-        // Trigger animation
-        requestAnimationFrame(() => {
-            this.newsContainer.style.transition = 'all 0.5s ease-out';
-            this.newsContainer.style.opacity = '1';
-            this.newsContainer.style.transform = 'translateY(0)';
-        });
-    }
-
-    updateDots(count) {
-        if (!this.dotsContainer) return;
-
-        let html = '';
-        for (let i = 0; i < count; i++) {
-            const isActive = i === 0 ? 'active' : '';
-            html += `<span class="dot ${isActive}" data-slide="${i}"></span>`;
-        }
-
-        this.dotsContainer.innerHTML = html;
-    }
-
-    getCategoryName(category) {
-        const categories = {
-            'achievements': 'Досягнення',
-            'competitions': 'Змагання',
-            'events': 'Події',
-            'announcements': 'Анонси'
-        };
-        return categories[category] || 'Новини';
-    }
-
-    formatDateShort(dateString) {
-        const date = new Date(dateString);
-        const months = ['Січня', 'Лютого', 'Березня', 'Квітня', 'Травня', 'Червня', 'Липня', 'Серпня', 'Вересня', 'Жовтня', 'Листопада', 'Грудня'];
-        return `${date.getDate()} ${months[date.getMonth()]}`;
-    }
-
-    showLoading() {
-        if (!this.newsContainer) return;
-
-        this.newsContainer.innerHTML = `
-            <div class="news-loading">
-                <div class="news-loader"></div>
-                <div class="news-loader-text">Завантаження новин...</div>
-                <div class="news-loader-subtext">Отримуємо останні новини Федерації Дзюдо України</div>
-            </div>
-        `;
-
-        // Hide dots during loading
-        if (this.dotsContainer) {
-            this.dotsContainer.innerHTML = '';
-        }
-    }
-
-    showSkeleton() {
-        if (!this.newsContainer) return;
-
-        this.newsContainer.innerHTML = `
-            <div class="news-skeleton">
-                <div class="news-skeleton-image"></div>
-                <div class="news-skeleton-content">
-                    <div class="news-skeleton-category"></div>
-                    <div class="news-skeleton-title"></div>
-                    <div class="news-skeleton-title"></div>
-                    <div class="news-skeleton-excerpt"></div>
-                    <div class="news-skeleton-excerpt"></div>
-                    <div class="news-skeleton-excerpt"></div>
-                    <div class="news-skeleton-link"></div>
-                </div>
-            </div>
-        `;
-    }
-
-    showError(message) {
-        if (!this.newsContainer) return;
-
-        this.newsContainer.innerHTML = `
-            <div class="news-loading">
-                <div style="width: 60px; height: 60px; border-radius: 50%; background: rgba(220, 53, 69, 0.1); display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem;">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#dc3545" stroke-width="2">
-                        <circle cx="12" cy="12" r="10"/>
-                        <line x1="15" y1="9" x2="9" y2="15"/>
-                        <line x1="9" y1="9" x2="15" y2="15"/>
-                    </svg>
-                </div>
-                <div class="news-loader-text" style="color: #dc3545;">${message}</div>
-                <div class="news-loader-subtext">Спробуйте оновити сторінку або зверніться до адміністратора</div>
-            </div>
-        `;
-
-        // Hide dots during error
-        if (this.dotsContainer) {
-            this.dotsContainer.innerHTML = '';
-        }
-    }
-
-    triggerSliderInit() {
-        // Dispatch custom event to notify slider to reinitialize
-        const event = new CustomEvent('newsLoaded', {
-            detail: { widget: this }
-        });
-        document.dispatchEvent(event);
-    }
-}
-
-// News Slider Functionality
+// News Slider Integration for existing slider functionality
 document.addEventListener('DOMContentLoaded', function() {
-    const newsSlider = document.querySelector('.news-slider');
-    if (!newsSlider) return;
-
-    let newsCards = document.querySelectorAll('.news-card');
-    let prevBtn = document.querySelector('.news-slider-btn.prev');
-    let nextBtn = document.querySelector('.news-slider-btn.next');
-    let dots = document.querySelectorAll('.dot');
-    
-    let currentSlide = 0;
-    let isAutoPlay = true;
-    let autoPlayInterval;
-    let isTransitioning = false;
-    let transitionTimeout;
-
-    // Initialize news widget first, then slider
-    async function initNewsSystem() {
-        // Initialize news widget
-        const newsWidget = new HomeNewsWidget();
-        
-        // Wait for news widget to complete loading
-        await new Promise(resolve => {
-            const checkLoaded = () => {
-                if (newsWidget.isLoaded || document.querySelectorAll('.news-card').length > 0) {
-                    resolve();
-                } else {
-                    setTimeout(checkLoaded, 100);
-                }
-            };
-            checkLoaded();
-        });
-        
-        // Re-query elements after news widget updates DOM
-        newsCards = document.querySelectorAll('.news-card');
-        dots = document.querySelectorAll('.dot');
-        
-        // Initialize slider
+    // Initialize the slider only if news content is loaded
+    setTimeout(() => {
+        if (typeof initSlider === 'function') {
         initSlider();
-    }
-
-    // Initialize slider
-    function initSlider() {
-        if (newsCards.length === 0) {
-            console.warn('No news cards found for slider');
-            return;
         }
-        
-        showSlide(currentSlide);
-        startAutoPlay();
-        addEventListeners();
-        addAccessibility();
-    }
-
-    // Show specific slide
-    function showSlide(index, direction = 'next') {
-        // Prevent transition if already transitioning
-        if (isTransitioning) return;
-        
-        // Set transitioning state
-        isTransitioning = true;
-        
-        // Clear any existing transition timeout
-        if (transitionTimeout) {
-            clearTimeout(transitionTimeout);
-        }
-        
-        // Re-query elements to ensure we have current references
-        newsCards = document.querySelectorAll('.news-card');
-        dots = document.querySelectorAll('.dot');
-        
-        // Remove all classes from cards
-        newsCards.forEach((card, cardIndex) => {
-            card.classList.remove('active', 'prev', 'next');
-            
-            if (cardIndex === index) {
-                // Current slide
-                card.classList.add('active');
-            } else if (cardIndex < index) {
-                // Previous slides
-                card.classList.add('prev');
-            } else {
-                // Next slides
-                card.classList.add('next');
-            }
-        });
-        
-        // Update dots
-        dots.forEach(dot => dot.classList.remove('active'));
-        if (dots[index]) {
-            dots[index].classList.add('active');
-        }
-        
-        // Update button states
-        updateButtonStates();
-        
-        // Add haptic feedback on mobile
-        if ('vibrate' in navigator && window.innerWidth <= 768) {
-            navigator.vibrate(30);
-        }
-        
-        // Reset transitioning state after animation completes
-        transitionTimeout = setTimeout(() => {
-            isTransitioning = false;
-        }, 600); // Match CSS animation duration
-    }
-
-    // Go to next slide
-    function nextSlide() {
-        if (isTransitioning) return;
-        
-        const currentNewsCards = document.querySelectorAll('.news-card');
-        currentSlide = (currentSlide + 1) % currentNewsCards.length;
-        showSlide(currentSlide, 'next');
-    }
-
-    // Go to previous slide
-    function prevSlide() {
-        if (isTransitioning) return;
-        
-        const currentNewsCards = document.querySelectorAll('.news-card');
-        currentSlide = (currentSlide - 1 + currentNewsCards.length) % currentNewsCards.length;
-        showSlide(currentSlide, 'prev');
-    }
-
-    // Go to specific slide
-    function goToSlide(index) {
-        if (isTransitioning) return;
-        
-        const direction = index > currentSlide ? 'next' : 'prev';
-        currentSlide = index;
-        showSlide(currentSlide, direction);
-        restartAutoPlay();
-    }
-
-    // Update button states
-    function updateButtonStates() {
-        const currentNewsCards = document.querySelectorAll('.news-card');
-        if (prevBtn) {
-            prevBtn.disabled = currentSlide === 0;
-        }
-        if (nextBtn) {
-            nextBtn.disabled = currentSlide === currentNewsCards.length - 1;
-        }
-    }
-
-    // Start auto play
-    function startAutoPlay() {
-        if (!isAutoPlay) return;
-        
-        autoPlayInterval = setInterval(() => {
-            // Don't auto-advance if transitioning
-            if (isTransitioning) return;
-            
-            const currentNewsCards = document.querySelectorAll('.news-card');
-            if (currentSlide === currentNewsCards.length - 1) {
-                currentSlide = 0;
-            } else {
-                currentSlide++;
-            }
-            showSlide(currentSlide);
-        }, 25000); // 25 seconds
-    }
-
-    // Stop auto play
-    function stopAutoPlay() {
-        if (autoPlayInterval) {
-            clearInterval(autoPlayInterval);
-        }
-        // Also clear transition timeout if stopping
-        if (transitionTimeout) {
-            clearTimeout(transitionTimeout);
-            isTransitioning = false;
-        }
-    }
-
-    // Restart auto play
-    function restartAutoPlay() {
-        stopAutoPlay();
-        setTimeout(() => {
-            startAutoPlay();
-        }, 1000); // Restart after 1 second
-    }
-
-    // Add event listeners
-    function addEventListeners() {
-        // Re-query elements to get fresh references
-        prevBtn = document.querySelector('.news-slider-btn.prev');
-        nextBtn = document.querySelector('.news-slider-btn.next');
-        dots = document.querySelectorAll('.dot');
-
-        // Navigation buttons
-        let lastClickTime = 0;
-        const clickDebounceTime = 250; // Minimum time between clicks
-        
-        if (nextBtn) {
-            nextBtn.addEventListener('click', () => {
-                const now = Date.now();
-                if (now - lastClickTime >= clickDebounceTime && !isTransitioning) {
-                    lastClickTime = now;
-                    nextSlide();
-                    restartAutoPlay();
-                }
-            });
-        }
-
-        if (prevBtn) {
-            prevBtn.addEventListener('click', () => {
-                const now = Date.now();
-                if (now - lastClickTime >= clickDebounceTime && !isTransitioning) {
-                    lastClickTime = now;
-                    prevSlide();
-                    restartAutoPlay();
-                }
-            });
-        }
-
-        // Dots navigation
-        dots.forEach((dot, index) => {
-            dot.addEventListener('click', () => {
-                const now = Date.now();
-                if (now - lastClickTime >= clickDebounceTime && !isTransitioning) {
-                    lastClickTime = now;
-                    goToSlide(index);
-                }
-            });
-        });
-
-        // Keyboard navigation
-        let lastKeyTime = 0;
-        const keyDebounceTime = 200; // Minimum time between key presses
-        
-        document.addEventListener('keydown', (e) => {
-            if (!newsSlider.closest('.news-section')) return;
-            
-            const now = Date.now();
-            
-            switch(e.key) {
-                case 'ArrowLeft':
-                    e.preventDefault();
-                    if (now - lastKeyTime >= keyDebounceTime && !isTransitioning) {
-                        lastKeyTime = now;
-                        prevSlide();
-                        restartAutoPlay();
-                    }
-                    break;
-                case 'ArrowRight':
-                    e.preventDefault();
-                    if (now - lastKeyTime >= keyDebounceTime && !isTransitioning) {
-                        lastKeyTime = now;
-                        nextSlide();
-                        restartAutoPlay();
-                    }
-                    break;
-                case ' ':
-                case 'Enter':
-                    if (e.target.classList.contains('dot')) {
-                        e.preventDefault();
-                        if (now - lastKeyTime >= keyDebounceTime && !isTransitioning) {
-                            lastKeyTime = now;
-                            const currentDots = document.querySelectorAll('.dot');
-                            const index = Array.from(currentDots).indexOf(e.target);
-                            goToSlide(index);
-                        }
-                    }
-                    break;
-            }
-        });
-
-        // Touch/Swipe support
-        let touchStartX = 0;
-        let touchEndX = 0;
-        let touchStartY = 0;
-        let touchEndY = 0;
-        let lastSwipeTime = 0;
-        const swipeDebounceTime = 300; // Minimum time between swipes
-
-        newsSlider.addEventListener('touchstart', (e) => {
-            touchStartX = e.changedTouches[0].screenX;
-            touchStartY = e.changedTouches[0].screenY;
-            stopAutoPlay(); // Stop auto play during touch
-        });
-
-        newsSlider.addEventListener('touchend', (e) => {
-            touchEndX = e.changedTouches[0].screenX;
-            touchEndY = e.changedTouches[0].screenY;
-            handleSwipe();
-            restartAutoPlay(); // Restart auto play after touch
-        });
-
-        function handleSwipe() {
-            const now = Date.now();
-            
-            // Debounce swipes to prevent too rapid swiping
-            if (now - lastSwipeTime < swipeDebounceTime) {
-                return;
-            }
-            
-            // Don't handle swipe if transitioning
-            if (isTransitioning) {
-                return;
-            }
-            
-            const deltaX = touchEndX - touchStartX;
-            const deltaY = touchEndY - touchStartY;
-            const minSwipeDistance = 50;
-            
-            // Ensure horizontal swipe is more significant than vertical
-            if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > minSwipeDistance) {
-                lastSwipeTime = now;
-                
-                if (deltaX > 0) {
-                    // Swipe right - go to previous slide
-                    prevSlide();
-                } else {
-                    // Swipe left - go to next slide
-                    nextSlide();
-                }
-            }
-        }
-
-        // Pause auto play on hover (desktop)
-        newsSlider.addEventListener('mouseenter', () => {
-            if (window.innerWidth > 768) {
-                stopAutoPlay();
-            }
-        });
-
-        newsSlider.addEventListener('mouseleave', () => {
-            if (window.innerWidth > 768) {
-                startAutoPlay();
-            }
-        });
-
-        // Pause auto play when tab is not visible
-        document.addEventListener('visibilitychange', () => {
-            if (document.hidden) {
-                stopAutoPlay();
-            } else {
-                startAutoPlay();
-            }
-        });
-
-        // Handle window resize
-        window.addEventListener('resize', debounce(() => {
-            showSlide(currentSlide); // Refresh current slide
-        }, 250));
-    }
-
-    // Debounce function
-    function debounce(func, wait) {
-        let timeout;
-        return function executedFunction(...args) {
-            const later = () => {
-                clearTimeout(timeout);
-                func(...args);
-            };
-            clearTimeout(timeout);
-            timeout = setTimeout(later, wait);
-        };
-    }
-
-    // Initialize the news system and slider
-    initNewsSystem();
-
-    // Add accessibility attributes
-    function addAccessibility() {
-        // Add ARIA labels
-        if (newsSlider) {
-            newsSlider.setAttribute('role', 'region');
-            newsSlider.setAttribute('aria-label', 'Слайдер новостей');
-        }
-
-        // Re-query elements in case they were updated
-        const currentNewsCards = document.querySelectorAll('.news-card');
-        const currentDots = document.querySelectorAll('.dot');
-
-        // Add ARIA attributes to cards
-        currentNewsCards.forEach((card, index) => {
-            card.setAttribute('role', 'tabpanel');
-            card.setAttribute('aria-label', `Новина ${index + 1} з ${currentNewsCards.length}`);
-            card.setAttribute('tabindex', index === currentSlide ? '0' : '-1');
-        });
-
-        // Add ARIA attributes to dots
-        currentDots.forEach((dot, index) => {
-            dot.setAttribute('role', 'tab');
-            dot.setAttribute('aria-label', `Перейти до новини ${index + 1}`);
-            dot.setAttribute('tabindex', '0');
-        });
-
-        // Add ARIA attributes to buttons
-        if (prevBtn) {
-            prevBtn.setAttribute('aria-label', 'Попередня новина');
-        }
-        if (nextBtn) {
-            nextBtn.setAttribute('aria-label', 'Наступна новина');
-        }
-    }
+    }, 1000);
 });
 
 // Initialize Home Events Widget
@@ -1121,3 +540,387 @@ document.addEventListener('DOMContentLoaded', function() {
         observer.observe(statsSection);
     }
 });
+
+// Главная страница - Hero News Widget
+class HeroNewsWidget {
+    constructor() {
+        this.container = document.querySelector('.news-hero-container');
+        this.controls = document.querySelector('.news-hero-controls');
+        this.prevBtn = document.querySelector('.news-hero-btn.prev');
+        this.nextBtn = document.querySelector('.news-hero-btn.next');
+        this.dotsContainer = document.querySelector('.news-hero-dots');
+        
+        this.slides = [];
+        this.currentSlide = 0;
+        this.isLoading = false;
+        this.autoSlideInterval = null;
+        
+        this.init();
+    }
+    
+    async init() {
+        this.showSkeleton();
+        await this.loadNews();
+        this.setupEventListeners();
+        this.updateControls();
+        this.startAutoSlide();
+    }
+
+    showSkeleton() {
+        if (!this.container) return;
+        
+        this.container.innerHTML = `
+            <div class="news-hero-skeleton">
+                <div class="news-hero-content">
+                    <div class="skeleton-category"></div>
+                    <div class="skeleton-title"></div>
+                    <div class="skeleton-excerpt"></div>
+                    <div class="skeleton-meta"></div>
+                </div>
+            </div>
+        `;
+    }
+
+    async loadNews() {
+        try {
+            this.isLoading = true;
+            
+            // Используем систему NewsLoader
+            if (window.NewsLoader) {
+                const loader = new window.NewsLoader();
+                
+                // Загружаем последние статьи через систему
+                const articles = await loader.scanArticles();
+                if (articles && articles.length > 0) {
+                    this.slides = articles.slice(0, 5); // Берем первые 5
+                    this.renderSlides();
+                    return;
+                }
+            }
+            
+            // Фоллбек - пытаемся загрузить через оптимизированную систему news.js
+            if (window.OptimizedNewsLoader) {
+                const optimizedLoader = new window.OptimizedNewsLoader();
+                const news = await optimizedLoader.getLatestNews(5);
+                if (news && news.length > 0) {
+                    this.slides = news;
+                    this.renderSlides();
+                    return;
+                }
+            }
+            
+            // Последний фоллбек
+            this.showFallbackNews();
+        } catch (error) {
+            console.error('Ошибка загрузки новостей:', error);
+            this.showFallbackNews();
+        } finally {
+            this.isLoading = false;
+        }
+    }
+    
+    showFallbackNews() {
+        this.slides = [
+            {
+                id: 'fallback-1',
+                title: 'Федерація дзюдо України',
+                excerpt: 'Офіційний сайт Федерації дзюдо України. Новини, турніри, результати змагань.',
+                category: 'Новини',
+                date: new Date().toISOString(),
+                image: '/images/federation/hero-bg.jpg',
+                link: '/news.html'
+            }
+        ];
+        this.renderSlides();
+    }
+    
+    renderSlides() {
+        if (!this.container || this.slides.length === 0) return;
+        
+        const slidesHTML = this.slides.map((slide, index) => {
+            // Обрабатываем разные форматы данных
+            const imageUrl = this.getSlideImage(slide);
+            const slideStyle = imageUrl ? `background-image: url('${imageUrl}')` : '';
+            const slideClass = imageUrl ? '' : 'no-image';
+            const categoryName = this.getCategoryName(slide.category);
+            const authorName = this.getAuthorName(slide.author);
+            const slideDate = slide.publishedAt || slide.date || new Date().toISOString();
+            const slideLink = slide.slugId ? `/news-article.html?id=${slide.slugId}` : (slide.link || `/news.html?id=${slide.id}`);
+            
+            return `
+                <div class="news-hero-slide ${slideClass}" style="${slideStyle}">
+                    <div class="news-hero-content">
+                        <div class="news-hero-category">${categoryName}</div>
+                        <h2 class="news-hero-title">${slide.title}</h2>
+                        <p class="news-hero-excerpt">${this.truncateText(slide.excerpt || slide.content, 150)}</p>
+                        <div class="news-hero-meta">
+                            <div class="news-hero-date">
+                                <svg viewBox="0 0 24 24" fill="none">
+                                    <path d="M8 2v4M16 2v4M3 10h18M5 4h14a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V6a2 2 0 012-2z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                ${this.formatDate(slideDate)}
+                            </div>
+                            ${authorName ? `
+                                <div class="news-hero-author">
+                                    <svg viewBox="0 0 24 24" fill="none">
+                                        <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2M12 11a4 4 0 100-8 4 4 0 000 8z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                    ${authorName}
+                                </div>
+                            ` : ''}
+                        </div>
+                        <a href="${slideLink}" class="news-hero-read-more">
+                            Читати далі
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                                <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            `;
+        }).join('');
+        
+        this.container.innerHTML = slidesHTML;
+        this.createDots();
+        this.updateSlidePosition();
+    }
+    
+    createDots() {
+        if (!this.dotsContainer) return;
+        
+        const dotsHTML = this.slides.map((_, index) => 
+            `<div class="news-hero-dot ${index === 0 ? 'active' : ''}" data-slide="${index}"></div>`
+        ).join('');
+        
+        this.dotsContainer.innerHTML = dotsHTML;
+        
+        // Добавляем обработчики для точек
+        this.dotsContainer.querySelectorAll('.news-hero-dot').forEach(dot => {
+            dot.addEventListener('click', () => {
+                const slideIndex = parseInt(dot.dataset.slide);
+                this.goToSlide(slideIndex);
+            });
+        });
+    }
+    
+    setupEventListeners() {
+        if (this.prevBtn) {
+            this.prevBtn.addEventListener('click', () => this.prevSlide());
+        }
+        
+        if (this.nextBtn) {
+            this.nextBtn.addEventListener('click', () => this.nextSlide());
+        }
+        
+        // Пауза автослайда при наведении
+        if (this.container) {
+            this.container.addEventListener('mouseenter', () => this.pauseAutoSlide());
+            this.container.addEventListener('mouseleave', () => this.startAutoSlide());
+        }
+        
+        // Свайпы на мобильных
+        this.setupTouchEvents();
+    }
+    
+    setupTouchEvents() {
+        if (!this.container) return;
+        
+        let startX = 0;
+        let currentX = 0;
+        let isDragging = false;
+        
+        this.container.addEventListener('touchstart', (e) => {
+            startX = e.touches[0].clientX;
+            isDragging = true;
+            this.pauseAutoSlide();
+        });
+        
+        this.container.addEventListener('touchmove', (e) => {
+            if (!isDragging) return;
+            currentX = e.touches[0].clientX;
+        });
+        
+        this.container.addEventListener('touchend', () => {
+            if (!isDragging) return;
+            isDragging = false;
+            
+            const diff = startX - currentX;
+            const threshold = 50;
+            
+            if (Math.abs(diff) > threshold) {
+                if (diff > 0) {
+                    this.nextSlide();
+            } else {
+                    this.prevSlide();
+                }
+            }
+            
+            this.startAutoSlide();
+        });
+    }
+    
+    nextSlide() {
+        this.currentSlide = (this.currentSlide + 1) % this.slides.length;
+        this.updateSlidePosition();
+        this.updateControls();
+    }
+    
+    prevSlide() {
+        this.currentSlide = (this.currentSlide - 1 + this.slides.length) % this.slides.length;
+        this.updateSlidePosition();
+        this.updateControls();
+    }
+    
+    goToSlide(index) {
+        this.currentSlide = index;
+        this.updateSlidePosition();
+        this.updateControls();
+    }
+    
+    updateSlidePosition() {
+        if (!this.container) return;
+        
+        const translateX = -this.currentSlide * 100;
+        this.container.style.transform = `translateX(${translateX}%)`;
+    }
+    
+    updateControls() {
+        // Обновляем точки
+        if (this.dotsContainer) {
+            this.dotsContainer.querySelectorAll('.news-hero-dot').forEach((dot, index) => {
+                dot.classList.toggle('active', index === this.currentSlide);
+            });
+        }
+        
+        // Обновляем кнопки
+        if (this.prevBtn) {
+            this.prevBtn.disabled = this.slides.length <= 1;
+        }
+        if (this.nextBtn) {
+            this.nextBtn.disabled = this.slides.length <= 1;
+        }
+    }
+    
+    startAutoSlide() {
+        if (this.slides.length <= 1) return;
+        
+        this.pauseAutoSlide();
+        this.autoSlideInterval = setInterval(() => {
+            this.nextSlide();
+        }, 6000); // 6 секунд
+    }
+    
+    pauseAutoSlide() {
+        if (this.autoSlideInterval) {
+            clearInterval(this.autoSlideInterval);
+            this.autoSlideInterval = null;
+        }
+    }
+    
+    formatDate(dateString) {
+        const date = new Date(dateString);
+        return date.toLocaleDateString('uk-UA', {
+            day: 'numeric',
+            month: 'long',
+            year: 'numeric'
+        });
+    }
+    
+    truncateText(text, maxLength) {
+        if (!text) return '';
+        if (text.length <= maxLength) return text;
+        return text.substring(0, maxLength).trim() + '...';
+    }
+    
+    getSlideImage(slide) {
+        // Обрабатываем разные форматы изображений
+        if (slide.image) {
+            if (typeof slide.image === 'string') {
+                return slide.image;
+            }
+            if (slide.image.url) {
+                return slide.image.url;
+            }
+        }
+        
+        if (slide.images && slide.images.length > 0) {
+            return slide.images[0];
+        }
+        
+        // Фоллбек изображение
+        return '/images/federation/hero-bg.jpg';
+    }
+    
+    getCategoryName(category) {
+        const categories = {
+            'achievements': 'Досягнення',
+            'competitions': 'Змагання',
+            'events': 'Події',
+            'announcements': 'Анонси',
+            'interviews': 'Інтерв\'ю',
+            'education': 'Освіта'
+        };
+        return categories[category] || category || 'Новини';
+    }
+    
+    getAuthorName(author) {
+        if (!author) return null;
+        if (typeof author === 'string') return author;
+        if (author.name) return author.name;
+        return null;
+    }
+}
+
+// Инициализация при загрузке страницы
+document.addEventListener('DOMContentLoaded', () => {
+    new HeroNewsWidget();
+});
+
+// Добавляем стили для скелетона
+const skeletonStyles = `
+    .skeleton-category,
+    .skeleton-title,
+    .skeleton-excerpt,
+    .skeleton-meta {
+        background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+        background-size: 200% 100%;
+        animation: skeleton-loading 2s infinite;
+    }
+    
+    .skeleton-category {
+        width: 120px;
+        height: 24px;
+        border-radius: 12px;
+        margin-bottom: 16px;
+    }
+    
+    .skeleton-title {
+        width: 80%;
+        height: 32px;
+        border-radius: 4px;
+        margin-bottom: 12px;
+    }
+    
+    .skeleton-excerpt {
+        width: 90%;
+        height: 20px;
+        border-radius: 4px;
+        margin-bottom: 8px;
+    }
+    
+    .skeleton-meta {
+        width: 60%;
+        height: 16px;
+        border-radius: 4px;
+    }
+    
+    @keyframes skeleton-loading {
+        0% { background-position: 200% 0; }
+        100% { background-position: -200% 0; }
+    }
+`;
+
+// Добавляем стили скелетона в head
+const styleSheet = document.createElement('style');
+styleSheet.textContent = skeletonStyles;
+document.head.appendChild(styleSheet);

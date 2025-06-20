@@ -14,6 +14,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script src="script.js"></script>
 </head>
 <body>
     <header class="header">
@@ -202,6 +203,33 @@
                                 </select>
                             </div>
                         </div>
+
+                        <!-- Status Filters -->
+                        <div class="filter-group">
+                            <label class="filter-label">За статусом:</label>
+                            <div class="team-status-categories">
+                                <button class="team-status-btn active" data-status="all">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M12 2L2 7v10c0 5.55 3.84 9.74 9 11 5.16-1.26 9-5.45 9-11V7l-10-5z"/>
+                                    </svg>
+                                    Всі
+                                </button>
+                                <button class="team-status-btn" data-status="main">
+                                    <svg class="status-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/>
+                                    </svg>
+                                    Основний Склад
+                                </button>
+                                <button class="team-status-btn" data-status="reserve">
+                                    <svg class="status-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <circle cx="12" cy="12" r="10"/>
+                                        <path d="M12 16v-4"/>
+                                        <path d="M12 8h.01"/>
+                                    </svg>
+                                    Резерв
+                                </button>
+                            </div>
+                        </div>
                     </div>
 
                     <!-- Search Row -->
@@ -306,80 +334,6 @@
                 </div>
             </div>
         </section>
-
-        <!-- Achievements Section -->
-        <section class="team-section achievements-section">
-            <div class="container">
-                <div class="team-section-header">
-                    <h2 class="team-section-title">Наші Досягнення</h2>
-                    <p class="team-section-subtitle">
-                        Результати, якими пишається вся Україна
-                    </p>
-                </div>
-
-                <div class="achievements-grid">
-                    <div class="achievement-card">
-                        <span class="achievement-icon">
-                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <circle cx="12" cy="8" r="7"/>
-                                <polyline points="8.21,13.89 7,23 17,23 15.79,13.88"/>
-                            </svg>
-                        </span>
-                        <h3 class="achievement-title">Олімпійські ігри</h3>
-                        <p class="achievement-description">
-                            5 золотих, 8 срібних та 12 бронзових медалей за всю історію участі
-                        </p>
-                    </div>
-
-                    <div class="achievement-card">
-                        <span class="achievement-icon">
-                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <circle cx="12" cy="12" r="10"/>
-                                <path d="M2 12h20"/>
-                                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
-                            </svg>
-                        </span>
-                        <h3 class="achievement-title">Чемпіонати Світу</h3>
-                        <p class="achievement-description">
-                            32 медалі на чемпіонатах світу, включаючи 14 золотих нагород
-                        </p>
-                    </div>
-
-                    <div class="achievement-card">
-                        <span class="achievement-icon">
-                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M3 3v18h18"/>
-                                <path d="M18.7 8a3 3 0 0 0-5.4 0"/>
-                                <path d="M16.5 12.5a3 3 0 0 1-5 0"/>
-                                <path d="M6 18l2-8 2 8"/>
-                                <path d="M12 18l2-8 2 8"/>
-                            </svg>
-                        </span>
-                        <h3 class="achievement-title">Чемпіонати Європи</h3>
-                        <p class="achievement-description">
-                            68 медалей на європейських чемпіонатах за останні 10 років
-                        </p>
-                    </div>
-
-                    <div class="achievement-card">
-                        <span class="achievement-icon">
-                            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/>
-                                <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/>
-                                <path d="M4 22h16"/>
-                                <path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/>
-                                <path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/>
-                                <path d="M18 2H6v7a6 6 0 0 0 12 0V2z"/>
-                            </svg>
-                        </span>
-                        <h3 class="achievement-title">Гран-Прі та Гран-Слем</h3>
-                        <p class="achievement-description">
-                            Більше 150 перемог на турнірах серії Гран-Прі та Гран-Слем
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
     </main>
 
     <footer class="footer">
@@ -454,7 +408,7 @@
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script src="scripts/script.js"></script>
     <script src="scripts/team.js"></script>
 </body>
 </html> 

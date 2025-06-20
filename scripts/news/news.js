@@ -459,8 +459,63 @@ function updateNewsDots(count) {
 function setupNewsSliderEvents() {
     // Инициализируем существующий слайдер если есть
     if (typeof initSlider === 'function') {
-        setTimeout(initSlider, 100);
+        setTimeout(() => {
+            initSlider();
+            console.log('News slider initialized');
+        }, 100);
+    } else {
+        // Создаем базовую функциональность слайдера если initSlider недоступен
+        setupBasicSlider();
     }
+}
+
+/**
+ * Базовая функциональность слайдера (fallback)
+ */
+function setupBasicSlider() {
+    const newsCards = document.querySelectorAll('.news-card');
+    const dots = document.querySelectorAll('.dot');
+    const prevBtn = document.querySelector('.news-slider-btn.prev');
+    const nextBtn = document.querySelector('.news-slider-btn.next');
+    
+    if (newsCards.length === 0) return;
+    
+    let currentSlide = 0;
+    
+    function showSlide(index) {
+        // Remove active class from all cards and dots
+        newsCards.forEach(card => card.classList.remove('active'));
+        dots.forEach(dot => dot.classList.remove('active'));
+        
+        // Add active class to current card and dot
+        if (newsCards[index]) newsCards[index].classList.add('active');
+        if (dots[index]) dots[index].classList.add('active');
+        
+        currentSlide = index;
+    }
+    
+    function nextSlide() {
+        const nextIndex = (currentSlide + 1) % newsCards.length;
+        showSlide(nextIndex);
+    }
+    
+    function prevSlide() {
+        const prevIndex = currentSlide === 0 ? newsCards.length - 1 : currentSlide - 1;
+        showSlide(prevIndex);
+    }
+    
+    // Event listeners
+    if (nextBtn) nextBtn.addEventListener('click', nextSlide);
+    if (prevBtn) prevBtn.addEventListener('click', prevSlide);
+    
+    dots.forEach((dot, index) => {
+        dot.addEventListener('click', () => showSlide(index));
+    });
+    
+    // Auto-advance
+    setInterval(nextSlide, 5000);
+    
+    console.log('Basic news slider initialized');
 }
 
 /**

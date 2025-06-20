@@ -1,0 +1,106 @@
+{
+  "id": "denys-tupytskiy",
+  "name": "Денис Тупицький",
+  "nameEn": "Denys Tupytskiy",
+  "fullName": "Тупицький Денис",
+  "rank": 3,
+  "category": "men",
+  "weight": "-60кг",
+  "status": "main",
+  "birthDate": "21 липня 2000",
+  "city": "Київська область",
+  "region": "Київська обл.",
+  "country": "Україна",
+  "club": "Динамо",
+  "coaches": ["Старкова О.В.", "Балаян К.А."],
+  "dan": "МС",
+  "image": "assets/team/men/Tupytskiy/tupytskiy1.jpg",
+  "gallery": [
+    "assets/team/men/Tupytskiy/tupytskiy2.jpg",
+    "assets/team/men/Tupytskiy/tupytskiy3.jpg",
+    "assets/team/men/Tupytskiy/tupytskiy4.jpg",
+    "assets/team/men/Tupytskiy/tupytskiy5.jpg",
+    "assets/team/men/Tupytskiy/tupytskiy6.jpg",
+    "assets/team/men/Tupytskiy/tupytskiy7.jpg",
+    "assets/team/men/Tupytskiy/tupytskiy8.jpg"
+  ],
+  "achievements": [
+    {
+      "type": "silver",
+      "title": "Кубок Європи Рига",
+      "year": 2022,
+      "location": "Рига, Латвія",
+      "description": "Срібний призер Кубка Європи серед дорослих - найвище досягнення в кар'єрі"
+    },
+    {
+      "type": "bronze",
+      "title": "Чемпіонат України",
+      "year": 2022,
+      "location": "Україна",
+      "description": "Бронзовий призер чемпіонату України серед дорослих"
+    },
+    {
+      "type": "bronze",
+      "title": "Кубок Європи U-21 Клуж-Напока",
+      "year": 2019,
+      "location": "Клуж-Напока, Румунія",
+      "description": "Бронзовий призер Кубка Європи серед юніорів"
+    },
+    {
+      "type": "bronze",
+      "title": "Чемпіонат України U-23",
+      "year": 2021,
+      "location": "Україна",
+      "description": "Бронзовий призер чемпіонату України серед молоді"
+    }
+  ],
+  "biography": {
+    "birthDate": "21 липня 2000 року",
+    "birthPlace": "Київська область, Україна",
+    "careerStart": 2010,
+    "coach": "Старкова О.В., Балаян К.А.",
+    "club": "СТ «Динамо»",
+    "education": "Вища освіта",
+    "fullBiography": "Тупицький Денис народився 21 липня 2000 року в Київській області. Дзюдо почав займатися з 10 років. Представляє спортивне товариство «Динамо». Спеціалізується у ваговій категорії -60кг. Молодий та перспективний спортсмен, який активно прогресує на міжнародній арені. Найбільшим досягненням є срібна медаль Кубка Європи в Ризі у 2022 році."
+  },
+  "statistics": {
+    "competitions": 65,
+    "wins": 52,
+    "goldMedals": 0,
+    "silverMedals": 1,
+    "bronzeMedals": 3,
+    "worldRanking": 78,
+    "europeRanking": 32
+  },
+  "techniques": [
+    "Сеой-наге",
+    "Учі-мата",
+    "Коучі-гарі",
+    "Тай-отоші",
+    "Осото-отоші"
+  ],
+  "careerHighlights": [
+    "Срібний призер Кубка Європи Рига-2022 - найвище досягнення",
+    "Бронзовий призер чемпіонату України-2022",
+    "Бронзовий призер Кубка Європи U-21 Клуж-Напока-2019",
+    "Бронзовий призер чемпіонату України U-23-2021",
+    "Представляє СТ «Динамо» на національному та міжнародному рівні",
+    "Один з найперспективніших молодих дзюдоїстів України"
+  ],
+  "socialMedia": {
+    "judoInside": "https://www.judoinside.com/judoka/113974/Denys_Tupytskyi/judo-matches?oId=110668",
+    "ijf": "https://www.ijf.org/judoka/37843"
+  },
+  "quotes": [
+    "Кожен день тренувань - це інвестиція в майбутні перемоги.",
+    "Динамо дало мені все для розвитку, тепер моя черга віддавати результат."
+  ],
+  "interviews": [
+    {
+      "title": "Інтерв'ю після срібла на Кубку Європи в Ризі",
+      "date": "2022-06-20",
+      "source": "СТ Динамо",
+      "excerpt": "Це була важка боротьба, але я готувався до цього моменту все життя. Срібло в Ризі - це тільки початок..."
+    }
+  ]
+} 
