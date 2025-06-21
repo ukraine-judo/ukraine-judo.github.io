@@ -61,7 +61,9 @@
           "location": "Київ, ОНСЦ \"Конча-Заспа\"",
           "description": "Семінар для керівників відокремлених підрозділів ФДУ, тренерів та суддів",
           "status": "planned",
-          "ageGroup": "officials"
+          "ageGroup": "officials",
+          "regulationLink": "documents/regulations/seminar-2025-01.pdf",
+          "image": "assets/images/events/seminar-2025.jpg"
         }
       ]
     },
@@ -78,7 +80,8 @@
           "location": "Париж, Франція",
           "description": "Престижний міжнародний турнір серії GRAND SLAM з дзюдо",
           "status": "planned",
-          "ageGroup": "adults"
+          "ageGroup": "adults",
+          "image": "assets/calendar/Grand-slam-paris.jpg"
         },
         {
           "id": 19,
@@ -102,7 +105,8 @@
           "location": "Любляна, Словенія",
           "description": "Міжнародний турнір серії EUROPEAN OPEN",
           "status": "planned",
-          "ageGroup": "adults"
+          "ageGroup": "adults",
+          "image": "assets/calendar/EUROPEAN-OPEN-Ljubljana.jpg"
         },
         {
           "id": 21,
@@ -126,7 +130,8 @@
           "location": "Баку, Азербайджан",
           "description": "Престижний міжнародний турнір серії GRAND SLAM з дзюдо",
           "status": "planned",
-          "ageGroup": "adults"
+          "ageGroup": "adults",
+          "image": "assets/calendar/GRAND-SLAM-Baku.jpg"
         },
         {
           "id": 23,
@@ -138,7 +143,8 @@
           "location": "Шаморін, Словаччина",
           "description": "Кубок Європи з дзюдо серед юніорів до 18 років",
           "status": "planned",
-          "ageGroup": "U18"
+          "ageGroup": "U18",
+          "image": "assets/calendar/U18-European-Cup.jpg"
         },
         {
           "id": 7,
@@ -150,7 +156,9 @@
           "location": "Черкаси",
           "description": "Чемпіонат України серед спортсменів 2008-2010 р.н.",
           "status": "planned",
-          "ageGroup": "U18"
+          "ageGroup": "U18",
+          "regulationLink": "documents/regulations/championship-u18-2025.pdf",
+          "image": "assets/calendar/champ-ukr-u18.jpg"
         },
         {
           "id": 24,
@@ -162,7 +170,8 @@
           "location": "Варшава, Польща",
           "description": "Міжнародний турнір серії EUROPEAN OPEN",
           "status": "planned",
-          "ageGroup": "adults"
+          "ageGroup": "adults",
+          "image": "assets/calendar/EUROPEAN-OPEN-Warsaw.jpg"
         },
         {
           "id": 25,
@@ -174,7 +183,8 @@
           "location": "Ташкент, Узбекистан",
           "description": "Престижний міжнародний турнір серії GRAND SLAM з дзюдо",
           "status": "planned",
-          "ageGroup": "adults"
+          "ageGroup": "adults",
+          "image": "assets/calendar/GRAND-SLAM-Tashkent.jpg"
         }
       ]
     },
@@ -183,7 +193,7 @@
       "events": [
         {
           "id": 8,
-          "title": "ВТ \"Київська весна\"",
+          "title": "Всеукраїнський турнір \"Київська весна\"",
           "type": "tournament",
           "category": "youth",
           "date": "2025-03-01",
@@ -191,7 +201,9 @@
           "location": "Київ",
           "description": "Відкритий турнір серед юнаків та дівчат 2010-2011 р.н.",
           "status": "planned",
-          "ageGroup": "U15"
+          "ageGroup": "U15",
+          "regulationLink": "documents/regulations/kyiv-spring-2025.pdf",
+          "image": "assets/calendar/Kyiv-Spring.jpg"
         },
         {
           "id": 9,
@@ -203,7 +215,8 @@
           "location": "Ужгород",
           "description": "Чемпіонат України серед молоді 2005-2010 р.н.",
           "status": "planned",
-          "ageGroup": "U21"
+          "ageGroup": "U21",
+          "image": "assets/calendar/champ-ukr-u21.jpg"
         },
         {
           "id": 26,
@@ -215,7 +228,8 @@
           "location": "Лінц, Австрія",
           "description": "Міжнародний турнір серії GRAND PRIX з дзюдо",
           "status": "planned",
-          "ageGroup": "adults"
+          "ageGroup": "adults",
+          "image": "assets/calendar/GRAND-PRIX-Linz.jpg"
         },
         {
           "id": 27,
@@ -239,7 +253,8 @@
           "location": "Рига, Латвія",
           "description": "Кубок Європи з дзюдо серед дорослих",
           "status": "planned",
-          "ageGroup": "adults"
+          "ageGroup": "adults",
+          "image": "assets/calendar/europe-cup.jpg"
         },
         {
           "id": 29,
@@ -251,7 +266,8 @@
           "location": "Загреб, Хорватія",
           "description": "Кубок Європи з дзюдо серед юніорів до 18 років",
           "status": "planned",
-          "ageGroup": "U18"
+          "ageGroup": "U18",
+          "image": "assets/calendar/europe-cup-u18.jpg"
         },
         {
           "id": 30,
@@ -263,7 +279,8 @@
           "location": "Тбілісі, Грузія",
           "description": "Престижний міжнародний турнір серії GRAND SLAM з дзюдо",
           "status": "planned",
-          "ageGroup": "adults"
+          "ageGroup": "adults",
+          "image": "assets/calendar/GRAND-SLAM-Tbilisi.webp"
         },
         {
           "id": 31,
@@ -279,7 +296,7 @@
         },
         {
           "id": 10,
-          "title": "ВТ \"Kremen Cup\"",
+          "title": "Всеукраїнський турнір \"Kremen Cup\"",
           "type": "tournament",
           "category": "youth",
           "date": "2025-03-28",
@@ -287,7 +304,8 @@
           "location": "Кременчук",
           "description": "Відкритий турнір серед юнаків та дівчат U15, U13, U11",
           "status": "planned",
-          "ageGroup": "U13"
+          "ageGroup": "U13",
+          "image": "assets/calendar/kremen-cup.jpg"
         },
         {
           "id": 32,
@@ -299,7 +317,8 @@
           "location": "Хмельницький",
           "description": "ХХ літня Універсіада України з дзюдо серед студентів",
           "status": "planned",
-          "ageGroup": "U23"
+          "ageGroup": "U23",
+          "image": "assets/calendar/Summer-Universiade-Ukr.jpg"
         }
       ]
     },
@@ -316,7 +335,8 @@
           "location": "Дубровник, Хорватія",
           "description": "Кубок Європи з дзюдо серед дорослих",
           "status": "planned",
-          "ageGroup": "adults"
+          "ageGroup": "adults",
+          "image": "assets/calendar/europe-cup.jpg"
         },
         {
           "id": 34,
@@ -328,7 +348,8 @@
           "location": "Тепліце, Чехія",
           "description": "Кубок Європи з дзюдо серед юніорів до 18 років",
           "status": "planned",
-          "ageGroup": "U18"
+          "ageGroup": "U18",
+          "image": "assets/calendar/europe-cup-u18.jpg"
         },
         {
           "id": 35,
@@ -340,11 +361,12 @@
           "location": "Познань, Польща",
           "description": "Кубок Європи з дзюдо серед молоді до 21 року",
           "status": "planned",
-          "ageGroup": "U21"
+          "ageGroup": "U21",
+          "image": "assets/calendar/europe-cup-u21.jpg"
         },
         {
           "id": 36,
-          "title": "ВТ \"ХХХIV Меморіал Івана Прищепи\"",
+          "title": "Всеукраїнський турнір \"ХХХIV Меморіал Івана Прищепи\"",
           "type": "tournament",
           "category": "youth",
           "date": "2025-04-05",
@@ -352,7 +374,8 @@
           "location": "Дніпро",
           "description": "Відкритий турнір серед юнаків та дівчат 2009-2011 р.н.",
           "status": "planned",
-          "ageGroup": "U15"
+          "ageGroup": "U15",
+          "image": "assets/calendar/Pryshchepa-Memorial.jpg"
         },
         {
           "id": 37,
@@ -388,7 +411,8 @@
           "location": "Подгориця, Чорногорія",
           "description": "Чемпіонат Європи з дзюдо серед дорослих",
           "status": "planned",
-          "ageGroup": "adults"
+          "ageGroup": "adults",
+          "image": "assets/calendar/European-champ.jpg"
         },
         {
           "id": 39,
@@ -404,7 +428,7 @@
         },
         {
           "id": 40,
-          "title": "ВТ \"Randori Spring Cup-2025\"",
+          "title": "Всеукраїнський турнір \"Randori Spring Cup-2025\"",
           "type": "tournament",
           "category": "youth",
           "date": "2025-04-25",
@@ -412,7 +436,8 @@
           "location": "Ужгород",
           "description": "Відкритий турнір серед юнаків та дівчат 2009-2011 р.н.",
           "status": "planned",
-          "ageGroup": "U15"
+          "ageGroup": "U15",
+          "image": "assets/calendar/Randori-Spring-Cup.jpg"
         },
         {
           "id": 41,
@@ -424,7 +449,8 @@
           "location": "Берлін, Німеччина",
           "description": "Кубок Європи з дзюдо серед юніорів до 18 років",
           "status": "planned",
-          "ageGroup": "U18"
+          "ageGroup": "U18",
+          "image": "assets/calendar/europe-cup-u18.jpg"
         },
         {
           "id": 42,
@@ -436,7 +462,8 @@
           "location": "Київ",
           "description": "Чемпіонат України серед спортсменів 2010-2011 р.н.",
           "status": "cancelled",
-          "ageGroup": "U16"
+          "ageGroup": "U16",
+          "image": "assets/calendar/champ-ukr-u16.jpg"
         }
       ]
     },
@@ -451,6 +478,7 @@
           "date": "2025-05-02",
           "endDate": "2025-05-03",
           "location": "Київ",
+          "image": "assets/calendar/cup-ukraine.jpg",
           "description": "Кубок України з дзюдо серед дорослих",
           "status": "cancelled",
           "ageGroup": "adults"
@@ -465,7 +493,8 @@
           "location": "Душанбе, Таджикистан",
           "description": "Міжнародний турнір серії GRAND PRIX з дзюдо",
           "status": "planned",
-          "ageGroup": "adults"
+          "ageGroup": "adults",
+          "image": "assets/calendar/GRAND-PRIX-Dushanbe.jpg"
         },
         {
           "id": 45,
@@ -477,11 +506,12 @@
           "location": "Баку, Азербайджан",
           "description": "Кубок Європи з дзюдо серед юніорів до 18 років",
           "status": "planned",
-          "ageGroup": "U18"
+          "ageGroup": "U18",
+          "image": "assets/calendar/europe-cup-u18.jpg"
         },
         {
           "id": 46,
-          "title": "ВТ \"Кубок Луцьку\"",
+          "title": "Всеукраїнський турнір \"Кубок Луцьку\"",
           "type": "tournament",
           "category": "tournament",
           "date": "2025-05-09",
@@ -489,7 +519,8 @@
           "location": "Луцьк",
           "description": "Відкритий турнір з дзюдо на Кубок міста Луцьк",
           "status": "planned",
-          "ageGroup": "adults"
+          "ageGroup": "adults",
+          "image": "assets/calendar/Cup-Lutsk.jpg"
         },
         {
           "id": 47,
@@ -501,7 +532,8 @@
           "location": "Алмати, Казахстан",
           "description": "Престижний міжнародний турнір серії GRAND SLAM з дзюдо",
           "status": "planned",
-          "ageGroup": "adults"
+          "ageGroup": "adults",
+          "image": "assets/calendar/GRAND-SLAM-Almaty.jpg"
         },
         {
           "id": 48,
@@ -513,7 +545,8 @@
           "location": "Мадрид, Іспанія",
           "description": "Міжнародний турнір серії EUROPEAN OPEN",
           "status": "planned",
-          "ageGroup": "adults"
+          "ageGroup": "adults",
+          "image": "assets/calendar/EUROPEAN-OPEN-Madrid.webp"
         },
         {
           "id": 49,
@@ -525,11 +558,12 @@
           "location": "Бельсько-Бяла, Польща",
           "description": "Кубок Європи з дзюдо серед юніорів до 18 років",
           "status": "planned",
-          "ageGroup": "U18"
+          "ageGroup": "U18",
+          "image": "assets/calendar/europe-cup-u18.jpg"
         },
         {
           "id": 50,
-          "title": "ВТ \"LION JUDO CUP\"",
+          "title": "Всеукраїнський турнір \"LION JUDO CUP\"",
           "type": "tournament",
           "category": "tournament",
           "date": "2025-05-17",
@@ -537,7 +571,8 @@
           "location": "Львів",
           "description": "Відкритий турнір з дзюдо \"LION JUDO CUP\"",
           "status": "planned",
-          "ageGroup": "adults"
+          "ageGroup": "adults",
+          "image": "assets/calendar/LION-JUDO-CUP.jpg"
         },
         {
           "id": 51,
@@ -561,11 +596,12 @@
           "location": "Рига, Латвія",
           "description": "Чемпіонат Європи з дзюдо серед ветеранів",
           "status": "planned",
-          "ageGroup": "veterans"
+          "ageGroup": "veterans",
+          "image": "assets/calendar/European-Veterans-Champ.jpg"
         },
         {
           "id": 53,
-          "title": "ВТ \"Кубок Поділля\"",
+          "title": "Всеукраїнський турнір \"Кубок Поділля\"",
           "type": "tournament",
           "category": "youth",
           "date": "2025-05-23",
@@ -573,11 +609,12 @@
           "location": "Хмельницький",
           "description": "Відкритий турнір до міжнародного дня захисту дітей серед юнаків та дівчат 2010-2011, 2012-2013 р.н.",
           "status": "planned",
-          "ageGroup": "U13"
+          "ageGroup": "U13",
+          "image": "assets/calendar/cup-podilya.jpg"
         },
         {
           "id": 54,
-          "title": "ВТ \"Кубок Придніпров'я\"",
+          "title": "Всеукраїнський турнір \"Кубок Придніпров'я\"",
           "type": "tournament",
           "category": "tournament",
           "date": "2025-05-23",
@@ -585,7 +622,8 @@
           "location": "Кам'янське",
           "description": "Відкритий турнір серед чоловіків та жінок з правом присвоєння звання \"Майстер спорту України\"",
           "status": "planned",
-          "ageGroup": "adults"
+          "ageGroup": "adults",
+          "image": "assets/calendar/Cup-Prydniprovya.jpg"
         },
         {
           "id": 55,
@@ -597,7 +635,8 @@
           "location": "Каунас, Литва",
           "description": "Кубок Європи з дзюдо серед молоді до 21 року",
           "status": "planned",
-          "ageGroup": "U21"
+          "ageGroup": "U21",
+          "image": "assets/calendar/europe-cup-u21.jpg"
         },
         {
           "id": 56,
@@ -609,11 +648,12 @@
           "location": "Львів",
           "description": "Чемпіонат України з дзюдо серед молоді до 23 років",
           "status": "planned",
-          "ageGroup": "U23"
+          "ageGroup": "U23",
+          "image": "assets/calendar/champ-ukr-u23.jpg"
         },
         {
           "id": 57,
-          "title": "ВТ \"Кубок Шашкевича\"",
+          "title": "Всеукраїнський турнір \"Кубок Шашкевича\"",
           "type": "tournament",
           "category": "youth",
           "date": "2025-05-30",
@@ -621,11 +661,12 @@
           "location": "Золочів, Львівська обл.",
           "description": "Відкритий турнір серед юнаків та дівчат",
           "status": "planned",
-          "ageGroup": "U15"
+          "ageGroup": "U15",
+          "image": "assets/calendar/Shashkevych-Cup.jpg"
         },
         {
           "id": 58,
-          "title": "ВТ \"Кодокан\"",
+          "title": "Всеукраїнський турнір \"Кодокан\"",
           "type": "tournament",
           "category": "youth",
           "date": "2025-05-30",
@@ -633,7 +674,8 @@
           "location": "Одеса",
           "description": "Відкритий турнір серед юнаків та дівчат",
           "status": "planned",
-          "ageGroup": "U15"
+          "ageGroup": "U15",
+          "image": "assets/calendar/Kodokan-Tournament.jpg"
         },
         {
           "id": 59,
@@ -645,11 +687,12 @@
           "location": "Грац, Австрія",
           "description": "Кубок Європи з дзюдо серед молоді до 21 року",
           "status": "planned",
-          "ageGroup": "U21"
+          "ageGroup": "U21",
+          "image": "assets/calendar/europe-cup-u21.jpg"
         },
         {
           "id": 60,
-          "title": "ВТ пам'яті І. Момота",
+          "title": "Всеукраїнський турнір пам'яті І. Момота",
           "type": "tournament",
           "category": "youth",
           "date": "2025-05-31",
@@ -686,11 +729,12 @@
           "location": "Будапешт, Угорщина",
           "description": "Чемпіонат світу з дзюдо серед дорослих",
           "status": "planned",
-          "ageGroup": "adults"
+          "ageGroup": "adults",
+          "image": "assets/calendar/world-champ.jpg"
         },
         {
           "id": 63,
-          "title": "ВТ на призи ЗМС Р. Машуренка",
+          "title": "Всеукраїнський турнір на призи ЗМС Р. Машуренка",
           "type": "tournament",
           "category": "youth",
           "date": "2025-06-21",
@@ -698,7 +742,9 @@
           "location": "Луцьк",
           "description": "Відкритий турнір на призи заслуженого майстра спорту Р. Машуренка серед молоді",
           "status": "planned",
-          "ageGroup": "U21"
+          "ageGroup": "U21",
+          "regulationLink": "documents/regulations/championship-u21-2025.pdf",
+          "image": "assets/calendar/Mashurenko.jpg"
         },
         {
           "id": 64,
@@ -710,7 +756,8 @@
           "location": "Берлін, Німеччина",
           "description": "Кубок Європи з дзюдо серед молоді до 21 року",
           "status": "planned",
-          "ageGroup": "U21"
+          "ageGroup": "U21",
+          "image": "assets/calendar/europe-cup-u21.jpg"
         },
         {
           "id": 65,
@@ -722,7 +769,8 @@
           "location": "Скоп'є, Північна Македонія",
           "description": "Чемпіонат Європи з дзюдо серед юніорів до 18 років",
           "status": "planned",
-          "ageGroup": "U18"
+          "ageGroup": "U18",
+                      "image": "assets/calendar/europe-champ-u18.jpg"
         }
       ]
     },
@@ -739,7 +787,8 @@
           "location": "Таллінн, Естонія",
           "description": "Міжнародний турнір серії EUROPEAN OPEN",
           "status": "planned",
-          "ageGroup": "adults"
+          "ageGroup": "adults",
+          "image": "assets/calendar/EUROPEAN-OPEN-Tallinn.jpg"
         },
         {
           "id": 67,
@@ -751,7 +800,8 @@
           "location": "Прага, Чехія",
           "description": "Кубок Європи з дзюдо серед молоді до 21 року",
           "status": "planned",
-          "ageGroup": "U21"
+          "ageGroup": "U21",
+          "image": "assets/calendar/europe-cup-u21.jpg"
         },
         {
           "id": 68,
@@ -763,7 +813,8 @@
           "location": "Пакш, Угорщина",
           "description": "Кубок Європи з дзюдо серед молоді до 21 року",
           "status": "planned",
-          "ageGroup": "U21"
+          "ageGroup": "U21",
+          "image": "assets/calendar/europe-cup-u21.jpg"
         },
         {
           "id": 12,
@@ -775,7 +826,8 @@
           "location": "Біла Церква",
           "description": "Престижний турнір на Кубок України з дзюдо",
           "status": "planned",
-          "ageGroup": "adults"
+          "ageGroup": "adults",
+          "image": "assets/calendar/cup-ukraine.jpg"
         },
         {
           "id": 69,
@@ -784,10 +836,11 @@
           "category": "international",
           "date": "2025-07-19",
           "endDate": "2025-07-27",
-          "location": "Скоп'є, Північна Македонія",
-          "description": "ХVІІІ літній Європейський юнацький олімпійський фестиваль з дзюдо",
+          "location": "Скоп'є, Północна Македонія",
+          "description": "ХVІІІ літний Європейський юнацький олімпійський фестиваль з дзюдо",
           "status": "planned",
-          "ageGroup": "U18"
+          "ageGroup": "U18",
+          "image": "assets/calendar/European-Youth-Olympic-Festival.jpg"
         },
         {
           "id": 70,
@@ -799,7 +852,8 @@
           "location": "Улан-Батор, Монголія",
           "description": "Престижний міжнародний турнір серії GRAND SLAM з дзюдо",
           "status": "planned",
-          "ageGroup": "adults"
+          "ageGroup": "adults",
+          "image": "assets/calendar/GRAND-SLAM-Ulaanbaatar.jpg"
         }
       ]
     },
@@ -816,7 +870,8 @@
           "location": "Скоп'є, Північна Македонія",
           "description": "Кубок Європи з дзюдо серед молоді до 21 року",
           "status": "planned",
-          "ageGroup": "U21"
+          "ageGroup": "U21",
+          "image": "assets/calendar/europe-cup-u21.jpg"
         },
         {
           "id": 13,
@@ -828,11 +883,12 @@
           "location": "Софія, Болгарія",
           "description": "Чемпіонат світу з дзюдо серед юніорів до 18 років",
           "status": "planned",
-          "ageGroup": "U18"
+          "ageGroup": "U18",
+          "image": "assets/calendar/world-champ-u18.jpg"
         },
         {
           "id": 72,
-          "title": "ВТ пам'яті міського голови м. Кременчука Бабаєва О.",
+          "title": "Всеукраїнський турнір пам'яті міського голови м. Кременчука Бабаєва О.",
           "type": "tournament",
           "category": "tournament",
           "date": "2025-08-30",
@@ -840,7 +896,8 @@
           "location": "Кременчук",
           "description": "Відкритий турнір пам'яті міського голови м. Кременчука Бабаєва О. серед чоловіків та жінок",
           "status": "planned",
-          "ageGroup": "adults"
+          "ageGroup": "adults",
+          "image": "assets/calendar/Babaev-Memorial.jpg"
         }
       ]
     },
@@ -857,7 +914,8 @@
           "location": "Словаччина",
           "description": "Чемпіонат Європи з дзюдо серед молоді до 21 року",
           "status": "planned",
-          "ageGroup": "U21"
+          "ageGroup": "U21",
+          "image": "assets/calendar/European-champ-u21.jpg"
         },
         {
           "id": 14,
@@ -869,7 +927,8 @@
           "location": "Вінниця",
           "description": "Головний турнір року - Чемпіонат України з дзюдо серед дорослих",
           "status": "planned",
-          "ageGroup": "adults"
+          "ageGroup": "adults",
+          "image": "assets/calendar/champ-ukraine.jpg"
         },
         {
           "id": 74,
@@ -881,11 +940,12 @@
           "location": "За призначенням",
           "description": "Чемпіонат світу з дзюдо серед молоді до 21 року",
           "status": "planned",
-          "ageGroup": "U21"
+          "ageGroup": "U21",
+          "image": "assets/calendar/world-champ-u21.jpg"
         },
         {
           "id": 75,
-          "title": "ВТ \"Дитячий фестиваль\"",
+          "title": "Всеукраїнський турнір \"Дитячий фестиваль\"",
           "type": "tournament",
           "category": "youth",
           "date": "2025-09-26",
@@ -897,7 +957,7 @@
         },
         {
           "id": 76,
-          "title": "ВТ пам'яті загиблих воїнів",
+          "title": "Всеукраїнський турнір пам'яті загиблих воїнів",
           "type": "tournament",
           "category": "youth",
           "date": "2025-09-27",
@@ -917,7 +977,8 @@
           "location": "Прага, Чехія",
           "description": "Міжнародний турнір серії EUROPEAN OPEN",
           "status": "planned",
-          "ageGroup": "adults"
+          "ageGroup": "adults",
+          "image": "assets/calendar/EUROPEAN-OPEN-Prague.jpg"
         },
         {
           "id": 78,
@@ -938,7 +999,7 @@
       "events": [
         {
           "id": 79,
-          "title": "ВТ \"Кубок Закарпаття\"",
+          "title": "Всеукраїнський турнір \"Кубок Закарпаття\"",
           "type": "tournament",
           "category": "youth",
           "date": "2025-10-03",
@@ -950,7 +1011,7 @@
         },
         {
           "id": 80,
-          "title": "ВТ \"Stronger Together Cup\"",
+          "title": "Всеукраїнський турнір \"Stronger Together Cup\"",
           "type": "tournament",
           "category": "youth",
           "date": "2025-10-11",
@@ -970,7 +1031,8 @@
           "location": "Малага, Іспанія",
           "description": "Кубок Європи з дзюдо серед дорослих",
           "status": "planned",
-          "ageGroup": "adults"
+          "ageGroup": "adults",
+          "image": "assets/calendar/europe-cup.jpg"
         },
         {
           "id": 82,
@@ -982,7 +1044,8 @@
           "location": "Абу-Дабі, ОАЕ",
           "description": "Престижний міжнародний турнір серії GRAND SLAM з дзюдо",
           "status": "planned",
-          "ageGroup": "adults"
+          "ageGroup": "adults",
+          "image": "assets/calendar/GRAND-SLAM-Abu-Dhabi.jpg"
         },
         {
           "id": 83,
@@ -994,11 +1057,12 @@
           "location": "Рига, Латвія",
           "description": "Кубок Європи з дзюдо серед юніорів до 18 років",
           "status": "planned",
-          "ageGroup": "U18"
+          "ageGroup": "U18",
+          "image": "assets/calendar/europe-cup-u18.jpg"
         },
         {
           "id": 15,
-          "title": "ВТ \"Патріот\"",
+          "title": "Всеукраїнський турнір \"Патріот\"",
           "type": "tournament",
           "category": "tournament",
           "date": "2025-10-24",
@@ -1010,7 +1074,7 @@
         },
         {
           "id": 84,
-          "title": "ВТ \"LVIV OPEN CUP\"",
+          "title": "Всеукраїнський турнір \"LVIV OPEN CUP\"",
           "type": "tournament",
           "category": "youth",
           "date": "2025-10-24",
@@ -1030,7 +1094,8 @@
           "location": "Сараєво, Боснія і Герцеговина",
           "description": "Міжнародний турнір серії EUROPEAN OPEN",
           "status": "planned",
-          "ageGroup": "adults"
+          "ageGroup": "adults",
+          "image": "assets/calendar/EUROPEAN-OPEN-Sarajevo.jpg"
         },
         {
           "id": 86,
@@ -1042,7 +1107,8 @@
           "location": "Краньська Гора, Словенія",
           "description": "Кубок Європи з дзюдо серед юніорів до 18 років",
           "status": "planned",
-          "ageGroup": "U18"
+          "ageGroup": "U18",
+          "image": "assets/calendar/europe-cup-u18.jpg"
         },
         {
           "id": 87,
@@ -1054,7 +1120,8 @@
           "location": "Португалія",
           "description": "Міжнародний турнір серії GRAND PRIX з дзюдо",
           "status": "planned",
-          "ageGroup": "adults"
+          "ageGroup": "adults",
+          "image": "assets/calendar/GRAND-PRIX-Portugal.jpg"
         },
         {
           "id": 88,
@@ -1066,7 +1133,8 @@
           "location": "Кишинів, Молдова",
           "description": "Чемпіонат Європи з дзюдо серед молоді до 23 років",
           "status": "planned",
-          "ageGroup": "U23"
+          "ageGroup": "U23",
+          "image": "assets/calendar/European-champ-u23.jpg"
         },
         {
           "id": 89,
@@ -1078,11 +1146,12 @@
           "location": "За призначенням",
           "description": "Чемпіонат України серед спортсменів 2009-2011 р.н.",
           "status": "planned",
-          "ageGroup": "U17"
+          "ageGroup": "U17",
+          "image": "assets/calendar/champ-ukr-u17.jpg"
         },
         {
           "id": 90,
-          "title": "ВТ \"Кубок Федерації дзюдо Києва\"",
+          "title": "Всеукраїнський турнір \"Кубок Федерації дзюдо Києва\"",
           "type": "tournament",
           "category": "youth",
           "date": "2025-10-31",
@@ -1090,7 +1159,8 @@
           "location": "Київ",
           "description": "Відкритий турнір серед юніорів та юніорок",
           "status": "planned",
-          "ageGroup": "U18"
+          "ageGroup": "U18",
+          "image": "assets/calendar/Cup-Federation-Kyiv.jpg"
         },
         {
           "id": 91,
@@ -1119,7 +1189,8 @@
           "location": "Рим, Італія",
           "description": "Міжнародний турнір серії EUROPEAN OPEN",
           "status": "planned",
-          "ageGroup": "adults"
+          "ageGroup": "adults",
+          "image": "assets/calendar/EUROPEAN-OPEN-Rome.jpg"
         },
         {
           "id": 93,
@@ -1131,7 +1202,8 @@
           "location": "Дьор, Угорщина",
           "description": "Кубок Європи з дзюдо серед юніорів до 18 років",
           "status": "planned",
-          "ageGroup": "U18"
+          "ageGroup": "U18",
+          "image": "assets/calendar/europe-cup-u18.jpg"
         },
         {
           "id": 94,
@@ -1143,11 +1215,12 @@
           "location": "Загреб, Хорватія",
           "description": "Міжнародний турнір серії GRAND PRIX з дзюдо",
           "status": "planned",
-          "ageGroup": "adults"
+          "ageGroup": "adults",
+          "image": "assets/calendar/GRAND-PRIX-Zagreb.jpg"
         },
         {
           "id": 95,
-          "title": "ВТ пам'яті волинських майстрів дзюдо",
+          "title": "Всеукраїнський турнір пам'яті волинських майстрів дзюдо",
           "type": "tournament",
           "category": "tournament",
           "date": "2025-11-15",
@@ -1155,11 +1228,12 @@
           "location": "Луцьк",
           "description": "Відкритий турнір присвячений пам'яті волинських майстрів дзюдо",
           "status": "planned",
-          "ageGroup": "adults"
+          "ageGroup": "adults",
+          "image": "assets/calendar/Volyn-Masters-Memorial.jpg"
         },
         {
           "id": 96,
-          "title": "ВТ \"Українка\"",
+          "title": "Всеукраїнський турнір \"Українка\"",
           "type": "tournament",
           "category": "youth",
           "date": "2025-11-21",
@@ -1167,7 +1241,8 @@
           "location": "Дніпро",
           "description": "Відкритий турнір серед дівчат 2010-2011, 2012-2013, 2014-2015 р.н.",
           "status": "planned",
-          "ageGroup": "U13"
+          "ageGroup": "U13",
+          "image": "assets/calendar/Ukrainka-Tournament.jpg"
         },
         {
           "id": 97,
@@ -1179,7 +1254,8 @@
           "location": "За призначенням",
           "description": "Чемпіонат України серед спортсменів 2009-2011 р.н.",
           "status": "planned",
-          "ageGroup": "U15"
+          "ageGroup": "U15",
+          "image": "assets/calendar/champ-ukr-u15.jpg"
         }
       ]
     },
@@ -1188,7 +1264,7 @@
       "events": [
         {
           "id": 98,
-          "title": "ВТ \"Кубок Лева\"",
+          "title": "Всеукраїнський турнір \"Кубок Лева\"",
           "type": "tournament",
           "category": "veterans",
           "date": "2025-12-05",
@@ -1196,11 +1272,12 @@
           "location": "Львів",
           "description": "Відкритий турнір серед ветеранів",
           "status": "planned",
-          "ageGroup": "veterans"
+          "ageGroup": "veterans",
+          "image": "assets/calendar/Lion-Cup.jpg"
         },
         {
           "id": 99,
-          "title": "ХХІІ ВТ \"Кубок федерації дзюдо Одеської області\"",
+          "title": "ХХІІ Всеукраїнський турнір \"Кубок федерації дзюдо Одеської області\"",
           "type": "tournament",
           "category": "youth",
           "date": "2025-12-05",
@@ -1208,11 +1285,12 @@
           "location": "Одеса",
           "description": "Відкритий турнір серед юнаків та дівчат, присвячений воїнам ЗСУ",
           "status": "planned",
-          "ageGroup": "U15"
+          "ageGroup": "U15",
+          "image": "assets/calendar/Cup-Odesa-Federation.jpg"
         },
         {
           "id": 100,
-          "title": "ВТ \"Кубок Новатора 2025\"",
+          "title": "Всеукраїнський турнір \"Кубок Новатора 2025\"",
           "type": "tournament",
           "category": "youth",
           "date": "2025-12-05",
@@ -1220,7 +1298,8 @@
           "location": "Хмельницький",
           "description": "Турнір присвячений пам'яті президента СК \"Новатор\" Юрія ЖИЖАНОВА серед кадетів до 17 років, юнаків та дівчат до 14 років, юнаків до 12 років",
           "status": "planned",
-          "ageGroup": "U17"
+          "ageGroup": "U17",
+          "image": "assets/calendar/Novator-Cup.jpg"
         },
         {
           "id": 101,
@@ -1232,11 +1311,12 @@
           "location": "Токіо, Японія",
           "description": "Міжнародний турнір серії GRAND SLAM з дзюдо",
           "status": "planned",
-          "ageGroup": "adults"
+          "ageGroup": "adults",
+          "image": "assets/calendar/GRAND-SLAM-Tokyo.jpg"
         },
         {
           "id": 102,
-          "title": "ВТ \"Randori Winter Cup-2024\"",
+          "title": "Всеукраїнський турнір \"Randori Winter Cup-2024\"",
           "type": "tournament",
           "category": "youth",
           "date": "2025-12-12",
@@ -1244,11 +1324,12 @@
           "location": "Ужгород",
           "description": "Відкритий турнір серед юнаків та дівчат 2013-2014, 2015-2016 р.н.",
           "status": "planned",
-          "ageGroup": "U12"
+          "ageGroup": "U12",
+          "image": "assets/calendar/Randori-Winter-Cup.jpg"
         },
         {
           "id": 103,
-          "title": "ВТ пам'яті загиблих воїнів-афганців",
+          "title": "Всеукраїнський турнір пам'яті загиблих воїнів-афганців",
           "type": "tournament",
           "category": "memorial",
           "date": "2025-12-13",
@@ -1260,7 +1341,7 @@
         },
         {
           "id": 104,
-          "title": "ВТ на підтримку ЗСУ",
+          "title": "Всеукраїнський турнір на підтримку ЗСУ",
           "type": "tournament",
           "category": "patriotic",
           "date": "2025-12-14",

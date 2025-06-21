@@ -1,0 +1,43 @@
+/* 
+Calendar Page - Modular CSS Structure
+Федерація Дзюдо України - ФДУ
+*/
+
+/* Core Calendar Components */
+@import url('icons.css');          /* SVG Icons system */
+@import url('hero.css');           /* Hero section with page title */
+@import url('controls.css');       /* Filter tabs and view controls */
+@import url('navigation.css');     /* Month navigation */
+@import url('events.css');         /* Event cards and timeline */
+@import url('status.css');         /* Event status badges */
+@import url('modal.css');          /* Event modal windows */
+@import url('forms.css');          /* Registration forms and documents */
+@import url('loading.css');        /* Loading states and animations */
+@import url('improvements.css');   /* Modern improvements and new features */
+@import url('responsive.css');     /* Mobile and tablet adaptations */
+
+/* Calendar Page Documentation
+============================
+
+This modular CSS structure provides:
+
+1. hero.css - Page header and title styling
+2. controls.css - Filter buttons and view toggles  
+3. navigation.css - Month navigation with arrows
+4. events.css - Event cards, timeline, and containers
+5. status.css - Event status indicators and badges
+6. modal.css - Event detail modal windows
+7. forms.css - Registration forms and document cards
+8. loading.css - Loading states, notifications, animations
+9. responsive.css - Mobile and tablet adaptations
+
+Benefits:
+- Modular architecture for better maintainability
+- Easy to locate and modify specific components
+- Better team collaboration with separated concerns
+- Improved performance with selective loading
+- Clean separation of desktop and mobile styles
+
+Usage:
+Include this file in your HTML to load all calendar styles
+*/ 

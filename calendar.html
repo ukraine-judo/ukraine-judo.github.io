@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="css/navigation.css">
     <link rel="stylesheet" href="css/components.css">
     <link rel="stylesheet" href="css/footer.css">
-    <link rel="stylesheet" href="css/pages/calendar.css">
+    <link rel="stylesheet" href="css/pages/calendar/calendar.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -23,7 +23,8 @@
                 <span class="brand-text">
                     <strong class="brand-full">Федерація Дзюдо України</strong>
                     <strong class="brand-short">ФДУ</strong>
-                    <small>FJU</small>
+                    <small class="brand-subtitle-full">Federation Judo Ukraine</small>
+                    <small class="brand-subtitle-short">FJU</small>
                 </span>
             </div>
             <ul class="nav-menu">
@@ -41,28 +42,28 @@
                                 <h4 class="submenu-title">Федерація</h4>
                                 <div class="submenu-links">
                                     <a href="about.html" class="submenu-link">
-                                        <div class="submenu-link-icon">📋</div>
+                                        <div class="submenu-link-icon icon-about"></div>
                                         <div class="submenu-link-content">
                                             <span class="submenu-link-title">Про нас</span>
                                             <span class="submenu-link-desc">Історія та керівництво</span>
                                         </div>
                                     </a>
                                     <a href="team.html" class="submenu-link">
-                                        <div class="submenu-link-icon">🥋</div>
+                                        <div class="submenu-link-icon icon-team"></div>
                                         <div class="submenu-link-content">
                                             <span class="submenu-link-title">Сборная</span>
                                             <span class="submenu-link-desc">Національна збірна України</span>
                                         </div>
                                     </a>
                                     <a href="documents.html" class="submenu-link">
-                                        <div class="submenu-link-icon">📄</div>
+                                        <div class="submenu-link-icon icon-documents"></div>
                                         <div class="submenu-link-content">
                                             <span class="submenu-link-title">Документи</span>
                                             <span class="submenu-link-desc">Статути та положення</span>
                                         </div>
                                     </a>
                                     <a href="regions.html" class="submenu-link">
-                                        <div class="submenu-link-icon">🗺️</div>
+                                        <div class="submenu-link-icon icon-regions"></div>
                                         <div class="submenu-link-content">
                                             <span class="submenu-link-title">Регіональні Відділення</span>
                                             <span class="submenu-link-desc">Дзюдо в регіонах України</span>
@@ -135,9 +136,12 @@
                         <!-- События будут загружены через JavaScript -->
                     </div>
                     <div class="no-events" id="noEvents" style="display: none;">
-                        <div class="no-events-icon">📅</div>
+                        <div class="no-events-icon icon-calendar icon-2xl"></div>
                         <h3>Немає подій на цей місяць</h3>
                         <p>Перевірте інші місяці або оновіть фільтри</p>
+                    </div>
+                    <div class="events-pagination" id="eventsPagination" style="display: none;">
+                        <!-- Pagination будет добавлена через JavaScript -->
                     </div>
                 </div>
             </div>
@@ -218,6 +222,9 @@
         </div>
     </footer>
 
+    <script src="scripts/calendar/api.js"></script>
+    <script src="scripts/calendar/utils.js"></script>
+    <script src="scripts/calendar/controller.js"></script>
     <script src="scripts/calendar/calendar.js"></script>
     <script src="scripts/script.js"></script>
 </body>
