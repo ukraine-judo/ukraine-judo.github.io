@@ -1,0 +1,189 @@
+/* ===== TEAM PAGE LAYOUT ===== */
+
+/* Team Hero Section */
+.team-hero {
+    background: linear-gradient(135deg, #1a3f67 0%, #2a5f87 50%, #1a472a 100%);
+    padding: 6rem 0 4rem;
+    position: relative;
+    overflow: hidden;
+    color: white;
+}
+
+.team-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100"><path d="M0,50 Q250,20 500,50 T1000,50 L1000,0 L0,0 Z" fill="rgba(255,255,255,0.1)"/><path d="M0,60 Q250,30 500,60 T1000,60 L1000,0 L0,0 Z" fill="rgba(255,255,255,0.05)"/></svg>') repeat-x;
+    animation: wave 20s linear infinite;
+}
+
+.team-hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+}
+
+.team-hero-title {
+    font-size: clamp(2rem, 5vw, 4rem);
+    font-weight: 700;
+    margin-bottom: 1rem;
+    background: linear-gradient(45deg, #ffffff, #f0f8ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.team-hero-subtitle {
+    font-size: 1.25rem;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.team-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.team-stat {
+    text-align: center;
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+}
+
+.team-stat:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.team-stat-number {
+    font-size: 2.5rem;
+    font-weight: 700;
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #ffd700;
+}
+
+.team-stat-label {
+    font-size: 0.875rem;
+    opacity: 0.9;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Team Sections */
+.team-section {
+    padding: 5rem 0;
+}
+
+.team-section-header {
+    text-align: center;
+    padding: 4rem;
+}
+
+.team-section-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    position: relative;
+}
+
+.team-section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -0.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary-color), #ffd700);
+    border-radius: 2px;
+}
+
+.team-section-subtitle {
+    font-size: 1.125rem;
+    color: #666;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Coaches Section */
+.coaches-section {
+    background: #f8f9fa;
+}
+
+.achievements-section {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    padding: 4rem 0;
+}
+
+/* Loading States */
+.loading-athletes,
+.loading-coaches {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 4rem 2rem;
+    text-align: center;
+}
+
+.loading-spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid #e9ecef;
+    border-top: 4px solid var(--primary-color);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-bottom: 1rem;
+}
+
+.loading-athletes p,
+.loading-coaches p {
+    color: #666;
+    font-size: 1rem;
+}
+
+/* No Results State */
+.no-results {
+    text-align: center;
+    padding: 4rem 2rem;
+}
+
+.no-results-icon {
+    font-size: 4rem;
+    color: #ccc;
+    margin-bottom: 1rem;
+}
+
+.no-results-title {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.no-results-message {
+    color: #666;
+    margin-bottom: 2rem;
+}
+
+.no-results-suggestions {
+    color: #888;
+    font-size: 0.9rem;
+} 

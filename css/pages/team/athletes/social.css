@@ -180,4 +180,152 @@
 
 .medal.bronze {
     background: linear-gradient(135deg, #cd7f32, #daa520);
+}
+
+/* ===== FHD ADAPTATION ===== */
+
+/* Large displays (≥1920px) - FHD and above */
+@media (min-width: 1920px) {
+    .athlete-social {
+        padding: 5rem 0;
+    }
+    
+    .social-container {
+        max-width: 1200px;
+    }
+    
+    .social-header {
+        margin-bottom: 4rem;
+    }
+    
+    .social-header h2 {
+        font-size: 3rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .social-header h2::after {
+        width: 80px;
+        height: 5px;
+        bottom: -15px;
+    }
+    
+    .social-header p {
+        font-size: 1.3rem;
+    }
+    
+    .athlete-social-links {
+        gap: 1.5rem;
+    }
+    
+    .athlete-social-btn {
+        gap: 1rem;
+        padding: 1rem 2rem;
+        border-radius: 12px;
+        font-size: 1.1rem;
+        border-width: 2px;
+    }
+    
+    .social-btn-icon {
+        width: 24px;
+        height: 24px;
+    }
+    
+    .medal {
+        width: 40px;
+        height: 40px;
+        font-size: 1rem;
+    }
+}
+
+/* QHD displays (≥2560px) - 2560x1440 optimization */
+@media (min-width: 2560px) {
+    .athlete-social {
+        padding: 6rem 0;
+    }
+    
+    .social-container {
+        max-width: 1400px;
+    }
+    
+    .social-header {
+        margin-bottom: 5rem;
+    }
+    
+    .social-header h2 {
+        font-size: 3.5rem;
+        margin-bottom: 2rem;
+    }
+    
+    .social-header h2::after {
+        width: 100px;
+        height: 6px;
+        bottom: -20px;
+    }
+    
+    .social-header p {
+        font-size: 1.5rem;
+    }
+    
+    .athlete-social-links {
+        gap: 2rem;
+    }
+    
+    .athlete-social-btn {
+        gap: 1.25rem;
+        padding: 1.25rem 2.5rem;
+        border-radius: 16px;
+        font-size: 1.3rem;
+    }
+    
+    .social-btn-icon {
+        width: 28px;
+        height: 28px;
+    }
+    
+    .medal {
+        width: 48px;
+        height: 48px;
+        font-size: 1.2rem;
+    }
+}
+
+/* Ultra-wide displays (≥3440px) - True ultra-wide monitors */
+@media (min-width: 3440px) {
+    .athlete-social {
+        padding: 7rem 0;
+    }
+    
+    .social-container {
+        max-width: 1600px;
+    }
+    
+    .social-header h2 {
+        font-size: 4rem;
+    }
+    
+    .social-header p {
+        font-size: 1.6rem;
+    }
+    
+    .athlete-social-links {
+        gap: 2.5rem;
+    }
+    
+    .athlete-social-btn {
+        gap: 1.5rem;
+        padding: 1.5rem 3rem;
+        border-radius: 20px;
+        font-size: 1.4rem;
+    }
+    
+    .social-btn-icon {
+        width: 32px;
+        height: 32px;
+    }
+    
+    .medal {
+        width: 56px;
+        height: 56px;
+        font-size: 1.4rem;
+    }
 } 

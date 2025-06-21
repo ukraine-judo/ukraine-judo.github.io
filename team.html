@@ -9,8 +9,7 @@
     <link rel="stylesheet" href="css/navigation.css">
     <link rel="stylesheet" href="css/components.css">
     <link rel="stylesheet" href="css/footer.css">
-    <link rel="stylesheet" href="css/pages/team.css">
-    <link rel="stylesheet" href="css/pages/team.css">
+    <link rel="stylesheet" href="css/pages/team/index.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -90,36 +89,7 @@
     </header>
 
     <main>
-        <!-- Team Hero Section -->
-        <section class="team-hero">
-            <div class="container">
-                <div class="team-hero-content">
-                    <h1 class="team-hero-title">Національна Збірна України</h1>
-                    <p class="team-hero-subtitle">
-                        Елітні спортсмени, що представляють Україну на найпрестижніших міжнародних змаганнях з дзюдо
-                    </p>
-                    
-                    <div class="team-stats">
-                        <div class="team-stat">
-                            <span class="team-stat-number">24</span>
-                            <span class="team-stat-label">Спортсменів</span>
-                        </div>
-                        <div class="team-stat">
-                            <span class="team-stat-number">8</span>
-                            <span class="team-stat-label">Тренерів</span>
-                        </div>
-                        <div class="team-stat">
-                            <span class="team-stat-number">156</span>
-                            <span class="team-stat-label">Медалей</span>
-                        </div>
-                        <div class="team-stat">
-                            <span class="team-stat-number">12</span>
-                            <span class="team-stat-label">Країн</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+
 
         <!-- Athletes Section -->
         <section class="team-section">
@@ -185,22 +155,30 @@
                         <div class="filter-group">
                             <label class="filter-label">За вагою:</label>
                             <div class="team-weight-categories">
-                                <select class="weight-filter-select" id="weight-filter">
-                                    <option value="all">Всі ваги</option>
-                                    <option value="-48кг">-48кг</option>
-                                    <option value="-52кг">-52кг</option>
-                                    <option value="-57кг">-57кг</option>
-                                    <option value="-60кг">-60кг</option>
-                                    <option value="-63кг">-63кг</option>
-                                    <option value="-66кг">-66кг</option>
-                                    <option value="-70кг">-70кг</option>
-                                    <option value="-73кг">-73кг</option>
-                                    <option value="-78кг">-78кг</option>
-                                    <option value="-81кг">-81кг</option>
-                                    <option value="-90кг">-90кг</option>
-                                    <option value="-100кг">-100кг</option>
-                                    <option value="+100кг">+100кг</option>
-                                </select>
+                                <div class="custom-dropdown" id="weight-dropdown">
+                                    <button class="dropdown-trigger" type="button">
+                                        <span class="dropdown-value">Всі ваги</span>
+                                        <svg class="dropdown-arrow" width="12" height="8" viewBox="0 0 12 8" fill="none">
+                                            <path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </svg>
+                                    </button>
+                                    <div class="dropdown-menu">
+                                        <div class="dropdown-item active" data-value="all">Всі ваги</div>
+                                        <div class="dropdown-item" data-value="-48кг">-48кг</div>
+                                        <div class="dropdown-item" data-value="-52кг">-52кг</div>
+                                        <div class="dropdown-item" data-value="-57кг">-57кг</div>
+                                        <div class="dropdown-item" data-value="-60кг">-60кг</div>
+                                        <div class="dropdown-item" data-value="-63кг">-63кг</div>
+                                        <div class="dropdown-item" data-value="-66кг">-66кг</div>
+                                        <div class="dropdown-item" data-value="-70кг">-70кг</div>
+                                        <div class="dropdown-item" data-value="-73кг">-73кг</div>
+                                        <div class="dropdown-item" data-value="-78кг">-78кг</div>
+                                        <div class="dropdown-item" data-value="-81кг">-81кг</div>
+                                        <div class="dropdown-item" data-value="-90кг">-90кг</div>
+                                        <div class="dropdown-item" data-value="-100кг">-100кг</div>
+                                        <div class="dropdown-item" data-value="+100кг">+100кг</div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
 

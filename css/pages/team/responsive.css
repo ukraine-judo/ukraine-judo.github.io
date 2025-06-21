@@ -1,0 +1,585 @@
+/* ===== RESPONSIVE DESIGN ===== */
+
+/* Tablet and Desktop Responsive */
+@media (max-width: 1024px) {
+    .filter-groups-container {
+        flex-direction: column;
+        gap: 1.5rem;
+        align-items: stretch;
+    }
+    
+    .filter-group {
+        align-items: center;
+    }
+    
+    .team-categories,
+    .team-age-categories,
+    .team-status-categories,
+    .coach-categories {
+        justify-content: center;
+    }
+}
+
+/* Tablet Responsive */
+@media (max-width: 768px) {
+    /* Hero Section */
+    .team-hero {
+        padding: 4rem 0 3rem;
+    }
+
+    .team-hero-title {
+        font-size: 2.5rem;
+    }
+
+    .team-stats {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+
+    .team-stat {
+        padding: 1rem;
+    }
+
+    .team-stat-number {
+        font-size: 2rem;
+    }
+
+    /* Athletes Grid */
+    .athletes-grid {
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 1.5rem;
+    }
+
+    .athlete-card {
+        max-width: none;
+    }
+
+    .athlete-info-grid {
+        grid-template-columns: 1fr;
+        gap: 0.75rem;
+    }
+
+    .athlete-header {
+        align-items: flex-start;
+        gap: 0.75rem;
+    }
+
+    .athlete-name {
+        font-size: 1.1rem;
+        max-width: 100%;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .athlete-dan-badge {
+        align-self: flex-start;
+    }
+
+    /* New Achievement Structure - Tablet */
+    .athlete-achievements-new {
+        padding: 0.625rem;
+        gap: 0.625rem;
+    }
+
+    .medals-summary {
+        padding: 0.5rem;
+        gap: 0.375rem;
+        align-items: stretch;
+    }
+
+    .medals-total {
+        justify-content: center;
+    }
+
+    .medals-breakdown {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .medal-mini {
+        font-size: 0.7rem;
+        padding: 0.2rem 0.4rem;
+    }
+
+    .latest-achievement-new {
+        padding: 0.5rem;
+    }
+
+    .achievement-content {
+        padding-left: 1rem;
+    }
+
+    .achievement-title {
+        font-size: 0.8rem;
+    }
+
+    /* Filter Controls */
+    .team-filter-controls,
+    .coach-filter-controls {
+        padding: 1.5rem 0;
+    }
+
+    .filter-groups-container {
+        padding: 0 1rem;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 1.5rem;
+    }
+
+    .team-categories,
+    .team-age-categories,
+    .team-status-categories,
+    .coach-categories {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .team-category-btn,
+    .team-age-btn,
+    .team-status-btn,
+    .coach-category-btn {
+        padding: 0.625rem 1.25rem;
+        font-size: 0.85rem;
+    }
+
+    .team-age-categories {
+        justify-content: center;
+        gap: 0.5rem;
+    }
+
+    .team-age-btn {
+        padding: 0.5rem 1rem;
+        font-size: 0.8rem;
+    }
+
+    /* Custom Dropdown */
+    .custom-dropdown {
+        min-width: 140px;
+        max-width: 200px;
+    }
+
+    .dropdown-trigger {
+        padding: 0.625rem 1.25rem;
+        font-size: 0.85rem;
+    }
+
+    .dropdown-menu {
+        max-height: 250px;
+    }
+
+    .dropdown-item {
+        padding: 0.625rem 1.25rem;
+        font-size: 0.85rem;
+    }
+
+    /* Search */
+    .search-row {
+        padding: 0 1rem;
+    }
+
+    .enhanced-search-container {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .search-input-wrapper {
+        width: 100%;
+        max-width: 400px;
+    }
+
+    .enhanced-search-input {
+        padding: 0.875rem 1.25rem;
+        padding-left: 2.75rem;
+        padding-right: 2.75rem;
+        font-size: 0.95rem;
+    }
+
+    .search-icon {
+        left: 0.875rem;
+        font-size: 1.1rem;
+    }
+
+    .search-clear-btn {
+        right: 0.875rem;
+        width: 1.75rem;
+        height: 1.75rem;
+        font-size: 1.1rem;
+    }
+
+    .search-results-info {
+        margin-top: 1rem;
+    }
+
+    .results-count {
+        font-size: 0.9rem;
+        margin-top: 1rem;
+        white-space: nowrap;
+    }
+
+    /* Coaches */
+    .coach-card {
+        margin-bottom: 1rem;
+    }
+
+    .coach-image-container {
+        height: 180px;
+    }
+
+    .coach-name {
+        font-size: 1.1rem;
+    }
+
+    .coach-position {
+        font-size: 0.85rem;
+    }
+
+    .coach-experience,
+    .coach-specialization {
+        font-size: 0.8rem;
+    }
+
+    /* Achievements */
+    .achievements-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    /* Pagination */
+    .pagination-container {
+        gap: 1rem;
+        margin-top: 2rem;
+        padding: 1.5rem 0;
+    }
+
+    .pagination-controls {
+        gap: 0.75rem;
+    }
+
+    .pagination-btn,
+    .page-number {
+        width: 40px;
+        height: 40px;
+        font-size: 0.8rem;
+    }
+}
+
+/* Mobile Responsive */
+@media (max-width: 480px) {
+    /* Hero Section */
+    .team-stats {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    /* Athletes Grid */
+    .athletes-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .athlete-card {
+        margin: 0 auto;
+        max-width: 100%;
+    }
+
+    .athlete-content {
+        padding: 1rem;
+    }
+
+    .athlete-name {
+        font-size: 1rem;
+        max-width: 100%;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .athlete-image-container {
+        height: 250px;
+    }
+
+    .athlete-btn {
+        padding: 0.625rem 0.875rem;
+        font-size: 0.8rem;
+    }
+
+    /* New Achievement Structure - Mobile */
+    .athlete-achievements-new {
+        padding: 0.5rem;
+        gap: 0.5rem;
+    }
+
+    .medals-summary {
+        padding: 0.375rem;
+        gap: 0.25rem;
+    }
+
+    .medals-total {
+        justify-content: center;
+    }
+
+    .medals-count {
+        font-size: 1rem;
+        padding: 0.2rem 0.6rem;
+    }
+
+    .medals-breakdown {
+        justify-content: center;
+        gap: 0.25rem;
+    }
+
+    .medal-mini {
+        font-size: 0.65rem;
+        padding: 0.15rem 0.35rem;
+        gap: 0.15rem;
+    }
+
+    .latest-achievement-new {
+        padding: 0.375rem;
+    }
+
+    .achievement-header {
+        gap: 0.375rem;
+        margin-bottom: 0.375rem;
+        flex-wrap: wrap;
+    }
+
+    .achievement-icon {
+        width: 14px;
+        height: 14px;
+    }
+
+    .achievement-label {
+        font-size: 0.7rem;
+    }
+
+    .achievement-medal {
+        font-size: 0.875rem;
+        padding: 0.1rem 0.3rem;
+    }
+
+    .achievement-content {
+        padding-left: 0.875rem;
+    }
+
+    .achievement-title {
+        font-size: 0.75rem;
+        line-height: 1.2;
+    }
+
+    .achievement-year {
+        font-size: 0.7rem;
+        padding: 0.1rem 0.4rem;
+    }
+
+    /* Sections */
+    .team-section {
+        padding: 3rem 0;
+    }
+
+    /* Filter Controls */
+    .filter-groups-container {
+        padding: 0 0.75rem;
+    }
+
+    .team-categories,
+    .team-age-categories,
+    .team-status-categories,
+    .coach-categories {
+        gap: 0.5rem;
+    }
+
+    .team-category-btn,
+    .team-age-btn,
+    .team-status-btn,
+    .coach-category-btn {
+        padding: 0.5rem 1rem;
+        font-size: 0.8rem;
+        border-radius: 20px;
+    }
+
+    .team-age-btn {
+        padding: 0.375rem 0.75rem;
+        font-size: 0.75rem;
+    }
+
+    /* Custom Dropdown */
+    .custom-dropdown {
+        min-width: 120px;
+    }
+
+    .dropdown-trigger {
+        padding: 0.5rem 1rem;
+        font-size: 0.8rem;
+    }
+
+    .dropdown-menu {
+        max-height: 200px;
+    }
+
+    .dropdown-item {
+        padding: 0.5rem 1rem;
+        font-size: 0.8rem;
+    }
+
+    /* Search */
+    .enhanced-search-input {
+        padding: 0.75rem 1rem;
+        padding-left: 2.5rem;
+        padding-right: 2.5rem;
+        font-size: 0.9rem;
+    }
+
+    .search-icon {
+        left: 0.75rem;
+        font-size: 1rem;
+    }
+
+    .search-clear-btn {
+        right: 0.75rem;
+        width: 1.5rem;
+        height: 1.5rem;
+        font-size: 1rem;
+    }
+
+    .results-count {
+        font-size: 0.85rem;
+        white-space: nowrap;
+    }
+
+    /* Coaches */
+    .coach-image-container {
+        height: 150px;
+    }
+
+    .coach-placeholder {
+        font-size: 1.5rem;
+    }
+
+    /* Team Status Buttons */
+    .team-status-categories {
+        gap: 0.5rem;
+    }
+
+    .team-status-btn {
+        padding: 0.5rem 1rem;
+        font-size: 0.8rem;
+        min-width: auto;
+    }
+
+    .team-status-btn .status-icon {
+        width: 14px;
+        height: 14px;
+    }
+
+    /* Pagination */
+    .pagination-info {
+        font-size: 0.8rem;
+        text-align: center;
+    }
+
+    .page-numbers {
+        gap: 0.25rem;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .page-number,
+    .pagination-btn {
+        width: 36px;
+        height: 36px;
+        font-size: 0.75rem;
+    }
+
+    .pagination-btn {
+        min-width: 36px;
+    }
+}
+
+/* Very Small Mobile */
+@media (max-width: 360px) {
+    .team-category-btn,
+    .team-age-btn,
+    .team-status-btn,
+    .coach-category-btn {
+        padding: 0.375rem 0.75rem;
+        font-size: 0.75rem;
+    }
+
+    .enhanced-search-input {
+        font-size: 0.85rem;
+    }
+
+    .pagination-controls {
+        gap: 0.5rem;
+    }
+
+    .page-number,
+    .pagination-btn {
+        width: 32px;
+        height: 32px;
+        font-size: 0.7rem;
+    }
+
+    /* Achievement Structure - Very Small Mobile */
+    .athlete-achievements-new {
+        padding: 0.375rem;
+    }
+
+    .medals-summary {
+        padding: 0.25rem;
+    }
+
+    .latest-achievement-new {
+        padding: 0.25rem;
+    }
+
+    .achievement-content {
+        padding-left: 0.75rem;
+    }
+
+    .medal-mini {
+        font-size: 0.6rem;
+        padding: 0.1rem 0.25rem;
+    }
+
+    .achievement-title {
+        font-size: 0.7rem;
+    }
+
+    .achievement-year {
+        font-size: 0.65rem;
+    }
+}
+
+/* Fix for City/Area Text Overflow */
+.athlete-info-text {
+    color: var(--text-dark);
+    font-weight: 600;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+}
+
+/* Ensure info items don't overflow */
+.athlete-info-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem;
+    background: #f8f9fa;
+    border-radius: 8px;
+    font-size: 0.875rem;
+    min-width: 0; /* Allow flex item to shrink */
+}
+
+.athlete-info-item .athlete-info-text {
+    font-weight: 500;
+    color: #666;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    min-width: 0; /* Allow text to shrink */
+} 

@@ -301,12 +301,9 @@ class NewsArticle {
                         <div class="nav-link-item">
                             ${prevArticle ? `
                                 <a href="news-article.html?id=${prevArticle.slugId}" class="nav-button prev-button">
-                                    <div class="nav-icon">
-                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                            <polyline points="15,18 9,12 15,6"/>
-                                        </svg>
-                                    </div>
-                                    <span>Попередня</span>
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M15 18L9 12L15 6"/>
+                                    </svg>
                                 </a>
                             ` : ''}
                         </div>
@@ -326,12 +323,9 @@ class NewsArticle {
                         <div class="nav-link-item">
                             ${nextArticle ? `
                                 <a href="news-article.html?id=${nextArticle.slugId}" class="nav-button next-button">
-                                    <span>Наступна</span>
-                                    <div class="nav-icon">
-                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                            <polyline points="9,18 15,12 9,6"/>
-                                        </svg>
-                                    </div>
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M9 18L15 12L9 6"/>
+                                    </svg>
                                 </a>
                             ` : ''}
                         </div>

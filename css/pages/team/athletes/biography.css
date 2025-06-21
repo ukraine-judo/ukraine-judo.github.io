@@ -139,4 +139,230 @@
     font-size: 0.9rem;
 }
 
+/* ===== FHD ADAPTATION ===== */
+
+/* Large displays (≥1920px) - FHD and above */
+@media (min-width: 1920px) {
+    .athlete-biography {
+        padding: 4rem 0;
+    }
+    
+    .biography-container {
+        max-width: 1600px;
+    }
+    
+    .biography-header {
+        margin-bottom: 3rem;
+    }
+    
+    .biography-header h2 {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+    }
+    
+    .biography-header h2::after {
+        width: 80px;
+        height: 5px;
+        bottom: -15px;
+    }
+    
+    .biography-grid {
+        max-width: 1200px;
+        gap: 3rem;
+    }
+    
+    .biography-section {
+        padding: 2.5rem;
+        border-radius: 16px;
+    }
+    
+    .biography-section h3 {
+        font-size: 1.5rem;
+        margin-bottom: 1.5rem;
+        padding-left: 1.5rem;
+        gap: 0.75rem;
+    }
+    
+    .biography-section h3 svg {
+        width: 24px;
+        height: 24px;
+    }
+    
+    .biography-details {
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 1.5rem;
+    }
+    
+    .bio-item {
+        gap: 1rem;
+        padding: 1.25rem;
+        border-radius: 12px;
+    }
+    
+    .bio-icon {
+        width: 40px;
+        height: 40px;
+        border-radius: 12px;
+    }
+    
+    .bio-icon svg {
+        width: 20px;
+        height: 20px;
+    }
+    
+    .bio-label {
+        font-size: 0.9rem;
+        margin-bottom: 0.3rem;
+    }
+    
+    .bio-value {
+        font-size: 1.1rem;
+    }
+}
+
+/* QHD displays (≥2560px) - 2560x1440 optimization */
+@media (min-width: 2560px) {
+    .athlete-biography {
+        padding: 5rem 0;
+    }
+    
+    .biography-container {
+        max-width: 1800px;
+    }
+    
+    .biography-header {
+        margin-bottom: 4rem;
+    }
+    
+    .biography-header h2 {
+        font-size: 3rem;
+        margin-bottom: 1.25rem;
+    }
+    
+    .biography-header h2::after {
+        width: 100px;
+        height: 6px;
+        bottom: -20px;
+    }
+    
+    .biography-grid {
+        max-width: 1400px;
+        gap: 4rem;
+    }
+    
+    .biography-section {
+        padding: 3rem;
+        border-radius: 20px;
+    }
+    
+    .biography-section h3 {
+        font-size: 1.75rem;
+        margin-bottom: 2rem;
+        padding-left: 2rem;
+        gap: 1rem;
+    }
+    
+    .biography-section h3 svg {
+        width: 28px;
+        height: 28px;
+    }
+    
+    .biography-details {
+        grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+        gap: 2rem;
+    }
+    
+    .bio-item {
+        gap: 1.25rem;
+        padding: 1.5rem;
+        border-radius: 16px;
+    }
+    
+    .bio-icon {
+        width: 48px;
+        height: 48px;
+        border-radius: 16px;
+    }
+    
+    .bio-icon svg {
+        width: 24px;
+        height: 24px;
+    }
+    
+    .bio-label {
+        font-size: 1rem;
+        margin-bottom: 0.4rem;
+    }
+    
+    .bio-value {
+        font-size: 1.3rem;
+    }
+}
+
+/* Ultra-wide displays (≥3440px) - True ultra-wide monitors */
+@media (min-width: 3440px) {
+    .athlete-biography {
+        padding: 6rem 0;
+    }
+    
+    .biography-container {
+        max-width: 2200px;
+    }
+    
+    .biography-header h2 {
+        font-size: 3.5rem;
+    }
+    
+    .biography-grid {
+        max-width: 1600px;
+        gap: 5rem;
+    }
+    
+    .biography-section {
+        padding: 3.5rem;
+        border-radius: 24px;
+    }
+    
+    .biography-section h3 {
+        font-size: 2rem;
+        margin-bottom: 2.5rem;
+    }
+    
+    .biography-section h3 svg {
+        width: 32px;
+        height: 32px;
+    }
+    
+    .biography-details {
+        grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+        gap: 2.5rem;
+    }
+    
+    .bio-item {
+        gap: 1.5rem;
+        padding: 2rem;
+        border-radius: 20px;
+    }
+    
+    .bio-icon {
+        width: 56px;
+        height: 56px;
+        border-radius: 20px;
+    }
+    
+    .bio-icon svg {
+        width: 28px;
+        height: 28px;
+    }
+    
+    .bio-label {
+        font-size: 1.1rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .bio-value {
+        font-size: 1.5rem;
+    }
+}
+
  

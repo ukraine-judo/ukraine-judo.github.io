@@ -149,7 +149,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if (athleteNameEn) athleteNameEn.textContent = athlete.nameEn;
         if (athleteTeamStatus) {
             if (athlete.status === 'main') {
-                athleteTeamStatus.textContent = 'Основний склад';
+                athleteTeamStatus.textContent = 'Основний Склад';
                 athleteTeamStatus.className = 'athlete-badge team-status';
             } else {
                 athleteTeamStatus.textContent = 'Резерв';
@@ -170,16 +170,17 @@ document.addEventListener('DOMContentLoaded', function() {
         if (athleteAge) athleteAge.textContent = `${calculateAge(athlete.birthDate)} років`;
         
         if (danElement) {
+            const titleInfo = getTitleInfo(athlete.dan);
             danElement.textContent = athlete.dan;
             
             // Add class based on sport title
             danElement.className = 'stat-value dan-title';
-            if (athlete.dan === 'МСУМК') {
-                danElement.classList.add('title-msmk');
-            } else if (athlete.dan === 'МС') {
-                danElement.classList.add('title-ms');
-            } else if (athlete.dan === 'КМС') {
-                danElement.classList.add('title-kms');
+            danElement.classList.add(titleInfo.class);
+            
+            // Add tooltip with full title name
+            if (titleInfo.fullName) {
+                danElement.setAttribute('title', titleInfo.fullName);
+                danElement.setAttribute('data-tooltip', titleInfo.description || titleInfo.fullName);
             }
         }
         
@@ -909,8 +910,59 @@ function closeGalleryModal() {
  * Hide empty sections
  */
 function hideSection(sectionId) {
-    const section = document.querySelector(`.${sectionId}`) || document.getElementById(sectionId);
+    const section = document.getElementById(sectionId);
     if (section) {
         section.style.display = 'none';
     }
+}
+
+/**
+ * Get title information for sport ranks
+ */
+function getTitleInfo(dan) {
+    const titles = {
+        'МСУМК': {
+            class: 'title-msmk',
+            fullName: 'Майстер спорту України міжнародного класу',
+            description: 'Найвище спортивне звання в Україні',
+            level: 5
+        },
+        'ЗМСУ': {
+            class: 'title-zmsu',
+            fullName: 'Заслужений майстер спорту України',
+            description: 'Почесне звання за видатні спортивні досягнення',
+            level: 4
+        },
+        'МС': {
+            class: 'title-ms',
+            fullName: 'Майстер спорту',
+            description: 'Високе спортивне звання',
+            level: 3
+        },
+        'МСУ': {
+            class: 'title-ms', // Використовуємо той же стиль що і МС
+            fullName: 'Майстер спорту України',
+            description: 'Високе спортивне звання України',
+            level: 3
+        },
+        'КМС': {
+            class: 'title-kms',
+            fullName: 'Кандидат у майстри спорту',
+            description: 'Підготовчий рівень до майстра спорту',
+            level: 2
+        },
+        'КМСУ': {
+            class: 'title-kms', // Використовуємо той же стиль що і КМС
+            fullName: 'Кандидат у майстри спорту України',
+            description: 'Підготовчий рівень до майстра спорту України',
+            level: 2
+        }
+    };
+
+    return titles[dan] || {
+        class: 'title-default',
+        fullName: dan,
+        description: 'Спортивне звання',
+        level: 1
+    };
 } 

@@ -1,0 +1,23 @@
+/* Team Page - Main CSS Index */
+/* This file imports all modular team page styles */
+
+/* Core Layout & Sections */
+@import 'layout.css';
+
+/* Filter System */
+@import 'filters.css';
+
+/* Athletes Cards & Grid */
+@import 'athletes.css';
+
+/* Coaches Cards & Grid */
+@import 'coaches.css';
+
+/* Pagination Component */
+@import 'pagination.css';
+
+/* Animations & Effects */
+@import 'animations.css';
+
+/* Responsive Design */
+@import 'responsive.css'; 

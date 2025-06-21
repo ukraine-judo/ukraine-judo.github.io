@@ -647,37 +647,31 @@ class DocumentsUIManager {
         // Delayed update to allow fade-out animation
         setTimeout(() => {
             paginationContainer.innerHTML = `
-                <div class="pagination-info">
-                    <span>Показано <span class="counter">${startDoc}</span>-<span class="counter">${endDoc}</span> з <span class="counter">${totalDocuments}</span> документів</span>
-                </div>
                 <div class="pagination-controls">
                     <button class="pagination-btn ${currentPage === 1 ? 'disabled' : ''}" 
                             data-page="${currentPage - 1}" 
-                            ${currentPage === 1 ? 'disabled' : ''}>
-                        <svg viewBox="0 0 24 24" width="16" height="16">
-                            <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            ${currentPage === 1 ? 'disabled' : ''}
+                            style="transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); ${currentPage === 1 ? 'opacity: 0.4; transform: scale(0.95); cursor: not-allowed;' : 'opacity: 1; transform: scale(1); cursor: pointer;'}">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M15 18L9 12L15 6"/>
                         </svg>
-                        Попередня
                     </button>
                     
-                    <div class="pagination-numbers">
+                    <div class="pagination-numbers" style="transition: opacity 0.2s ease, transform 0.2s ease;">
                         ${this.generatePageNumbers(currentPage, totalPages)}
                     </div>
                     
                     <button class="pagination-btn ${currentPage === totalPages ? 'disabled' : ''}" 
                             data-page="${currentPage + 1}"
-                            ${currentPage === totalPages ? 'disabled' : ''}>
-                        Наступна
-                        <svg viewBox="0 0 24 24" width="16" height="16">
-                            <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            ${currentPage === totalPages ? 'disabled' : ''}
+                            style="transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); ${currentPage === totalPages ? 'opacity: 0.4; transform: scale(0.95); cursor: not-allowed;' : 'opacity: 1; transform: scale(1); cursor: pointer;'}">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M9 18L15 12L9 6"/>
                         </svg>
                     </button>
                 </div>
             `;
 
-            // Animate counters
-            this.animateCounters();
-            
             // Animate page numbers
             this.animatePageNumbers();
             

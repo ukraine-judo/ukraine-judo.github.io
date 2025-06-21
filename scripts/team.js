@@ -213,14 +213,14 @@ document.addEventListener('DOMContentLoaded', function() {
         const city = detailedData?.city || athleteData.city || '—';
         const rankDisplay = typeof athleteData.rank === 'number' ? `#${athleteData.rank}` : athleteData.rank;
         const status = athleteData.status || 'main';
-        const statusText = status === 'main' ? 'Основа' : 'Резерв';
+        const statusText = status === 'main' ? 'Основний Склад' : 'Резерв';
         
         // Create image element with optimized loading
         const imageContent = createAthleteImageContent(athleteData);
         
         // Base card structure with new design
         card.innerHTML = `
-            <div class="athlete-image-container">
+            <div class="athlete-image-container" onclick="toggleTagsFromImage(this)">
                 ${imageContent}
                 <div class="athlete-overlay">
                     <div class="athlete-status-display ${status}">
@@ -229,15 +229,20 @@ document.addEventListener('DOMContentLoaded', function() {
                             '<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>'
                         }
                         <span class="status-text">${statusText}</span>
-                </div>
+                    </div>
                     <div class="athlete-weight">${athleteData.weight}</div>
-            </div>
+                </div>
+                <button class="tags-toggle-btn" onclick="event.stopPropagation(); toggleTags(this)">
+                    Нажміть щоб сховати теги
+                </button>
             </div>
             
             <div class="athlete-content">
                 <div class="athlete-header">
                     <h3 class="athlete-name">${athleteData.name}</h3>
-                    <div class="athlete-dan-badge ${getDanClass(dan)}">${dan}</div>
+                    <div class="athlete-dan-badge ${getTitleInfo(dan).class}" 
+                         title="${getTitleInfo(dan).fullName}"
+                         data-tooltip="${getTitleInfo(dan).description}">${dan}</div>
                 </div>
                 
                 <div class="athlete-info-grid">
@@ -261,7 +266,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 
                 <div class="athlete-achievements">
                     ${detailedData && detailedData.achievements ? createAchievementsHTML(detailedData.achievements) : ''}
-                    </div>
+                </div>
                 
                 <div class="athlete-actions">
                     <button class="athlete-btn athlete-btn-primary" onclick="window.location.href='athlete.html?id=${athleteData.id}'">
@@ -291,44 +296,63 @@ document.addEventListener('DOMContentLoaded', function() {
             bronze: achievements.filter(a => a.type === 'bronze').length
         };
         
-        let medalsHTML = '';
+        const totalMedals = medalCount.gold + medalCount.silver + medalCount.bronze;
         
-        // Show medal counts instead of individual medals
-        if (medalCount.gold > 0) {
-            medalsHTML += `<div class="medal-count gold">
-                <div class="medal-icon">🥇</div>
-                <span class="medal-number">${medalCount.gold}</span>
-            </div>`;
-        }
-        
-        if (medalCount.silver > 0) {
-            medalsHTML += `<div class="medal-count silver">
-                <div class="medal-icon">🥈</div>
-                <span class="medal-number">${medalCount.silver}</span>
-            </div>`;
-        }
-        
-        if (medalCount.bronze > 0) {
-            medalsHTML += `<div class="medal-count bronze">
-                <div class="medal-icon">🥉</div>
-                <span class="medal-number">${medalCount.bronze}</span>
-            </div>`;
-        }
-        
-        // Show latest achievement title
+        // Show latest achievement
         const latestAchievement = achievements.sort((a, b) => (b.year || 0) - (a.year || 0))[0];
-        const achievementTitle = latestAchievement.title.length > 25 
-            ? latestAchievement.title.substring(0, 25) + '...' 
+        const achievementTitle = latestAchievement.title.length > 30 
+            ? latestAchievement.title.substring(0, 30) + '...' 
             : latestAchievement.title;
         
-        return `
-            <div class="athlete-medals-preview">
-                <div class="medal-counts">
-                    ${medalsHTML}
+        // Get medal emoji and color for latest achievement
+        const getMedalInfo = (type) => {
+            switch(type) {
+                case 'gold': return { emoji: '🥇', class: 'gold', text: 'Золото' };
+                case 'silver': return { emoji: '🥈', class: 'silver', text: 'Срібло' };
+                case 'bronze': return { emoji: '🥉', class: 'bronze', text: 'Бронза' };
+                default: return { emoji: '🏆', class: 'other', text: 'Нагорода' };
+            }
+        };
+        
+        const medalInfo = getMedalInfo(latestAchievement.type);
+        
+        // Create compact medals display
+        let medalsHTML = '';
+        if (totalMedals > 0) {
+            medalsHTML = `
+                <div class="medals-summary">
+                    <div class="medals-total">
+                        <svg class="medal-icon-main" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="8" r="6"/>
+                            <polyline points="8,14 12,18 16,14"/>
+                            <line x1="12" y1="18" x2="12" y2="22"/>
+                        </svg>
+                        <span class="medals-count">${totalMedals}</span>
+                    </div>
+                    <div class="medals-breakdown">
+                        ${medalCount.gold > 0 ? `<span class="medal-mini gold" title="Золото: ${medalCount.gold}">🥇${medalCount.gold}</span>` : ''}
+                        ${medalCount.silver > 0 ? `<span class="medal-mini silver" title="Срібло: ${medalCount.silver}">🥈${medalCount.silver}</span>` : ''}
+                        ${medalCount.bronze > 0 ? `<span class="medal-mini bronze" title="Бронза: ${medalCount.bronze}">🥉${medalCount.bronze}</span>` : ''}
+                    </div>
                 </div>
-                <div class="latest-achievement">
-                    <span class="achievement-text">${achievementTitle}</span>
-                    <span class="achievement-year">${latestAchievement.year}</span>
+            `;
+        }
+        
+        return `
+            <div class="athlete-achievements-new">
+                    ${medalsHTML}
+                <div class="latest-achievement-new">
+                    <div class="achievement-header">
+                        <svg class="achievement-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/>
+                        </svg>
+                        <span class="achievement-label">Останнє досягнення</span>
+                        <span class="achievement-medal ${medalInfo.class}">${medalInfo.emoji}</span>
+                </div>
+                    <div class="achievement-content">
+                        <div class="achievement-title">${achievementTitle}</div>
+                        <div class="achievement-year">${latestAchievement.year}</div>
+                    </div>
                 </div>
             </div>
         `;
@@ -415,12 +439,60 @@ document.addEventListener('DOMContentLoaded', function() {
      * Get CSS class for sport title
      */
     function getDanClass(dan) {
-        switch(dan) {
-            case 'МСУМК': return 'title-msmk';
-            case 'МС': return 'title-ms';
-            case 'КМС': return 'title-kms';
-            default: return '';
-        }
+        const titles = {
+            'МСУМК': 'title-msmk',
+            'ЗМСУ': 'title-zmsu', 
+            'МС': 'title-ms',
+            'МСУ': 'title-ms', // МСУ и МС имеют одинаковые стили
+            'КМС': 'title-kms',
+            'КМСУ': 'title-kms' // КМСУ и КМС имеют одинаковые стили
+        };
+        
+        return titles[dan] || 'title-default';
+    }
+
+    /**
+     * Get title information for sport ranks
+     */
+    function getTitleInfo(dan) {
+        const titles = {
+            'МСУМК': {
+                class: 'title-msmk',
+                fullName: 'Майстер спорту України міжнародного класу',
+                description: 'Найвище спортивне звання в Україні'
+            },
+            'ЗМСУ': {
+                class: 'title-zmsu',
+                fullName: 'Заслужений майстер спорту України',
+                description: 'Почесне звання за видатні спортивні досягнення'
+            },
+            'МС': {
+                class: 'title-ms',
+                fullName: 'Майстер спорту',
+                description: 'Високе спортивне звання'
+            },
+            'МСУ': {
+                class: 'title-ms',
+                fullName: 'Майстер спорту України',
+                description: 'Високе спортивне звання України'
+            },
+            'КМС': {
+                class: 'title-kms',
+                fullName: 'Кандидат у майстри спорту',
+                description: 'Підготовчий рівень до майстра спорту'
+            },
+            'КМСУ': {
+                class: 'title-kms',
+                fullName: 'Кандидат у майстри спорту України',
+                description: 'Підготовчий рівень до майстра спорту України'
+            }
+        };
+
+        return titles[dan] || {
+            class: 'title-default',
+            fullName: dan,
+            description: 'Спортивне звання'
+        };
     }
     
     /**
@@ -537,21 +609,16 @@ document.addEventListener('DOMContentLoaded', function() {
         const athletesSection = document.querySelector('.team-section');
         const paginationHTML = `
             <div class="pagination-container">
-                <div class="pagination-info">
-                    <span id="pagination-info-text"></span>
-                </div>
                 <div class="pagination-controls">
                     <button id="prev-page" class="pagination-btn">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <polyline points="15,18 9,12 15,6"></polyline>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M15 18L9 12L15 6"/>
                         </svg>
-                        Попередня
                     </button>
                     <div id="page-numbers" class="page-numbers"></div>
                     <button id="next-page" class="pagination-btn">
-                        Наступна
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <polyline points="9,18 15,12 9,6"></polyline>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M9 18L15 12L9 6"/>
                         </svg>
                     </button>
                 </div>
@@ -594,18 +661,39 @@ document.addEventListener('DOMContentLoaded', function() {
         const startItem = (currentPage - 1) * athletesPerPage + 1;
         const endItem = Math.min(currentPage * athletesPerPage, filteredAthletes.length);
         
-        // Update info text
-        const infoText = document.getElementById('pagination-info-text');
-        if (infoText) {
-            infoText.textContent = `Показано ${startItem}-${endItem} з ${filteredAthletes.length} спортсменів`;
-        }
-        
-        // Update prev/next buttons
+        // Update prev/next buttons with smooth transitions
         const prevBtn = document.getElementById('prev-page');
         const nextBtn = document.getElementById('next-page');
         
-        if (prevBtn) prevBtn.disabled = currentPage === 1;
-        if (nextBtn) nextBtn.disabled = currentPage === totalPages;
+        if (prevBtn) {
+            const isDisabled = currentPage === 1;
+            prevBtn.disabled = isDisabled;
+            prevBtn.style.transition = 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)';
+            if (isDisabled) {
+                prevBtn.style.opacity = '0.4';
+                prevBtn.style.transform = 'scale(0.95)';
+                prevBtn.style.cursor = 'not-allowed';
+            } else {
+                prevBtn.style.opacity = '1';
+                prevBtn.style.transform = 'scale(1)';
+                prevBtn.style.cursor = 'pointer';
+            }
+        }
+        
+        if (nextBtn) {
+            const isDisabled = currentPage === totalPages;
+            nextBtn.disabled = isDisabled;
+            nextBtn.style.transition = 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)';
+            if (isDisabled) {
+                nextBtn.style.opacity = '0.4';
+                nextBtn.style.transform = 'scale(0.95)';
+                nextBtn.style.cursor = 'not-allowed';
+            } else {
+                nextBtn.style.opacity = '1';
+                nextBtn.style.transform = 'scale(1)';
+                nextBtn.style.cursor = 'pointer';
+            }
+        }
         
         // Update page numbers
         updatePageNumbers(totalPages);
@@ -618,70 +706,90 @@ document.addEventListener('DOMContentLoaded', function() {
         const pageNumbersContainer = document.getElementById('page-numbers');
         if (!pageNumbersContainer) return;
         
-        pageNumbersContainer.innerHTML = '';
+        // Add fade-out animation
+        pageNumbersContainer.style.transition = 'opacity 0.2s ease, transform 0.2s ease';
+        pageNumbersContainer.style.opacity = '0';
+        pageNumbersContainer.style.transform = 'translateY(5px)';
         
-        // Simple pagination for small number of pages
-        if (totalPages <= 7) {
-        for (let i = 1; i <= totalPages; i++) {
-                createPageButton(i, pageNumbersContainer);
-            }
-            return;
-        }
-        
-        // Advanced pagination with ellipsis
-        const showPages = [];
-        
-        // Always show first page
-        showPages.push(1);
-        
-        // Calculate range around current page
-        const startRange = Math.max(2, currentPage - 1);
-        const endRange = Math.min(totalPages - 1, currentPage + 1);
-        
-        // Add ellipsis after first page if needed
-        if (startRange > 2) {
-            showPages.push('...');
-        }
-        
-        // Add pages around current page
-        for (let i = startRange; i <= endRange; i++) {
-            if (i !== 1 && i !== totalPages) {
-                showPages.push(i);
-            }
-        }
-        
-        // Add ellipsis before last page if needed
-        if (endRange < totalPages - 1) {
-            showPages.push('...');
-        }
-        
-        // Always show last page
-        if (totalPages > 1) {
-            showPages.push(totalPages);
-        }
-        
-        // Create buttons
-        showPages.forEach(page => {
-            if (page === '...') {
-                const ellipsis = document.createElement('span');
-                ellipsis.className = 'page-ellipsis';
-                ellipsis.textContent = '...';
-                pageNumbersContainer.appendChild(ellipsis);
+        setTimeout(() => {
+            pageNumbersContainer.innerHTML = '';
+            
+            // Simple pagination for small number of pages
+            if (totalPages <= 7) {
+                for (let i = 1; i <= totalPages; i++) {
+                    createPageButton(i, pageNumbersContainer);
+                }
             } else {
-                createPageButton(page, pageNumbersContainer);
+                // Advanced pagination with ellipsis
+                const showPages = [];
+                
+                // Always show first page
+                showPages.push(1);
+                
+                // Calculate range around current page
+                const startRange = Math.max(2, currentPage - 1);
+                const endRange = Math.min(totalPages - 1, currentPage + 1);
+                
+                // Add ellipsis after first page if needed
+                if (startRange > 2) {
+                    showPages.push('...');
+                }
+                
+                // Add pages around current page
+                for (let i = startRange; i <= endRange; i++) {
+                    if (i !== 1 && i !== totalPages) {
+                        showPages.push(i);
+                    }
+                }
+                
+                // Add ellipsis before last page if needed
+                if (endRange < totalPages - 1) {
+                    showPages.push('...');
+                }
+                
+                // Always show last page
+                if (totalPages > 1) {
+                    showPages.push(totalPages);
+                }
+                
+                // Create buttons
+                showPages.forEach(page => {
+                    if (page === '...') {
+                        const ellipsis = document.createElement('span');
+                        ellipsis.className = 'page-ellipsis';
+                        ellipsis.textContent = '...';
+                        pageNumbersContainer.appendChild(ellipsis);
+                    } else {
+                        createPageButton(page, pageNumbersContainer);
+                    }
+                });
             }
-        });
+            
+            // Add fade-in animation
+            pageNumbersContainer.style.opacity = '1';
+            pageNumbersContainer.style.transform = 'translateY(0)';
+        }, 200);
     }
 
     /**
      * Create page button
      */
     function createPageButton(pageNumber, container) {
-            const pageBtn = document.createElement('button');
+        const pageBtn = document.createElement('button');
         pageBtn.className = `page-number ${pageNumber === currentPage ? 'active' : ''}`;
         pageBtn.textContent = pageNumber;
-            pageBtn.addEventListener('click', () => {
+        pageBtn.style.transition = 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)';
+        pageBtn.style.opacity = '0';
+        pageBtn.style.transform = 'translateY(10px) scale(0.9)';
+        
+        pageBtn.addEventListener('click', () => {
             if (pageNumber !== currentPage) {
+                // Add click animation
+                pageBtn.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    pageBtn.style.transform = 'scale(1)';
+                }, 150);
+                
                 currentPage = pageNumber;
                 renderCurrentPage();
                 
@@ -692,7 +800,28 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             }
         });
+        
+        // Add hover effects
+        pageBtn.addEventListener('mouseenter', () => {
+            if (pageNumber !== currentPage) {
+                pageBtn.style.transform = 'translateY(-2px) scale(1.05)';
+            }
+        });
+        
+        pageBtn.addEventListener('mouseleave', () => {
+            if (pageNumber !== currentPage) {
+                pageBtn.style.transform = 'translateY(0) scale(1)';
+            }
+        });
+        
         container.appendChild(pageBtn);
+        
+        // Animate in with stagger
+        const index = Array.from(container.children).indexOf(pageBtn);
+        setTimeout(() => {
+            pageBtn.style.opacity = '1';
+            pageBtn.style.transform = 'translateY(0) scale(1)';
+        }, index * 50);
     }
 
     /**
@@ -723,14 +852,8 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
 
-        // Weight filter select
-        const weightSelect = document.getElementById('weight-filter');
-        if (weightSelect) {
-            weightSelect.addEventListener('change', function() {
-                currentFilters.weight = this.value;
-                applyAllFilters();
-            });
-        }
+        // Custom dropdown for weight filter
+        initCustomDropdown();
 
         // Status filter buttons
         const statusButtons = document.querySelectorAll('.team-status-btn');
@@ -752,6 +875,130 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Search functionality
         initSearch();
+    }
+
+    /**
+     * Initialize custom dropdown functionality
+     */
+    function initCustomDropdown() {
+        const dropdown = document.getElementById('weight-dropdown');
+        if (!dropdown) return;
+
+        const trigger = dropdown.querySelector('.dropdown-trigger');
+        const menu = dropdown.querySelector('.dropdown-menu');
+        const value = dropdown.querySelector('.dropdown-value');
+        const items = dropdown.querySelectorAll('.dropdown-item');
+
+        if (!trigger || !menu || !value || !items.length) return;
+
+        // Toggle dropdown on trigger click
+        trigger.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            
+            const isOpen = menu.classList.contains('show');
+            
+            // Close all other dropdowns first
+            document.querySelectorAll('.dropdown-menu.show').forEach(openMenu => {
+                if (openMenu !== menu) {
+                    openMenu.classList.remove('show');
+                    openMenu.parentElement.querySelector('.dropdown-trigger').classList.remove('active');
+                }
+            });
+            
+            // Toggle current dropdown
+            if (isOpen) {
+                menu.classList.remove('show');
+                trigger.classList.remove('active');
+            } else {
+                menu.classList.add('show');
+                trigger.classList.add('active');
+            }
+        });
+
+        // Handle item selection
+        items.forEach(item => {
+            item.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                
+                // Remove active class from all items
+                items.forEach(i => i.classList.remove('active'));
+                
+                // Add active class to selected item
+                this.classList.add('active');
+                
+                // Update displayed value
+                value.textContent = this.textContent;
+                
+                // Update filter
+                currentFilters.weight = this.getAttribute('data-value');
+                applyAllFilters();
+                
+                // Close dropdown
+                menu.classList.remove('show');
+                trigger.classList.remove('active');
+            });
+        });
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!dropdown.contains(e.target)) {
+                menu.classList.remove('show');
+                trigger.classList.remove('active');
+            }
+        });
+
+        // Close dropdown on escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                menu.classList.remove('show');
+                trigger.classList.remove('active');
+            }
+        });
+
+        // Keyboard navigation
+        trigger.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                trigger.click();
+            }
+        });
+
+        // Focus management for accessibility
+        menu.addEventListener('keydown', function(e) {
+            const currentItem = menu.querySelector('.dropdown-item:focus');
+            let nextItem;
+
+            switch (e.key) {
+                case 'ArrowDown':
+                    e.preventDefault();
+                    nextItem = currentItem ? currentItem.nextElementSibling : items[0];
+                    if (nextItem) nextItem.focus();
+                    break;
+                case 'ArrowUp':
+                    e.preventDefault();
+                    nextItem = currentItem ? currentItem.previousElementSibling : items[items.length - 1];
+                    if (nextItem) nextItem.focus();
+                    break;
+                case 'Enter':
+                case ' ':
+                    e.preventDefault();
+                    if (currentItem) currentItem.click();
+                    break;
+                case 'Escape':
+                    e.preventDefault();
+                    menu.classList.remove('show');
+                    trigger.classList.remove('active');
+                    trigger.focus();
+                    break;
+            }
+        });
+
+        // Make dropdown items focusable
+        items.forEach(item => {
+            item.setAttribute('tabindex', '0');
+        });
     }
     
     /**
@@ -1367,6 +1614,37 @@ document.addEventListener('DOMContentLoaded', function() {
             coachesGrid.appendChild(noResultsElement);
         }
     }
+
+    // Export functions to global scope for inline event handlers
+    window.toggleTags = function(button) {
+        const container = button.closest('.athlete-image-container');
+        const isHidden = container.classList.contains('tags-hidden');
+        
+        if (isHidden) {
+            // Show tags
+            container.classList.remove('tags-hidden');
+            button.textContent = 'Нажміть щоб сховати теги';
+        } else {
+            // Hide tags
+            container.classList.add('tags-hidden');
+            button.textContent = 'Нажміть щоб показати теги';
+        }
+    };
+
+    window.toggleTagsFromImage = function(container) {
+        const button = container.querySelector('.tags-toggle-btn');
+        const isHidden = container.classList.contains('tags-hidden');
+        
+        if (isHidden) {
+            // Show tags
+            container.classList.remove('tags-hidden');
+            if (button) button.textContent = 'Нажміть щоб сховати теги';
+        } else {
+            // Hide tags
+            container.classList.add('tags-hidden');
+            if (button) button.textContent = 'Нажміть щоб показати теги';
+        }
+    };
 
 });
 

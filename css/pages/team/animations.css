@@ -1,0 +1,89 @@
+/* ===== ANIMATIONS & KEYFRAMES ===== */
+
+/* Hero Wave Animation */
+@keyframes wave {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-100px); }
+}
+
+/* Shimmer Effect for Placeholders */
+@keyframes shimmer {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+/* Spin Animation for Loading */
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Slide In Animation for Cards */
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Skeleton Loading Animation */
+@keyframes skeleton-loading {
+    0% {
+        background-color: #f0f0f0;
+    }
+    100% {
+        background-color: #e0e0e0;
+    }
+}
+
+/* Pulse Animation for Loading States */
+@keyframes pulse {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0.6;
+    }
+}
+
+/* Card Animation Classes */
+.athlete-card.animate-in,
+.coach-card.animate-in {
+    animation: slideInUp 0.6s ease-out forwards;
+}
+
+/* Performance Optimizations */
+.athlete-card,
+.coach-card {
+    will-change: transform, box-shadow;
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+}
+
+.athlete-image,
+.coach-image {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    content-visibility: auto;
+    contain-intrinsic-size: 280px 280px;
+}
+
+.athlete-card:hover .athlete-image,
+.coach-card:hover .coach-image {
+    will-change: transform;
+} 

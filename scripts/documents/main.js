@@ -913,32 +913,30 @@ class DocumentsManager {
         
         paginationContainer.innerHTML = `
             <div class="pagination-wrapper">
-                <div class="pagination-info">
-                    <span>Показано ${Math.min(6, totalItems)} з ${totalItems} змагань</span>
-                </div>
                 <div class="pagination-controls">
                     <button class="pagination-btn prev-btn" ${currentPage === 1 ? 'disabled' : ''} 
-                            data-page="${currentPage - 1}" data-category="${category}">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <polyline points="15,18 9,12 15,6"></polyline>
+                            data-page="${currentPage - 1}" data-category="${category}"
+                            style="transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); ${currentPage === 1 ? 'opacity: 0.4; transform: scale(0.95); cursor: not-allowed;' : 'opacity: 1; transform: scale(1); cursor: pointer;'}">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M15 18L9 12L15 6"/>
                         </svg>
-                        Попередня
                     </button>
                     
-                    <div class="pagination-numbers">
+                    <div class="pagination-numbers" style="transition: opacity 0.2s ease, transform 0.2s ease;">
                         ${pageNumbers.map(page => `
                             <button class="pagination-number ${page === currentPage ? 'active' : ''}" 
-                                    data-page="${page}" data-category="${category}">
+                                    data-page="${page}" data-category="${category}"
+                                    style="transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);">
                                 ${page}
                             </button>
                         `).join('')}
                     </div>
                     
                     <button class="pagination-btn next-btn" ${currentPage === totalPages ? 'disabled' : ''} 
-                            data-page="${currentPage + 1}" data-category="${category}">
-                        Наступна
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <polyline points="9,18 15,12 9,6"></polyline>
+                            data-page="${currentPage + 1}" data-category="${category}"
+                            style="transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); ${currentPage === totalPages ? 'opacity: 0.4; transform: scale(0.95); cursor: not-allowed;' : 'opacity: 1; transform: scale(1); cursor: pointer;'}">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M9 18L15 12L9 6"/>
                         </svg>
                     </button>
                 </div>

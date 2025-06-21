@@ -216,7 +216,235 @@
 }
 
 .achievement-description {
-    color: #555;
-    line-height: 1.6;
     font-size: 0.9rem;
+    color: #666;
+    line-height: 1.5;
+}
+
+/* ===== FHD ADAPTATION ===== */
+
+/* Large displays (≥1920px) - FHD and above */
+@media (min-width: 1920px) {
+    .athlete-achievements {
+        padding: 4rem 0;
+    }
+    
+    .achievements-container {
+        max-width: 1600px;
+    }
+    
+    .achievements-header {
+        margin-bottom: 3rem;
+    }
+    
+    .achievements-header h2 {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+    }
+    
+    .achievements-header h2::after {
+        width: 80px;
+        height: 5px;
+        bottom: -15px;
+    }
+    
+    .achievements-stats {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 2rem;
+        margin-bottom: 3rem;
+    }
+    
+    .achievement-stat-number {
+        font-size: 3rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .achievement-stat-label {
+        font-size: 1rem;
+    }
+    
+    .achievements-grid {
+        grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+        gap: 2rem;
+    }
+    
+    .achievement-item {
+        padding: 2rem;
+        border-radius: 16px;
+        border-left-width: 4px;
+    }
+    
+    .achievement-medal-section {
+        margin-bottom: 1.5rem;
+    }
+    
+    .achievement-medal {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .achievement-medal svg {
+        width: 22px;
+        height: 22px;
+    }
+    
+    .achievement-rank {
+        font-size: 1.1rem;
+        padding: 0.5rem 1rem;
+        border-radius: 20px;
+    }
+    
+    .achievement-title {
+        font-size: 1.3rem;
+        margin-bottom: 1rem;
+    }
+    
+    .achievement-meta {
+        gap: 1rem;
+        margin-bottom: 1rem;
+        font-size: 0.9rem;
+    }
+    
+    .achievement-year,
+    .achievement-location {
+        font-size: 0.9rem;
+    }
+    
+    .achievement-description {
+        font-size: 1rem;
+        line-height: 1.6;
+    }
+}
+
+/* QHD displays (≥2560px) - 2560x1440 optimization */
+@media (min-width: 2560px) {
+    .athlete-achievements {
+        padding: 5rem 0;
+    }
+    
+    .achievements-container {
+        max-width: 1800px;
+    }
+    
+    .achievements-header {
+        margin-bottom: 4rem;
+    }
+    
+    .achievements-header h2 {
+        font-size: 3rem;
+        margin-bottom: 1.25rem;
+    }
+    
+    .achievements-header h2::after {
+        width: 100px;
+        height: 6px;
+        bottom: -20px;
+    }
+    
+    .achievements-stats {
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 2.5rem;
+        margin-bottom: 4rem;
+    }
+    
+    .achievement-stat-number {
+        font-size: 3.5rem;
+        margin-bottom: 0.75rem;
+    }
+    
+    .achievement-stat-label {
+        font-size: 1.1rem;
+    }
+    
+    .achievements-grid {
+        grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+        gap: 2.5rem;
+    }
+    
+    .achievement-item {
+        padding: 2.5rem;
+        border-radius: 20px;
+        border-left-width: 5px;
+    }
+    
+    .achievement-medal-section {
+        margin-bottom: 2rem;
+    }
+    
+    .achievement-medal {
+        width: 48px;
+        height: 48px;
+    }
+    
+    .achievement-medal svg {
+        width: 26px;
+        height: 26px;
+    }
+    
+    .achievement-rank {
+        font-size: 1.2rem;
+        padding: 0.6rem 1.2rem;
+        border-radius: 24px;
+    }
+    
+    .achievement-title {
+        font-size: 1.5rem;
+        margin-bottom: 1.25rem;
+    }
+    
+    .achievement-meta {
+        gap: 1.25rem;
+        margin-bottom: 1.25rem;
+        font-size: 1rem;
+    }
+    
+    .achievement-year,
+    .achievement-location {
+        font-size: 1rem;
+    }
+    
+    .achievement-description {
+        font-size: 1.1rem;
+    }
+}
+
+/* Ultra-wide displays (≥3440px) - True ultra-wide monitors */
+@media (min-width: 3440px) {
+    .athlete-achievements {
+        padding: 6rem 0;
+    }
+    
+    .achievements-container {
+        max-width: 2200px;
+    }
+    
+    .achievements-header h2 {
+        font-size: 3.5rem;
+    }
+    
+    .achievement-stat-number {
+        font-size: 4rem;
+    }
+    
+    .achievement-stat-label {
+        font-size: 1.2rem;
+    }
+    
+    .achievements-grid {
+        grid-template-columns: repeat(auto-fit, minmax(480px, 1fr));
+        gap: 3rem;
+    }
+    
+    .achievement-item {
+        padding: 3rem;
+        border-radius: 24px;
+    }
+    
+    .achievement-title {
+        font-size: 1.6rem;
+    }
+    
+    .achievement-description {
+        font-size: 1.2rem;
+    }
 } 

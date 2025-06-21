@@ -1,0 +1,1044 @@
+/* ===== UNIFIED FILTER SYSTEM ===== */
+/* Based on news filter design for consistency */
+
+.team-filter-controls {
+    background: white;
+    padding: 2rem 0;
+    box-shadow: 0 2px 20px rgba(26, 63, 103, 0.08);
+    border-radius: 16px;
+    margin-bottom: 3rem;
+}
+
+.coach-filter-controls {
+    background: white;
+    padding: 2rem 0;
+    box-shadow: 0 2px 20px rgba(26, 63, 103, 0.08);
+    border-radius: 16px;
+    margin-bottom: 3rem;
+}
+
+/* Filter Content Layout */
+.filter-groups-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    margin-bottom: 1.5rem;
+    padding: 0 2rem;
+    flex-wrap: wrap;
+}
+
+.filter-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.filter-group.search-group {
+    justify-self: end;
+    min-width: 250px;
+}
+
+.filter-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin: 0;
+    white-space: nowrap;
+}
+
+/* Filter Button Groups - Unified Style */
+.team-categories,
+.team-age-categories,
+.team-status-categories,
+.coach-categories {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+}
+
+.coach-categories {
+    justify-content: center;
+    padding: 0 2rem;
+}
+
+/* Unified Filter Button Styles (Like News) */
+.team-category-btn,
+.team-age-btn,
+.team-status-btn,
+.coach-category-btn {
+    background: none;
+    border: 2px solid #e9ecef;
+    color: #666;
+    padding: 0.75rem 1.5rem;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.team-category-btn:hover,
+.team-age-btn:hover,
+.team-status-btn:hover,
+.coach-category-btn:hover,
+.team-category-btn.active,
+.team-age-btn.active,
+.team-status-btn.active,
+.coach-category-btn.active {
+    background: var(--primary-color);
+    border-color: var(--primary-color);
+    color: white;
+    transform: translateY(-1px);
+}
+
+/* Unified Animation Effect */
+.team-category-btn::before,
+.team-age-btn::before,
+.team-status-btn::before,
+.coach-category-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+    transition: left 0.6s ease;
+}
+
+.team-category-btn:hover::before,
+.team-age-btn:hover::before,
+.team-status-btn:hover::before,
+.coach-category-btn:hover::before {
+    left: 100%;
+}
+
+.team-category-btn svg,
+.team-age-btn svg,
+.team-status-btn svg,
+.coach-category-btn svg {
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+}
+
+/* Custom Dropdown for Weight Filter */
+.custom-dropdown {
+    position: relative;
+    min-width: 160px;
+}
+
+.dropdown-trigger {
+    background: none;
+    border: 2px solid #e9ecef;
+    color: #666;
+    padding: 0.75rem 1.5rem;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    outline: none;
+    position: relative;
+    overflow: hidden;
+}
+
+.dropdown-trigger:hover {
+    background: var(--primary-color);
+    border-color: var(--primary-color);
+    color: white;
+    transform: translateY(-1px);
+}
+
+.dropdown-trigger.active {
+    background: var(--primary-color);
+    border-color: var(--primary-color);
+    color: white;
+}
+
+/* Dropdown Animation Effect */
+.dropdown-trigger::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+    transition: left 0.6s ease;
+}
+
+.dropdown-trigger:hover::before {
+    left: 100%;
+}
+
+.dropdown-value {
+    flex: 1;
+    text-align: left;
+}
+
+.dropdown-arrow {
+    flex-shrink: 0;
+    transition: transform 0.3s ease;
+}
+
+.dropdown-trigger.active .dropdown-arrow {
+    transform: rotate(180deg);
+}
+
+/* Dropdown Menu */
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: white;
+    border: 2px solid #e9ecef;
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(26, 63, 103, 0.15);
+    z-index: 1000;
+    max-height: 300px;
+    overflow-y: auto;
+    margin-top: 0.5rem;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+}
+
+.dropdown-menu.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.dropdown-item {
+    padding: 0.75rem 1.5rem;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #666;
+    transition: all 0.3s ease;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.dropdown-item:last-child {
+    border-bottom: none;
+}
+
+.dropdown-item:hover {
+    background: var(--primary-color);
+    color: white;
+}
+
+.dropdown-item.active {
+    background: var(--primary-color);
+    color: white;
+    font-weight: 600;
+}
+
+/* Custom Scrollbar for Dropdown */
+.dropdown-menu::-webkit-scrollbar {
+    width: 6px;
+}
+
+.dropdown-menu::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 6px;
+}
+
+.dropdown-menu::-webkit-scrollbar-thumb {
+    background: var(--primary-color);
+    border-radius: 6px;
+}
+
+.dropdown-menu::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-dark);
+}
+
+/* Search Row - Unified with News Style */
+.search-row {
+    border-top: 1px solid #e9ecef;
+    padding-top: 2rem;
+    margin-top: 2rem;
+    padding: 2rem 2rem 0;
+}
+
+.enhanced-search-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+}
+
+.search-input-wrapper {
+    position: relative;
+    width: 400px;
+    transition: all 0.3s ease;
+}
+
+.search-input-wrapper.focused {
+    transform: translateY(-1px);
+}
+
+.search-input-wrapper.focused .search-icon {
+    color: var(--primary-color);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.enhanced-search-input {
+    width: 100%;
+    padding: 1rem 1.5rem;
+    padding-left: 3rem;
+    padding-right: 3rem;
+    border: 2px solid #e9ecef;
+    border-radius: 25px;
+    font-size: 1rem;
+    background: #f8f9fa;
+    transition: all 0.3s ease;
+    outline: none;
+}
+
+.enhanced-search-input:focus {
+    border-color: var(--primary-color);
+    background: white;
+    box-shadow: none;
+}
+
+.enhanced-search-input::placeholder {
+    color: #999;
+}
+
+.search-icon {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #999;
+    pointer-events: none;
+}
+
+.enhanced-search-input:focus + .search-icon,
+.enhanced-search-input:not(:placeholder-shown) + .search-icon {
+    color: #3498db;
+    transform: translateY(-50%) scale(1.1);
+}
+
+.search-clear-btn {
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: #999;
+    cursor: pointer;
+    font-size: 1.2rem;
+    padding: 0.25rem;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    width: 2rem;
+    height: 2rem;
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+.search-clear-btn:hover {
+    background: #f0f0f0;
+    color: var(--primary-color);
+}
+
+.search-clear-btn.visible {
+    display: flex;
+}
+
+/* Search Results Info - Unified Style */
+.search-results-info {
+    text-align: center;
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    color: var(--primary-color);
+    font-weight: 500;
+    font-size: 0.95rem;
+}
+
+.results-count strong {
+    font-weight: 700;
+}
+
+/* Legacy Team Search (if still used) */
+.team-search-container {
+    position: relative;
+    max-width: 400px;
+    margin: 0 auto 2rem;
+    width: 100%;
+}
+
+.team-search {
+    width: 100%;
+    padding: 1rem 1.5rem 1rem 3rem;
+    border: 2px solid #e9ecef;
+    border-radius: 25px;
+    font-size: 1rem;
+    background: #f8f9fa;
+    transition: all 0.3s ease;
+    outline: none;
+}
+
+.team-search:focus {
+    border-color: var(--primary-color);
+    background: white;
+    box-shadow: 0 0 0 3px rgba(26, 63, 103, 0.1);
+}
+
+.team-search:not(:placeholder-shown) {
+    background: white;
+}
+
+.team-search-clear {
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #95a3b3;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 28px;
+    height: 28px;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.team-search-clear:hover {
+    background: #e74c3c;
+    transform: translateY(-50%) scale(1.1);
+}
+
+.results-count {
+    text-align: center;
+    margin-top: 1rem;
+    padding: 0.75rem 1rem;
+    background: #e3f2fd;
+    color: var(--primary-color);
+    border-radius: 8px;
+    font-weight: 500;
+    font-size: 0.95rem;
+    max-width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+    white-space: nowrap;
+}
+
+.results-count strong {
+    font-weight: 700;
+}
+
+/* ===== MOBILE RESPONSIVENESS ===== */
+
+/* Tablet styles (≤768px) */
+@media (max-width: 768px) {
+    .team-filter-controls,
+    .coach-filter-controls {
+        padding: 1.5rem 0;
+        margin-bottom: 2rem;
+    }
+    
+    .filter-groups-container {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 1.5rem;
+        padding: 0 1rem;
+    }
+    
+    .filter-group {
+        gap: 0.5rem;
+    }
+    
+    .filter-group.search-group {
+        min-width: unset;
+        order: -1; /* Move search to top */
+    }
+    
+    .filter-label {
+        font-size: 0.7rem;
+        text-align: center;
+    }
+    
+    /* Filter buttons - more compact */
+    .team-categories,
+    .team-age-categories,
+    .team-status-categories,
+    .coach-categories {
+        justify-content: center;
+        gap: 0.5rem;
+    }
+    
+    .team-category-btn,
+    .team-age-btn,
+    .team-status-btn,
+    .coach-category-btn {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.8rem;
+        border-radius: 20px;
+    }
+    
+    .team-category-btn svg,
+    .team-age-btn svg,
+    .team-status-btn svg,
+    .coach-category-btn svg {
+        width: 14px;
+        height: 14px;
+    }
+    
+    /* Dropdown adjustments */
+    .custom-dropdown {
+        min-width: 140px;
+    }
+    
+    .dropdown-trigger {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.8rem;
+        border-radius: 20px;
+    }
+    
+    .dropdown-item {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.8rem;
+    }
+    
+    /* Search adjustments */
+    .search-row {
+        padding: 1.5rem 1rem 0;
+        margin-top: 1.5rem;
+    }
+    
+    .enhanced-search-container {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .search-input-wrapper {
+        width: 100%;
+        max-width: 350px;
+        margin: 0 auto;
+    }
+    
+    .enhanced-search-input {
+        padding: 0.9rem 1.3rem;
+        padding-left: 2.8rem;
+        padding-right: 2.8rem;
+        font-size: 0.9rem;
+    }
+    
+    .search-icon {
+        left: 0.9rem;
+    }
+    
+    .search-clear-btn {
+        right: 0.9rem;
+        width: 1.8rem;
+        height: 1.8rem;
+        font-size: 1.1rem;
+    }
+    
+    .search-results-info {
+        font-size: 0.85rem;
+        padding: 0.6rem 0.8rem;
+    }
+}
+
+/* Mobile styles (≤480px) */
+@media (max-width: 480px) {
+    .team-filter-controls,
+    .coach-filter-controls {
+        padding: 1rem 0;
+        margin-bottom: 1.5rem;
+        border-radius: 12px;
+    }
+    
+    .filter-groups-container {
+        gap: 1rem;
+        padding: 0 0.5rem;
+    }
+    
+    .filter-group {
+        gap: 0.4rem;
+    }
+    
+    .filter-label {
+        font-size: 0.65rem;
+    }
+    
+    /* Very compact filter buttons */
+    .team-categories,
+    .team-age-categories,
+    .team-status-categories,
+    .coach-categories {
+        gap: 0.4rem;
+        flex-wrap: wrap;
+    }
+    
+    .team-category-btn,
+    .team-age-btn,
+    .team-status-btn,
+    .coach-category-btn {
+        padding: 0.5rem 1rem;
+        font-size: 0.75rem;
+        border-radius: 18px;
+        flex: 1;
+        min-width: 80px;
+        max-width: 120px;
+        justify-content: center;
+    }
+    
+    .team-category-btn svg,
+    .team-age-btn svg,
+    .team-status-btn svg,
+    .coach-category-btn svg {
+        width: 12px;
+        height: 12px;
+    }
+    
+    /* Dropdown for mobile */
+    .custom-dropdown {
+        min-width: 120px;
+        flex: 1;
+        max-width: 150px;
+    }
+    
+    .dropdown-trigger {
+        padding: 0.5rem 1rem;
+        font-size: 0.75rem;
+        border-radius: 18px;
+        gap: 0.5rem;
+    }
+    
+    .dropdown-arrow {
+        width: 12px;
+        height: 12px;
+    }
+    
+    .dropdown-menu {
+        border-radius: 12px;
+        max-height: 200px;
+    }
+    
+    .dropdown-item {
+        padding: 0.5rem 1rem;
+        font-size: 0.75rem;
+    }
+    
+    /* Mobile search */
+    .search-row {
+        padding: 1rem 0.5rem 0;
+        margin-top: 1rem;
+    }
+    
+    .search-input-wrapper {
+        max-width: 100%;
+    }
+    
+    .enhanced-search-input {
+        padding: 0.8rem 1.1rem;
+        padding-left: 2.5rem;
+        padding-right: 2.5rem;
+        font-size: 0.85rem;
+        border-radius: 20px;
+    }
+    
+    .search-icon {
+        left: 0.8rem;
+        width: 16px;
+        height: 16px;
+    }
+    
+    .search-clear-btn {
+        right: 0.8rem;
+        width: 1.6rem;
+        height: 1.6rem;
+        font-size: 1rem;
+    }
+    
+    .search-results-info {
+        font-size: 0.8rem;
+        padding: 0.5rem 0.6rem;
+        border-radius: 6px;
+    }
+    
+    /* Legacy search container */
+    .team-search-container {
+        max-width: 100%;
+        margin-bottom: 1.5rem;
+    }
+    
+    .team-search {
+        padding: 0.8rem 1.1rem 0.8rem 2.5rem;
+        font-size: 0.85rem;
+        border-radius: 20px;
+    }
+    
+    .team-search-clear {
+        width: 24px;
+        height: 24px;
+        right: 0.8rem;
+    }
+    
+    .results-count {
+        font-size: 0.8rem;
+        padding: 0.5rem 0.8rem;
+        border-radius: 6px;
+        max-width: 100%;
+        white-space: nowrap;
+    }
+}
+
+/* Extra small screens (≤360px) */
+@media (max-width: 360px) {
+    .filter-groups-container {
+        padding: 0 0.25rem;
+    }
+    
+    .team-category-btn,
+    .team-age-btn,
+    .team-status-btn,
+    .coach-category-btn {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.7rem;
+        min-width: 70px;
+        max-width: 100px;
+    }
+    
+    .custom-dropdown {
+        min-width: 100px;
+        max-width: 130px;
+    }
+    
+    .dropdown-trigger {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.7rem;
+    }
+    
+    .enhanced-search-input,
+    .team-search {
+        font-size: 0.8rem;
+        padding: 0.7rem 1rem;
+        padding-left: 2.3rem;
+        padding-right: 2.3rem;
+    }
+}
+
+/* ===== FHD ADAPTATION ===== */
+
+/* Large displays (≥1920px) - FHD and above */
+@media (min-width: 1920px) {
+    .team-filter-controls,
+    .coach-filter-controls {
+        padding: 3rem 0;
+        margin-bottom: 4rem;
+        border-radius: 24px;
+        box-shadow: 0 6px 32px rgba(26, 63, 103, 0.12);
+    }
+    
+    .filter-groups-container {
+        gap: 4rem;
+        padding: 0 4rem;
+        max-width: 1800px;
+        margin: 0 auto;
+    }
+    
+    .filter-group {
+        gap: 1.25rem;
+    }
+    
+    .filter-group.search-group {
+        min-width: 400px;
+    }
+    
+    .filter-label {
+        font-size: 0.9rem;
+        letter-spacing: 0.8px;
+        font-weight: 700;
+    }
+    
+    /* Enhanced filter buttons */
+    .team-categories,
+    .team-age-categories,
+    .team-status-categories,
+    .coach-categories {
+        gap: 1.25rem;
+    }
+    
+    .team-category-btn,
+    .team-age-btn,
+    .team-status-btn,
+    .coach-category-btn {
+        padding: 1.25rem 2.5rem;
+        font-size: 1.1rem;
+        border-radius: 35px;
+        border-width: 3px;
+        font-weight: 600;
+    }
+    
+    .team-category-btn svg,
+    .team-age-btn svg,
+    .team-status-btn svg,
+    .coach-category-btn svg {
+        width: 20px;
+        height: 20px;
+    }
+    
+    /* Enhanced dropdown */
+    .custom-dropdown {
+        min-width: 240px;
+    }
+    
+    .dropdown-trigger {
+        padding: 1.25rem 2.5rem;
+        font-size: 1.1rem;
+        border-radius: 35px;
+        gap: 1.25rem;
+        border-width: 3px;
+        font-weight: 600;
+    }
+    
+    .dropdown-arrow {
+        width: 18px;
+        height: 18px;
+    }
+    
+    .dropdown-menu {
+        border-radius: 24px;
+        box-shadow: 0 16px 48px rgba(26, 63, 103, 0.25);
+        border-width: 3px;
+        margin-top: 1rem;
+    }
+    
+    .dropdown-item {
+        padding: 1.25rem 2.5rem;
+        font-size: 1.1rem;
+        font-weight: 500;
+    }
+    
+    /* Enhanced search */
+    .search-row {
+        padding: 3rem 4rem 0;
+        margin-top: 3rem;
+    }
+    
+    .enhanced-search-container {
+        gap: 4rem;
+        max-width: 1800px;
+        margin: 0 auto;
+    }
+    
+    .search-input-wrapper {
+        width: 600px;
+    }
+    
+    .enhanced-search-input {
+        padding: 1.5rem 2.5rem;
+        padding-left: 5rem;
+        padding-right: 5rem;
+        font-size: 1.2rem;
+        border-radius: 35px;
+        border-width: 3px;
+        font-weight: 500;
+    }
+    
+    .search-icon {
+        left: 2rem;
+        width: 22px;
+        height: 22px;
+    }
+    
+    .search-clear-btn {
+        right: 2rem;
+        width: 3rem;
+        height: 3rem;
+        font-size: 1.4rem;
+    }
+    
+    .search-results-info {
+        font-size: 1.1rem;
+        padding: 1.25rem 2rem;
+        border-radius: 16px;
+        font-weight: 600;
+    }
+    
+    /* Legacy search enhancements */
+    .team-search-container {
+        max-width: 600px;
+    }
+    
+    .team-search {
+        padding: 1.5rem 2.5rem 1.5rem 5rem;
+        font-size: 1.2rem;
+        border-radius: 35px;
+        border-width: 3px;
+        font-weight: 500;
+    }
+    
+    .team-search-clear {
+        width: 36px;
+        height: 36px;
+        right: 2rem;
+    }
+    
+    .results-count {
+        font-size: 1.1rem;
+        padding: 1.25rem 2rem;
+        border-radius: 16px;
+        max-width: 500px;
+        font-weight: 600;
+        white-space: nowrap;
+    }
+}
+
+/* Ultra-wide displays (≥2560px) */
+@media (min-width: 2560px) {
+    .team-filter-controls,
+    .coach-filter-controls {
+        padding: 2.75rem 0;
+        margin-bottom: 4.5rem;
+        border-radius: 22px;
+        box-shadow: 0 5px 28px rgba(26, 63, 103, 0.12);
+    }
+    
+    .filter-groups-container {
+        gap: 3.5rem;
+        padding: 0 3.5rem;
+        max-width: 2000px;
+        margin: 0 auto;
+    }
+    
+    .filter-group {
+        gap: 1.1rem;
+    }
+    
+    .filter-group.search-group {
+        min-width: 360px;
+    }
+    
+    .filter-label {
+        font-size: 0.825rem;
+        letter-spacing: 0.65px;
+    }
+    
+    .team-categories,
+    .team-age-categories,
+    .team-status-categories,
+    .coach-categories {
+        gap: 1.25rem;
+    }
+    
+    .team-category-btn,
+    .team-age-btn,
+    .team-status-btn,
+    .coach-category-btn {
+        padding: 1.25rem 2.5rem;
+        font-size: 1.1rem;
+        border-radius: 35px;
+    }
+    
+    .team-category-btn svg,
+    .team-age-btn svg,
+    .team-status-btn svg,
+    .coach-category-btn svg {
+        width: 20px;
+        height: 20px;
+    }
+    
+    .custom-dropdown {
+        min-width: 240px;
+    }
+    
+    .dropdown-trigger {
+        padding: 1.25rem 2.5rem;
+        font-size: 1.1rem;
+        border-radius: 35px;
+    }
+    
+    .dropdown-item {
+        padding: 1.25rem 2.5rem;
+        font-size: 1.1rem;
+    }
+    
+    .search-row {
+        padding: 3rem 4rem 0;
+        margin-top: 3rem;
+    }
+    
+    .enhanced-search-container {
+        gap: 4rem;
+        max-width: 2200px;
+    }
+    
+    .search-input-wrapper {
+        width: 600px;
+    }
+    
+    .enhanced-search-input {
+        padding: 1.5rem 2.5rem;
+        padding-left: 5rem;
+        padding-right: 5rem;
+        font-size: 1.2rem;
+        border-radius: 35px;
+    }
+    
+    .search-icon {
+        left: 2rem;
+        width: 24px;
+        height: 24px;
+    }
+    
+    .search-clear-btn {
+        right: 2rem;
+        width: 3rem;
+        height: 3rem;
+        font-size: 1.5rem;
+    }
+    
+    .search-results-info {
+        font-size: 1.1rem;
+        padding: 1.25rem 2rem;
+        border-radius: 16px;
+    }
+    
+    .team-search-container {
+        max-width: 600px;
+    }
+    
+    .team-search {
+        padding: 1.5rem 2.5rem 1.5rem 5rem;
+        font-size: 1.2rem;
+        border-radius: 35px;
+    }
+    
+    .results-count {
+        font-size: 1.1rem;
+        padding: 1.25rem 2rem;
+        border-radius: 16px;
+        max-width: 500px;
+        white-space: nowrap;
+    }
+}
+
