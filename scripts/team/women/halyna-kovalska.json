@@ -6,6 +6,7 @@
   "rank": 2,
   "category": "women",
   "weight": "-78кг",
+  "status": "main",
   "birthDate": "11 серпня 1996",
   "city": "Івано-Франківськ",
   "region": "Івано-Франківська",
@@ -185,7 +186,8 @@
     "methodology": "Технічна майстерність та тактична гнучкість"
   },
   "socialMedia": {
-    "instagram": "@halyna_kovalska_judo"
+    "judoInside": "https://judoinside.com/judoka/75422/Galina_Kovalskaya",
+    "ijf": "https://www.ijf.org/judoka/50751"
   },
   "quotes": [
     "Кожна медаль - це результат багаторічної праці та віри в себе.",

@@ -6,6 +6,7 @@
   "rank": 1,
   "category": "men",
   "weight": "+100кг",
+  "status": "main",
   "birthDate": "26 квітня 2003",
   "city": "Львівська область",
   "region": "Львівська обл.",
@@ -121,7 +122,9 @@
     "Лідер української збірної у ваговій категорії +100кг"
   ],
   "socialMedia": {
-    "instagram": "@hrybyk_mykola"
+    "instagram": "@hrybyk_mykola",
+    "judoInside": "https://www.judoinside.com/judoka/139463/Mykola_Hrybyk",
+    "ijf": "https://www.ijf.org/judoka/53173"
   },
   "quotes": [
     "Дзюдо - це сімейна справа. Тато навчив мене не тільки техніці, але й філософії цього виду спорту.",

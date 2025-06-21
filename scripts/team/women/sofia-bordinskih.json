@@ -6,6 +6,7 @@
   "rank": 2,
   "category": "women",
   "weight": "-57кг",
+  "status": "main",
   "birthDate": "7 вересня 2003",
   "city": "Вінниця",
   "region": "Вінницька",
@@ -198,30 +199,10 @@
     "Зірка динамівського спорту",
     "Багатопрофільна спортсменка високого класу"
   ],
-  "sportsVariety": {
-    "judo": {
-      "level": "МСУ",
-      "achievements": "Чемпіонка України, призерка міжнародних турнірів"
-    },
-    "sambo": {
-      "level": "МСМК",
-      "achievements": "Чемпіонка світу-2021, чемпіонка Європи"
-    },
-    "sumo": {
-      "level": "МС",
-      "achievements": "Переможниця Європейських ігор, чемпіонка Європи"
-    },
-    "beachWrestling": {
-      "level": "МСМК",
-      "achievements": "Майстер спорту міжнародного класу"
-    },
-    "wrestling": {
-      "level": "МС",
-      "achievements": "Сімейна традиція, початок спортивної кар'єри"
-    }
-  },
   "socialMedia": {
-    "instagram": "@sofia_bordinskih"
+    "instagram": "@bordinskykh_sofiia",
+    "judoInside": "https://judoinside.com/judoka/121617/Sofiia_Bordinskykh",
+    "ijf": "https://www.ijf.org/judoka/44026"
   },
   "quotes": [
     "Різноманітність видів спорту робить мене сильнішою в кожному з них.",

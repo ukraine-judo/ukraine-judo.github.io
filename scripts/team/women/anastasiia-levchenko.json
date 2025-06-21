@@ -6,6 +6,7 @@
   "rank": 1,
   "category": "women",
   "weight": "-52кг",
+  "status": "main",
   "birthDate": "08 лютого 2007",
   "city": "Київ",
   "region": "м. Київ",
@@ -118,7 +119,9 @@
     "methodology": "Технічна досконалість з раннього віку"
   },
   "socialMedia": {
-    "instagram": "@n_levchenko_o"
+    "instagram": "@n_levchenko_o",
+    "judoInside": "https://www.judoinside.com/judoka/156406/Anastasiia_Levchenko",
+    "ijf": "https://www.ijf.org/judoka/67956"
   },
   "quotes": [
     "Дзюдо - це моє життя. Я мрію представляти Україну на найвищому рівні.",

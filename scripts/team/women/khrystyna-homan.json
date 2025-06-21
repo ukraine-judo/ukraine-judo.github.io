@@ -6,6 +6,7 @@
   "rank": 1,
   "category": "women",
   "weight": "+78кг",
+  "status": "main",
   "birthDate": "31 січня 1999",
   "city": "Київ",
   "region": "м. Київ",
@@ -146,15 +147,9 @@
     "Приклад поєднання спорту та військової служби",
     "Наставниця молодих дзюдоїсток"
   ],
-  "militaryService": {
-    "branch": "Збройні Сили України",
-    "serviceYears": "2022-теперішній час",
-    "rank": "Молодший сержант",
-    "duties": "Військовослужбовець, спортсмен-інструктор",
-    "patriotism": "Захищає Україну на фронті та татамі"
-  },
   "socialMedia": {
-    "instagram": "@khrystyna_homan_judo"
+    "judoInside": "https://www.judoinside.com/judoka/126739/Khrystyna_Homan",
+    "ijf": "https://www.ijf.org/judoka/54843"
   },
   "quotes": [
     "Україна - це не тільки моя Батьківщина, а й те, за що я борюся на татамі та в житті.",

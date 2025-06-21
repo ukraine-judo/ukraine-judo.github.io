@@ -6,6 +6,7 @@
   "rank": 2,
   "category": "women",
   "weight": "-52кг",
+  "status": "main",
   "birthDate": "15 березня 2004",
   "city": "Київ",
   "region": "м. Київ",
@@ -79,7 +80,9 @@
     "methodology": "Технічний розвиток з акцентом на легку вагу"
   },
   "socialMedia": {
-    "instagram": ""
+    "instagram": "@thevasilych",
+    "judoInside": "https://judoinside.com/judoka/144281/Tetiana_Limzaieva",
+    "ijf": "https://www.ijf.org/judoka/58695"
   },
   "quotes": [
     "Кожне тренування - це можливість стати кращою.",

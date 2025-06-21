@@ -6,6 +6,7 @@
   "rank": 1,
   "category": "women",
   "weight": "-70кг",
+  "status": "main",
   "birthDate": "11 лютого 2004",
   "city": "Дніпро",
   "region": "Дніпропетровська",
@@ -185,7 +186,9 @@
     "patriotism": "Захисниця честі України на міжнародній арені"
   },
   "socialMedia": {
-    "instagram": "@lizajudo"
+    "instagram": "@lizajudo",
+    "judoInside": "https://judoinside.com/judoka/135600/Yelyzaveta_Lytvynenko",
+    "ijf": "https://www.ijf.org/judoka/50808"
   },
   "quotes": [
     "Бронза чемпіонату світу довела мені, що можу змагатися з найкращими у світі.",

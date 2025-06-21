@@ -6,6 +6,7 @@
   "rank": 5,
   "category": "men",
   "weight": "-81кг",
+  "status": "main",
   "birthDate": "2 жовтня 2002",
   "city": "Київ",
   "region": "м. Київ",
@@ -198,7 +199,9 @@
     "Член національної збірної команди України"
   ],
   "socialMedia": {
-    "instagram": "v.kolobov_"
+    "instagram": "@v.kolobov_",
+    "judoInside": "https://www.judoinside.com/judoka/112623/Vladyslav_Kolobov",
+    "ijf": "https://www.ijf.org/judoka/43842"
   },
   "quotes": [
     "Дворазове чемпіонство України - це результат наполегливої праці. Кожна медаль дорога серцю.",

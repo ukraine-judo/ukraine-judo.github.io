@@ -6,6 +6,7 @@
   "rank": 1,
   "category": "women",
   "weight": "-63кг",
+  "status": "main",
   "birthDate": "4 червня 1995",
   "city": "Чернігів",
   "region": "Чернігівська",
@@ -189,7 +190,8 @@
     "patriotism": "Служить Україні у спорті та на службі"
   },
   "socialMedia": {
-    "instagram": "@yulia_grebenozhko_judo"
+    "judoInside": "https://judoinsite.com/judoka/125777/Julia_Grebenozhko/judo-results",
+    "ijf": "https://www.ijf.org/judoka/40633"
   },
   "quotes": [
     "12 років на татамі навчили мене, що головне - не здаватися і йти до мети.",

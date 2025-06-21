@@ -6,6 +6,7 @@
   "rank": 1,
   "category": "men",
   "weight": "-90кг",
+  "status": "main",
   "birthDate": "14 травня 1999",
   "city": "Київ",
   "region": "м. Київ",
@@ -75,7 +76,11 @@
     "Член національної збірної команди України",
     "Активний учасник турнірів серії IJF"
   ],
-  "socialMedia": {},
+  "socialMedia": {
+    "instagram": "@duniamaliiev_zaur",
+    "judoInside": "https://www.judoinside.com/judoka/118908/Zaur_Dunyamaliyev",
+    "ijf": "https://www.ijf.org/judoka/67506"
+  },
   "quotes": [
     "Бронза Гран-Прі в Загребі показала, що можу змагатися з найкращими у світі. Це мотивує на нові досягнення.",
     "Динамо - це школа життя. Тренери навчили мене не тільки техніці, але й характеру переможця."

@@ -6,6 +6,7 @@
   "rank": 1,
   "category": "men",
   "weight": "-73кг",
+  "status": "main",
   "birthDate": "23 березня 2004",
   "city": "Київ",
   "region": "м. Київ",
@@ -94,7 +95,11 @@
     "Один з перспективних дзюдоїстів категорії -73кг",
     "Стабільні результати на турнірах різного рівня"
   ],
-  "socialMedia": {},
+  "socialMedia": {
+    "instagram": "@khalidov_155",
+    "judoInside": "https://judoinside.com/judoka/134741/Said_Mahomed_Khalidov",
+    "ijf": "https://www.ijf.org/judoka/50821"
+  },
   "quotes": [
     "Ljubljana European Open 2025 - це підтвердження правильності обраного шляху. Перемога серед дорослих показує мій прогрес.",
     "Від кадетської бронзи у 2019 до золота European Open у 2025 - це результат наполегливої праці.",

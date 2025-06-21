@@ -6,6 +6,7 @@
   "rank": 1,
   "category": "women",
   "weight": "-70кг",
+  "status": "main",
   "birthDate": "22 січня 2004",
   "city": "Дніпро",
   "region": "Дніпропетровська",
@@ -88,7 +89,8 @@
     "Продовжувачка традицій Дніпропетровської області"
   ],
   "socialMedia": {
-    "instagram": "@alisa_videneeva_judo"
+    "judoInside": "https://judoinside.com/judoka/135601/Alisa_Videneieva",
+    "ijf": "https://www.ijf.org/judoka/50697"
   },
   "quotes": [
     "Кожен турнір - це можливість стати кращою. Я використовую кожен шанс.",

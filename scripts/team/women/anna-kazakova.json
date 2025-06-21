@@ -6,6 +6,7 @@
   "rank": 1,
   "category": "women",
   "weight": "-78кг",
+  "status": "main",
   "birthDate": "24 вересня 2004",
   "city": "Чернігів",
   "region": "Чернігівська",
@@ -13,10 +14,18 @@
   "club": "ЗСУ",
   "coaches": ["Маркін Олександр Анатолійович", "Маркін Анатолій Миколайович"],
   "dan": "МСУМК",
-  "image": "assets/team/women/Kazakova/Kazakova1.jpg",
+  "image": "assets/team/women/Kazakova/Kazakova12.jpg",
   "gallery": [
     "assets/team/women/Kazakova/Kazakova2.jpg",
-    "assets/team/women/Kazakova/Kazakova3.jpg"
+    "assets/team/women/Kazakova/Kazakova3.jpg",
+    "assets/team/women/Kazakova/Kazakova4.jpg",
+    "assets/team/women/Kazakova/Kazakova5.jpg",
+    "assets/team/women/Kazakova/Kazakova6.jpg",
+    "assets/team/women/Kazakova/Kazakova7.jpg",
+    "assets/team/women/Kazakova/Kazakova8.jpg",
+    "assets/team/women/Kazakova/Kazakova9.jpg",
+    "assets/team/women/Kazakova/Kazakova10.jpg",
+    "assets/team/women/Kazakova/Kazakova11.jpg"
   ],
   "achievements": [
     {
@@ -107,76 +116,9 @@
     "Зірка молодого покоління українського дзюдо",
     "Гордість Чернігівської області"
   ],
-  "militaryService": {
-    "branch": "Збройні Сили України",
-    "serviceYears": "2023-теперішній час",
-    "rank": "Молодший сержант",
-    "duties": "Військовослужбовець, спортсмен-інструктор",
-    "patriotism": "Молода патріотка, що служить Україні"
-  },
-  "coachingLegacy": {
-    "headCoach": "Маркін Олександр Анатолійович",
-    "seniorCoach": "Маркін Анатолій Миколайович",
-    "dynasty": "Тренерська династія Маркіних",
-    "tradition": "Чернігівська школа дзюдо",
-    "methodology": "Традиційний підхід з сучасними методиками"
-  },
   "socialMedia": {
-    "instagram": "@anna_kazakova_judo"
-  },
-  "quotes": [
-    "Чернігівщина - це моя сила. Я пишаюся тим, що представляю свій регіон.",
-    "Тренери Маркіни навчили мене не тільки дзюдо, а й життєвим цінностям.",
-    "Служба в ЗСУ - це честь. Спорт дає мені сили захищати Україну.",
-    "Мрію стати чемпіонкою Європи. Працюю над цим щодня."
-  ],
-  "interviews": [
-    {
-      "title": "Золото чемпіонату України та європейські успіхи",
-      "date": "2023-12-10",
-      "source": "Чернігівський спорт",
-      "excerpt": "2023 рік став проривним для мене. Титул чемпіонки України та дві срібні медалі European Open показали, що я рухаюся в правильному напрямку..."
-    },
-    {
-      "title": "Про тренерську династію та службу в ЗСУ",
-      "date": "2024-01-15",
-      "source": "Федерація дзюдо України",
-      "excerpt": "Маркіни - це не просто тренери, це моя друга сім'я. А служба в ЗСУ дала мені розуміння того, за що я борюся на татамі..."
-    }
-  ],
-  "regionalConnection": {
-    "region": "Чернігівська область",
-    "legacy": "Продовжує традиції разом з Юлією Гребеножко",
-    "significance": "Друга зірка чернігівського дзюдо",
-    "inspiration": "Надихає молодь регіону займатися спортом"
-  },
-  "trainingRegimen": {
-    "militarySchedule": "Поєднання військової служби та тренувань",
-    "dailyHours": 4,
-    "weeklyDays": 6,
-    "specialization": "Техніка важкої ваги, силова підготовка",
-    "focus": "Підготовка до дорослих міжнародних змагань"
-  },
-  "futureGoals": [
-    "Медаль на чемпіонаті Європи серед дорослих",
-    "Участь у чемпіонаті світу",
-    "Кваліфікація на Олімпійські ігри",
-    "Розвиток дзюдо в Чернігівській області",
-    "Продовження служби в ЗСУ"
-  ],
-  "personalInfo": {
-    "hobbies": ["Історія України", "Фотографія", "Волонтерство"],
-    "favoriteFood": "Українська кухня",
-    "inspiration": "Юлія Гребеножко, захисники України",
-    "motto": "Молодість + досвід = успіх!",
-    "languages": ["Українська", "Російська", "Англійська"],
-    "characterTraits": ["Амбітність", "Патріотизм", "Наполегливість", "Регіональна гордість"]
-  },
-  "youngTalent": {
-    "age": 20,
-    "potential": "Висока перспективність",
-    "achievements": "Швидкий прогрес за короткий час",
-    "international": "Стабільні результати в Європі",
-    "future": "Кандидат у збірну на великі змагання"
+    "instagram": "@anna_kazakova_78",
+    "judoInside": "https://www.judoinside.com/judoka/137651/Anna_Kazakova",
+    "ijf": "https://www.ijf.org/judoka/63519"
   }
-} 
+}

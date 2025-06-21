@@ -6,6 +6,7 @@
   "rank": 3,
   "category": "women",
   "weight": "-70кг",
+  "status": "main",
   "birthDate": "18 липня 2007",
   "city": "Київ",
   "region": "м. Київ",
@@ -152,7 +153,8 @@
     "methodology": "Підготовка до міжнародних змагань, технічна майстерність"
   },
   "socialMedia": {
-    "instagram": ""
+    "judoInside": "https://judoinside.com/judoka/155772/Anna_Oliinyk_Korniiko",
+    "ijf": "https://www.ijf.org/judoka/67957"
   },
   "quotes": [
     "Кожен турнір - це можливість довести свою силу.",

@@ -6,6 +6,7 @@
   "rank": 1,
   "category": "men",
   "weight": "-73кг",
+  "status": "main",
   "birthDate": "8 липня 1996",
   "city": "Київ",
   "region": "м. Київ",
@@ -193,7 +194,11 @@
     "Один з найдосвідченіших дзюдоїстів України",
     "Стабільні результати протягом всієї кар'єри"
   ],
-  "socialMedia": {},
+  "socialMedia": {
+    "instagram": "@koshlyak_a",
+    "judoInside": "https://judoinside.com/judoka/98927/Oleksandr_Koshliak",
+    "ijf": "https://www.ijf.org/judoka/24471"
+  },
   "quotes": [
     "Кожна медаль - це результат багаторічної праці. Динамо дало мені все для розвитку.",
     "Досвід - це найцінніше, що можна здобути в спорті. Кожен турнір навчає чомусь новому."

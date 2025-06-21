@@ -6,6 +6,7 @@
   "rank": 1,
   "category": "women",
   "weight": "-48кг",
+  "status": "main",
   "birthDate": "27 березня 2006",
   "city": "Суми",
   "region": "Сумська область",
@@ -141,7 +142,9 @@
     "methodology": "Технічний розвиток найлегшої ваги, швидкість та координація"
   },
   "socialMedia": {
-    "instagram": "@m_margusha_"
+    "instagram": "@m_margusha_",
+    "judoInside": "https://www.judoinside.com/judoka/80702/Marharyta_Miroshnichenko",
+    "ijf": "https://www.ijf.org/judoka/63996"
   },
   "quotes": [
     "Срібло чемпіонату світу - це лише початок моєї дорослої кар'єри.",

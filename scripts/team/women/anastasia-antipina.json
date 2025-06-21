@@ -6,6 +6,7 @@
   "rank": 1,
   "category": "women",
   "weight": "-63кг",
+  "status": "main",
   "birthDate": "12 листопада 1999",
   "city": "Київ",
   "region": "м. Київ",
@@ -157,7 +158,11 @@
     "Стабільні результати протягом всієї кар'єри",
     "Досвід виступів на найпрестижніших турнірах Європи"
   ],
-  "socialMedia": {},
+  "socialMedia": {
+    "instagram": "@nastya63judo",
+    "judoInside": "https://www.judoinside.com/judoka/96340/Anastasiya_Antipina",
+    "ijf": "https://www.ijf.org/judoka/18232"
+  },
   "quotes": [
     "Ljubljana European Open 2025 - це підтвердження правильності обраного шляху. Дев'ять років роботи принесли результат.",
     "Збройні Сили України дали мені можливість представляти країну на найвищому рівні. Це честь і відповідальність.",
