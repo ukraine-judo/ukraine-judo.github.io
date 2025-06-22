@@ -1,0 +1,403 @@
+/* ===== RESPONSIVE DESIGN ===== */
+
+/* Tablet Adjustments */
+@media (max-width: 1024px) {
+    .brand-full {
+        display: none;
+    }
+    
+    .brand-short {
+        display: block;
+        font-size: 1.75rem;
+    }
+    
+    .brand-subtitle-full {
+        display: none;
+    }
+    
+    .brand-subtitle-short {
+        display: block;
+    }
+}
+
+/* Large Desktop */
+@media (min-width: 1920px) {
+    .nav {
+        padding: 1.25rem 2.5rem;
+        max-width: 1400px;
+    }
+    
+    .nav-brand {
+        gap: 1rem;
+    }
+    
+    .logo {
+        width: 52px;
+        height: 52px;
+        filter: drop-shadow(0 3px 10px rgba(26, 63, 103, 0.25));
+    }
+    
+    .logo:hover {
+        filter: drop-shadow(0 5px 15px rgba(26, 63, 103, 0.35));
+    }
+    
+    .brand-text strong {
+        font-size: 1.75rem;
+    }
+    
+    .brand-subtitle-full,
+    .brand-subtitle-short {
+        font-size: 1rem;
+    }
+    
+    .nav-menu {
+        gap: 1.25rem;
+    }
+    
+    .nav-menu a {
+        font-size: 1.05rem;
+        padding: 0.875rem 1.25rem;
+    }
+    
+    .nav-menu a:hover,
+    .nav-menu a.active {
+        box-shadow: 0 10px 30px rgba(26, 63, 103, 0.3);
+    }
+}
+
+/* Ultra HD (2560px) */
+@media (min-width: 2560px) {
+    .nav {
+        padding: 1.5rem 3rem;
+        max-width: 1600px;
+    }
+    
+    .nav-brand {
+        gap: 1.25rem;
+    }
+    
+    .logo {
+        width: 56px;
+        height: 56px;
+        border-radius: 14px;
+        filter: drop-shadow(0 4px 12px rgba(26, 63, 103, 0.3));
+    }
+    
+    .logo:hover {
+        filter: drop-shadow(0 6px 18px rgba(26, 63, 103, 0.4));
+    }
+    
+    .brand-text strong {
+        font-size: 2rem;
+    }
+    
+    .brand-subtitle-full,
+    .brand-subtitle-short {
+        font-size: 1.125rem;
+    }
+    
+    .nav-menu {
+        gap: 1.5rem;
+    }
+    
+    .nav-menu a {
+        font-size: 1.125rem;
+        padding: 1rem 1.5rem;
+    }
+    
+    .nav-menu a:hover,
+    .nav-menu a.active {
+        box-shadow: 0 12px 35px rgba(26, 63, 103, 0.35);
+    }
+    
+    /* Fullscreen menu responsive for larger screens */
+    .nav-fullscreen-content {
+        padding: 80px 60px;
+        max-width: 1400px;
+    }
+    
+    .nav-fullscreen-menu {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 40px;
+    }
+    
+    .nav-fullscreen-item {
+        padding: 40px 30px;
+    }
+    
+    .nav-fullscreen-item-icon {
+        width: 72px;
+        height: 72px;
+    }
+    
+    .nav-fullscreen-item-icon svg {
+        width: 32px;
+        height: 32px;
+    }
+    
+    .nav-fullscreen-link {
+        font-size: 1.6rem;
+    }
+    
+    .nav-fullscreen-item-desc {
+        font-size: 1.1rem;
+    }
+}
+
+/* 4K (3840px) */
+@media (min-width: 3840px) {
+    .nav {
+        padding: 2rem 4rem;
+        max-width: 2000px;
+    }
+    
+    .nav-brand {
+        gap: 1.5rem;
+    }
+    
+    .logo {
+        width: 64px;
+        height: 64px;
+        border-radius: 16px;
+        filter: drop-shadow(0 6px 20px rgba(26, 63, 103, 0.4));
+    }
+    
+    .logo:hover {
+        filter: drop-shadow(0 8px 25px rgba(26, 63, 103, 0.5));
+    }
+    
+    .brand-text strong {
+        font-size: 2.5rem;
+    }
+    
+    .brand-subtitle-full,
+    .brand-subtitle-short {
+        font-size: 1.25rem;
+        letter-spacing: 1px;
+    }
+    
+    .nav-menu {
+        gap: 2rem;
+    }
+    
+    .nav-menu a {
+        font-size: 1.25rem;
+        padding: 1.25rem 2rem;
+        border-radius: 12px;
+    }
+    
+    .nav-menu a:hover,
+    .nav-menu a.active {
+        transform: translateY(-3px);
+        box-shadow: 0 15px 45px rgba(26, 63, 103, 0.4);
+    }
+    
+    .nav-toggle span {
+        width: 28px;
+        height: 4px;
+    }
+    
+    .nav-toggle {
+        padding: 1rem;
+    }
+    
+    /* Enhanced fullscreen menu for 4K */
+    .nav-fullscreen-content {
+        padding: 100px 80px;
+        max-width: 1800px;
+    }
+    
+    .nav-fullscreen-header h2 {
+        font-size: clamp(3rem, 5vw, 4.5rem);
+    }
+    
+    .nav-fullscreen-close {
+        width: 72px;
+        height: 72px;
+    }
+    
+    .nav-fullscreen-close svg {
+        width: 32px;
+        height: 32px;
+    }
+    
+    .nav-fullscreen-menu {
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 50px;
+    }
+    
+    .nav-fullscreen-item {
+        padding: 50px 40px;
+        border-radius: 24px;
+    }
+    
+    .nav-fullscreen-item-icon {
+        width: 88px;
+        height: 88px;
+        border-radius: 20px;
+    }
+    
+    .nav-fullscreen-item-icon svg {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .nav-fullscreen-link {
+        font-size: 2rem;
+    }
+    
+    .nav-fullscreen-item-desc {
+        font-size: 1.25rem;
+        margin-top: 12px;
+    }
+    
+    .nav-fullscreen-footer-text {
+        font-size: 1.1rem;
+    }
+}
+
+/* 8K (7680px) - Future proofing */
+@media (min-width: 7680px) {
+    .nav {
+        padding: 3rem 6rem;
+        max-width: 3000px;
+    }
+    
+    .nav-brand {
+        gap: 2rem;
+    }
+    
+    .logo {
+        width: 80px;
+        height: 80px;
+        border-radius: 20px;
+    }
+    
+    .brand-text strong {
+        font-size: 3.5rem;
+    }
+    
+    .brand-subtitle-full,
+    .brand-subtitle-short {
+        font-size: 1.75rem;
+        letter-spacing: 1.5px;
+    }
+    
+    .nav-menu {
+        gap: 3rem;
+    }
+    
+    .nav-menu a {
+        font-size: 1.75rem;
+        padding: 2rem 3rem;
+        border-radius: 16px;
+    }
+    
+    .nav-menu a:hover,
+    .nav-menu a.active {
+        transform: translateY(-4px);
+        box-shadow: 0 20px 60px rgba(26, 63, 103, 0.5);
+    }
+    
+    /* Ultra enhanced fullscreen for 8K */
+    .nav-fullscreen-content {
+        padding: 150px 120px;
+        max-width: 2500px;
+    }
+    
+    .nav-fullscreen-header h2 {
+        font-size: clamp(4rem, 6vw, 6rem);
+    }
+    
+    .nav-fullscreen-close {
+        width: 96px;
+        height: 96px;
+    }
+    
+    .nav-fullscreen-close svg {
+        width: 48px;
+        height: 48px;
+    }
+    
+    .nav-fullscreen-menu {
+        grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+        gap: 80px;
+    }
+    
+    .nav-fullscreen-item {
+        padding: 80px 60px;
+        border-radius: 32px;
+    }
+    
+    .nav-fullscreen-item-icon {
+        width: 120px;
+        height: 120px;
+        border-radius: 28px;
+        margin-bottom: 30px;
+    }
+    
+    .nav-fullscreen-item-icon svg {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .nav-fullscreen-link {
+        font-size: 2.75rem;
+        letter-spacing: 1px;
+    }
+    
+    .nav-fullscreen-item-desc {
+        font-size: 1.75rem;
+        margin-top: 20px;
+        line-height: 1.6;
+    }
+    
+    .nav-fullscreen-footer-text {
+        font-size: 1.5rem;
+    }
+}
+
+/* Responsive for fullscreen menu on smaller desktop screens */
+@media (max-width: 1200px) {
+    .nav-fullscreen-menu {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 25px;
+    }
+}
+
+@media (max-width: 900px) {
+    .nav-fullscreen-content {
+        padding: 40px 30px;
+    }
+    
+    .nav-fullscreen-menu {
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 20px;
+    }
+    
+    .nav-fullscreen-item {
+        padding: 24px 20px;
+    }
+    
+    .nav-fullscreen-item-icon {
+        width: 52px;
+        height: 52px;
+        font-size: 24px;
+    }
+}
+
+@media (max-width: 600px) {
+    .nav-fullscreen-menu {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+    
+    .nav-fullscreen-header {
+        margin-bottom: 50px;
+    }
+    
+    .nav-fullscreen-close {
+        width: 48px;
+        height: 48px;
+    }
+} 

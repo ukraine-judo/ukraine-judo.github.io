@@ -20,6 +20,7 @@
       <script src="scripts/news/newsUtils.js"></script>
     <script src="scripts/news/news.js"></script>
     <script src="script.js"></script>
+    <script src="scripts/script.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -85,6 +86,11 @@
             font-size: 18px;
             font-weight: bold;
             flex-shrink: 0;
+            z-index: 10001;
+            position: relative;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
         }
         
         .warning-banner-close:hover {
@@ -120,11 +126,30 @@
                 position: absolute;
                 top: 0.5rem;
                 right: 1rem;
+                min-width: 32px;
+                min-height: 32px;
+                -webkit-tap-highlight-color: rgba(255, 255, 255, 0.2);
+                touch-action: manipulation;
+            }
+        }
+        
+        /* Additional touch-friendly styles */
+        @media (hover: none) and (pointer: coarse) {
+            .warning-banner-close {
+                min-width: 44px;
+                min-height: 44px;
+                -webkit-tap-highlight-color: rgba(255, 255, 255, 0.2);
+            }
+            
+            .warning-banner-close:active {
+                background: rgba(255, 255, 255, 0.1);
+                transform: scale(0.95);
             }
         }
         
         .warning-banner.hidden {
-            display: none;
+            display: none !important;
+            animation: none !important;
         }
     </style>
 </head>
@@ -155,57 +180,34 @@
                 </span>
             </div>
             <div class="nav-menu-overlay"></div>
-            <ul class="nav-menu">
-                <li><a href="index.html" class="active">Головна</a></li>
-                <li class="nav-item-with-submenu">
-                    <a href="#" class="nav-link-with-submenu" data-main-link="about.html">
-                        Федерація
-                        <svg class="submenu-arrow" width="12" height="8" viewBox="0 0 12 8" fill="none">
+            <ul class="nav-menu" id="navMenu">
+                <li class="nav-item" data-priority="1"><a href="#home" class="active">Головна</a></li>
+                <li class="nav-item nav-dynamic-tab" id="navDynamicTab" style="display: none;">
+                    <a href="#" class="nav-dynamic-link active" id="navDynamicLink">
+                        <span class="nav-dynamic-text" id="navDynamicText"></span>
+                    </a>
+                </li>
+                <li class="nav-item" data-priority="2"><a href="about.html">Про нас</a></li>
+                <li class="nav-item" data-priority="3"><a href="team.html">Збірна</a></li>
+                <li class="nav-item" data-priority="4"><a href="news.html">Новини</a></li>
+                <li class="nav-item" data-priority="5"><a href="calendar.html">Календар</a></li>
+                <li class="nav-item" data-priority="6"><a href="documents.html">Документи</a></li>
+                <li class="nav-item" data-priority="7"><a href="regions.html">Регіони</a></li>
+                <li class="nav-item" data-priority="8"><a href="gallery.html">Галерея</a></li>
+                <li class="nav-item" data-priority="9"><a href="contacts.html">Контакти</a></li>
+                <li class="nav-item-more" id="navMoreItem" style="display: none;">
+                    <button class="nav-more-toggle" aria-label="Більше розділів" id="navMoreToggle">
+                        <span class="nav-more-text">Ще</span>
+                        <svg class="nav-more-arrow" width="12" height="8" viewBox="0 0 12 8" fill="none">
                             <path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>
-                    </a>
-                    <div class="submenu">
-                        <div class="submenu-content">
-                            <div class="submenu-section">
-                                <h4 class="submenu-title">Федерація</h4>
-                                <div class="submenu-links">
-                                    <a href="about.html" class="submenu-link">
-                                        <div class="submenu-link-icon">📋</div>
-                                        <div class="submenu-link-content">
-                                            <span class="submenu-link-title">Про нас</span>
-                                            <span class="submenu-link-desc">Історія та керівництво</span>
-                                        </div>
-                                    </a>
-                                    <a href="team.html" class="submenu-link">
-                                        <div class="submenu-link-icon">🥋</div>
-                                        <div class="submenu-link-content">
-                                            <span class="submenu-link-title">Сборная</span>
-                                            <span class="submenu-link-desc">Національна збірна України</span>
-                                        </div>
-                                    </a>
-                                    <a href="documents.html" class="submenu-link">
-                                        <div class="submenu-link-icon">📄</div>
-                                        <div class="submenu-link-content">
-                                            <span class="submenu-link-title">Документи</span>
-                                            <span class="submenu-link-desc">Статути та положення</span>
-                                        </div>
-                                    </a>
-                                    <a href="regions.html" class="submenu-link">
-                                        <div class="submenu-link-icon">🗺️</div>
-                                        <div class="submenu-link-content">
-                                            <span class="submenu-link-title">Регіональні Відділення</span>
-                                            <span class="submenu-link-desc">Дзюдо в регіонах України</span>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    </button>
                 </li>
-                <li><a href="news.html">Новини</a></li>
-                <li><a href="calendar.html">Календар</a></li>
-                <li><a href="gallery.html">Галерея</a></li>
-                <li><a href="contacts.html">Контакти</a></li>
+            </ul>
+            
+            <!-- Hidden overflow menu -->
+            <ul class="nav-hidden-items" id="navHiddenItems">
+                <!-- Hidden items will be moved here dynamically -->
             </ul>
             <button class="nav-toggle" aria-label="Toggle navigation">
                 <span></span>
@@ -213,6 +215,26 @@
                 <span></span>
             </button>
         </nav>
+        
+        <!-- Fullscreen overlay menu -->
+        <div class="nav-fullscreen-overlay" id="navFullscreenOverlay">
+            <div class="nav-fullscreen-content">
+                <div class="nav-fullscreen-header">
+                    <h2>Навігація</h2>
+                    <button class="nav-fullscreen-close" id="navFullscreenClose" aria-label="Закрити меню">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                </div>
+                <div class="nav-fullscreen-menu" id="navFullscreenMenu">
+                    <!-- All menu items will appear here -->
+                </div>
+                <div class="nav-fullscreen-footer">
+                    <p class="nav-fullscreen-footer-text">Федерація Дзюдо України • Перемагаємо разом</p>
+                </div>
+            </div>
+        </div>
     </header>
 
     <main>
@@ -454,23 +476,42 @@
     </footer>
 
     <script src="scripts/script.js"></script>
+    <script src="scripts/calendar/api.js"></script>
+    <script src="scripts/calendar/utils.js"></script>
+    <script src="scripts/calendar/controller.js"></script>
     <script src="scripts/calendar/calendar.js"></script>
     <script src="scripts/home.js"></script>
     
     <script>
+        // Global variables for widgets
+        let homeEventsWidget;
+        let heroNewsWidget;
+        
         // Warning Banner Close functionality
         document.addEventListener('DOMContentLoaded', function() {
             const warningBanner = document.getElementById('warningBanner');
             const closeBanner = document.getElementById('closeBanner');
             
+            // Check if elements exist
+            if (!warningBanner || !closeBanner) {
+                console.error('Warning banner elements not found');
+                return;
+            }
+            
             // Check if banner was previously closed
             const bannerClosed = localStorage.getItem('warningBannerClosed');
             if (bannerClosed === 'true') {
                 warningBanner.classList.add('hidden');
+                return;
             }
             
-            // Close banner functionality
-            closeBanner.addEventListener('click', function() {
+            // Close banner functionality - function
+            function closeBannerHandler(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                
+                console.log('Warning banner close button clicked'); // Debug log
+                
                 warningBanner.style.animation = 'slideUp 0.3s ease-in';
                 
                 setTimeout(() => {
@@ -478,7 +519,14 @@
                     // Remember user's choice
                     localStorage.setItem('warningBannerClosed', 'true');
                 }, 300);
-            });
+            }
+            
+            // Add multiple event listeners for reliability
+            closeBanner.addEventListener('click', closeBannerHandler);
+            closeBanner.addEventListener('touchend', closeBannerHandler);
+            
+            // Alternative click handler on the entire close button area
+            closeBanner.onclick = closeBannerHandler;
             
             // Add slideUp animation
             const style = document.createElement('style');
@@ -495,6 +543,23 @@
                 }
             `;
             document.head.appendChild(style);
+            
+            // Initialize widgets after a delay to ensure all scripts are loaded
+            setTimeout(() => {
+                // Initialize Home Events Widget
+                if (typeof HomeEventsWidget !== 'undefined') {
+                    homeEventsWidget = new HomeEventsWidget();
+                } else {
+                    console.error('HomeEventsWidget not found');
+                }
+                
+                // Initialize Hero News Widget
+                if (typeof HeroNewsWidget !== 'undefined') {
+                    heroNewsWidget = new HeroNewsWidget();
+                } else {
+                    console.error('HeroNewsWidget not found');
+                }
+            }, 500);
         });
     </script>
 </body>

@@ -6,20 +6,8 @@
     overflow: hidden;
 }
 
-.event-item::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 0;
-    bottom: 0;
-    width: 4px;
-    background: var(--primary-color);
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
-.event-item:hover::before {
-    opacity: 1;
+.event-item:hover {
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
 }
 
 /* Event Priority Indicators */

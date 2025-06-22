@@ -121,8 +121,8 @@
 /* Events Container Grid */
 .events-container {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-    gap: 2rem;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3rem;
     width: 100%;
     margin: 0 auto;
     padding: 0;
@@ -130,11 +130,11 @@
 
 .event-item {
     background: white;
-    border-radius: 16px;
+    border-radius: 24px;
     overflow: hidden;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    border: 1px solid rgba(26, 63, 103, 0.06);
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.04);
+    transition: all 0.3s ease;
+    border: 1.5px solid rgba(26, 63, 103, 0.06);
     position: relative;
     display: flex;
     flex-direction: column;
@@ -144,10 +144,9 @@
 }
 
 .event-item:hover {
-    transform: translateY(-8px) scale(1.01);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
-    will-change: transform, box-shadow;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
 }
+
 
 .event-item.hidden {
     display: none;
@@ -156,7 +155,7 @@
 /* Event Image Section */
 .event-image-container {
     position: relative;
-    height: 200px;
+    height: 300px;
     overflow: hidden;
     background: linear-gradient(135deg, #1a3f67, #2a5f87);
     cursor: pointer;
@@ -172,7 +171,7 @@
     backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
     content-visibility: auto;
-    contain-intrinsic-size: 200px 320px;
+    contain-intrinsic-size: 300px 480px;
 }
 
 .event-placeholder {
@@ -181,21 +180,40 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
     background: linear-gradient(135deg, #1a3f67, #2a5f87);
-    color: white;
-    font-size: 2.5rem;
-    font-weight: 700;
-    letter-spacing: 0.1em;
     position: relative;
     overflow: hidden;
     transition: transform 0.4s ease;
-    flex-direction: column;
     text-align: center;
-    padding: 1rem;
+    padding: 1.5rem;
+}
+
+.event-placeholder svg {
+    width: 80px;
+    height: 80px;
+    fill: white;
+    opacity: 0.9;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+    margin-bottom: 0.75rem;
+}
+
+.event-placeholder-text {
+    color: white;
+    font-size: 0.875rem;
+    font-weight: 600;
+    opacity: 0.9;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+    letter-spacing: 0.025em;
 }
 
 .event-item:hover .event-placeholder {
     transform: scale(1.05);
+}
+
+.event-item:hover .event-placeholder svg {
+    opacity: 1;
+    transform: scale(1.1);
 }
 
 .event-placeholder::before {
@@ -212,15 +230,6 @@
 @keyframes shimmer {
     0% { transform: translateX(-100%); }
     100% { transform: translateX(100%); }
-}
-
-.event-placeholder-text {
-    position: relative;
-    z-index: 1;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-    font-size: 1rem;
-    margin-top: 0.5rem;
-    opacity: 0.9;
 }
 
 /* Event Overlay Elements */
@@ -405,7 +414,6 @@
 
 .event-info-item:hover {
     background: rgba(26, 63, 103, 0.05);
-    border-color: rgba(26, 63, 103, 0.12);
 }
 
 .event-icon {
@@ -446,6 +454,14 @@
     border: 2px solid transparent;
 }
 
+/* Icon alignment in buttons */
+.event-btn [class^="icon-"]::before {
+    vertical-align: middle;
+    display: inline-flex;
+    align-items: center;
+    margin-right: 0.25rem;
+}
+
 .event-btn-primary {
     background: var(--primary-color);
     color: white;
@@ -460,16 +476,16 @@
 }
 
 .event-regulation-btn {
-    background: var(--secondary-color);
+    background: var(--primary-color);
     color: white;
-    border-color: var(--secondary-color);
+    border-color: var(--primary-color);
 }
 
 .event-regulation-btn:hover {
-    background: var(--secondary-light);
-    border-color: var(--secondary-light);
+    background: var(--primary-light);
+    border-color: var(--primary-light);
     transform: translateY(-1px);
-    box-shadow: 0 4px 12px rgba(255, 193, 7, 0.3);
+    box-shadow: 0 4px 12px rgba(26, 63, 103, 0.3);
 }
 
 /* Loading and Empty States */
@@ -618,6 +634,14 @@
     width: auto;
     padding: 0 1rem;
     min-width: 40px;
+}
+
+/* Tablet Responsive - 2 columns */
+@media (max-width: 1200px) {
+    .events-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+    }
 }
 
 /* Mobile Responsive */

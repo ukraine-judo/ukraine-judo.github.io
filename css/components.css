@@ -37,14 +37,14 @@
 
 .btn-primary {
     background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
-    color: white;
+    color: var(--text-white);
     box-shadow: 0 4px 15px rgba(26, 63, 103, 0.25);
 }
 
 .btn-primary:hover {
     transform: translateY(-3px);
     box-shadow: 0 8px 25px rgba(26, 63, 103, 0.35);
-    color: white;
+    color: var(--text-white);
 }
 
 .btn-outline {

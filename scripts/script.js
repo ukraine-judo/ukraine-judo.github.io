@@ -21,6 +21,58 @@ document.addEventListener('DOMContentLoaded', function() {
     const navMenuOverlay = document.querySelector('.nav-menu-overlay');
     const navLinks = document.querySelectorAll('.nav-menu a');
 
+    // Performance optimization: Detect low-end devices
+    const isLowEndDevice = navigator.hardwareConcurrency <= 2 || 
+                          (navigator.deviceMemory && navigator.deviceMemory <= 2) ||
+                          /Android.*4\.|iPhone.*OS.*[6-9]_/.test(navigator.userAgent);
+    
+    // Apply performance optimizations for low-end devices
+    if (isLowEndDevice) {
+        // Reduce animation complexity
+        if (navMenu) navMenu.style.transition = 'transform 0.2s ease';
+        if (navMenuOverlay) navMenuOverlay.style.transition = 'opacity 0.2s ease';
+        
+        // Remove will-change after animations
+        const removeWillChange = () => {
+            if (navMenu) navMenu.style.willChange = 'auto';
+            if (navMenuOverlay) navMenuOverlay.style.willChange = 'auto';
+        };
+        
+        navMenu?.addEventListener('transitionend', removeWillChange, { once: true });
+    }
+    
+    // Enhanced mobile branding optimization
+    function optimizeMobileBranding() {
+        const logo = document.querySelector('.logo');
+        const brandShort = document.querySelector('.brand-short');
+        const brandSubtitle = document.querySelector('.brand-subtitle-short');
+        
+        if (!logo || !brandShort) return;
+        
+        // Optimize for very small screens
+        if (window.innerWidth <= 320) {
+            logo.style.width = '28px';
+            logo.style.height = '28px';
+            brandShort.style.fontSize = '1rem';
+            if (brandSubtitle) brandSubtitle.style.fontSize = '0.6rem';
+        } else if (window.innerWidth <= 360) {
+            logo.style.width = '32px';
+            logo.style.height = '32px';
+            brandShort.style.fontSize = '1.125rem';
+            if (brandSubtitle) brandSubtitle.style.fontSize = '0.65rem';
+        } else {
+            // Reset to CSS defaults for larger screens
+            logo.style.width = '';
+            logo.style.height = '';
+            brandShort.style.fontSize = '';
+            if (brandSubtitle) brandSubtitle.style.fontSize = '';
+        }
+    }
+    
+    // Run on load and resize
+    optimizeMobileBranding();
+    window.addEventListener('resize', debounce(optimizeMobileBranding, 150));
+
     // Toggle mobile menu
     navToggle.addEventListener('click', function() {
         const isActive = navMenu.classList.contains('active');
@@ -33,190 +85,361 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     function openMobileMenu() {
+        // Use requestAnimationFrame for smoother animation
+        requestAnimationFrame(() => {
         navMenu.classList.add('active');
         navMenuOverlay.classList.add('active');
         navToggle.classList.add('active');
-        document.body.style.overflow = 'hidden'; // Prevent background scroll
+            document.body.style.overflow = 'hidden';
+        });
         
-        // Add haptic feedback
-        if ('vibrate' in navigator) {
-            navigator.vibrate(50);
+        // Lightweight haptic feedback
+        if ('vibrate' in navigator && navigator.vibrate) {
+            navigator.vibrate(30);
         }
     }
 
     function closeMobileMenu() {
+        // Use requestAnimationFrame for smoother animation
+        requestAnimationFrame(() => {
         navMenu.classList.remove('active');
         navMenuOverlay.classList.remove('active');
         navToggle.classList.remove('active');
-        document.body.style.overflow = ''; // Restore scroll
+            document.body.style.overflow = '';
+        });
     }
 
-    // Close mobile menu when clicking on a link (except submenu links)
+    // Optimized event handlers with passive listeners where possible
     navLinks.forEach(link => {
         link.addEventListener('click', function(e) {
-            // Don't close mobile menu if it's a submenu trigger
             if (!link.classList.contains('nav-link-with-submenu')) {
                 closeMobileMenu();
             }
-        });
+        }, { passive: true });
     });
 
     // Close mobile menu when clicking overlay
     if (navMenuOverlay) {
-    navMenuOverlay.addEventListener('click', function() {
-        closeMobileMenu();
-    });
+        navMenuOverlay.addEventListener('click', closeMobileMenu, { passive: true });
     }
 
-    // Close mobile menu when clicking outside
+    // Throttled outside click handler for better performance
+    let outsideClickTimeout;
     document.addEventListener('click', function(e) {
-        // Check if click is outside nav menu and not on submenu
+        if (outsideClickTimeout) return;
+        
+        outsideClickTimeout = setTimeout(() => {
         const isInNav = navMenu.contains(e.target) || navToggle.contains(e.target);
         const isInSubmenu = e.target.closest('.submenu') || e.target.closest('.nav-link-with-submenu');
         
-        if (!isInNav && !isInSubmenu) {
+            if (!isInNav && !isInSubmenu && navMenu.classList.contains('active')) {
             closeMobileMenu();
         }
-    });
+            outsideClickTimeout = null;
+        }, 10);
+    }, { passive: true });
 
-    // Close menu on escape key
+    // Optimized escape key handler
     document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape') {
+        if (e.key === 'Escape' && navMenu.classList.contains('active')) {
+            e.preventDefault();
             closeMobileMenu();
         }
     });
 
-    // Submenu functionality
-    const submenuItems = document.querySelectorAll('.nav-item-with-submenu');
-    
-    submenuItems.forEach(item => {
-        const submenuLink = item.querySelector('.nav-link-with-submenu');
-        const submenu = item.querySelector('.submenu');
-        let touchStartTime = 0;
-        
-        // Handle touch start
-        submenuLink.addEventListener('touchstart', function() {
-            touchStartTime = Date.now();
-        });
-        
-        // Handle submenu clicks
-        submenuLink.addEventListener('click', function(e) {
-            e.preventDefault(); // Always prevent default to avoid navigation
+    // ===== ADAPTIVE PRIORITY NAVIGATION =====
+    class AdaptiveNavigation {
+        constructor() {
+            this.nav = document.getElementById('navMenu');
+            this.moreItem = document.getElementById('navMoreItem');
+            this.moreToggle = document.getElementById('navMoreToggle');
+            this.fullscreenOverlay = document.getElementById('navFullscreenOverlay');
+            this.fullscreenMenu = document.getElementById('navFullscreenMenu');
+            this.fullscreenClose = document.getElementById('navFullscreenClose');
+            this.hiddenItems = document.getElementById('navHiddenItems');
             
-            const touchEndTime = Date.now();
-            const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
-            const isQuickTouch = touchEndTime - touchStartTime < 300;
-            const isiPhone = /iPhone|iPad|iPod/.test(navigator.userAgent);
-            const mainLink = submenuLink.getAttribute('data-main-link');
+            this.originalItems = [];
+            this.hiddenItemsArray = [];
+            this.resizeTimeout = null;
             
-            // Mobile/touch behavior - toggle submenu
-            if (window.innerWidth <= 768 || (isTouchDevice && isQuickTouch)) {
-                // Add visual feedback
-                submenuLink.style.transform = 'scale(0.95)';
-                setTimeout(() => {
-                    submenuLink.style.transform = '';
+            if (!this.nav || !this.moreItem) return;
+            
+            this.init();
+        }
+        
+        init() {
+            // Store original menu items (excluding the more button)
+            this.originalItems = Array.from(this.nav.children).filter(item => 
+                !item.classList.contains('nav-item-more')
+            );
+            
+            // Initial check
+            this.checkOverflow();
+            
+            // Handle window resize
+            window.addEventListener('resize', () => {
+                clearTimeout(this.resizeTimeout);
+                this.resizeTimeout = setTimeout(() => {
+                    this.checkOverflow();
+                    // Update navigation state when switching between desktop/mobile
+                    initializeHomePageNavigation();
                 }, 150);
+            });
+            
+            // Setup fullscreen menu events
+            this.setupFullscreenMenu();
+        }
+        
+        checkOverflow() {
+            // Reset to original state
+            this.restoreAllItems();
+            this.hideMoreButton();
+            
+            // On mobile, don't use priority navigation
+            if (window.innerWidth <= 768) {
+                return;
+            }
+            
+            // Define max visible items based on screen resolution
+            let maxVisibleItems = this.getMaxVisibleItems();
+            
+            // If we can show all items, don't show more button
+            if (this.originalItems.length <= maxVisibleItems) {
+                return;
+            }
+            
+            // Hide items that exceed the limit
+            for (let i = maxVisibleItems; i < this.originalItems.length; i++) {
+                this.hideItem(this.originalItems[i]);
+            }
+            
+            // Show more button if we have hidden items
+            if (this.hiddenItemsArray.length > 0) {
+                this.showMoreButton();
+            }
+        }
+        
+        getMaxVisibleItems() {
+            const width = window.innerWidth;
+            
+            // QHD and higher (2560px+) - show all items
+            if (width >= 2560) {
+                return this.originalItems.length;
+            }
+            // FHD (1920px-2559px) - show 6 items
+            else if (width >= 1920) {
+                return 6;
+            }
+            // HD (1366px-1919px) - show 5 items  
+            else if (width >= 1366) {
+                return 5;
+            }
+            // Smaller screens - show 4 items
+            else {
+                return 4;
+            }
+        }
+        
+        hideItem(item) {
+            if (!this.hiddenItemsArray.includes(item)) {
+                item.style.display = 'none';
+                this.hiddenItemsArray.push(item);
+            }
+        }
+        
+        restoreAllItems() {
+            this.hiddenItemsArray.forEach(item => {
+                item.style.display = '';
+            });
+            this.hiddenItemsArray = [];
+        }
+        
+        hideMoreButton() {
+            this.moreItem.style.display = 'none';
+        }
+        
+        showMoreButton() {
+            this.moreItem.style.display = '';
+        }
+        
+        setupFullscreenMenu() {
+            if (!this.moreToggle || !this.fullscreenOverlay || !this.fullscreenClose) return;
+            
+            // Toggle fullscreen menu
+            this.moreToggle.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                this.openFullscreenMenu();
+            });
+            
+            // Close fullscreen menu
+            this.fullscreenClose.addEventListener('click', () => {
+                this.closeFullscreenMenu();
+            });
+            
+            // Close on outside click
+            this.fullscreenOverlay.addEventListener('click', (e) => {
+                if (e.target === this.fullscreenOverlay) {
+                    this.closeFullscreenMenu();
+                }
+            });
+            
+            // Close on escape key
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && this.fullscreenOverlay.classList.contains('active')) {
+                    this.closeFullscreenMenu();
+                }
+            });
+        }
+        
+        openFullscreenMenu() {
+            // Populate fullscreen menu with hidden items
+            this.populateFullscreenMenu();
+            
+            // Show overlay
+            this.fullscreenOverlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+            
+            // Update more button state
+            this.moreToggle.setAttribute('aria-expanded', 'true');
+        }
+        
+        closeFullscreenMenu() {
+            this.fullscreenOverlay.classList.remove('active');
+            document.body.style.overflow = '';
+            this.moreToggle.setAttribute('aria-expanded', 'false');
+        }
+        
+        populateFullscreenMenu() {
+            if (!this.fullscreenMenu) return;
+            
+            // Clear existing content
+            this.fullscreenMenu.innerHTML = '';
+            
+            // Get current page for active state
+            const currentPageHref = getCurrentPageHref();
+            
+            // Define menu items with SVG icons and descriptions
+            const menuItems = [
+                {
+                    text: 'Головна',
+                    href: 'index.html',
+                    icon: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9,22 9,12 15,12 15,22"/></svg>',
+                    description: 'Головна сторінка сайту'
+                },
+                {
+                    text: 'Про нас',
+                    href: 'about.html',
+                    icon: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10,9 9,9 8,9"/></svg>',
+                    description: 'Історія та місія федерації'
+                },
+                {
+                    text: 'Збірна',
+                    href: 'team.html',
+                    icon: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>',
+                    description: 'Національна збірна України'
+                },
+                {
+                    text: 'Новини',
+                    href: 'news.html',
+                    icon: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-2 2Zm0 0a2 2 0 0 1-2-2v-1a2 2 0 0 1 2-2h12"/><path d="M18 14h-8"/><path d="M15 18h-5"/><path d="M10 6h8v4h-8V6Z"/></svg>',
+                    description: 'Останні новини та події'
+                },
+                {
+                    text: 'Календар',
+                    href: 'calendar.html',
+                    icon: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>',
+                    description: 'Розклад змагань та подій'
+                },
+                {
+                    text: 'Документи',
+                    href: 'documents.html',
+                    icon: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14,2 14,8 20,8"/></svg>',
+                    description: 'Офіційні документи та правила'
+                },
+                {
+                    text: 'Регіони',
+                    href: 'regions.html',
+                    icon: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>',
+                    description: 'Регіональні федерації'
+                },
+                {
+                    text: 'Галерея',
+                    href: 'gallery.html',
+                    icon: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="9" cy="9" r="2"/><path d="M21 15l-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></svg>',
+                    description: 'Фото та відео матеріали'
+                },
+                {
+                    text: 'Контакти',
+                    href: 'contacts.html',
+                    icon: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>',
+                    description: 'Зв\'язок з федерацією'
+                }
+            ];
+            
+            // Add all menu items to fullscreen menu
+            menuItems.forEach((menuItem, index) => {
+                const fullscreenItem = document.createElement('div');
+                fullscreenItem.className = 'nav-fullscreen-item';
+                fullscreenItem.style.cursor = 'pointer';
                 
-                item.classList.toggle('mobile-submenu-open');
+                // Add active class if this is the current page
+                if (menuItem.href === currentPageHref || 
+                    (currentPageHref === 'index.html' && menuItem.href === 'index.html') ||
+                    (currentPageHref === '' && menuItem.href === 'index.html')) {
+                    fullscreenItem.classList.add('current-page');
+                }
                 
-                // Close other submenus
-                submenuItems.forEach(otherItem => {
-                    if (otherItem !== item) {
-                        otherItem.classList.remove('mobile-submenu-open');
-                    }
+                // Create icon element
+                const iconDiv = document.createElement('div');
+                iconDiv.className = 'nav-fullscreen-item-icon';
+                iconDiv.innerHTML = menuItem.icon;
+                
+                // Create link element (now without href, just for styling)
+                const fullscreenLink = document.createElement('div');
+                fullscreenLink.className = 'nav-fullscreen-link';
+                fullscreenLink.textContent = menuItem.text;
+                
+                // Create description element
+                const descDiv = document.createElement('div');
+                descDiv.className = 'nav-fullscreen-item-desc';
+                descDiv.textContent = menuItem.description;
+                
+                // Make entire item clickable
+                fullscreenItem.addEventListener('click', () => {
+                    this.closeFullscreenMenu();
+                    // Small delay to allow menu close animation
+                    setTimeout(() => {
+                        window.location.href = menuItem.href;
+                    }, 100);
                 });
                 
-                // Enhanced haptic feedback for iPhone
-                if (isiPhone && 'vibrate' in navigator) {
-                    navigator.vibrate([50, 30, 50]); // Pattern for better feel
-                } else if ('vibrate' in navigator) {
-                    navigator.vibrate(50);
-                }
+                // Add hover effect for better UX
+                fullscreenItem.addEventListener('mouseenter', () => {
+                    fullscreenItem.style.transform = 'translateY(-8px) scale(1.03)';
+                });
                 
-                // Add iOS-style bounce effect
-                if (isiPhone) {
-                    const submenu = item.querySelector('.submenu');
-                    submenu.style.transform = 'scale(1.02)';
-                    setTimeout(() => {
-                        submenu.style.transform = '';
-                    }, 200);
-                }
-            } else {
-                // Desktop behavior - navigate to main link or toggle submenu
-                const isSubmenuOpen = item.classList.contains('hovering') || 
-                                     getComputedStyle(submenu).opacity === '1';
+                fullscreenItem.addEventListener('mouseleave', () => {
+                    fullscreenItem.style.transform = '';
+                });
                 
-                if (isSubmenuOpen) {
-                    // If submenu is open, navigate to main page
-                    if (mainLink) {
-                        window.location.href = mainLink;
-                    }
-                } else {
-                    // If submenu is closed, open it
-                    item.classList.add('hovering');
-                    submenu.style.pointerEvents = 'auto';
-                }
-            }
-        });
-        
-        // Handle hover for desktop - always attach, but check window size in handler
-        let hoverTimeout;
-        
-        item.addEventListener('mouseenter', function() {
-            if (window.innerWidth > 768) {
-                clearTimeout(hoverTimeout);
-                submenu.style.pointerEvents = 'auto';
-                item.classList.add('hovering');
-            }
-        });
-        
-        item.addEventListener('mouseleave', function() {
-            if (window.innerWidth > 768) {
-                hoverTimeout = setTimeout(() => {
-                    submenu.style.pointerEvents = 'none';
-                    item.classList.remove('hovering');
-                }, 100);
-            }
-        });
-        
-        // Ensure submenu stays open when hovering over it
-        submenu.addEventListener('mouseenter', function() {
-            if (window.innerWidth > 768) {
-                clearTimeout(hoverTimeout);
-                submenu.style.pointerEvents = 'auto';
-            }
-        });
-        
-        submenu.addEventListener('mouseleave', function() {
-            if (window.innerWidth > 768) {
-                hoverTimeout = setTimeout(() => {
-                    submenu.style.pointerEvents = 'none';
-                    item.classList.remove('hovering');
-                }, 100);
-            }
-        });
-        
-        // Close submenu when clicking outside (only once per item)
-        const closeSubmenuHandler = function(e) {
-            if (!item.contains(e.target)) {
-                item.classList.remove('mobile-submenu-open');
-                item.classList.remove('hovering');
-            }
-        };
-        
-        // Remove previous handler if exists and add new one
-        document.removeEventListener('click', closeSubmenuHandler);
-        document.addEventListener('click', closeSubmenuHandler);
-    });
-    
-    // Handle window resize
-    window.addEventListener('resize', function() {
-        submenuItems.forEach(item => {
-            if (window.innerWidth > 768) {
-                item.classList.remove('mobile-submenu-open');
-            }
-        });
-    });
+                // Assemble the item
+                fullscreenItem.appendChild(iconDiv);
+                fullscreenItem.appendChild(fullscreenLink);
+                fullscreenItem.appendChild(descDiv);
+                
+                this.fullscreenMenu.appendChild(fullscreenItem);
+                
+                // Animate items in sequence
+                setTimeout(() => {
+                    fullscreenItem.classList.add('active');
+                }, (index + 1) * 100);
+            });
+        }
+    }
+
+    // Initialize adaptive navigation
+    new AdaptiveNavigation();
 });
 
 // Smooth Scrolling for Navigation Links
@@ -315,7 +538,62 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Исправляем активные состояния навигации на всех страницах кроме главной
     fixNavigationActiveStates();
+    
+    // Инициализируем активное состояние для главной страницы
+    initializeHomePageNavigation();
 });
+
+function initializeHomePageNavigation() {
+    const isHomePage = window.location.pathname === '/' || 
+                      window.location.pathname.endsWith('/index.html') || 
+                      window.location.pathname.endsWith('/');
+    
+    if (isHomePage) {
+        // Убеждаемся, что первая вкладка "Головна" активна
+        const homeLink = document.querySelector('.nav-menu a[href="#home"]');
+        if (homeLink) {
+            // Убираем active класс со всех ссылок
+            document.querySelectorAll('.nav-menu a').forEach(link => {
+                link.classList.remove('active');
+            });
+            // Добавляем active класс к "Головна"
+            homeLink.classList.add('active');
+        }
+        // Скрываем динамическую вкладку на главной странице
+        hideDynamicTab();
+    } else {
+        // Проверяем нужно ли показывать динамическую вкладку (только на десктопе)
+        if (window.innerWidth > 768) {
+            showDynamicTab(); // Функция сама проверит, нужна ли динамическая вкладка
+        } else {
+            // На мобильных устройствах активируем соответствующую обычную вкладку
+            hideDynamicTab();
+            activateCurrentPageTab();
+        }
+    }
+}
+
+// Функция для активации вкладки текущей страницы на мобильных
+function activateCurrentPageTab() {
+    const currentPageHref = getCurrentPageHref();
+    const navLinks = document.querySelectorAll('.nav-menu a:not(.nav-dynamic-link)');
+    
+    // Убираем active класс со всех ссылок
+    navLinks.forEach(link => {
+        link.classList.remove('active');
+    });
+    
+    // Ищем и активируем соответствующую вкладку
+    for (let link of navLinks) {
+        const linkHref = link.getAttribute('href');
+        if (linkHref === currentPageHref || 
+            (linkHref && currentPageHref && linkHref.includes(currentPageHref.split('/').pop())) ||
+            (currentPageHref.includes(linkHref) && linkHref !== '#home')) {
+            link.classList.add('active');
+            break;
+        }
+    }
+}
 
 function fixNavigationActiveStates() {
     const isHomePage = window.location.pathname === '/' || 
@@ -324,15 +602,11 @@ function fixNavigationActiveStates() {
     
     if (isHomePage) return; // На главной странице не трогаем логику
     
-    // Убираем любые активные состояния от подменю и hover эффектов
-    const submenuItems = document.querySelectorAll('.nav-item-with-submenu');
-    submenuItems.forEach(item => {
-        item.classList.remove('hovering', 'mobile-submenu-open');
-        const submenuLink = item.querySelector('.nav-link-with-submenu');
-        if (submenuLink) {
-            submenuLink.classList.remove('active');
-        }
-    });
+    // Убираем любые активные состояния от меню "больше"
+    const moreMenuItem = document.querySelector('.nav-item-more');
+    if (moreMenuItem) {
+        moreMenuItem.classList.remove('active', 'mobile-more-open');
+    }
     
     // Убираем active класс со всех навигационных ссылок кроме той, что должна быть активной
     const navLinks = document.querySelectorAll('.nav-menu a');
@@ -357,12 +631,19 @@ function getCurrentPageName() {
     const currentPage = window.location.pathname.split('/').pop();
     switch(currentPage) {
         case 'news.html': return 'Новини';
-        case 'about.html': return 'Федерація';
+        case 'about.html': return 'Про нас';
+        case 'team.html': return 'Збірна';
         case 'calendar.html': return 'Календар';
         case 'gallery.html': return 'Галерея';
         case 'contacts.html': return 'Контакти';
-        case 'news-article.html': return 'Новини';
-        default: return 'Головна';
+        case 'documents.html': return 'Документи';
+        case 'regions.html': return 'Регіони';
+        case 'athlete.html': return 'Спортсмен';
+        case 'coach.html': return 'Тренер';
+        case 'news-article.html': return 'Стаття';
+        case '': return 'Головна';
+        case 'index.html': return 'Головна';
+        default: return 'Поточна сторінка';
     }
 }
 
@@ -414,7 +695,7 @@ window.addEventListener('scroll', function() {
     const sections = document.querySelectorAll('section[id]');
     const navLinks = document.querySelectorAll('.nav-menu a[href^="#"]');
     
-    let current = '';
+    let current = 'home'; // По умолчанию активна секция home
     sections.forEach(section => {
         const sectionTop = section.offsetTop;
         const sectionHeight = section.clientHeight;
@@ -429,6 +710,15 @@ window.addEventListener('scroll', function() {
             link.classList.add('active');
         }
     });
+    
+    // Если ни одна секция не активна, активируем первую (Головна)
+    const activeLink = document.querySelector('.nav-menu a.active');
+    if (!activeLink) {
+        const homeLink = document.querySelector('.nav-menu a[href="#home"]');
+        if (homeLink) {
+            homeLink.classList.add('active');
+        }
+    }
 });
 
 // Lazy Loading for Images (when added)
@@ -478,3 +768,71 @@ const debouncedScrollHandler = debounce(function() {
 }, 10);
 
 window.addEventListener('scroll', debouncedScrollHandler); 
+
+// ===== DYNAMIC NAVIGATION TAB =====
+function showDynamicTab() {
+    // Don't show dynamic tab on mobile devices
+    if (window.innerWidth <= 768) {
+        return;
+    }
+    
+    const dynamicTab = document.getElementById('navDynamicTab');
+    const dynamicText = document.getElementById('navDynamicText');
+    const dynamicLink = document.getElementById('navDynamicLink');
+    
+    if (!dynamicTab || !dynamicText || !dynamicLink) return;
+    
+    const currentPageName = getCurrentPageName();
+    const currentPageHref = getCurrentPageHref();
+    
+    // Устанавливаем текст и ссылку
+    dynamicText.textContent = currentPageName;
+    dynamicLink.href = currentPageHref;
+    
+    // Показываем вкладку с анимацией
+    dynamicTab.style.display = 'block';
+    
+    // Добавляем анимацию появления
+    setTimeout(() => {
+        dynamicTab.classList.add('show');
+    }, 50);
+    
+    // Убираем active класс со всех обычных ссылок
+    document.querySelectorAll('.nav-menu a:not(.nav-dynamic-link)').forEach(link => {
+        link.classList.remove('active');
+    });
+    
+    // Добавляем active класс к динамической ссылке
+    dynamicLink.classList.add('active');
+}
+
+function hideDynamicTab() {
+    const dynamicTab = document.getElementById('navDynamicTab');
+    if (dynamicTab) {
+        dynamicTab.classList.remove('show');
+        setTimeout(() => {
+            dynamicTab.style.display = 'none';
+        }, 400); // Ждем завершения анимации
+    }
+}
+
+function getCurrentPageHref() {
+    const currentPage = window.location.pathname.split('/').pop();
+    return currentPage || 'index.html';
+}
+
+// ===== WINDOW RESIZE HANDLER =====
+let resizeTimeout;
+window.addEventListener('resize', function() {
+    // Используем debounce для оптимизации производительности
+    clearTimeout(resizeTimeout);
+    resizeTimeout = setTimeout(() => {
+        // Переинициализируем навигацию при изменении размера
+        initializeHomePageNavigation();
+        
+        // Обновляем состояние адаптивной навигации если функция существует
+        if (typeof updateAdaptiveNavigation === 'function') {
+            updateAdaptiveNavigation();
+        }
+    }, 150);
+}); 

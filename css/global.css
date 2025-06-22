@@ -5,10 +5,6 @@
     box-sizing: border-box;
 }
 
-html {
-    /* scroll-behavior: smooth; - Отключено для кастомного плавного скролла */
-}
-
 :root {
     /* Safe Area Variables for iPhone */
     --safe-area-inset-top: constant(safe-area-inset-top);
@@ -101,6 +97,22 @@ body {
     /* iPhone XR safe area support */
     padding-left: var(--safe-area-inset-left);
     padding-right: var(--safe-area-inset-right);
+}
+
+/* Общие стили для страниц */
+.page {
+  transition: opacity 0.5s ease-in-out; /* Плавное изменение прозрачности за 0.5 секунды */
+  opacity: 1;
+}
+
+/* Страница исчезает */
+.page.fade-out {
+  opacity: 0;
+}
+
+/* Страница появляется (можно использовать для новой страницы) */
+.page.fade-in {
+  opacity: 1; /* Если она изначально была opacity: 0 */
 }
 
 /* Container and Layout */
@@ -505,5 +517,28 @@ body.smooth-scroll-active {
     
     .smooth-scrollbar {
         display: none !important;
+    }
+}
+
+/* Disable custom smooth scroll on mobile devices */
+@media (max-width: 768px), (hover: none) and (pointer: coarse) {
+    .smooth-scroll {
+        position: static !important;
+        transform: none !important;
+        -webkit-transform: none !important;
+    }
+    
+    .smooth-scrollbar {
+        display: none !important;
+    }
+    
+    /* Enable native smooth scroll */
+    html {
+        scroll-behavior: smooth;
+    }
+    
+    /* Optimize scrolling on mobile */
+    body {
+        -webkit-overflow-scrolling: touch;
     }
 }

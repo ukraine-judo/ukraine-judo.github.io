@@ -119,7 +119,7 @@ class HomeEventsWidget {
                         <span class="event-category">${categoryName}</span>
                         
                         <div class="event-actions">
-                            <a href="calendar.html" class="event-btn event-btn-primary">
+                            <a href="calendar.html?id=${event.id}" class="event-btn event-btn-primary">
                                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                     <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
                                     <line x1="16" y1="2" x2="16" y2="6"/>
@@ -128,14 +128,6 @@ class HomeEventsWidget {
                                 </svg>
                                 Детальніше
                             </a>
-                            <button class="event-btn event-btn-outline" onclick="homeEventsWidget.shareEvent(${event.id})">
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/>
-                                    <polyline points="16,6 12,2 8,6"/>
-                                    <line x1="12" y1="2" x2="12" y2="15"/>
-                                </svg>
-                                Поділитися
-                            </button>
                         </div>
                     </div>
                 </div>
@@ -285,7 +277,7 @@ class HomeEventsWidget {
                         </div>
                         
                         <div class="current-event-actions">
-                            <a href="calendar.html" class="current-event-btn">
+                            <a href="calendar.html?id=${event.id}" class="current-event-btn">
                                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                     <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
                                     <line x1="16" y1="2" x2="16" y2="6"/>
@@ -322,14 +314,14 @@ class HomeEventsWidget {
     }
 
     setupCurrentEventsListeners() {
-        // Previous button
+        // Previous button - only move left
         if (this.currentEventsPrev) {
             this.currentEventsPrev.addEventListener('click', () => this.prevCurrentEvent());
         }
 
-        // Next button
+        // Next button - only move left
         if (this.currentEventsNext) {
-            this.currentEventsNext.addEventListener('click', () => this.nextCurrentEvent());
+            this.currentEventsNext.addEventListener('click', () => this.prevCurrentEvent());
         }
 
         // Dots
@@ -342,15 +334,11 @@ class HomeEventsWidget {
             });
         }
 
-        // Auto-advance every 5 seconds
-        setInterval(() => {
-            if (this.currentEvents.length > 1) {
-                this.nextCurrentEvent();
-            }
-        }, 5000);
-
         // Touch/swipe support
         this.setupCurrentEventsSwipe();
+        
+        // Hide navigation if only one event
+        this.updateNavigationVisibility();
     }
 
     setupCurrentEventsSwipe() {
@@ -372,11 +360,12 @@ class HomeEventsWidget {
             const deltaX = touchEndX - touchStartX;
             const minSwipeDistance = 50;
 
+            // Only allow swipe to left (previous event)
             if (Math.abs(deltaX) > minSwipeDistance) {
                 if (deltaX > 0) {
                     this.prevCurrentEvent();
                 } else {
-                    this.nextCurrentEvent();
+                    this.prevCurrentEvent();
                 }
             }
         };
@@ -422,12 +411,24 @@ class HomeEventsWidget {
             dot.classList.toggle('active', index === this.currentSlide);
         });
 
-        // Update button states (allow cycling)
+        // Update navigation visibility
+        this.updateNavigationVisibility();
+    }
+
+    updateNavigationVisibility() {
+        const shouldShowNavigation = this.currentEvents.length > 1;
+        
+        // Show/hide navigation buttons
         if (this.currentEventsPrev) {
-            this.currentEventsPrev.disabled = false;
+            this.currentEventsPrev.style.display = shouldShowNavigation ? 'flex' : 'none';
         }
         if (this.currentEventsNext) {
-            this.currentEventsNext.disabled = false;
+            this.currentEventsNext.style.display = shouldShowNavigation ? 'flex' : 'none';
+        }
+        
+        // Show/hide dots
+        if (this.currentEventsDots) {
+            this.currentEventsDots.style.display = shouldShowNavigation ? 'flex' : 'none';
         }
     }
 

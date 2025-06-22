@@ -28,57 +28,35 @@
                     <small class="brand-subtitle-short">FJU</small>
                 </span>
             </div>
-            <ul class="nav-menu">
-                <li><a href="index.html">Головна</a></li>
-                <li class="nav-item-with-submenu">
-                    <a href="about.html" class="nav-link-with-submenu">
-                        Федерація
-                        <svg class="submenu-arrow" width="12" height="8" viewBox="0 0 12 8" fill="none">
+            <div class="nav-menu-overlay"></div>
+            <ul class="nav-menu" id="navMenu">
+                <li class="nav-item" data-priority="1"><a href="index.html">Головна</a></li>
+                <li class="nav-item nav-dynamic-tab" id="navDynamicTab" style="display: none;">
+                    <a href="#" class="nav-dynamic-link active" id="navDynamicLink">
+                        <span class="nav-dynamic-text" id="navDynamicText"></span>
+                    </a>
+                </li>
+                <li class="nav-item" data-priority="2"><a href="about.html">Про нас</a></li>
+                <li class="nav-item" data-priority="3"><a href="team.html">Збірна</a></li>
+                <li class="nav-item" data-priority="4"><a href="news.html" class="active">Новини</a></li>
+                <li class="nav-item" data-priority="5"><a href="calendar.html">Календар</a></li>
+                <li class="nav-item" data-priority="6"><a href="documents.html">Документи</a></li>
+                <li class="nav-item" data-priority="7"><a href="regions.html">Регіони</a></li>
+                <li class="nav-item" data-priority="8"><a href="gallery.html">Галерея</a></li>
+                <li class="nav-item" data-priority="9"><a href="contacts.html">Контакти</a></li>
+                <li class="nav-item-more" id="navMoreItem" style="display: none;">
+                    <button class="nav-more-toggle" aria-label="Більше розділів" id="navMoreToggle">
+                        <span class="nav-more-text">Ще</span>
+                        <svg class="nav-more-arrow" width="12" height="8" viewBox="0 0 12 8" fill="none">
                             <path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>
-                    </a>
-                    <div class="submenu">
-                        <div class="submenu-content">
-                            <div class="submenu-section">
-                                <h4 class="submenu-title">Федерація</h4>
-                                <div class="submenu-links">
-                                    <a href="about.html" class="submenu-link">
-                                        <div class="submenu-link-icon">📋</div>
-                                        <div class="submenu-link-content">
-                                            <span class="submenu-link-title">Про нас</span>
-                                            <span class="submenu-link-desc">Історія та керівництво</span>
-                                        </div>
-                                    </a>
-                                    <a href="team.html" class="submenu-link">
-                                        <div class="submenu-link-icon">🥋</div>
-                                        <div class="submenu-link-content">
-                                            <span class="submenu-link-title">Сборная</span>
-                                            <span class="submenu-link-desc">Національна збірна України</span>
-                                        </div>
-                                    </a>
-                                    <a href="documents.html" class="submenu-link">
-                                        <div class="submenu-link-icon">📄</div>
-                                        <div class="submenu-link-content">
-                                            <span class="submenu-link-title">Документи</span>
-                                            <span class="submenu-link-desc">Статути та положення</span>
-                                        </div>
-                                    </a>
-                                    <a href="regions.html" class="submenu-link">
-                                        <div class="submenu-link-icon">🗺️</div>
-                                        <div class="submenu-link-content">
-                                            <span class="submenu-link-title">Регіональні Відділення</span>
-                                            <span class="submenu-link-desc">Дзюдо в регіонах України</span>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    </button>
                 </li>
-                <li><a href="news.html" class="active">Новини</a></li>
-                <li><a href="calendar.html">Календар</a></li>
-                <li><a href="gallery.html">Галерея</a></li>
-                <li><a href="contacts.html">Контакти</a></li>
+            </ul>
+            
+            <!-- Hidden overflow menu -->
+            <ul class="nav-hidden-items" id="navHiddenItems">
+                <!-- Hidden items will be moved here dynamically -->
             </ul>
             <button class="nav-toggle" aria-label="Toggle navigation">
                 <span></span>
@@ -86,6 +64,26 @@
                 <span></span>
             </button>
         </nav>
+        
+        <!-- Fullscreen overlay menu -->
+        <div class="nav-fullscreen-overlay" id="navFullscreenOverlay">
+            <div class="nav-fullscreen-content">
+                <div class="nav-fullscreen-header">
+                    <h2>Навігація</h2>
+                    <button class="nav-fullscreen-close" id="navFullscreenClose" aria-label="Закрити меню">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                </div>
+                <div class="nav-fullscreen-menu" id="navFullscreenMenu">
+                    <!-- All menu items will appear here -->
+                </div>
+                <div class="nav-fullscreen-footer">
+                    <p class="nav-fullscreen-footer-text">Федерація Дзюдо України • Перемагаємо разом</p>
+                </div>
+            </div>
+        </div>
     </header>
 
     <main>

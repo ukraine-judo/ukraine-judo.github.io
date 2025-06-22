@@ -26,6 +26,9 @@ class CalendarController {
             this.updateMonthDisplay();
             this.renderCurrentMonth();
             
+            // Check for URL parameters to open specific event
+            this.checkUrlParameters();
+            
             console.log('Calendar initialized successfully');
         } catch (error) {
             console.error('Error initializing calendar:', error);
@@ -256,5 +259,38 @@ class CalendarController {
     shareEvent(eventId) {
         const event = this.api.getEventById(eventId);
         CalendarUtils.shareEvent(event, this.api);
+    }
+
+    checkUrlParameters() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const eventId = urlParams.get('id');
+        
+        if (eventId) {
+            // Find event by ID
+            const event = this.api.getEventById(eventId);
+            
+            if (event) {
+                // Navigate to the correct month and year
+                const eventDate = new Date(event.date);
+                this.currentMonth = eventDate.getMonth();
+                this.currentYear = eventDate.getFullYear();
+                
+                // Update display and render
+                this.updateMonthDisplay();
+                this.renderCurrentMonth();
+                
+                // Open modal after a short delay to ensure rendering is complete
+                setTimeout(() => {
+                    this.showEventDetails(eventId);
+                    
+                    // Clean URL without reloading page
+                    const url = new URL(window.location);
+                    url.searchParams.delete('id');
+                    window.history.replaceState({}, document.title, url.pathname);
+                }, 500);
+            } else {
+                console.warn('Event with ID', eventId, 'not found');
+            }
+        }
     }
 } 

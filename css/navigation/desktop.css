@@ -1,0 +1,367 @@
+/* ===== DESKTOP NAVIGATION ===== */
+
+/* Navigation Menu */
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 1rem;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-menu li {
+    position: relative;
+}
+
+.nav-menu a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #1a1a1a;
+    font-weight: 500;
+    font-size: 0.95rem;
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.nav-menu a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+    opacity: 0;
+    transform: translateY(100%);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: -1;
+}
+
+.nav-menu a:hover::before,
+.nav-menu a.active::before {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.nav-menu a:hover,
+.nav-menu a.active {
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(26, 63, 103, 0.25);
+}
+
+/* ===== ADAPTIVE NAVIGATION ===== */
+.nav-item {
+    transition: all 0.3s ease;
+}
+
+.nav-hidden-items {
+    display: none;
+}
+
+/* More Menu Styles */
+.nav-item-more {
+    position: relative;
+    order: 2; /* Place after dynamic tab */
+}
+
+.nav-more-toggle {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: none;
+    border: none;
+    color: #1a1a1a;
+    font-weight: 500;
+    font-size: 0.95rem;
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.nav-more-text {
+    margin-right: 4px;
+}
+
+.nav-more-arrow {
+    transition: transform 0.3s ease;
+}
+
+.nav-more-toggle[aria-expanded="true"] .nav-more-arrow {
+    transform: rotate(180deg);
+}
+
+.nav-more-toggle::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+    opacity: 0;
+    transform: translateY(100%);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: -1;
+}
+
+.nav-more-toggle:hover::before,
+.nav-more-toggle.active::before {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.nav-more-toggle:hover,
+.nav-more-toggle.active {
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(26, 63, 103, 0.25);
+}
+
+/* Mobile Navigation Toggle */
+.nav-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 4px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.75rem;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    z-index: 1001;
+}
+
+.nav-toggle:hover {
+    background: rgba(26, 63, 103, 0.1);
+}
+
+.nav-toggle span {
+    width: 24px;
+    height: 3px;
+    background: var(--primary-color);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border-radius: 2px;
+    display: block;
+    transform-origin: center;
+}
+
+.nav-toggle.active span:nth-child(1) {
+    transform: translate(0, 7px) rotate(45deg);
+}
+
+.nav-toggle.active span:nth-child(2) {
+    opacity: 0;
+    transform: scale(0) rotate(180deg);
+}
+
+.nav-toggle.active span:nth-child(3) {
+    transform: translate(0, -7px) rotate(-45deg);
+}
+
+/* Dynamic Navigation Tab */
+.nav-dynamic-tab {
+    position: relative;
+    order: 1; /* Place after first item */
+    opacity: 0;
+    transform: translateY(-8px) scale(0.95);
+    transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.nav-dynamic-tab.show {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+.nav-dynamic-link {
+    background: var(--primary-color) !important;
+    color: white !important;
+    border-radius: 12px;
+    padding: 0.75rem 1.2rem;
+    font-weight: 600;
+    font-size: 0.95rem;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    transform: translateY(0);
+    box-shadow: 0 4px 15px rgba(26, 63, 103, 0.25);
+}
+
+.nav-dynamic-link::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+    border-radius: 12px;
+    opacity: 0;
+    transform: scale(0.8);
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    z-index: 1;
+}
+
+.nav-dynamic-link::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 0%, transparent 70%);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
+    z-index: 1;
+}
+
+.nav-dynamic-link:hover {
+    background: var(--primary-light) !important;
+    transform: translateY(-3px);
+    box-shadow: 0 12px 35px rgba(26, 63, 103, 0.4);
+}
+
+.nav-dynamic-link:hover::before {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.nav-dynamic-link:hover::after {
+    width: 120px;
+    height: 120px;
+}
+
+.nav-dynamic-text {
+    position: relative;
+    z-index: 2;
+}
+
+/* Brand Logo with smooth effects */
+.nav-brand {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    gap: 0.75rem;
+    padding: 0.5rem;
+    border-radius: 12px;
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.nav-brand::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(26, 63, 103, 0.05), rgba(26, 63, 103, 0.08));
+    border-radius: 12px;
+    opacity: 0;
+    transform: scale(0.8);
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    z-index: -1;
+}
+
+
+.logo {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    box-shadow: 0 2px 8px rgba(26, 63, 103, 0.15);
+}
+
+
+/* Fullscreen menu items */
+.nav-fullscreen-item {
+    background: rgba(26, 63, 103, 0.05);
+    border: 1px solid rgba(26, 63, 103, 0.1);
+    border-radius: 15px;
+    padding: 1.5rem;
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    transform: translateY(0);
+}
+
+.nav-fullscreen-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(26, 63, 103, 0.08), rgba(26, 63, 103, 0.12));
+    border-radius: 15px;
+    opacity: 0;
+    transform: scale(0.9);
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    z-index: -1;
+}
+
+.nav-fullscreen-item::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: radial-gradient(circle, rgba(26, 63, 103, 0.1) 0%, transparent 70%);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
+    z-index: -1;
+}
+
+.nav-fullscreen-item:hover {
+    background: rgba(26, 63, 103, 0.08);
+    border-color: rgba(26, 63, 103, 0.2);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(26, 63, 103, 0.15);
+}
+
+.nav-fullscreen-item:hover::before {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.nav-fullscreen-item:hover::after {
+    width: 200px;
+    height: 200px;
+}
+
+.nav-fullscreen-item:hover .nav-fullscreen-title {
+    color: var(--primary-color);
+    transform: translateX(3px);
+}
+
+.nav-fullscreen-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #1a1a1a;
+    margin-bottom: 0.5rem;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    position: relative;
+    z-index: 1;
+}
+
+.nav-fullscreen-description {
+    color: #666;
+    font-size: 0.9rem;
+    line-height: 1.4;
+    position: relative;
+    z-index: 1;
+    transition: color 0.3s ease;
+} 

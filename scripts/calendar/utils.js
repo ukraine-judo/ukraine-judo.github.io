@@ -29,7 +29,7 @@ class CalendarUtils {
         return categories[category] || category;
     }
 
-    static showNotification(message, type = 'info') {
+    static showCalendarNotification(message, type = 'info') {
         const notification = document.createElement('div');
         notification.className = `notification ${type}`;
         notification.textContent = message;
@@ -80,25 +80,81 @@ class CalendarUtils {
         const googleCalendarUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(event.title)}&location=${encodeURIComponent(event.location)}&details=${encodeURIComponent(event.description)}&dates=${startDate.toISOString().replace(/[-:]/g, '').split('.')[0]}Z/${endDate.toISOString().replace(/[-:]/g, '').split('.')[0]}Z`;
 
         window.open(googleCalendarUrl, '_blank');
-        CalendarUtils.showNotification('Подію додано до календаря!', 'success');
+        CalendarUtils.showCalendarNotification('Подію додано до календаря!', 'success');
     }
 
     static shareEvent(event, api) {
-        if (!event) return;
-
-        const shareText = `${event.title} - ${event.location}, ${api.formatDate(event.date).day} ${api.formatDate(event.date).month} ${api.formatDate(event.date).year}`;
+        console.log('shareEvent called with:', event, api);
         
-        if (navigator.share) {
-            navigator.share({
-                title: event.title,
-                text: shareText,
-                url: window.location.href
+        if (!event) {
+            console.error('Event is null or undefined');
+            CalendarUtils.showCalendarNotification('Помилка: подія не знайдена', 'error');
+            return;
+        }
+
+        try {
+            const dateInfo = api ? api.formatDate(event.date) : { day: 'N/A', month: 'N/A', year: 'N/A' };
+            const shareText = `${event.title} - ${event.location}, ${dateInfo.day} ${dateInfo.month} ${dateInfo.year}`;
+            
+            console.log('Share text:', shareText);
+            
+            if (navigator.share) {
+                navigator.share({
+                    title: event.title,
+                    text: shareText,
+                    url: window.location.href
+                }).then(() => {
+                    console.log('Share successful');
+                }).catch((error) => {
+                    console.error('Share failed:', error);
+                    // Fallback to clipboard
+                    CalendarUtils.copyToClipboard(shareText);
+                });
+            } else {
+                CalendarUtils.copyToClipboard(shareText);
+            }
+        } catch (error) {
+            console.error('Error in shareEvent:', error);
+            CalendarUtils.showCalendarNotification('Помилка при поділитись подією', 'error');
+        }
+    }
+
+    static copyToClipboard(text) {
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(text).then(() => {
+                CalendarUtils.showNotification('Інформацію скопійовано в буфер обміну!', 'success');
+            }).catch((error) => {
+                console.error('Clipboard write failed:', error);
+                CalendarUtils.fallbackCopyToClipboard(text);
             });
         } else {
-            navigator.clipboard.writeText(shareText).then(() => {
-                CalendarUtils.showNotification('Інформацію скопійовано в буфер обміну!', 'success');
-            });
+            CalendarUtils.fallbackCopyToClipboard(text);
         }
+    }
+
+    static fallbackCopyToClipboard(text) {
+        const textArea = document.createElement('textarea');
+        textArea.value = text;
+        textArea.style.position = 'fixed';
+        textArea.style.left = '-999999px';
+        textArea.style.top = '-999999px';
+        document.body.appendChild(textArea);
+        textArea.focus();
+        textArea.select();
+        
+        try {
+            const successful = document.execCommand('copy');
+            if (successful) {
+                CalendarUtils.showNotification('Інформацію скопійовано в буфер обміну!', 'success');
+            } else {
+                CalendarUtils.showNotification('Не вдалося скопіювати інформацію', 'error');
+            }
+        } catch (err) {
+            console.error('Fallback copy failed:', err);
+            CalendarUtils.showNotification('Не вдалося скопіювати інформацію', 'error');
+        }
+        
+        document.body.removeChild(textArea);
     }
 
     static setupAnimations() {
@@ -143,14 +199,18 @@ class CalendarRenderer {
         const imageContent = event.image 
             ? `<img src="${event.image}" alt="${event.title}" class="event-image" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">`
             : `<div class="event-placeholder">
-                <span class="icon-calendar icon-2xl"></span>
-                <div class="event-placeholder-text">${CalendarUtils.getEventTypeLabel(event.type)}</div>
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z"/>
+                </svg>
+                <div class="event-placeholder-text">Зображення відсутнє</div>
                </div>`;
 
         const fallbackPlaceholder = event.image ? `
             <div class="event-placeholder" style="display: none;">
-                <span class="icon-calendar icon-2xl"></span>
-                <div class="event-placeholder-text">${CalendarUtils.getEventTypeLabel(event.type)}</div>
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z"/>
+                </svg>
+                <div class="event-placeholder-text">Зображення відсутнє</div>
             </div>` : '';
 
         return `
@@ -264,35 +324,62 @@ class CalendarRenderer {
                     <button class="modal-close">&times;</button>
                 </div>
                 <div class="modal-body">
-                    <div class="event-modal-info">
-                        <p><strong><span class="icon-calendar"></span> Дата:</strong> ${dateInfo.day} ${dateInfo.month} ${dateInfo.year}${endDateInfo ? ` - ${endDateInfo.day} ${endDateInfo.month} ${endDateInfo.year}` : ''}</p>
-                        <p><strong><span class="icon-location"></span> Місце:</strong> ${event.location}</p>
-                        <p><strong><span class="icon-trophy"></span> Тип:</strong> ${CalendarUtils.getEventTypeLabel(event.type)}</p>
-                        <p><strong><span class="icon-users"></span> Вікова група:</strong> ${ageGroupInfo ? ageGroupInfo.name : event.ageGroup}</p>
-                        <p><strong><span class="icon-status"></span> Статус:</strong> <span class="status-text ${actualStatus}">${statusInfo ? statusInfo.name : actualStatus}</span></p>
-                        <p><strong><span class="icon-description"></span> Опис:</strong> ${event.description}</p>
+                    <div class="modal-body-content">
+                        <div class="event-modal-info">
+                            <p><strong><span class="icon-calendar"></span> Дата:</strong> ${dateInfo.day} ${dateInfo.month} ${dateInfo.year}${endDateInfo ? ` - ${endDateInfo.day} ${endDateInfo.month} ${endDateInfo.year}` : ''}</p>
+                            <p><strong><span class="icon-location"></span> Місце:</strong> ${event.location}</p>
+                            <p><strong><span class="icon-trophy"></span> Тип:</strong> ${CalendarUtils.getEventTypeLabel(event.type)}</p>
+                            <p><strong><span class="icon-users"></span> Вікова група:</strong> ${ageGroupInfo ? ageGroupInfo.name : event.ageGroup}</p>
+                            <p><strong><span class="icon-status"></span> Статус:</strong> <span class="status-text ${actualStatus}">${statusInfo ? statusInfo.name : actualStatus}</span></p>
+                            <p><strong><span class="icon-description"></span> Опис:</strong> ${event.description}</p>
+                        </div>
                     </div>
-                    <div class="modal-actions">
-                        <button class="btn btn-primary" onclick="CalendarUtils.addToCalendar(calendar.api.getEventById(${event.id}))">Додати до календаря</button>
-                        <button class="btn btn-outline" onclick="CalendarUtils.shareEvent(calendar.api.getEventById(${event.id}), calendar.api)">Поділитися</button>
-                        ${event.regulationLink ? `<a href="${event.regulationLink}" class="btn event-regulation-btn" target="_blank"><span class="icon-regulation"></span> Регламент</a>` : ''}
-                    </div>
+                </div>
+                <div class="modal-actions">
+                    <button class="btn btn-primary" onclick="CalendarUtils.addToCalendar(calendar.api.getEventById('${event.id}'))">
+                        <span class="icon-calendar"></span> Додати до календаря
+                    </button>
+                    <button class="btn btn-outline" onclick="CalendarUtils.shareEvent(calendar.api.getEventById('${event.id}'), calendar.api)">
+                        <span class="icon-share"></span> Поділитися
+                    </button>
+                    ${event.regulationLink ? `<a href="${event.regulationLink}" class="btn btn-outline" target="_blank"><span class="icon-regulation"></span> Регламент</a>` : ''}
                 </div>
             </div>
         `;
         
         document.body.appendChild(modal);
         
+        // Анимация открытия
+        setTimeout(() => {
+            modal.classList.add('active');
+        }, 10);
+        
+        const closeModal = () => {
+            modal.classList.remove('active');
+            setTimeout(() => {
+                if (document.body.contains(modal)) {
+                    document.body.removeChild(modal);
+                }
+            }, 400);
+        };
+        
         const closeBtn = modal.querySelector('.modal-close');
-        closeBtn.addEventListener('click', () => {
-            document.body.removeChild(modal);
-        });
+        closeBtn.addEventListener('click', closeModal);
         
         modal.addEventListener('click', (e) => {
             if (e.target === modal) {
-                document.body.removeChild(modal);
+                closeModal();
             }
         });
+
+        // Закрытие по ESC
+        const handleKeyDown = (e) => {
+            if (e.key === 'Escape') {
+                closeModal();
+                document.removeEventListener('keydown', handleKeyDown);
+            }
+        };
+        document.addEventListener('keydown', handleKeyDown);
 
         return modal;
     }
