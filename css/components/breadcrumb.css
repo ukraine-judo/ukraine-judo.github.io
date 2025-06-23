@@ -1,0 +1,176 @@
+/* Breadcrumb Navigation Styles */
+.breadcrumb {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    padding: 12px 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+/* Navigation styles for new structure */
+.breadcrumb-nav {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    color: #6b7280;
+}
+
+.breadcrumb-nav a {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: #6b7280;
+    text-decoration: none;
+    transition: color 0.2s ease;
+    font-weight: 500;
+}
+
+.breadcrumb-nav a:hover {
+    color: #1f2937;
+}
+
+.breadcrumb-icon {
+    width: 14px;
+    height: 14px;
+    opacity: 0.7;
+    transition: opacity 0.2s ease;
+}
+
+.breadcrumb-nav a:hover .breadcrumb-icon {
+    opacity: 1;
+}
+
+.breadcrumb-separator {
+    color: #d1d5db;
+    margin: 0 4px;
+    font-weight: 300;
+}
+
+.breadcrumb-nav span:last-child {
+    color: #1f2937;
+    font-weight: 600;
+}
+
+.breadcrumb-list {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-size: 14px;
+    color: #6b7280;
+}
+
+.breadcrumb-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.breadcrumb-item:not(:last-child)::after {
+    content: '';
+    width: 4px;
+    height: 4px;
+    background: #d1d5db;
+    border-radius: 50%;
+    margin-left: 8px;
+}
+
+.breadcrumb-item a {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: #6b7280;
+    text-decoration: none;
+    transition: color 0.2s ease;
+    font-weight: 500;
+}
+
+.breadcrumb-item a:hover {
+    color: #1f2937;
+}
+
+.breadcrumb-item a svg {
+    width: 14px;
+    height: 14px;
+    opacity: 0.7;
+}
+
+.breadcrumb-item.active span {
+    color: #1f2937;
+    font-weight: 600;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .breadcrumb {
+        padding: 8px 0;
+    }
+    
+    .breadcrumb-list {
+        font-size: 13px;
+    }
+    
+    .breadcrumb-item a svg {
+        width: 12px;
+        height: 12px;
+    }
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+    .breadcrumb {
+        background: rgba(31, 41, 55, 0.95);
+        border-bottom-color: rgba(255, 255, 255, 0.1);
+    }
+    
+    .breadcrumb-list {
+        color: #9ca3af;
+    }
+    
+    .breadcrumb-item:not(:last-child)::after {
+        background: #4b5563;
+    }
+    
+    .breadcrumb-item a {
+        color: #9ca3af;
+    }
+    
+    .breadcrumb-item a:hover {
+        color: #f9fafb;
+    }
+    
+    .breadcrumb-item.active span {
+        color: #f9fafb;
+    }
+}
+
+/* Subtitle styles for sections */
+.achievements-subtitle,
+.biography-subtitle {
+    color: #6b7280;
+    font-size: 16px;
+    margin-top: 8px;
+    line-height: 1.5;
+}
+
+.gallery-header p,
+.social-header p {
+    color: #6b7280;
+    font-size: 16px;
+    margin-top: 8px;
+    line-height: 1.5;
+}
+
+@media (prefers-color-scheme: dark) {
+    .achievements-subtitle,
+    .biography-subtitle,
+    .gallery-header p,
+    .social-header p {
+        color: #9ca3af;
+    }
+} 

@@ -559,24 +559,16 @@ function initializeHomePageNavigation() {
             // Добавляем active класс к "Головна"
             homeLink.classList.add('active');
         }
-        // Скрываем динамическую вкладку на главной странице
-        hideDynamicTab();
     } else {
-        // Проверяем нужно ли показывать динамическую вкладку (только на десктопе)
-        if (window.innerWidth > 768) {
-            showDynamicTab(); // Функция сама проверит, нужна ли динамическая вкладка
-        } else {
-            // На мобильных устройствах активируем соответствующую обычную вкладку
-            hideDynamicTab();
+        // На не-главных страницах активируем соответствующую вкладку
             activateCurrentPageTab();
-        }
     }
 }
 
-// Функция для активации вкладки текущей страницы на мобильных
+// Функция для активации вкладки текущей страницы
 function activateCurrentPageTab() {
     const currentPageHref = getCurrentPageHref();
-    const navLinks = document.querySelectorAll('.nav-menu a:not(.nav-dynamic-link)');
+    const navLinks = document.querySelectorAll('.nav-menu a');
     
     // Убираем active класс со всех ссылок
     navLinks.forEach(link => {
@@ -630,9 +622,9 @@ function fixNavigationActiveStates() {
 function getCurrentPageName() {
     const currentPage = window.location.pathname.split('/').pop();
     switch(currentPage) {
-        case 'news.html': return 'Новини';
         case 'about.html': return 'Про нас';
         case 'team.html': return 'Збірна';
+        case 'news.html': return 'Новини';
         case 'calendar.html': return 'Календар';
         case 'gallery.html': return 'Галерея';
         case 'contacts.html': return 'Контакти';
@@ -768,53 +760,6 @@ const debouncedScrollHandler = debounce(function() {
 }, 10);
 
 window.addEventListener('scroll', debouncedScrollHandler); 
-
-// ===== DYNAMIC NAVIGATION TAB =====
-function showDynamicTab() {
-    // Don't show dynamic tab on mobile devices
-    if (window.innerWidth <= 768) {
-        return;
-    }
-    
-    const dynamicTab = document.getElementById('navDynamicTab');
-    const dynamicText = document.getElementById('navDynamicText');
-    const dynamicLink = document.getElementById('navDynamicLink');
-    
-    if (!dynamicTab || !dynamicText || !dynamicLink) return;
-    
-    const currentPageName = getCurrentPageName();
-    const currentPageHref = getCurrentPageHref();
-    
-    // Устанавливаем текст и ссылку
-    dynamicText.textContent = currentPageName;
-    dynamicLink.href = currentPageHref;
-    
-    // Показываем вкладку с анимацией
-    dynamicTab.style.display = 'block';
-    
-    // Добавляем анимацию появления
-    setTimeout(() => {
-        dynamicTab.classList.add('show');
-    }, 50);
-    
-    // Убираем active класс со всех обычных ссылок
-    document.querySelectorAll('.nav-menu a:not(.nav-dynamic-link)').forEach(link => {
-        link.classList.remove('active');
-    });
-    
-    // Добавляем active класс к динамической ссылке
-    dynamicLink.classList.add('active');
-}
-
-function hideDynamicTab() {
-    const dynamicTab = document.getElementById('navDynamicTab');
-    if (dynamicTab) {
-        dynamicTab.classList.remove('show');
-        setTimeout(() => {
-            dynamicTab.style.display = 'none';
-        }, 400); // Ждем завершения анимации
-    }
-}
 
 function getCurrentPageHref() {
     const currentPage = window.location.pathname.split('/').pop();

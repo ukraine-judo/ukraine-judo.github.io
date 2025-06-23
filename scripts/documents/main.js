@@ -387,23 +387,52 @@ class DocumentsManager {
 
     async loadChampionshipsData() {
         try {
-            const response = await fetch('assets/docs/champ/index.json');
-            if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
+            // Load metadata first
+            const metadataResponse = await fetch('database/docs/index/metadata.json');
+            if (!metadataResponse.ok) {
+                throw new Error(`Failed to load metadata: ${metadataResponse.status}`);
             }
+            const metadataData = await metadataResponse.json();
             
-            const data = await response.json();
-            this.championshipsData = data.championships;
-            this.championshipsMetadata = data.metadata;
-            this.fileTypes = data.file_types;
+            this.fileTypes = metadataData.file_types;
+            const categories = metadataData.categories;
+            
+            // Load individual category files
+            this.championshipsData = {};
+            const loadPromises = Object.keys(categories).map(async (categoryKey) => {
+                const categoryFile = categories[categoryKey].file;
+                try {
+                    const response = await fetch(`database/docs/index/${categoryFile}`);
+                    if (!response.ok) {
+                        throw new Error(`Failed to load ${categoryFile}: ${response.status}`);
+                    }
+                    const categoryData = await response.json();
+                    this.championshipsData[categoryKey] = categoryData;
+                } catch (error) {
+                    console.error(`Error loading ${categoryFile}:`, error);
+                    // Create fallback data for this category
+                    this.championshipsData[categoryKey] = {
+                        title: categories[categoryKey].title,
+                        description: `Змагання ${categories[categoryKey].age_group}`,
+                        competitions: []
+                    };
+                }
+            });
+            
+            await Promise.all(loadPromises);
+            
+            // Calculate metadata automatically based on loaded data
+            this.championshipsMetadata = this.calculateMetadata(metadataData.metadata);
             
             // Update tab counters with real data
             this.updateTabCounters();
             
             console.log('📊 Championships data loaded:', {
                 categories: Object.keys(this.championshipsData).length,
-                total_competitions: data.metadata.total_competitions,
-                version: data.metadata.version
+                total_competitions: this.championshipsMetadata.total_competitions,
+                total_categories: this.championshipsMetadata.total_categories,
+                years_range: this.championshipsMetadata.supported_years,
+                version: this.championshipsMetadata.version
             });
             
         } catch (error) {
@@ -411,6 +440,74 @@ class DocumentsManager {
             // Fallback to generated data
             this.generateCompetitionsData();
         }
+    }
+
+    calculateMetadata(baseMetadata) {
+        let totalCompetitions = 0;
+        let allYears = new Set();
+        let totalCategories = 0;
+        let categoryYearRanges = {};
+        
+        // Calculate values from actual data
+        Object.keys(this.championshipsData).forEach(categoryKey => {
+            const categoryData = this.championshipsData[categoryKey];
+            totalCategories++;
+            
+            if (categoryData.competitions && Array.isArray(categoryData.competitions)) {
+                const competitions = categoryData.competitions;
+                totalCompetitions += competitions.length;
+                
+                // Collect all years for this category
+                const categoryYears = competitions.map(comp => comp.year).sort((a, b) => a - b);
+                categoryYears.forEach(year => allYears.add(year));
+                
+                // Calculate year range and excluded years for this category
+                if (categoryYears.length > 0) {
+                    const minYear = Math.min(...categoryYears);
+                    const maxYear = Math.max(...categoryYears);
+                    const expectedYears = [];
+                    
+                    for (let year = minYear; year <= maxYear; year++) {
+                        expectedYears.push(year);
+                    }
+                    
+                    const excludedYears = expectedYears.filter(year => !categoryYears.includes(year));
+                    
+                    categoryYearRanges[categoryKey] = {
+                        years: `${minYear}-${maxYear}`,
+                        total_competitions: competitions.length,
+                        excluded_years: excludedYears
+                    };
+                }
+            }
+        });
+        
+        // Calculate overall year range
+        const sortedYears = Array.from(allYears).sort((a, b) => a - b);
+        const supportedYears = sortedYears.length > 0 ? 
+            `${sortedYears[0]}-${sortedYears[sortedYears.length - 1]}` : 
+            baseMetadata.supported_years;
+        
+        // Update individual category metadata in championshipsData
+        Object.keys(this.championshipsData).forEach(categoryKey => {
+            const categoryData = this.championshipsData[categoryKey];
+            const calculatedData = categoryYearRanges[categoryKey];
+            
+            if (calculatedData) {
+                categoryData.years = calculatedData.years;
+                categoryData.total_competitions = calculatedData.total_competitions;
+                categoryData.excluded_years = calculatedData.excluded_years;
+            }
+        });
+        
+        return {
+            ...baseMetadata,
+            total_competitions: totalCompetitions,
+            total_categories: totalCategories,
+            supported_years: supportedYears,
+            last_updated: new Date().toISOString(),
+            calculated_metadata: true // Flag to indicate this was calculated
+        };
     }
 
     updateTabCounters() {

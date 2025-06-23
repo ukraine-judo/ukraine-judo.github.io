@@ -1,43 +1,765 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">
+   <!-- Главная страница - наивысший приоритет -->
    <url>
-      <loc>https://motoshfq.github.io/index.html</loc>
-      <lastmod>2025-06-18</lastmod>
+      <loc>https://motoshfq.github.io/</loc>
+      <lastmod>2025-01-18</lastmod>
+      <changefreq>daily</changefreq>
+      <priority>1.0</priority>
+      <image:image>
+         <image:loc>https://motoshfq.github.io/assets/fju-logo.png</image:loc>
+         <image:title>Федерація Дзюдо України</image:title>
+         <image:caption>Логотип Федерації Дзюдо України</image:caption>
+      </image:image>
    </url>
-   <url>
-      <loc>https://motoshfq.github.io/regions.html</loc>
-      <lastmod>2025-06-18</lastmod>
-   </url>
-   <url>
-      <loc>https://motoshfq.github.io/news.html</loc>
-      <lastmod>2025-06-18</lastmod>
-   </url>
-   <url>
-      <loc>https://motoshfq.github.io/team.html</loc>
-      <lastmod>2025-06-18</lastmod>
-   </url>
-   <url>
-      <loc>https://motoshfq.github.io/news-article.html</loc>
-      <lastmod>2025-06-18</lastmod>
-   </url>
-   <url>
-      <loc>https://motoshfq.github.io/documents.html</loc>
-      <lastmod>2025-06-18</lastmod>
-   </url>
-   <url>
-      <loc>https://motoshfq.github.io/coach.html</loc>
-      <lastmod>2025-06-18</lastmod>
-   </url>
-   <url>
-      <loc>https://motoshfq.github.io/calendar.html</loc>
-      <lastmod>2025-06-18</lastmod>
-   </url>
-   <url>
-      <loc>https://motoshfq.github.io/athlete.html</loc>
-      <lastmod>2025-06-18</lastmod>
-   </url>
+   
+   <!-- Ключевые страницы -->
    <url>
       <loc>https://motoshfq.github.io/about.html</loc>
-      <lastmod>2025-06-18</lastmod>
+      <lastmod>2025-01-18</lastmod>
+      <changefreq>weekly</changefreq>
+      <priority>0.9</priority>
+      <image:image>
+         <image:loc>https://motoshfq.github.io/assets/federation/koshlyak.jpg</image:loc>
+         <image:caption>Михайло Кошляк - Президент Федерації дзюдо України</image:caption>
+         <image:title>Президент ФДУ</image:title>
+      </image:image>
+      <image:image>
+         <image:loc>https://motoshfq.github.io/assets/federation/history/Bilodid.jpg</image:loc>
+         <image:caption>Дарія Білодід - дворазова чемпіонка світу з дзюдо</image:caption>
+         <image:title>Зірки українського дзюдо</image:title>
+      </image:image>
+   </url>
+   
+   <url>
+      <loc>https://motoshfq.github.io/team.html</loc>
+      <lastmod>2025-01-18</lastmod>
+      <changefreq>weekly</changefreq>
+      <priority>0.9</priority>
+      <image:image>
+         <image:loc>https://motoshfq.github.io/assets/team/bilodid-hero.jpg</image:loc>
+         <image:caption>Дарія Білодід - дворазова чемпіонка світу з дзюдо, зірка національної збірної України</image:caption>
+         <image:title>Національна збірна України з дзюдо</image:title>
+      </image:image>
+      <image:image>
+         <image:loc>https://motoshfq.github.io/assets/team/zantaraia.jpg</image:loc>
+         <image:caption>Георгій Зантарая - чемпіон світу, тричі чемпіон Європи з дзюдо</image:caption>
+         <image:title>Чемпіони української збірної</image:title>
+      </image:image>
+   </url>
+   
+   <url>
+      <loc>https://motoshfq.github.io/news.html</loc>
+      <lastmod>2025-01-18</lastmod>
+      <changefreq>daily</changefreq>
+      <priority>0.8</priority>
+   </url>
+   
+   <url>
+      <loc>https://motoshfq.github.io/calendar.html</loc>
+      <lastmod>2025-01-18</lastmod>
+      <changefreq>weekly</changefreq>
+      <priority>0.8</priority>
+   </url>
+   
+   <url>
+      <loc>https://motoshfq.github.io/documents.html</loc>
+      <lastmod>2025-01-18</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.7</priority>
+   </url>
+   
+   <!-- Динамические страницы -->
+   <url>
+      <loc>https://motoshfq.github.io/athlete.html</loc>
+      <lastmod>2025-01-18</lastmod>
+      <changefreq>weekly</changefreq>
+      <priority>0.6</priority>
+   </url>
+   
+   <url>
+      <loc>https://motoshfq.github.io/coach.html</loc>
+      <lastmod>2025-01-18</lastmod>
+      <changefreq>weekly</changefreq>
+      <priority>0.6</priority>
+   </url>
+   
+   <url>
+      <loc>https://motoshfq.github.io/news-article.html</loc>
+      <lastmod>2025-01-18</lastmod>
+      <changefreq>weekly</changefreq>
+      <priority>0.6</priority>
+   </url>
+   
+   <!-- Дополнительные страницы -->
+   <url>
+      <loc>https://motoshfq.github.io/regions.html</loc>
+      <lastmod>2025-01-18</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.5</priority>
+   </url>
+   
+   <!-- Профили ключевых атлетов - звезды и лидеры команды -->
+   <url>
+      <loc>https://motoshfq.github.io/athlete.html?id=daria-bilodid</loc>
+      <lastmod>2025-01-18</lastmod>
+      <changefreq>weekly</changefreq>
+      <priority>0.9</priority>
+      <image:image>
+         <image:loc>https://motoshfq.github.io/assets/team/bilodid-hero.jpg</image:loc>
+         <image:caption>Дарія Білодід - профіль олімпійської чемпіонки з дзюдо</image:caption>
+         <image:title>Дарія Білодід профіль атлета</image:title>
+      </image:image>
+   </url>
+   
+   <url>
+      <loc>https://motoshfq.github.io/athlete.html?id=yakiv-khammo</loc>
+      <lastmod>2025-01-18</lastmod>
+      <changefreq>weekly</changefreq>
+      <priority>0.8</priority>
+      <image:image>
+         <image:loc>https://motoshfq.github.io/assets/team/yakiv-khammo.jpg</image:loc>
+         <image:caption>Яків Хаммо - профіль чемпіона України з дзюдо</image:caption>
+         <image:title>Яків Хаммо профіль атлета</image:title>
+      </image:image>
+   </url>
+   
+   <!-- Ключові чоловіки-атлети -->
+   
+   <url>
+      <loc>https://motoshfq.github.io/athlete.html?id=artem-lesiuk</loc>
+      <lastmod>2025-01-18</lastmod>
+      <changefreq>weekly</changefreq>
+      <priority>0.7</priority>
+   </url>
+   
+   <url>
+      <loc>https://motoshfq.github.io/athlete.html?id=anton-savytskiy</loc>
+      <lastmod>2025-01-18</lastmod>
+      <changefreq>weekly</changefreq>
+      <priority>0.7</priority>
+   </url>
+   
+   <url>
+      <loc>https://motoshfq.github.io/athlete.html?id=bogdan-yadov</loc>
+      <lastmod>2025-01-18</lastmod>
+      <changefreq>weekly</changefreq>
+      <priority>0.7</priority>
+   </url>
+   
+   <url>
+      <loc>https://motoshfq.github.io/athlete.html?id=dilshot-khalmatov</loc>
+      <lastmod>2025-01-18</lastmod>
+      <changefreq>weekly</changefreq>
+      <priority>0.7</priority>
+   </url>
+   
+   <url>
+      <loc>https://motoshfq.github.io/athlete.html?id=nazar-viskov</loc>
+      <lastmod>2025-01-18</lastmod>
+      <changefreq>weekly</changefreq>
+      <priority>0.7</priority>
+   </url>
+   
+   <url>
+      <loc>https://motoshfq.github.io/athlete.html?id=khazar-heydarov</loc>
+      <lastmod>2025-01-18</lastmod>
+      <changefreq>weekly</changefreq>
+      <priority>0.7</priority>
+   </url>
+   
+   <url>
+      <loc>https://motoshfq.github.io/athlete.html?id=yevgeniy-balievskiy</loc>
+      <lastmod>2025-01-18</lastmod>
+      <changefreq>weekly</changefreq>
+      <priority>0.7</priority>
+   </url>
+   
+   <url>
+      <loc>https://motoshfq.github.io/athlete.html?id=mykyta-holoborodko</loc>
+      <lastmod>2025-01-18</lastmod>
+      <changefreq>weekly</changefreq>
+      <priority>0.7</priority>
+   </url>
+   
+   <url>
+      <loc>https://motoshfq.github.io/athlete.html?id=mykhailo-svidrak</loc>
+      <lastmod>2025-01-18</lastmod>
+      <changefreq>weekly</changefreq>
+      <priority>0.7</priority>
+   </url>
+   
+   <!-- Ключові жінки-атлети -->
+   <url>
+      <loc>https://motoshfq.github.io/athlete.html?id=anna-oliinyk-korniiko</loc>
+      <lastmod>2025-01-18</lastmod>
+      <changefreq>weekly</changefreq>
+      <priority>0.8</priority>
+   </url>
+   
+   <url>
+      <loc>https://motoshfq.github.io/athlete.html?id=inna-shynkarenko</loc>
+      <lastmod>2025-01-18</lastmod>
+      <changefreq>weekly</changefreq>
+      <priority>0.7</priority>
+   </url>
+   
+   <url>
+      <loc>https://motoshfq.github.io/athlete.html?id=marharyta-miroshnichenko</loc>
+      <lastmod>2025-01-18</lastmod>
+      <changefreq>weekly</changefreq>
+      <priority>0.7</priority>
+   </url>
+   
+   <url>
+      <loc>https://motoshfq.github.io/athlete.html?id=sofia-bordinskih</loc>
+      <lastmod>2025-01-18</lastmod>
+      <changefreq>weekly</changefreq>
+      <priority>0.7</priority>
+   </url>
+   
+   <url>
+      <loc>https://motoshfq.github.io/athlete.html?id=yulia-kurchenko</loc>
+      <lastmod>2025-01-18</lastmod>
+      <changefreq>weekly</changefreq>
+      <priority>0.7</priority>
+   </url>
+   
+   <url>
+      <loc>https://motoshfq.github.io/athlete.html?id=yelyzaveta-lytvynenko</loc>
+      <lastmod>2025-01-18</lastmod>
+      <changefreq>weekly</changefreq>
+      <priority>0.7</priority>
+   </url>
+   
+   <url>
+      <loc>https://motoshfq.github.io/athlete.html?id=olga-tsimko</loc>
+      <lastmod>2025-01-18</lastmod>
+      <changefreq>weekly</changefreq>
+      <priority>0.7</priority>
+   </url>
+   
+   <url>
+      <loc>https://motoshfq.github.io/athlete.html?id=anastasia-antipina</loc>
+      <lastmod>2025-01-18</lastmod>
+      <changefreq>weekly</changefreq>
+      <priority>0.7</priority>
+   </url>
+   
+   <url>
+      <loc>https://motoshfq.github.io/athlete.html?id=anastasiia-levchenko</loc>
+      <lastmod>2025-01-18</lastmod>
+      <changefreq>weekly</changefreq>
+      <priority>0.7</priority>
+   </url>
+   
+   <url>
+      <loc>https://motoshfq.github.io/athlete.html?id=anastasiia-severin</loc>
+      <lastmod>2025-01-18</lastmod>
+      <changefreq>weekly</changefreq>
+      <priority>0.7</priority>
+   </url>
+   
+   <!-- Чоловіча збірна - всі атлети -->
+   <url>
+      <loc>https://motoshfq.github.io/athlete.html?id=aleksey-moiseiev</loc>
+      <lastmod>2025-01-18</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.6</priority>
+   </url>
+   
+   <url>
+      <loc>https://motoshfq.github.io/athlete.html?id=andriy-kolesnik</loc>
+      <lastmod>2025-01-18</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.6</priority>
+   </url>
+   
+
+   
+   <url>
+      <loc>https://motoshfq.github.io/athlete.html?id=danylo-kravchenko</loc>
+      <lastmod>2025-01-18</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.6</priority>
+   </url>
+   
+   <url>
+      <loc>https://motoshfq.github.io/athlete.html?id=denys-tupytskiy</loc>
+      <lastmod>2025-01-18</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.6</priority>
+   </url>
+   
+
+   
+   <url>
+      <loc>https://motoshfq.github.io/athlete.html?id=dmytro-lebid</loc>
+      <lastmod>2025-01-18</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.6</priority>
+   </url>
+   
+   <url>
+      <loc>https://motoshfq.github.io/athlete.html?id=gagik-martirosyan</loc>
+      <lastmod>2025-01-18</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.6</priority>
+   </url>
+   
+   <url>
+      <loc>https://motoshfq.github.io/athlete.html?id=georgiy-zantaraya</loc>
+      <lastmod>2025-01-18</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.6</priority>
+   </url>
+   
+   <url>
+      <loc>https://motoshfq.github.io/athlete.html?id=gevorg-manukian</loc>
+      <lastmod>2025-01-18</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.6</priority>
+   </url>
+   
+   <url>
+      <loc>https://motoshfq.github.io/athlete.html?id=glib-dubina</loc>
+      <lastmod>2025-01-18</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.6</priority>
+   </url>
+   
+   <url>
+      <loc>https://motoshfq.github.io/athlete.html?id=ivan-kutenkov</loc>
+      <lastmod>2025-01-18</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.6</priority>
+   </url>
+   
+   <url>
+      <loc>https://motoshfq.github.io/athlete.html?id=karo-marandyan</loc>
+      <lastmod>2025-01-18</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.6</priority>
+   </url>
+   
+
+   
+   <url>
+      <loc>https://motoshfq.github.io/athlete.html?id=kyrylo-samotug</loc>
+      <lastmod>2025-01-18</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.6</priority>
+   </url>
+   
+   <url>
+      <loc>https://motoshfq.github.io/athlete.html?id=marat-kryzhanskiy</loc>
+      <lastmod>2025-01-18</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.6</priority>
+   </url>
+   
+   <url>
+      <loc>https://motoshfq.github.io/athlete.html?id=mykhailo-solyanik</loc>
+      <lastmod>2025-01-18</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.6</priority>
+   </url>
+   
+
+   
+   <url>
+      <loc>https://motoshfq.github.io/athlete.html?id=mykola-hrybyk</loc>
+      <lastmod>2025-01-18</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.6</priority>
+   </url>
+   
+   <url>
+      <loc>https://motoshfq.github.io/athlete.html?id=mykyta-holoborodko</loc>
+      <lastmod>2025-01-18</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.6</priority>
+   </url>
+   
+   <url>
+      <loc>https://motoshfq.github.io/athlete.html?id=nazar-kulieshov</loc>
+      <lastmod>2025-01-18</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.6</priority>
+   </url>
+   
+   <url>
+      <loc>https://motoshfq.github.io/athlete.html?id=nazar-viskov</loc>
+      <lastmod>2025-01-18</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.6</priority>
+   </url>
+   
+   <url>
+      <loc>https://motoshfq.github.io/athlete.html?id=nikita-batii</loc>
+      <lastmod>2025-01-18</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.6</priority>
+   </url>
+   
+   <url>
+      <loc>https://motoshfq.github.io/athlete.html?id=nikita-yudanov</loc>
+      <lastmod>2025-01-18</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.6</priority>
+   </url>
+   
+   <url>
+      <loc>https://motoshfq.github.io/athlete.html?id=oleksandr-koshlyak</loc>
+      <lastmod>2025-01-18</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.6</priority>
+   </url>
+   
+   <url>
+      <loc>https://motoshfq.github.io/athlete.html?id=oleksiy-yershov</loc>
+      <lastmod>2025-01-18</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.6</priority>
+   </url>
+   
+   <url>
+      <loc>https://motoshfq.github.io/athlete.html?id=said-magoomed-khalidov</loc>
+      <lastmod>2025-01-18</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.6</priority>
+   </url>
+   
+   <url>
+      <loc>https://motoshfq.github.io/athlete.html?id=sergiy-kim</loc>
+      <lastmod>2025-01-18</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.6</priority>
+   </url>
+   
+   <url>
+      <loc>https://motoshfq.github.io/athlete.html?id=sergiy-nebotov</loc>
+      <lastmod>2025-01-18</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.6</priority>
+   </url>
+   
+   <url>
+      <loc>https://motoshfq.github.io/athlete.html?id=stanislav-gunchenko</loc>
+      <lastmod>2025-01-18</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.6</priority>
+   </url>
+   
+   <url>
+      <loc>https://motoshfq.github.io/athlete.html?id=stanislav-semkov</loc>
+      <lastmod>2025-01-18</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.6</priority>
+   </url>
+   
+   <url>
+      <loc>https://motoshfq.github.io/athlete.html?id=taras-nelzev</loc>
+      <lastmod>2025-01-18</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.6</priority>
+   </url>
+   
+   <url>
+      <loc>https://motoshfq.github.io/athlete.html?id=tymur-valeyev</loc>
+      <lastmod>2025-01-18</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.6</priority>
+   </url>
+   
+   <url>
+      <loc>https://motoshfq.github.io/athlete.html?id=vladyslav-kazimirov</loc>
+      <lastmod>2025-01-18</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.6</priority>
+   </url>
+   
+   <url>
+      <loc>https://motoshfq.github.io/athlete.html?id=vladyslav-kolobov</loc>
+      <lastmod>2025-01-18</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.6</priority>
+   </url>
+   
+   <url>
+      <loc>https://motoshfq.github.io/athlete.html?id=yaroslav-omelchenko</loc>
+      <lastmod>2025-01-18</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.6</priority>
+   </url>
+   
+   <url>
+      <loc>https://motoshfq.github.io/athlete.html?id=yevgeniy-balievskiy</loc>
+      <lastmod>2025-01-18</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.6</priority>
+   </url>
+   
+   <url>
+      <loc>https://motoshfq.github.io/athlete.html?id=zaur-duniamaliev</loc>
+      <lastmod>2025-01-18</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.6</priority>
+   </url>
+   
+   <!-- Жіноча збірна - всі атлети -->
+   <url>
+      <loc>https://motoshfq.github.io/athlete.html?id=alina-shylova</loc>
+      <lastmod>2025-01-18</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.6</priority>
+   </url>
+   
+   <url>
+      <loc>https://motoshfq.github.io/athlete.html?id=alisa-videneeva</loc>
+      <lastmod>2025-01-18</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.6</priority>
+   </url>
+   
+   <url>
+      <loc>https://motoshfq.github.io/athlete.html?id=anastasia-antipina</loc>
+      <lastmod>2025-01-18</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.6</priority>
+   </url>
+   
+   <url>
+      <loc>https://motoshfq.github.io/athlete.html?id=anastasia-chyzhevska</loc>
+      <lastmod>2025-01-18</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.6</priority>
+   </url>
+   
+   <url>
+      <loc>https://motoshfq.github.io/athlete.html?id=anastasia-sykish</loc>
+      <lastmod>2025-01-18</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.6</priority>
+   </url>
+   
+   <url>
+      <loc>https://motoshfq.github.io/athlete.html?id=anastasiia-levchenko</loc>
+      <lastmod>2025-01-18</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.6</priority>
+   </url>
+   
+   <url>
+      <loc>https://motoshfq.github.io/athlete.html?id=anastasiia-severin</loc>
+      <lastmod>2025-01-18</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.6</priority>
+   </url>
+   
+   <url>
+      <loc>https://motoshfq.github.io/athlete.html?id=anna-kazakova</loc>
+      <lastmod>2025-01-18</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.6</priority>
+   </url>
+   
+   <url>
+      <loc>https://motoshfq.github.io/athlete.html?id=anna-oliinyk-korniiko</loc>
+      <lastmod>2025-01-18</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.6</priority>
+   </url>
+   
+   <url>
+      <loc>https://motoshfq.github.io/athlete.html?id=daria-boychenko</loc>
+      <lastmod>2025-01-18</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.6</priority>
+   </url>
+   
+   <url>
+      <loc>https://motoshfq.github.io/athlete.html?id=diana-semchenko</loc>
+      <lastmod>2025-01-18</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.6</priority>
+   </url>
+   
+   <url>
+      <loc>https://motoshfq.github.io/athlete.html?id=halyna-kovalska</loc>
+      <lastmod>2025-01-18</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.6</priority>
+   </url>
+   
+   <url>
+      <loc>https://motoshfq.github.io/athlete.html?id=inna-shynkarenko</loc>
+      <lastmod>2025-01-18</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.6</priority>
+   </url>
+   
+   <url>
+      <loc>https://motoshfq.github.io/athlete.html?id=khrystyna-homan</loc>
+      <lastmod>2025-01-18</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.6</priority>
+   </url>
+   
+   <url>
+      <loc>https://motoshfq.github.io/athlete.html?id=kristina-opanasenko</loc>
+      <lastmod>2025-01-18</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.6</priority>
+   </url>
+   
+   <url>
+      <loc>https://motoshfq.github.io/athlete.html?id=marharyta-miroshnichenko</loc>
+      <lastmod>2025-01-18</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.6</priority>
+   </url>
+   
+   <url>
+      <loc>https://motoshfq.github.io/athlete.html?id=maria-rytska</loc>
+      <lastmod>2025-01-18</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.6</priority>
+   </url>
+   
+   <url>
+      <loc>https://motoshfq.github.io/athlete.html?id=olga-tsimko</loc>
+      <lastmod>2025-01-18</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.6</priority>
+   </url>
+   
+   <url>
+      <loc>https://motoshfq.github.io/athlete.html?id=snizhana-plish</loc>
+      <lastmod>2025-01-18</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.6</priority>
+   </url>
+   
+   <url>
+      <loc>https://motoshfq.github.io/athlete.html?id=sofia-bordinskih</loc>
+      <lastmod>2025-01-18</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.6</priority>
+   </url>
+   
+   <url>
+      <loc>https://motoshfq.github.io/athlete.html?id=tetiana-limzaeva</loc>
+      <lastmod>2025-01-18</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.6</priority>
+   </url>
+   
+   <url>
+      <loc>https://motoshfq.github.io/athlete.html?id=yelyzaveta-lytvynenko</loc>
+      <lastmod>2025-01-18</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.6</priority>
+   </url>
+   
+   <url>
+      <loc>https://motoshfq.github.io/athlete.html?id=yulia-grebenozhko</loc>
+      <lastmod>2025-01-18</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.6</priority>
+   </url>
+   
+   <url>
+      <loc>https://motoshfq.github.io/athlete.html?id=yulia-kurchenko</loc>
+      <lastmod>2025-01-18</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.6</priority>
+   </url>
+   
+   <!-- ТРЕНЕРСЬКИЙ ШТАБ - профілі тренерів збірної України з дзюдо -->
+   
+   <!-- Головні тренери та керівники - найвищий пріоритет -->
+   <url>
+      <loc>https://motoshfq.github.io/coach.html?id=vitaliy-dubrova</loc>
+      <lastmod>2025-01-18</lastmod>
+      <changefreq>weekly</changefreq>
+      <priority>0.9</priority>
+      <image:image>
+         <image:loc>https://motoshfq.github.io/assets/team/coaches/dubrova/245382291_10225179544342940_3478703328148784119_n.jpg</image:loc>
+         <image:caption>Дуброва Віталій Вікторович - Заслужений тренер України, старший тренер резервної збірної</image:caption>
+         <image:title>Віталій Дуброва профіль тренера</image:title>
+      </image:image>
+   </url>
+   
+   <url>
+      <loc>https://motoshfq.github.io/coach.html?id=hanna-kashtanova</loc>
+      <lastmod>2025-01-18</lastmod>
+      <changefreq>weekly</changefreq>
+      <priority>0.8</priority>
+      <image:image>
+         <image:loc>https://motoshfq.github.io/assets/team/coaches/photo_2024-11-08_17-11-21.jpg</image:loc>
+         <image:caption>Каштанова Ганна Валеріївна - старший тренер жіночої збірної команди України</image:caption>
+         <image:title>Ганна Каштанова профіль тренера</image:title>
+      </image:image>
+   </url>
+   
+   <!-- Досвідчені тренери збірної -->
+   <url>
+      <loc>https://motoshfq.github.io/coach.html?id=serhiy-drebot</loc>
+      <lastmod>2025-01-18</lastmod>
+      <changefreq>weekly</changefreq>
+      <priority>0.7</priority>
+   </url>
+   
+   <url>
+      <loc>https://motoshfq.github.io/coach.html?id=niabali-kedjau</loc>
+      <lastmod>2025-01-18</lastmod>
+      <changefreq>weekly</changefreq>
+      <priority>0.7</priority>
+   </url>
+   
+   <url>
+      <loc>https://motoshfq.github.io/coach.html?id=oleksandr-kosinov</loc>
+      <lastmod>2025-01-18</lastmod>
+      <changefreq>weekly</changefreq>
+      <priority>0.7</priority>
+   </url>
+   
+   <url>
+      <loc>https://motoshfq.github.io/coach.html?id=ivanna-makukha</loc>
+      <lastmod>2025-01-18</lastmod>
+      <changefreq>weekly</changefreq>
+      <priority>0.7</priority>
+   </url>
+   
+   <url>
+      <loc>https://motoshfq.github.io/coach.html?id=mykhailo-rudenko</loc>
+      <lastmod>2025-01-18</lastmod>
+      <changefreq>weekly</changefreq>
+      <priority>0.7</priority>
+   </url>
+   
+   <!-- Інші тренери штабу -->
+   <url>
+      <loc>https://motoshfq.github.io/coach.html?id=andriy-burdun</loc>
+      <lastmod>2025-01-18</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.6</priority>
+   </url>
+   
+   <url>
+      <loc>https://motoshfq.github.io/coach.html?id=andriy-bloshenko</loc>
+      <lastmod>2025-01-18</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.6</priority>
+   </url>
+   
+   <url>
+      <loc>https://motoshfq.github.io/coach.html?id=dmytro-bondarchuk</loc>
+      <lastmod>2025-01-18</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.6</priority>
    </url>
 </urlset>

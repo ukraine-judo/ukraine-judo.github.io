@@ -1,5 +1,9 @@
 /* ===== TEAM PAGE LAYOUT ===== */
 
+.page-title, .page-subtitle {
+    color: white;
+}
+
 /* Team Hero Section */
 .team-hero {
     background: linear-gradient(135deg, #1a3f67 0%, #2a5f87 50%, #1a472a 100%);
@@ -23,7 +27,7 @@
 .team-hero-content {
     position: relative;
     z-index: 2;
-    text-align: center;
+    text-algn: center;
 }
 
 .team-hero-title {
@@ -43,6 +47,7 @@
     max-width: 600px;
     margin-left: auto;
     margin-right: auto;
+    color: white;
 }
 
 .team-stats {
@@ -83,16 +88,17 @@
     opacity: 0.9;
     text-transform: uppercase;
     letter-spacing: 0.5px;
+    color: white;
 }
 
 /* Team Sections */
 .team-section {
-    padding: 5rem 0;
+    padding: 2rem 0;
 }
 
 .team-section-header {
     text-align: center;
-    padding: 4rem;
+    padding: 0rem 1rem 1rem 1rem;
 }
 
 .team-section-title {

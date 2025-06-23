@@ -1,0 +1,353 @@
+{
+  "title": "Чемпіонати України серед юніорів U21",
+  "description": "Чемпіонати України серед юніорів та юніорок до 21 року",
+  "competitions": [
+    {
+      "year": 2025,
+      "title": "Чемпіонат України серед юніорів та юніорок до 21 року (2005-2010 р.н.)",
+      "location": "Ужгород",
+      "date": "04-06 березня 2025",
+      "status": "completed",
+      "files": [
+        {
+          "name": "Протоколи ходу змагань юніори",
+          "type": "results",
+          "icon": "results",
+          "path": "database/docs/champ/u21/2025-юніори.pdf",
+          "description": "Протоколи ходу змагань серед юніорів"
+        },
+        {
+          "name": "Протоколи ходу змагань юніорки",
+          "type": "results",
+          "icon": "results",
+          "path": "database/docs/champ/u21/2025-юніорки.pdf",
+          "description": "Протоколи ходу змагань серед юніорок"
+        },
+        {
+          "name": "Підсумкові протоколи",
+          "type": "protocol",
+          "icon": "protocol",
+          "path": "database/docs/champ/u21/2025-ПІДСУМКОВІ.pdf",
+          "description": "Підсумкові протоколи змагань"
+        }
+      ]
+    },
+    {
+      "year": 2024,
+      "title": "Чемпіонат України серед юніорів та юніорок до 21 року (2004-2009 р.н.)",
+      "location": "Київ",
+      "date": "14 березня 2024",
+      "status": "completed",
+      "files": [
+        {
+          "name": "Протоколи ходу змагань",
+          "type": "results",
+          "icon": "results",
+          "path": "database/docs/champ/u21/2024-хід.pdf",
+          "description": "Протоколи ходу змагань"
+        },
+        {
+          "name": "Підсумкові протоколи",
+          "type": "protocol",
+          "icon": "protocol",
+          "path": "database/docs/champ/u21/2024-ПІДСУМКОВІ.pdf",
+          "description": "Підсумкові протоколи змагань"
+        }
+      ]
+    },
+    {
+      "year": 2023,
+      "title": "Чемпіонат України серед юніорів та юніорок до 21 року (2003-2006 р.н.)",
+      "location": "Львів",
+      "date": "22 лютого 2023",
+      "status": "completed",
+      "files": [
+        {
+          "name": "Протоколи ходу змагань",
+          "type": "results",
+          "icon": "results",
+          "path": "database/docs/champ/u21/2023-хід.pdf",
+          "description": "Протоколи ходу змагань"
+        },
+        {
+          "name": "Підсумкові протоколи",
+          "type": "protocol",
+          "icon": "protocol",
+          "path": "database/docs/champ/u21/2023-ПІДСУМКОВІ.pdf",
+          "description": "Підсумкові протоколи змагань"
+        }
+      ]
+    },
+    {
+      "year": 2022,
+      "title": "Чемпіонат України серед юніорів та юніорок до 21 року (2002-2005 р.н.)",
+      "location": "Київ",
+      "date": "06 листопада 2022",
+      "status": "completed",
+      "files": [
+        {
+          "name": "Протоколи ходу змагань",
+          "type": "results",
+          "icon": "results",
+          "path": "database/docs/champ/u21/2022-хід.pdf",
+          "description": "Протоколи ходу змагань"
+        },
+        {
+          "name": "Підсумкові протоколи",
+          "type": "protocol",
+          "icon": "protocol",
+          "path": "database/docs/champ/u21/2022-ПІДСУМКОВІ.pdf",
+          "description": "Підсумкові протоколи змагань"
+        }
+      ]
+    },
+    {
+      "year": 2021,
+      "title": "Чемпіонат України серед юніорів та юніорок до 21 року (2001-2006 р.н.)",
+      "location": "Харків",
+      "date": "30 червня - 01 липня 2021",
+      "status": "completed",
+      "files": [
+        {
+          "name": "Протоколи юніори",
+          "type": "results",
+          "icon": "results",
+          "path": "database/docs/champ/u21/2021-юніори.pdf",
+          "description": "Протоколи змагань серед юніорів"
+        },
+        {
+          "name": "Протоколи юніорки",
+          "type": "results",
+          "icon": "results",
+          "path": "database/docs/champ/u21/2021-юніорки.pdf",
+          "description": "Протоколи змагань серед юніорок"
+        },
+        {
+          "name": "Підсумкові протоколи",
+          "type": "protocol",
+          "icon": "protocol",
+          "path": "database/docs/champ/u21/2021-ПІДСУМКОВІ.pdf",
+          "description": "Підсумкові протоколи змагань"
+        }
+      ]
+    },
+    {
+      "year": 2020,
+      "title": "Чемпіонат України серед юніорів та юніорок до 21 року (2000-2005 р.н.)",
+      "location": "Дніпро",
+      "date": "13-14 лютого 2020",
+      "status": "completed",
+      "files": [
+        {
+          "name": "Протоколи юніори",
+          "type": "results",
+          "icon": "results",
+          "path": "database/docs/champ/u21/2020-юніори.pdf",
+          "description": "Протоколи змагань серед юніорів"
+        },
+        {
+          "name": "Протоколи юніорки",
+          "type": "results",
+          "icon": "results",
+          "path": "database/docs/champ/u21/2020-юніорки.pdf",
+          "description": "Протоколи змагань серед юніорок"
+        },
+        {
+          "name": "Підсумкові протоколи",
+          "type": "protocol",
+          "icon": "protocol",
+          "path": "database/docs/champ/u21/2020-ПІДСУМКОВІ.pdf",
+          "description": "Підсумкові протоколи змагань"
+        }
+      ]
+    },
+    {
+      "year": 2019,
+      "title": "Чемпіонат України серед юніорів та юніорок до 21 року (1999-2004 р.н.)",
+      "location": "Дніпро",
+      "date": "26-27 березня 2019",
+      "status": "completed",
+      "files": [
+        {
+          "name": "Юніори",
+          "type": "results",
+          "icon": "results",
+          "path": "database/docs/champ/u21/2019-юніори.pdf",
+          "description": "Протоколи змагань серед юніорів"
+        },
+        {
+          "name": "Юніорки",
+          "type": "results",
+          "icon": "results",
+          "path": "database/docs/champ/u21/2019-юніорки.pdf",
+          "description": "Протоколи змагань серед юніорок"
+        }
+      ]
+    },
+    {
+      "year": 2018,
+      "title": "Чемпіонат України серед юніорів та юніорок до 21 року (1998-2003 р.н.)",
+      "location": "Київ",
+      "date": "05-06 квітня 2018",
+      "status": "completed",
+      "files": [
+        {
+          "name": "Юніори",
+          "type": "results",
+          "icon": "results",
+          "path": "database/docs/champ/u21/2018-юніори.pdf",
+          "description": "Протоколи змагань серед юніорів"
+        },
+        {
+          "name": "Юніорки",
+          "type": "results",
+          "icon": "results",
+          "path": "database/docs/champ/u21/2018-юніорки.pdf",
+          "description": "Протоколи змагань серед юніорок"
+        }
+      ]
+    },
+    {
+      "year": 2017,
+      "title": "Чемпіонат України серед юніорів та юніорок до 21 року (1997-2002 р.н.)",
+      "location": "Луцьк",
+      "date": "22-23 березня 2017",
+      "status": "completed",
+      "files": [
+        {
+          "name": "Юніори",
+          "type": "results",
+          "icon": "results",
+          "path": "database/docs/champ/u21/2017-юніори.pdf",
+          "description": "Протоколи змагань серед юніорів"
+        },
+        {
+          "name": "Юніорки",
+          "type": "results",
+          "icon": "results",
+          "path": "database/docs/champ/u21/2017-юніорки.pdf",
+          "description": "Протоколи змагань серед юніорок"
+        }
+      ]
+    },
+    {
+      "year": 2016,
+      "title": "Чемпіонат України серед юніорів та юніорок до 21 року (1996-2001 р.н.)",
+      "location": "Київ",
+      "date": "24-25 березня 2016",
+      "status": "completed",
+      "files": [
+        {
+          "name": "Протоколи змагань",
+          "type": "protocol",
+          "icon": "protocol",
+          "path": "database/docs/champ/u21/2016.pdf",
+          "description": "Офіційні протоколи змагань"
+        }
+      ]
+    },
+    {
+      "year": 2015,
+      "title": "Чемпіонат України, командний чемпіонат України серед юніорів та юніорок до 21 року (1995-2000 р.н.)",
+      "location": "Київ",
+      "date": "01-02 квітня 2015",
+      "status": "completed",
+      "files": [
+        {
+          "name": "Детальні результати доступні",
+          "type": "modal",
+          "icon": "protocol",
+          "path": "database/docs/champ/u21/2015-results.html",
+          "description": "Повні результати особистої та командної першості по всіх вагових категоріях серед юніорів та юніорок (файли протоколів відсутні)"
+        }
+      ]
+    },
+    {
+      "year": 2014,
+      "title": "Чемпіонат України, командний чемпіонат України серед юніорів та юніорок до 21 року (1994-1999 р.н.)",
+      "location": "Одеса",
+      "date": "17-18 березня 2014",
+      "status": "completed",
+      "files": [
+        {
+          "name": "Протоколи особистої першості",
+          "type": "protocol",
+          "icon": "protocol",
+          "path": "database/docs/champ/u21/2014-ОСОБИСТА.pdf",
+          "description": "Офіційні протоколи особистої першості"
+        },
+        {
+          "name": "Протоколи командної першості",
+          "type": "team",
+          "icon": "team",
+          "path": "database/docs/champ/u21/2014-КОМАНДНА.pdf",
+          "description": "Офіційні протоколи командної першості"
+        }
+      ]
+    },
+    {
+      "year": 2013,
+      "title": "Чемпіонат України серед юніорів та юніорок до 21 року (1993-1998 р.н.)",
+      "location": "Луцьк",
+      "date": "22-23 березня 2013",
+      "status": "completed",
+      "files": [
+        {
+          "name": "Протоколи змагань",
+          "type": "protocol",
+          "icon": "protocol",
+          "path": "database/docs/champ/u21/2013.pdf",
+          "description": "Офіційні протоколи змагань"
+        }
+      ]
+    },
+    {
+      "year": 2012,
+      "title": "Чемпіонат України серед юніорів та юніорок до 20 років (1993-1997 р.н.)",
+      "location": "Київ",
+      "date": "05-06 березня 2012",
+      "status": "completed",
+      "files": [
+        {
+          "name": "Детальні результати доступні",
+          "type": "modal",
+          "icon": "protocol",
+          "path": "database/docs/champ/u21/2012-results.html",
+          "description": "Повні результати по всіх вагових категоріях серед юніорів та юніорок (файли протоколів відсутні)"
+        }
+      ]
+    },
+    {
+      "year": 2011,
+      "title": "Чемпіонат України серед юніорів та юніорок до 20 років (1992-1996 р.н.)",
+      "location": "Полтава",
+      "date": "04-05 березня 2011",
+      "status": "completed",
+      "files": [
+        {
+          "name": "Детальні результати доступні",
+          "type": "modal",
+          "icon": "protocol",
+          "path": "database/docs/champ/u21/2011-results.html",
+          "description": "Повні результати по всіх вагових категоріях серед юніорів та юніорок з кількістю учасників (файли протоколів відсутні)"
+        }
+      ]
+    },
+    {
+      "year": 2009,
+      "title": "Чемпіонат України серед юніорів та юніорок до 20 років (1990-1994 р.н.)",
+      "location": "Харків",
+      "date": "06-07 березня 2009",
+      "status": "completed",
+      "files": [
+        {
+          "name": "Детальні результати доступні",
+          "type": "modal",
+          "icon": "protocol",
+          "path": "database/docs/champ/u21/2009-results.html",
+          "description": "Повні результати по всіх вагових категоріях серед юніорів та юніорок з кількістю учасників (файли протоколів відсутні)"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,398 @@
+/* Achievements Section - Compact */
+.coach-achievements {
+    padding: 3rem 0;
+    background: #f8f9fa;
+    position: relative;
+}
+
+@keyframes gradient-shift {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+}
+
+.achievements-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.achievements-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.achievements-header h2 {
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: 0.75rem;
+    position: relative;
+    display: inline-block;
+}
+
+.achievements-header h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 4px;
+    background: linear-gradient(90deg, #ffd700, #ffed4a);
+    border-radius: 2px;
+}
+
+.achievements-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.achievement-stat {
+    text-align: center;
+}
+
+.achievement-stat-number {
+    font-size: 2.5rem;
+    font-weight: 700;
+    display: block;
+    margin-bottom: 0.25rem;
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    transition: transform 0.3s ease;
+}
+
+.achievement-stat-number:hover {
+    transform: scale(1.1);
+}
+
+.achievement-stat-number.gold { 
+    background: linear-gradient(135deg, #ffd700, #ffed4a);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.achievement-stat-number.silver { 
+    background: linear-gradient(135deg, #c0c0c0, #e8e8e8);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.achievement-stat-number.bronze { 
+    background: linear-gradient(135deg, #cd7f32, #daa520);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.achievement-stat-label {
+    font-size: 0.875rem;
+    color: #666;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 600;
+}
+
+.achievements-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 1.5rem;
+}
+
+.achievement-item {
+    background: white;
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    border-left: 3px solid var(--medal-color, #ddd);
+}
+
+.achievement-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, transparent 0%, rgba(255, 255, 255, 0.1) 50%, transparent 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.achievement-item:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+}
+
+.achievement-item.gold { --medal-color: #ffd700; }
+.achievement-item.silver { --medal-color: #c0c0c0; }
+.achievement-item.bronze { --medal-color: #cd7f32; }
+
+.achievement-medal-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+    position: relative;
+}
+
+.achievement-medal-section::after {
+    content: '';
+    position: absolute;
+    bottom: -6px;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--medal-color, #ddd), transparent);
+}
+
+.achievement-medal {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: var(--medal-color, #ddd);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    flex-shrink: 0;
+}
+
+.achievement-medal svg {
+    width: 18px;
+    height: 18px;
+}
+
+.achievement-rank {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--medal-color, #666);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 0.4rem 0.8rem;
+    background: rgba(0, 0, 0, 0.03);
+    border-radius: 16px;
+    border: 1px solid var(--medal-color, #ddd);
+}
+
+.achievement-content {
+    flex: 1;
+}
+
+.achievement-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-bottom: 0.75rem;
+    line-height: 1.3;
+}
+
+.achievement-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
+    font-size: 0.8rem;
+    color: #666;
+}
+
+.achievement-year {
+    background: var(--primary-color);
+    color: white;
+    padding: 0.25rem 0.5rem;
+    border-radius: 8px;
+    font-weight: 600;
+}
+
+.achievement-location {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+.achievement-description {
+    font-size: 0.9rem;
+    color: #666;
+    line-height: 1.4;
+    margin-top: 0.5rem;
+}
+
+/* Responsive Design */
+@media (min-width: 1920px) {
+    .coach-achievements {
+        padding: 4rem 0;
+    }
+    
+    .achievements-container {
+        max-width: 1400px;
+    }
+    
+    .achievements-header {
+        margin-bottom: 3rem;
+    }
+    
+    .achievements-header h2 {
+        font-size: 2.5rem;
+    }
+    
+    .achievements-header h2::after {
+        width: 80px;
+        height: 5px;
+    }
+    
+    .achievements-stats {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 2rem;
+        margin-bottom: 3rem;
+    }
+    
+    .achievement-stat-number {
+        font-size: 3rem;
+    }
+    
+    .achievement-stat-label {
+        font-size: 1rem;
+    }
+    
+    .achievements-grid {
+        grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+        gap: 2rem;
+    }
+    
+    .achievement-item {
+        padding: 2rem;
+        border-radius: 16px;
+        border-left-width: 4px;
+    }
+    
+    .achievement-medal-section {
+        margin-bottom: 1.5rem;
+    }
+    
+    .achievement-medal {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .achievement-medal svg {
+        width: 22px;
+        height: 22px;
+    }
+    
+    .achievement-rank {
+        font-size: 1.1rem;
+        padding: 0.5rem 1rem;
+    }
+    
+    .achievement-title {
+        font-size: 1.3rem;
+        margin-bottom: 1rem;
+    }
+    
+    .achievement-meta {
+        gap: 1rem;
+        margin-bottom: 1rem;
+        font-size: 0.9rem;
+    }
+    
+    .achievement-year,
+    .achievement-location {
+        font-size: 0.9rem;
+    }
+    
+    .achievement-description {
+        font-size: 1rem;
+        margin-top: 0.75rem;
+    }
+}
+
+@media (min-width: 2560px) {
+    .coach-achievements {
+        padding: 5rem 0;
+    }
+    
+    .achievements-container {
+        max-width: 1600px;
+    }
+    
+    .achievements-header {
+        margin-bottom: 4rem;
+    }
+    
+    .achievements-header h2 {
+        font-size: 3rem;
+    }
+    
+    .achievements-header h2::after {
+        width: 100px;
+        height: 6px;
+    }
+    
+    .achievements-stats {
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 2.5rem;
+        margin-bottom: 4rem;
+    }
+    
+    .achievement-stat-number {
+        font-size: 3.5rem;
+    }
+    
+    .achievement-stat-label {
+        font-size: 1.1rem;
+    }
+    
+    .achievements-grid {
+        grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+        gap: 2.5rem;
+    }
+    
+    .achievement-item {
+        padding: 2.5rem;
+        border-radius: 20px;
+        border-left-width: 5px;
+    }
+    
+    .achievement-medal-section {
+        margin-bottom: 2rem;
+    }
+    
+    .achievement-medal {
+        width: 48px;
+        height: 48px;
+    }
+    
+    .achievement-medal svg {
+        width: 26px;
+        height: 26px;
+    }
+    
+    .achievement-rank {
+        font-size: 1.2rem;
+        padding: 0.6rem 1.2rem;
+    }
+    
+    .achievement-title {
+        font-size: 1.5rem;
+        margin-bottom: 1.25rem;
+    }
+    
+    .achievement-meta {
+        gap: 1.25rem;
+        margin-bottom: 1.25rem;
+        font-size: 1rem;
+    }
+    
+    .achievement-year,
+    .achievement-location {
+        font-size: 1rem;
+    }
+    
+    .achievement-description {
+        font-size: 1.1rem;
+        margin-top: 1rem;
+    }
+} 

@@ -1,0 +1,121 @@
+{
+  "title": "Чемпіонати України серед молодших юнаків U15",
+  "description": "Чемпіонати України серед молодших юнаків та дівчат до 15 років",
+  "competitions": [
+    {
+      "year": 2024,
+      "title": "Чемпіонат України серед молодших юнаків та дівчат до 15 років (2010-2011 р.н.)",
+      "location": "Тернопіль",
+      "date": "04-05 грудня 2024",
+      "status": "completed",
+      "files": [
+        {
+          "name": "Протокол ходу змагання серед дівчат",
+          "type": "results",
+          "icon": "results",
+          "path": "database/docs/champ/u15/2024-w.pdf",
+          "description": "Протокол ходу змагання серед дівчат"
+        },
+        {
+          "name": "Протокол ходу змагання серед юнаків",
+          "type": "results",
+          "icon": "results",
+          "path": "database/docs/champ/u15/2024-m.pdf",
+          "description": "Протокол ходу змагання серед юнаків"
+        },
+        {
+          "name": "Підсумковий протокол",
+          "type": "protocol",
+          "icon": "protocol",
+          "path": "database/docs/champ/u15/2024-results.pdf",
+          "description": "Підсумковий протокол змагань"
+        }
+      ]
+    },
+    {
+      "year": 2023,
+      "title": "Чемпіонат України серед молодших юнаків та дівчат до 15 років (2009-2010 р.н.)",
+      "location": "Ужгород",
+      "date": "24-25 листопада 2023",
+      "status": "completed",
+      "files": [
+        {
+          "name": "Протокол",
+          "type": "results",
+          "icon": "results",
+          "path": "database/docs/champ/u15/2023-protocol.pdf",
+          "description": "Протокол змагань"
+        },
+        {
+          "name": "Підсумковий протокол",
+          "type": "protocol",
+          "icon": "protocol",
+          "path": "database/docs/champ/u15/2023-results.pdf",
+          "description": "Підсумковий протокол змагань"
+        }
+      ]
+    },
+    {
+      "year": 2017,
+      "title": "Чемпіонат України серед молодших юнаків та дівчат до 15 років (2003 р.н.)",
+      "location": "Львів",
+      "date": "15 травня 2017",
+      "status": "completed",
+      "files": [
+        {
+          "name": "Юнаки та дівчата - 1 частина",
+          "type": "results",
+          "icon": "results",
+          "path": "database/docs/champ/u15/2017-protocol-1.pdf",
+          "description": "Протокол змагань серед юнаків та дівчат - 1 частина"
+        },
+        {
+          "name": "Юнаки та дівчата - 2 частина",
+          "type": "results",
+          "icon": "results",
+          "path": "database/docs/champ/u15/2017-protocol-2.pdf",
+          "description": "Протокол змагань серед юнаків та дівчат - 2 частина"
+        },
+        {
+          "name": "Командна першість",
+          "type": "protocol",
+          "icon": "protocol",
+          "path": "database/docs/champ/u15/2017-results.pdf",
+          "description": "Протокол командної першості"
+        }
+      ]
+    },
+    {
+      "year": 2016,
+      "title": "Чемпіонат України серед юнаків та дівчат до 14 років (2003 р.н.)",
+      "location": "Одеса",
+      "date": "11-12 травня 2016",
+      "status": "completed",
+      "files": [
+        {
+          "name": "Протоколи",
+          "type": "results",
+          "icon": "results",
+          "path": "database/docs/champ/u15/2016-u14.pdf",
+          "description": "Протоколи змагань серед юнаків та дівчат до 14 років"
+        }
+      ]
+    },
+    {
+      "year": 2012,
+      "title": "Чемпіонат України серед юнаків та дівчат до 15 років (1998-1999 р.н.)",
+      "location": "Одеса",
+      "date": "11-12 квітня 2012",
+      "status": "completed",
+      "files": [
+        {
+          "name": "Результати змагань",
+          "type": "modal",
+          "icon": "results",
+          "path": "database/docs/champ/u15/2012-results.html",
+          "description": "Результати змагань серед юнаків та дівчат"
+        }
+      ]
+    }
+  ]
+} 

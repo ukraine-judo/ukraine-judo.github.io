@@ -1,0 +1,39 @@
+User-agent: *
+Allow: /
+
+# Разрешаем индексацию всех основных страниц
+Allow: /index.html
+Allow: /about.html
+Allow: /team.html
+Allow: /news.html
+Allow: /calendar.html
+Allow: /documents.html
+Allow: /athlete.html
+Allow: /coach.html
+Allow: /news-article.html
+
+# Разрешаем доступ к ресурсам
+Allow: /assets/
+Allow: /css/
+Allow: /scripts/
+
+# Запрещаем индексацию технических файлов
+Disallow: /.git/
+Disallow: /database/
+Disallow: /test-smooth.html
+
+# Указываем sitemap
+Sitemap: https://motoshfq.github.io/sitemap.xml
+
+# Специальные инструкции для поисковых систем
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+User-agent: YandexBot
+Allow: /
+Crawl-delay: 1 

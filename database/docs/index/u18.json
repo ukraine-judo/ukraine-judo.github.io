@@ -1,0 +1,326 @@
+{
+  "title": "Чемпіонати України серед кадетів U18",
+  "description": "Чемпіонати України серед кадетів та кадеток до 18 років",
+  "competitions": [
+    {
+      "year": 2025,
+      "title": "Чемпіонат України серед кадетів до 18 років (2008-2010 р.н.)",
+      "location": "Черкаси",
+      "date": "19-21 лютого 2025",
+      "status": "completed",
+      "files": [
+        {
+          "name": "Протоколи ходу змагань юнаки",
+          "type": "results",
+          "icon": "results",
+          "path": "database/docs/champ/u18/2025-M.pdf",
+          "description": "Протоколи ходу змагань серед юнаків"
+        },
+        {
+          "name": "Протоколи ходу змагань дівчата",
+          "type": "results",
+          "icon": "results",
+          "path": "database/docs/champ/u18/2025-D.pdf",
+          "description": "Протоколи ходу змагань серед дівчат"
+        },
+        {
+          "name": "Підсумкові протоколи",
+          "type": "protocol",
+          "icon": "protocol",
+          "path": "database/docs/champ/u18/2025-ALL.pdf",
+          "description": "Підсумкові протоколи змагань"
+        }
+      ]
+    },
+    {
+      "year": 2024,
+      "title": "Чемпіонат України серед кадетів до 18 років (2007-2009 р.н.)",
+      "location": "Київ",
+      "date": "22-24 лютого 2024",
+      "status": "completed",
+      "files": [
+        {
+          "name": "Протоколи ходу змагань",
+          "type": "results",
+          "icon": "results",
+          "path": "database/docs/champ/u18/2024-D.pdf",
+          "description": "Протоколи ходу змагань"
+        },
+        {
+          "name": "Підсумкові протоколи",
+          "type": "protocol",
+          "icon": "protocol",
+          "path": "database/docs/champ/u18/2024-ALL.pdf",
+          "description": "Підсумкові протоколи змагань"
+        }
+      ]
+    },
+    {
+      "year": 2023,
+      "title": "Чемпіонат України серед кадетів до 18 років (2006-2008 р.н.)",
+      "location": "Львів",
+      "date": "23 лютого 2023",
+      "status": "completed",
+      "files": [
+        {
+          "name": "Протоколи ходу змагань",
+          "type": "results",
+          "icon": "results",
+          "path": "database/docs/champ/u18/2023-P.pdf",
+          "description": "Протоколи ходу змагань"
+        },
+        {
+          "name": "Підсумкові протоколи",
+          "type": "protocol",
+          "icon": "protocol",
+          "path": "database/docs/champ/u18/2023-ALL.pdf",
+          "description": "Підсумкові протоколи змагань"
+        }
+      ]
+    },
+    {
+      "year": 2022,
+      "title": "Чемпіонат України серед кадетів до 18 років (2005-2007 р.н.)",
+      "location": "Київ",
+      "date": "06 листопада 2022",
+      "status": "completed",
+      "files": [
+        {
+          "name": "Протоколи ходу змагань",
+          "type": "results",
+          "icon": "results",
+          "path": "database/docs/champ/u18/2022-P.pdf",
+          "description": "Протоколи ходу змагань"
+        },
+        {
+          "name": "Підсумкові протоколи",
+          "type": "protocol",
+          "icon": "protocol",
+          "path": "database/docs/champ/u18/2022-ALL.pdf",
+          "description": "Підсумкові протоколи змагань"
+        }
+      ]
+    },
+    {
+      "year": 2021,
+      "title": "Чемпіонат України серед кадетів до 18 років (2004-2006 р.н.)",
+      "location": "Суми",
+      "date": "19-20 березня 2021",
+      "status": "completed",
+      "files": [
+        {
+          "name": "Юнаки протоколи ходу змагань",
+          "type": "results",
+          "icon": "results",
+          "path": "database/docs/champ/u18/2021-m.pdf",
+          "description": "Протоколи ходу змагань серед юнаків"
+        },
+        {
+          "name": "Юнаки підсумкові протоколи",
+          "type": "protocol",
+          "icon": "protocol",
+          "path": "database/docs/champ/u18/2021-m-all.pdf",
+          "description": "Підсумкові протоколи серед юнаків"
+        },
+        {
+          "name": "Дівчата протоколи та підсумкові",
+          "type": "results",
+          "icon": "results",
+          "path": "database/docs/champ/u18/2021-d.pdf",
+          "description": "Протоколи ходу змагань та підсумкові протоколи серед дівчат"
+        }
+      ]
+    },
+    {
+      "year": 2020,
+      "title": "Чемпіонат України серед кадетів до 18 років (2003-2005 р.н.)",
+      "location": "Львів",
+      "date": "30-31 січня 2020",
+      "status": "completed",
+      "files": [
+        {
+          "name": "Юнаки протоколи ходу змагань",
+          "type": "results",
+          "icon": "results",
+          "path": "database/docs/champ/u18/2020-M.pdf",
+          "description": "Протоколи ходу змагань серед юнаків"
+        },
+        {
+          "name": "Юнаки підсумкові протоколи",
+          "type": "protocol",
+          "icon": "protocol",
+          "path": "database/docs/champ/u18/2020-M-ALL.pdf",
+          "description": "Підсумкові протоколи серед юнаків"
+        },
+        {
+          "name": "Дівчата протоколи ходу змагань",
+          "type": "results",
+          "icon": "results",
+          "path": "database/docs/champ/u18/2020-D.pdf",
+          "description": "Протоколи ходу змагань серед дівчат"
+        },
+        {
+          "name": "Дівчата підсумкові протоколи",
+          "type": "protocol",
+          "icon": "protocol",
+          "path": "database/docs/champ/u18/2020-D-ALL.pdf",
+          "description": "Підсумкові протоколи серед дівчат"
+        }
+      ]
+    },
+    {
+      "year": 2019,
+      "title": "Чемпіонат України серед кадетів до 18 років (2002-2004 р.н.)",
+      "location": "Черкаси",
+      "date": "05-06 лютого 2019",
+      "status": "completed",
+      "files": [
+        {
+          "name": "Юнаки",
+          "type": "results",
+          "icon": "results",
+          "path": "database/docs/champ/u18/2019-M.pdf",
+          "description": "Протоколи змагань серед юнаків"
+        },
+        {
+          "name": "Дівчата",
+          "type": "results",
+          "icon": "results",
+          "path": "database/docs/champ/u18/2019-D.pdf",
+          "description": "Протоколи змагань серед дівчат"
+        },
+        {
+          "name": "Підсумкові протоколи",
+          "type": "protocol",
+          "icon": "protocol",
+          "path": "database/docs/champ/u18/2019-ALL.pdf",
+          "description": "Підсумкові протоколи змагань"
+        }
+      ]
+    },
+    {
+      "year": 2018,
+      "title": "Чемпіонат України серед кадетів до 18 років (2001-2003 р.н.)",
+      "location": "Луцьк",
+      "date": "16-17 лютого 2018",
+      "status": "completed",
+      "files": [
+        {
+          "name": "Юнаки",
+          "type": "results",
+          "icon": "results",
+          "path": "database/docs/champ/u18/2018-M.pdf",
+          "description": "Протоколи змагань серед юнаків"
+        },
+        {
+          "name": "Юнаки підсумкові протоколи",
+          "type": "protocol",
+          "icon": "protocol",
+          "path": "database/docs/champ/u18/2018-M-ALL.pdf",
+          "description": "Підсумкові протоколи серед юнаків"
+        },
+        {
+          "name": "Дівчата",
+          "type": "results",
+          "icon": "results",
+          "path": "database/docs/champ/u18/2018-D.pdf",
+          "description": "Протоколи змагань серед дівчат"
+        },
+        {
+          "name": "Дівчата підсумкові протоколи",
+          "type": "protocol",
+          "icon": "protocol",
+          "path": "database/docs/champ/u18/2018-D-ALL.pdf",
+          "description": "Підсумкові протоколи серед дівчат"
+        }
+      ]
+    },
+    {
+      "year": 2017,
+      "title": "Чемпіонат України серед кадетів до 18 років (2000-2002 р.н.)",
+      "location": "Київ",
+      "date": "17-18 лютого 2017",
+      "status": "completed",
+      "files": [
+        {
+          "name": "Дівчата",
+          "type": "results",
+          "icon": "results",
+          "path": "database/docs/champ/u18/2017-D.pdf",
+          "description": "Протоколи змагань серед дівчат"
+        },
+        {
+          "name": "Юнаки",
+          "type": "results",
+          "icon": "results",
+          "path": "database/docs/champ/u18/2017-M.pdf",
+          "description": "Протоколи змагань серед юнаків"
+        }
+      ]
+    },
+    {
+      "year": 2016,
+      "title": "Чемпіонат України серед кадетів до 18 років (1999-2001 р.н.)",
+      "location": "Львів",
+      "date": "11-12 лютого 2016",
+      "status": "completed",
+      "files": [
+        {
+          "name": "Результати змагань",
+          "type": "modal",
+          "icon": "results",
+          "path": "database/docs/champ/u18/2016-results.html",
+          "description": "Повні результати особистого та командного чемпіонатів"
+        }
+      ]
+    },
+    {
+      "year": 2015,
+      "title": "Чемпіонат України серед юнаків та дівчат до 18 років (1998-2000 р.н.)",
+      "location": "Луцьк",
+      "date": "12-13 березня 2015",
+      "status": "completed",
+      "files": [
+        {
+          "name": "Результати змагань",
+          "type": "modal",
+          "icon": "results",
+          "path": "database/docs/champ/u18/2015-results.html",
+          "description": "Повні результати особистого чемпіонату"
+        }
+      ]
+    },
+    {
+      "year": 2014,
+      "title": "Чемпіонат України серед юнаків та дівчат до 18 років (1997-1999 р.н.)",
+      "location": "Луцьк",
+      "date": "12-14 лютого 2014",
+      "status": "completed",
+      "files": [
+        {
+          "name": "Протоколи змагань",
+          "type": "download",
+          "icon": "protocol",
+          "path": "database/docs/champ/u18/2014.pdf",
+          "description": "Офіційні протоколи змагань"
+        }
+      ]
+    },
+    {
+      "year": 2013,
+      "title": "Чемпіонат України серед юнаків та дівчат до 18 років (1996-1998 р.н.)",
+      "location": "Дніпропетровськ",
+      "date": "14-15 лютого 2013",
+      "status": "completed",
+      "files": [
+        {
+          "name": "Результати змагань",
+          "type": "modal",
+          "icon": "results",
+          "path": "database/docs/champ/u18/2013-results.html",
+          "description": "Повні результати особистого чемпіонату"
+        }
+      ]
+    }
+  ]
+}

@@ -1,5 +1,12 @@
 /* Base Athlete Page Styles */
 
+.page-title {
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
 /* Breadcrumb */
 .breadcrumb {
     background: #f8f9fa;

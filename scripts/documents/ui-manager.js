@@ -466,7 +466,7 @@ class DocumentsUIManager {
         
         // Generate action buttons
         const actionButtons = `
-            <a href="assets/docs/${doc.filename}" 
+            <a href="database/docs/all/${doc.filename}" 
                class="document-action primary" 
                target="_blank" 
                download="${doc.filename}">
@@ -474,7 +474,7 @@ class DocumentsUIManager {
                Завантажити
             </a>
             ${canPreview ? `
-            <a href="assets/docs/${doc.filename}" 
+            <a href="database/docs/all/${doc.filename}" 
                class="document-action secondary" 
                target="_blank">
                ${this.svgIcons.view}
@@ -816,7 +816,7 @@ class DocumentsUIManager {
         console.log('File download initiated:', file.name);
     }
 
-    // Show results in modal window
+    // Show results in modal window with enhanced features
     async showResultsModal(file, competition) {
         try {
             const response = await fetch(file.path);
@@ -825,15 +825,15 @@ class DocumentsUIManager {
             }
             
             const htmlContent = await response.text();
-            this.displayModal(htmlContent, `${competition.title} - ${file.name}`);
+            this.displayModal(htmlContent, `${competition.title} - ${file.name}`, competition);
         } catch (error) {
             console.error('Error loading results:', error);
             this.showNotification('Помилка завантаження результатів', 'error');
         }
     }
 
-    // Display modal with content
-    displayModal(content, title) {
+    // Display enhanced modal with search and filter functionality
+    displayModal(content, title, competition) {
         // Create modal if it doesn't exist
         let modal = document.getElementById('results-modal');
         if (!modal) {
@@ -845,7 +845,10 @@ class DocumentsUIManager {
         const modalBody = modal.querySelector('.modal-body');
         
         modalTitle.textContent = title;
-        modalBody.innerHTML = content;
+        modalBody.innerHTML = this.wrapContentWithControls(content, competition);
+
+        // Initialize modal functionality
+        this.initializeModalControls(modal);
 
         // Show modal
         modal.style.display = 'flex';
@@ -857,7 +860,156 @@ class DocumentsUIManager {
         }, 10);
     }
 
-    // Create modal element
+    // Wrap content with search and filter controls
+    wrapContentWithControls(content, competition) {
+        return `
+            <div class="results-controls">
+                <div class="results-search">
+                    <input type="text" placeholder="Пошук по імені спортсмена..." id="modal-search">
+                </div>
+                <div class="gender-filter">
+                    <button class="gender-btn active" data-gender="all">Усі</button>
+                    <button class="gender-btn" data-gender="male">Юноші</button>
+                    <button class="gender-btn" data-gender="female">Дівчата</button>
+                </div>
+            </div>
+            <div class="modal-results">
+                <div class="results-header">
+                    <h2>${competition ? competition.title : 'Результати змагань'}</h2>
+                    <h3>${competition ? `${competition.location}, ${competition.date}` : ''}</h3>
+                </div>
+                ${content}
+            </div>
+        `;
+    }
+
+    // Initialize modal controls (search and filters)
+    initializeModalControls(modal) {
+        const searchInput = modal.querySelector('#modal-search');
+        const genderButtons = modal.querySelectorAll('.gender-btn');
+        const resultsSections = modal.querySelectorAll('.results-section');
+
+        // Store original content for filtering
+        this.originalContent = Array.from(resultsSections).map(section => ({
+            element: section,
+            originalHTML: section.innerHTML,
+            categories: Array.from(section.querySelectorAll('.weight-category'))
+        }));
+
+        // Search functionality
+        if (searchInput) {
+            let searchTimeout;
+            searchInput.addEventListener('input', (e) => {
+                clearTimeout(searchTimeout);
+                searchTimeout = setTimeout(() => {
+                    this.filterResults(e.target.value.toLowerCase(), this.getActiveGender());
+                }, 300);
+            });
+        }
+
+        // Gender filter functionality
+        genderButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Update active state
+                genderButtons.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                
+                // Apply filter
+                const gender = btn.dataset.gender;
+                const searchTerm = searchInput ? searchInput.value.toLowerCase() : '';
+                this.filterResults(searchTerm, gender);
+            });
+        });
+    }
+
+    // Get currently active gender filter
+    getActiveGender() {
+        const activeBtn = document.querySelector('.gender-btn.active');
+        return activeBtn ? activeBtn.dataset.gender : 'all';
+    }
+
+    // Filter results based on search term and gender
+    filterResults(searchTerm, gender) {
+        const resultsSections = document.querySelectorAll('.results-section');
+        let hasVisibleResults = false;
+
+        resultsSections.forEach((section, sectionIndex) => {
+            const sectionTitle = section.querySelector('h3').textContent.toLowerCase();
+            const isGenderMatch = gender === 'all' || 
+                                (gender === 'male' && sectionTitle.includes('юноші')) ||
+                                (gender === 'female' && sectionTitle.includes('дівчата'));
+
+            if (!isGenderMatch) {
+                section.classList.add('hidden');
+                return;
+            }
+
+            section.classList.remove('hidden');
+            const categories = section.querySelectorAll('.weight-category');
+            let sectionHasVisible = false;
+
+            categories.forEach(category => {
+                const participants = category.querySelectorAll('li');
+                let categoryHasVisible = false;
+
+                participants.forEach(participant => {
+                    const name = participant.textContent.toLowerCase();
+                    const isMatch = !searchTerm || name.includes(searchTerm);
+                    
+                    if (isMatch) {
+                        participant.classList.remove('hidden');
+                        categoryHasVisible = true;
+                    } else {
+                        participant.classList.add('hidden');
+                    }
+                });
+
+                if (categoryHasVisible) {
+                    category.classList.remove('hidden');
+                    sectionHasVisible = true;
+                } else {
+                    category.classList.add('hidden');
+                }
+            });
+
+            if (sectionHasVisible) {
+                hasVisibleResults = true;
+            } else {
+                section.classList.add('hidden');
+            }
+        });
+
+        // Show empty state if no results
+        this.updateEmptyState(!hasVisibleResults, searchTerm, gender);
+    }
+
+    // Update empty state display
+    updateEmptyState(isEmpty, searchTerm, gender) {
+        const modalResults = document.querySelector('.modal-results');
+        let emptyState = modalResults.querySelector('.results-empty');
+
+        if (isEmpty) {
+            if (!emptyState) {
+                emptyState = document.createElement('div');
+                emptyState.className = 'results-empty';
+                modalResults.appendChild(emptyState);
+            }
+
+            const message = searchTerm 
+                ? `Не знайдено результатів для "${searchTerm}"`
+                : 'Немає результатів для обраного фільтра';
+
+            emptyState.innerHTML = `
+                <div class="empty-icon">🔍</div>
+                <p>${message}</p>
+                <p style="font-size: 0.9rem; opacity: 0.7;">Спробуйте змінити критерії пошуку</p>
+            `;
+        } else if (emptyState) {
+            emptyState.remove();
+        }
+    }
+
+    // Create enhanced modal element
     createModal() {
         const modal = document.createElement('div');
         modal.id = 'results-modal';
@@ -867,10 +1019,7 @@ class DocumentsUIManager {
                 <div class="modal-header">
                     <h3 class="modal-title"></h3>
                     <button class="modal-close" aria-label="Закрити">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <line x1="18" y1="6" x2="6" y2="18"></line>
-                            <line x1="6" y1="6" x2="18" y2="18"></line>
-                        </svg>
+                        ✕
                     </button>
                 </div>
                 <div class="modal-body"></div>

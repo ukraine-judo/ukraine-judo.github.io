@@ -1,0 +1,325 @@
+{
+  "title": "Чемпіонати України серед молоді U23",
+  "description": "Чемпіонати України серед молоді до 23 років",
+  "competitions": [
+    {
+      "year": 2025,
+      "title": "Чемпіонат України серед молоді до 23 років (2003-2010 р.н.)",
+      "location": "Львів",
+      "date": "29-30 травня 2025",
+      "status": "completed",
+      "files": [
+        {
+          "name": "Підсумкові протоколи",
+          "type": "protocol",
+          "icon": "protocol",
+          "path": "database/docs/champ/u23/29-30.05.25-підсумкови.pdf",
+          "description": "Підсумкові протоколи змагань"
+        },
+        {
+          "name": "Протоколи ходу змагань",
+          "type": "results",
+          "icon": "results",
+          "path": "database/docs/champ/u23/29-30.05.25-хід.pdf",
+          "description": "Протоколи ходу змагань"
+        }
+      ]
+    },
+    {
+      "year": 2024,
+      "title": "Чемпіонат України серед молоді до 23 років (2002-2009 р.н.)",
+      "location": "Вінниця",
+      "date": "11-12 вересня 2024",
+      "status": "completed",
+      "files": [
+        {
+          "name": "Підсумкові протоколи",
+          "type": "protocol",
+          "icon": "protocol",
+          "path": "database/docs/champ/u23/12-12.09.24-підсумкови.pdf",
+          "description": "Підсумкові протоколи змагань"
+        },
+        {
+          "name": "Протоколи ходу змагань",
+          "type": "results",
+          "icon": "results",
+          "path": "database/docs/champ/u23/12-12.09.24-хід.pdf",
+          "description": "Протоколи ходу змагань"
+        }
+      ]
+    },
+    {
+      "year": 2023,
+      "title": "Чемпіонат України серед молоді до 23 років (2001-2008 р.н.)",
+      "location": "Київ",
+      "date": "14-15 вересня 2023",
+      "status": "completed",
+      "files": [
+        {
+          "name": "Підсумкові протоколи",
+          "type": "protocol",
+          "icon": "protocol",
+          "path": "database/docs/champ/u23/14-15.09.23-підсумкови.pdf",
+          "description": "Підсумкові протоколи змагань"
+        },
+        {
+          "name": "Протоколи ходу змагань",
+          "type": "results",
+          "icon": "results",
+          "path": "database/docs/champ/u23/14-15.09.23-хід.pdf",
+          "description": "Протоколи ходу змагань"
+        }
+      ]
+    },
+    {
+      "year": 2021,
+      "title": "Чемпіонат України серед молоді до 23 років (1999-2006 р.н.)",
+      "location": "Дніпро",
+      "date": "15-16 вересня 2021",
+      "status": "completed",
+      "files": [
+        {
+          "name": "Підсумкові протоколи",
+          "type": "protocol",
+          "icon": "protocol",
+          "path": "database/docs/champ/u23/14-16.09.21-підсумкови.pdf",
+          "description": "Підсумкові протоколи змагань"
+        },
+        {
+          "name": "Протоколи чоловіки",
+          "type": "results",
+          "icon": "results",
+          "path": "database/docs/champ/u23/14-16.09.21-чоловіки.pdf",
+          "description": "Протоколи змагань серед чоловіків"
+        },
+        {
+          "name": "Протоколи жінки",
+          "type": "results",
+          "icon": "results",
+          "path": "database/docs/champ/u23/14-16.09.21-жінки.pdf",
+          "description": "Протоколи змагань серед жінок"
+        }
+      ]
+    },
+    {
+      "year": 2020,
+      "title": "Чемпіонат України серед молоді до 23 років (1998-2005 р.н.)",
+      "location": "Харків",
+      "date": "16-17 вересня 2020",
+      "status": "completed",
+      "files": [
+        {
+          "name": "Протоколи чоловіки",
+          "type": "results",
+          "icon": "results",
+          "path": "database/docs/champ/u23/16-17.09.20-чоловіки.pdf",
+          "description": "Протоколи змагань серед чоловіків"
+        },
+        {
+          "name": "Протоколи жінки",
+          "type": "results",
+          "icon": "results",
+          "path": "database/docs/champ/u23/16-17.09.20-жінки.pdf",
+          "description": "Протоколи змагань серед жінок"
+        }
+      ]
+    },
+    {
+      "year": 2019,
+      "title": "Чемпіонат України серед молоді до 23 років (1997-2004 р.н.)",
+      "location": "Суми",
+      "date": "19 лютого 2019",
+      "status": "completed",
+      "files": [
+        {
+          "name": "Протоколи чоловіки",
+          "type": "results",
+          "icon": "results",
+          "path": "database/docs/champ/u23/2019-чоловіки.pdf",
+          "description": "Протоколи змагань серед чоловіків"
+        },
+        {
+          "name": "Протоколи жінки",
+          "type": "results",
+          "icon": "results",
+          "path": "database/docs/champ/u23/2019-жінки.pdf",
+          "description": "Протоколи змагань серед жінок"
+        }
+      ]
+    },
+    {
+      "year": 2018,
+      "title": "Чемпіонат України серед молоді до 23 років (1996-2003 р.н.)",
+      "location": "Дніпро",
+      "date": "04-05 травня 2018",
+      "status": "completed",
+      "files": [
+        {
+          "name": "Протоколи чоловіки",
+          "type": "results",
+          "icon": "results",
+          "path": "database/docs/champ/u23/2018-чоловіки.pdf",
+          "description": "Протоколи змагань серед чоловіків"
+        },
+        {
+          "name": "Протоколи жінки",
+          "type": "results",
+          "icon": "results",
+          "path": "database/docs/champ/u23/2018-жінки.pdf",
+          "description": "Протоколи змагань серед жінок"
+        }
+      ]
+    },
+    {
+      "year": 2017,
+      "title": "Чемпіонат України серед молоді до 23 років (1995-2002 р.н.)",
+      "location": "Дніпро",
+      "date": "19-20 травня 2017",
+      "status": "completed",
+      "files": [
+        {
+          "name": "Протоколи",
+          "type": "protocol",
+          "icon": "protocol",
+          "path": "database/docs/champ/u23/2017.pdf",
+          "description": "Протоколи змагань"
+        }
+      ]
+    },
+    {
+      "year": 2016,
+      "title": "Чемпіонат України серед молоді до 23 років (1994-2001 р.н.)",
+      "location": "Харків",
+      "date": "28-29 вересня 2016",
+      "status": "completed",
+      "files": [
+        {
+          "name": "Протоколи",
+          "type": "protocol",
+          "icon": "protocol",
+          "path": "database/docs/champ/u23/2016.pdf",
+          "description": "Протоколи змагань"
+        }
+      ]
+    },
+    {
+      "year": 2015,
+      "title": "Чемпіонат України серед молоді до 23 років (1993-2000 р.н.)",
+      "location": "Черкаси",
+      "date": "24-25 вересня 2015",
+      "status": "completed",
+      "files": [
+        {
+          "name": "Протоколи",
+          "type": "protocol",
+          "icon": "protocol",
+          "path": "database/docs/champ/u23/2015.pdf",
+          "description": "Протоколи змагань"
+        }
+      ]
+    },
+    {
+      "year": 2014,
+      "title": "Чемпіонат України серед молоді до 23 років (1992-1999 р.н.)",
+      "location": "Київ",
+      "date": "24 вересня 2014",
+      "status": "completed",
+      "files": [
+        {
+          "name": "Детальні результати доступні",
+          "type": "modal",
+          "icon": "protocol",
+          "path": "database/docs/champ/u23/2014-results.html",
+          "description": "Повні результати змагань по всіх вагових категоріях серед юнаків та дівчат (файли протоколів відсутні)"
+        }
+      ]
+    },
+    {
+      "year": 2013,
+      "title": "Чемпіонат України серед молоді до 23 років (1991-1998 р.н.)",
+      "location": "Луганськ",
+      "date": "27-29 вересня 2013",
+      "status": "completed",
+      "files": [
+        {
+          "name": "Протоколи чоловіки",
+          "type": "results",
+          "icon": "results",
+          "path": "database/docs/champ/u23/2013-чоловіки.pdf",
+          "description": "Протоколи змагань серед чоловіків"
+        },
+        {
+          "name": "Протоколи жінки",
+          "type": "results",
+          "icon": "results",
+          "path": "database/docs/champ/u23/2013-жінки.pdf",
+          "description": "Протоколи змагань серед жінок"
+        }
+      ]
+    },
+    {
+      "year": 2012,
+      "title": "Чемпіонат України серед молоді до 23 років (1990-1997 р.н.)",
+      "location": "Черкаси",
+      "date": "06-07 вересня 2012",
+      "status": "completed",
+      "files": [
+        {
+          "name": "Детальні результати доступні",
+          "type": "modal",
+          "icon": "protocol",
+          "path": "database/docs/champ/u23/2012-results.html",
+          "description": "Повні результати змагань по всіх вагових категоріях серед чоловіків та жінок (файли протоколів відсутні)"
+        }
+      ]
+    },
+    {
+      "year": 2011,
+      "title": "Чемпіонат України серед молоді до 23 років (1989-1996 р.н.)",
+      "location": "Вінниця",
+      "date": "29-30 вересня 2011",
+      "status": "completed",
+      "files": [
+        {
+          "name": "Детальні результати доступні",
+          "type": "modal",
+          "icon": "protocol",
+          "path": "database/docs/champ/u23/2011-results.html",
+          "description": "Повні результати змагань по всіх вагових категоріях серед чоловіків та жінок (файли протоколів відсутні)"
+        }
+      ]
+    },
+    {
+      "year": 2010,
+      "title": "Чемпіонат України серед молоді до 23 років (1988-1995 р.н.)",
+      "location": "Вінниця",
+      "date": "28-30 вересня 2010",
+      "status": "completed",
+      "files": [
+        {
+          "name": "Протоколи змагань",
+          "type": "protocol",
+          "icon": "protocol",
+          "path": "database/docs/champ/u23/2010.pdf",
+          "description": "Офіційні протоколи змагань"
+        }
+      ]
+    },
+    {
+      "year": 2009,
+      "title": "Чемпіонат України серед молоді до 23 років (1987-1994 р.н.)",
+      "location": "Суми",
+      "date": "30 вересня - 01 жовтня 2009",
+      "status": "completed",
+      "files": [
+        {
+          "name": "Детальні результати доступні",
+          "type": "modal",
+          "icon": "protocol",
+          "path": "database/docs/champ/u23/2009-results.html",
+          "description": "Повні результати змагань по всіх вагових категоріях серед чоловіків та жінок (файли протоколів відсутні)"
+        }
+      ]
+    }
+  ]
+}

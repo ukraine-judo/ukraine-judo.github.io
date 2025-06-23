@@ -36,7 +36,7 @@ class DocumentsDataManager {
      */
     async fetchDocumentsData() {
         try {
-            const response = await fetch('assets/docs/documents.json');
+            const response = await fetch('database/docs/index/documents.json');
             
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);

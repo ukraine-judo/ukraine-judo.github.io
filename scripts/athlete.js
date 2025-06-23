@@ -128,7 +128,12 @@ document.addEventListener('DOMContentLoaded', function() {
      * Display athlete data on the page
      */
     function displayAthleteData(athlete) {
-        // Update page title and meta
+        // Update SEO meta tags and structured data
+        if (window.AthleteSEO) {
+            window.AthleteSEO.updateMetaTags(athlete);
+        }
+        
+        // Legacy meta updates (fallback)
         document.getElementById('page-title').textContent = `${athlete.name} - Федерація Дзюдо України`;
         
         const metaStatusText = athlete.status === 'main' ? 'основний склад' : 'резерв';
@@ -658,7 +663,12 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-});
+    // Initialize SEO Manager
+    if (window.AthleteSEO) {
+        window.AthleteSEO.init();
+    }
+    
+}); // End of DOMContentLoaded
 
 // Global variables for gallery modal
 let currentImageIndex = 0;
@@ -907,6 +917,100 @@ function closeGalleryModal() {
 }
 
 /**
+ * Download current image from gallery
+ */
+function downloadCurrentImage() {
+    if (!galleryImages || galleryImages.length === 0 || currentImageIndex < 0) {
+        console.error('No image available for download');
+        return;
+    }
+    
+    const currentImageSrc = galleryImages[currentImageIndex];
+    const imageFileName = `coach-photo-${currentImageIndex + 1}.jpg`;
+    
+    // Add visual feedback
+    const downloadBtn = document.querySelector('.gallery-download-btn');
+    const originalTransform = downloadBtn.style.transform;
+    downloadBtn.style.transform = 'scale(0.95) translateY(-2px)';
+    
+    setTimeout(() => {
+        downloadBtn.style.transform = originalTransform;
+    }, 200);
+    
+    // Create a temporary anchor element to trigger download
+    fetch(currentImageSrc)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.blob();
+        })
+        .then(blob => {
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.style.display = 'none';
+            a.href = url;
+            a.download = imageFileName;
+            document.body.appendChild(a);
+            a.click();
+            
+            // Clean up
+            setTimeout(() => {
+                document.body.removeChild(a);
+                window.URL.revokeObjectURL(url);
+            }, 100);
+            
+            // Show success feedback
+            showDownloadSuccess();
+        })
+        .catch(error => {
+            console.error('Download failed:', error);
+            showDownloadError();
+        });
+}
+
+/**
+ * Show download success feedback
+ */
+function showDownloadSuccess() {
+    const downloadBtn = document.querySelector('.gallery-download-btn');
+    const originalHTML = downloadBtn.innerHTML;
+    
+    downloadBtn.innerHTML = `
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M20 6L9 17l-5-5"/>
+        </svg>
+    `;
+    downloadBtn.style.background = 'rgba(34, 197, 94, 0.8)';
+    
+    setTimeout(() => {
+        downloadBtn.innerHTML = originalHTML;
+        downloadBtn.style.background = '';
+    }, 2000);
+}
+
+/**
+ * Show download error feedback
+ */
+function showDownloadError() {
+    const downloadBtn = document.querySelector('.gallery-download-btn');
+    const originalHTML = downloadBtn.innerHTML;
+    
+    downloadBtn.innerHTML = `
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+    `;
+    downloadBtn.style.background = 'rgba(239, 68, 68, 0.8)';
+    
+    setTimeout(() => {
+        downloadBtn.innerHTML = originalHTML;
+        downloadBtn.style.background = '';
+    }, 2000);
+}
+
+/**
  * Hide empty sections
  */
 function hideSection(sectionId) {
@@ -965,4 +1069,4 @@ function getTitleInfo(dan) {
         description: 'Спортивне звання',
         level: 1
     };
-} 
+}

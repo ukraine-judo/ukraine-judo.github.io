@@ -1,0 +1,285 @@
+{
+  "title": "Чемпіонати України серед молодших кадетів U17",
+  "description": "Чемпіонати України серед молодших кадетів до 17 років",
+  "competitions": [
+    {
+      "year": 2024,
+      "title": "Чемпіонат України серед молодших кадетів до 17 років (2008-2010 р.н.)",
+      "location": "Ужгород",
+      "date": "21-23 листопада 2024",
+      "status": "completed",
+      "files": [
+        {
+          "name": "Протоколи ходу змагань",
+          "type": "results",
+          "icon": "results",
+          "path": "database/docs/champ/u17/2024.pdf",
+          "description": "Протоколи ходу змагань"
+        },
+        {
+          "name": "Підсумкові протоколи",
+          "type": "protocol",
+          "icon": "protocol",
+          "path": "database/docs/champ/u17/2024-all.pdf",
+          "description": "Підсумкові протоколи змагань"
+        }
+      ]
+    },
+    {
+      "year": 2023,
+      "title": "Чемпіонат України серед молодших кадетів до 17 років (2007-2009 р.н.)",
+      "location": "Львів",
+      "date": "30 вересня - 01 жовтня 2023",
+      "status": "completed",
+      "files": [
+        {
+          "name": "Протоколи ходу змагань юнаки",
+          "type": "results",
+          "icon": "results",
+          "path": "database/docs/champ/u17/2023-M.pdf",
+          "description": "Протоколи ходу змагань серед юнаків"
+        },
+        {
+          "name": "Протоколи ходу змагань дівчата",
+          "type": "results",
+          "icon": "results",
+          "path": "database/docs/champ/u17/2023-D.pdf",
+          "description": "Протоколи ходу змагань серед дівчат"
+        },
+        {
+          "name": "Підсумкові протоколи",
+          "type": "protocol",
+          "icon": "protocol",
+          "path": "database/docs/champ/u17/2023-ALL.pdf",
+          "description": "Підсумкові протоколи змагань"
+        }
+      ]
+    },
+    {
+      "year": 2021,
+      "title": "Чемпіонат України серед молодших кадетів до 17 років (2005-2007 р.н.)",
+      "location": "Ужгород",
+      "date": "02-03 жовтня 2021",
+      "status": "completed",
+      "files": [
+        {
+          "name": "Юнаки протоколи ходу змагань - 1 день",
+          "type": "results",
+          "icon": "results",
+          "path": "database/docs/champ/u17/2021-M-1.pdf",
+          "description": "Протоколи ходу змагань юнаки 1 день (46, 50, 55, 60 кг)"
+        },
+        {
+          "name": "Юнаки протоколи ходу змагань - 2 день",
+          "type": "results",
+          "icon": "results",
+          "path": "database/docs/champ/u17/2021-M-2.pdf",
+          "description": "Протоколи ходу змагань юнаки 2 день (66, 73, 81, 90, +90 кг)"
+        },
+        {
+          "name": "Юнаки підсумкові протоколи",
+          "type": "protocol",
+          "icon": "protocol",
+          "path": "database/docs/champ/u17/2021-M-ALL.pdf",
+          "description": "Підсумкові протоколи серед юнаків"
+        },
+        {
+          "name": "Дівчата протоколи ходу змагань",
+          "type": "results",
+          "icon": "results",
+          "path": "database/docs/champ/u17/2021-D.pdf",
+          "description": "Протоколи ходу змагань серед дівчат"
+        },
+        {
+          "name": "Дівчата підсумкові протоколи",
+          "type": "protocol",
+          "icon": "protocol",
+          "path": "database/docs/champ/u17/2021-D-ALL.pdf",
+          "description": "Підсумкові протоколи серед дівчат"
+        }
+      ]
+    },
+    {
+      "year": 2019,
+      "title": "Чемпіонат України серед молодших кадетів до 17 років (2003-2005 р.н.)",
+      "location": "Ужгород",
+      "date": "12-13 жовтня 2019",
+      "status": "completed",
+      "files": [
+        {
+          "name": "Юнаки 1 день протоколи ходу змагань",
+          "type": "results",
+          "icon": "results",
+          "path": "database/docs/champ/u17/2020-D1-M.pdf",
+          "description": "Протоколи ходу змагань юнаки 1 день (46, 50, 55, 60 кг)"
+        },
+        {
+          "name": "Юнаки 1 день підсумкові протоколи",
+          "type": "protocol",
+          "icon": "protocol",
+          "path": "database/docs/champ/u17/2020-D1-M-ALL.pdf",
+          "description": "Підсумкові протоколи юнаки 1 день"
+        },
+        {
+          "name": "Юнаки 2 день протоколи ходу змагань",
+          "type": "results",
+          "icon": "results",
+          "path": "database/docs/champ/u17/2020-D2-M.pdf",
+          "description": "Протоколи ходу змагань юнаки 2 день (66, 73, 81, 90, +90 кг)"
+        },
+        {
+          "name": "Юнаки 2 день підсумкові протоколи",
+          "type": "protocol",
+          "icon": "protocol",
+          "path": "database/docs/champ/u17/2020-D2-M-ALL.pdf",
+          "description": "Підсумкові протоколи юнаки 2 день"
+        },
+        {
+          "name": "Дівчата протоколи ходу змагань",
+          "type": "results",
+          "icon": "results",
+          "path": "database/docs/champ/u17/2020-D.pdf",
+          "description": "Протоколи ходу змагань серед дівчат"
+        },
+        {
+          "name": "Дівчата підсумкові протоколи та командна першість",
+          "type": "protocol",
+          "icon": "protocol",
+          "path": "database/docs/champ/u17/2020-D-all-and-command.pdf",
+          "description": "Підсумкові протоколи серед дівчат та командна першість"
+        }
+      ]
+    },
+    {
+      "year": 2018,
+      "title": "Чемпіонат України серед молодших кадетів до 17 років (2002-2004 р.н.)",
+      "location": "Ужгород",
+      "date": "06-07 жовтня 2018",
+      "status": "completed",
+      "files": [
+        {
+          "name": "Юнаки протоколи ходу змагань",
+          "type": "results",
+          "icon": "results",
+          "path": "database/docs/champ/u17/2018-M.pdf",
+          "description": "Протоколи ходу змагань серед юнаків"
+        },
+        {
+          "name": "Юнаки підсумкові протоколи",
+          "type": "protocol",
+          "icon": "protocol",
+          "path": "database/docs/champ/u17/2018-M-ALL.pdf",
+          "description": "Підсумкові протоколи серед юнаків"
+        },
+        {
+          "name": "Дівчата підсумкові протоколи",
+          "type": "protocol",
+          "icon": "protocol",
+          "path": "database/docs/champ/u17/2018-D-ALL.pdf",
+          "description": "Підсумкові протоколи серед дівчат"
+        }
+      ]
+    },
+    {
+      "year": 2017,
+      "title": "Чемпіонат України серед молодших кадетів до 17 років (2001-2003 р.н.)",
+      "location": "Житомир",
+      "date": "08-09 листопада 2017",
+      "status": "completed",
+      "files": [
+        {
+          "name": "Юнаки протоколи ходу змагань",
+          "type": "results",
+          "icon": "results",
+          "path": "database/docs/champ/u17/2017-M.pdf",
+          "description": "Протоколи ходу змагань серед юнаків"
+        },
+        {
+          "name": "Юнаки підсумкові протоколи",
+          "type": "protocol",
+          "icon": "protocol",
+          "path": "database/docs/champ/u17/2017-M-ALL.pdf",
+          "description": "Підсумкові протоколи серед юнаків"
+        },
+        {
+          "name": "Дівчата підсумкові протоколи",
+          "type": "protocol",
+          "icon": "protocol",
+          "path": "database/docs/champ/u17/2017-D-ALL.pdf",
+          "description": "Підсумкові протоколи серед дівчат"
+        }
+      ]
+    },
+    {
+      "year": 2016,
+      "title": "Чемпіонат України серед юнаків та дівчат до 17 років (2000-2002 р.н.)",
+      "location": "Луцьк",
+      "date": "20-21 жовтня 2016",
+      "status": "completed",
+      "files": [
+        {
+          "name": "Протоколи ходу змагань",
+          "type": "results",
+          "icon": "results",
+          "path": "database/docs/champ/u17/2016.pdf",
+          "description": "Протоколи ходу змагань юнаки та дівчата"
+        },
+        {
+          "name": "Підсумкові протоколи",
+          "type": "protocol",
+          "icon": "protocol",
+          "path": "database/docs/champ/u17/2016-ALL.pdf",
+          "description": "Підсумкові протоколи змагань"
+        }
+      ]
+    },
+    {
+      "year": 2015,
+      "title": "Чемпіонат України серед юнаків та дівчат до 17 років (1999-2001 р.н.)",
+      "location": "Луцьк",
+      "date": "22-23 листопада 2015",
+      "status": "completed",
+      "files": [
+        {
+          "name": "Результати змагань",
+          "type": "modal",
+          "icon": "results",
+          "path": "database/docs/champ/u17/2015-results.html",
+          "description": "Результати змагань юнаки та дівчата"
+        }
+      ]
+    },
+    {
+      "year": 2014,
+      "title": "Чемпіонат України серед юнаків та дівчат до 17 років (1998-2000 р.н.)",
+      "location": "Київ",
+      "date": "10-11 грудня 2014",
+      "status": "completed",
+      "files": [
+        {
+          "name": "Результати змагань",
+          "type": "modal",
+          "icon": "results",
+          "path": "database/docs/champ/u17/2014-results.html",
+          "description": "Результати змагань юнаки та дівчата"
+        }
+      ]
+    },
+    {
+      "year": 2012,
+      "title": "Чемпіонат України серед юнаків та дівчат до 17 років (1996-1997 р.н.)",
+      "location": "Ужгород",
+      "date": "10-11 лютого 2012",
+      "status": "completed",
+      "files": [
+        {
+          "name": "Результати змагань",
+          "type": "modal",
+          "icon": "results",
+          "path": "database/docs/champ/u17/2012-results.html",
+          "description": "Результати змагань юнаки та дівчата"
+        }
+      ]
+    }
+  ]
+}

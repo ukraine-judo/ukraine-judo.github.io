@@ -1,0 +1,9 @@
+/* Documents Module Index - Imports all document styles */
+
+@import url('./breadcrumbs.css');
+@import url('./layout.css');
+@import url('./controls.css');
+@import url('./cards.css');
+@import url('./pagination.css');
+@import url('./protocols.css');
+@import url('./modal.css'); 

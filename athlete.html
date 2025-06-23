@@ -3,17 +3,162 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title id="page-title">Спортсмен - Федерація Дзюдо України</title>
-    <meta name="description" id="page-description" content="Профіль спортсмена національної збірної України з дзюдо">
+    
+    <!-- Primary Meta Tags - динамічно оновлюються JavaScript -->
+    <title id="page-title">🥋 Спортсмен національної збірної України з дзюдо | Профіль атлета ФДУ</title>
+    <meta name="title" id="page-meta-title" content="🥋 Спортсмен національної збірної України з дзюдо | Профіль атлета ФДУ">
+    <meta name="description" id="page-description" content="Офіційний профіль спортсмена національної збірної України з дзюдо: біографія, досягнення, статистика змагань та особиста інформація атлета ФДУ">
+    <meta name="keywords" id="page-keywords" content="спортсмен дзюдо україна, профіль атлета фду, національна збірна дзюдо, біографія дзюдоїст, досягнення спортсмена, олімпійці україна дзюдо">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="Ukrainian">
+    <meta name="author" content="Федерація Дзюдо України">
+    
+    <!-- Open Graph / Facebook - динамічно оновлюються -->
+    <meta property="og:type" content="profile">
+    <meta property="og:url" id="og-url" content="https://motoshfq.github.io/athlete.html">
+    <meta property="og:title" id="og-title" content="🥋 Спортсмен національної збірної України з дзюдо">
+    <meta property="og:description" id="og-description" content="Офіційний профіль спортсмена національної збірної України з дзюдо">
+    <meta property="og:image" id="og-image" content="https://motoshfq.github.io/assets/team/default-athlete.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:locale" content="uk_UA">
+    <meta property="og:site_name" content="Федерація Дзюдо України">
+    
+    <!-- Twitter Cards - динамічно оновлюються -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" id="twitter-url" content="https://motoshfq.github.io/athlete.html">
+    <meta property="twitter:title" id="twitter-title" content="🥋 Спортсмен національної збірної України з дзюдо">
+    <meta property="twitter:description" id="twitter-description" content="Офіційний профіль спортсмена національної збірної України з дзюдо">
+    <meta property="twitter:image" id="twitter-image" content="https://motoshfq.github.io/assets/team/default-athlete.jpg">
+    
+    <!-- Additional SEO Meta Tags -->
+    <meta name="geo.region" content="UA">
+    <meta name="geo.placename" content="Київ, Україна">
+    <meta name="geo.position" content="50.4501;30.5234">
+    <meta name="ICBM" content="50.4501, 30.5234">
+    
+    <!-- Canonical URL - динамічно оновлюється -->
+    <link rel="canonical" id="canonical-url" href="https://motoshfq.github.io/athlete.html">
+    
+    <!-- Hreflang -->
+    <link rel="alternate" hreflang="uk" href="https://motoshfq.github.io/athlete.html">
+    <link rel="alternate" hreflang="x-default" href="https://motoshfq.github.io/athlete.html">
+    
+    <!-- Favicon and Icons -->
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/fju-logo.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/fju-logo.png">
+    <link rel="apple-touch-icon" href="assets/fju-logo.png">
     <link rel="stylesheet" href="css/global.css">
     <link rel="stylesheet" href="css/navigation.css">
     <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/components/breadcrumb.css">
     <link rel="stylesheet" href="css/footer.css">
     <link rel="stylesheet" href="css/pages/team/athletes/index.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- JSON-LD Structured Data - динамічно оновлюється JavaScript -->
+    <script type="application/ld+json" id="athlete-schema">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Спортсмен ФДУ",
+        "jobTitle": "Професійний дзюдоїст",
+        "description": "Спортсмен національної збірної України з дзюдо",
+        "url": "https://motoshfq.github.io/athlete.html",
+        "image": "https://motoshfq.github.io/assets/team/default-athlete.jpg",
+        "nationality": "Ukrainian",
+        "sport": "Judo",
+        "memberOf": {
+            "@type": "SportsTeam",
+            "name": "Національна збірна України з дзюдо",
+            "parentOrganization": {
+                "@type": "SportsOrganization",
+                "name": "Федерація Дзюдо України",
+                "url": "https://motoshfq.github.io/"
+            }
+        },
+        "address": {
+            "@type": "PostalAddress",
+            "addressCountry": "UA"
+        },
+        "sponsor": {
+            "@type": "SportsOrganization",
+            "name": "Федерація Дзюдо України"
+        }
+    }
+    </script>
+    
+    <!-- Breadcrumb Structured Data -->
+    <script type="application/ld+json" id="breadcrumb-schema">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Головна",
+                "item": "https://motoshfq.github.io/"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Збірна",
+                "item": "https://motoshfq.github.io/team.html"
+            },
+            {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "Спортсмен",
+                "item": "https://motoshfq.github.io/athlete.html"
+            }
+        ]
+    }
+    </script>
+    
+    <!-- ProfilePage Schema -->
+    <script type="application/ld+json" id="profile-page-schema">
+    {
+        "@context": "https://schema.org",
+        "@type": "ProfilePage",
+        "name": "Профіль спортсмена",
+        "description": "Офіційний профіль спортсмена національної збірної України з дзюдо",
+        "url": "https://motoshfq.github.io/athlete.html",
+        "mainEntity": {
+            "@type": "Person",
+            "name": "Спортсмен ФДУ"
+        },
+        "breadcrumb": {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+                {
+                    "@type": "ListItem",
+                    "position": 1,
+                    "name": "Головна",
+                    "item": "https://motoshfq.github.io/"
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 2,
+                    "name": "Збірна",
+                    "item": "https://motoshfq.github.io/team.html"
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 3,
+                    "name": "Спортсмен",
+                    "item": "https://motoshfq.github.io/athlete.html"
+                }
+            ]
+        },
+        "inLanguage": "uk-UA"
+    }
+    </script>
+    
     <script src="script.js"></script>
+    <script src="scripts/athlete-seo.js"></script>
 </head>
 <body>
     <header class="header">
@@ -86,15 +231,37 @@
     </header>
 
     <main>
-        <!-- Breadcrumb -->
-        <section class="breadcrumb">
+        <!-- Breadcrumb with Schema.org markup -->
+        <section class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
             <div class="container">
-                <nav class="breadcrumb-nav">
-                    <a href="index.html">Головна</a>
+                <nav class="breadcrumb-nav" aria-label="Breadcrumb navigation">
+                    <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                        <a href="index.html" itemprop="item" itemscope itemtype="https://schema.org/WebPage">
+                            <svg class="breadcrumb-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                                <polyline points="9,22 9,12 15,12 15,22"/>
+                            </svg>
+                            <span itemprop="name">Головна</span>
+                        </a>
+                        <meta itemprop="position" content="1">
+                    </span>
                     <span class="breadcrumb-separator">→</span>
-                    <a href="team.html">Збірна</a>
+                    <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                        <a href="team.html" itemprop="item" itemscope itemtype="https://schema.org/WebPage">
+                            <svg class="breadcrumb-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="3"/>
+                                <path d="M12 1v6m0 6v6"/>
+                                <path d="m15.5 3.5-1 1M8.5 20.5l1-1M3.5 8.5l1 1M20.5 15.5l-1-1"/>
+                            </svg>
+                            <span itemprop="name">Збірна</span>
+                        </a>
+                        <meta itemprop="position" content="2">
+                    </span>
                     <span class="breadcrumb-separator">→</span>
-                    <span id="breadcrumb-name">Спортсмен</span>
+                    <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                        <span id="breadcrumb-name" itemprop="name">Спортсмен</span>
+                        <meta itemprop="position" content="3">
+                    </span>
                 </nav>
             </div>
         </section>
@@ -113,15 +280,15 @@
             </div>
         </div>
 
-        <!-- Athlete Profile Content -->
-        <div id="athlete-content" style="display: none;">
+        <!-- Athlete Profile Content with Schema.org markup -->
+        <div id="athlete-content" style="display: none;" itemscope itemtype="https://schema.org/Person">
             <!-- Hero Section -->
             <section class="athlete-hero">
                 <div class="container">
                     <div class="athlete-hero-content">
                         <div class="athlete-hero-image">
                             <div class="athlete-image-wrapper">
-                                <img id="athlete-image" src="" alt="" class="athlete-main-image">
+                                <img id="athlete-image" src="" alt="" class="athlete-main-image" itemprop="image" itemscope itemtype="https://schema.org/ImageObject">
                                 <div class="athlete-badges">
                                     <div id="athlete-team-status" class="athlete-badge team-status"></div>
                                     <div id="athlete-weight" class="athlete-badge weight"></div>
@@ -131,9 +298,11 @@
                         
                         <div class="athlete-hero-info">
                             <div class="athlete-name-section">
-                                <h1 id="athlete-name"></h1>
-                                <p id="athlete-name-en" class="athlete-hero-subtitle"></p>
-
+                                <h1 id="athlete-name" itemprop="name">Профіль спортсмена національної збірної України з дзюдо</h1>
+                                <p id="athlete-name-en" class="athlete-hero-subtitle" itemprop="alternateName"></p>
+                                <meta itemprop="jobTitle" content="Професійний дзюдоїст">
+                                <meta itemprop="sport" content="Judo">
+                                <meta itemprop="nationality" content="Ukrainian">
                             </div>
                             
                             <div class="athlete-stats-grid">
@@ -196,7 +365,8 @@
             <section class="athlete-achievements">
                 <div class="container achievements-container">
                     <div class="achievements-header">
-                        <h2>Досягнення</h2>
+                        <h2>Спортивні досягнення та перемоги</h2>
+                        <p class="achievements-subtitle">Медалі, нагороди та результати на міжнародних змаганнях</p>
                     </div>
                     
                     <div id="achievements-stats" class="achievements-stats">
@@ -211,7 +381,8 @@
             <section class="athlete-biography">
                 <div class="container biography-container">
                     <div class="biography-header">
-                        <h2>Особиста Інформація</h2>
+                        <h2>Особиста інформація та кар'єрні дані</h2>
+                        <p class="biography-subtitle">Детальна інформація про спортсмена та його кар'єру в дзюдо</p>
                     </div>
                     
                     <div class="biography-grid">
@@ -221,7 +392,7 @@
                                     <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
                                     <circle cx="12" cy="7" r="4"/>
                                 </svg>
-                                Особисті дані
+                                Особисті дані та спортивна кар'єра
                             </h3>
                             <div class="biography-details">
                                 <div class="bio-item">
@@ -346,10 +517,10 @@
             <section class="athlete-gallery">
                 <div class="container gallery-container">
                     <div class="gallery-header">
-                        <h2>Галерея</h2>
-                        <p>Фотографії з тренувань та змагань</p>
+                        <h2>Фотогалерея спортсмена</h2>
+                        <p>Фотографії з тренувань, змагань та церемоній нагородження дзюдоїста</p>
                     </div>
-                    <div id="gallery-grid" class="gallery-grid"></div>
+                    <div id="gallery-grid" class="gallery-grid" role="img" aria-label="Галерея фотографій спортсмена"></div>
                 </div>
             </section>
 
@@ -357,9 +528,10 @@
             <section class="athlete-social">
                 <div class="container social-container">
                     <div class="social-header">
-                        <h2>Профілі спортсмена</h2>
+                        <h2>Офіційні профілі та контакти</h2>
+                        <p>Соціальні мережі та професійні профілі спортсмена</p>
                     </div>
-                    <div id="athlete-social-links" class="athlete-social-links"></div>
+                    <div id="athlete-social-links" class="athlete-social-links" role="list" aria-label="Соціальні профілі спортсмена"></div>
                 </div>
             </section>
         </div>
@@ -373,12 +545,21 @@
             <!-- Header -->
             <div class="gallery-modal-header">
                 <div id="gallery-counter" class="gallery-counter">1 / 10</div>
-                <button class="gallery-close-btn" onclick="closeGalleryModal()">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <line x1="18" y1="6" x2="6" y2="18"></line>
-                        <line x1="6" y1="6" x2="18" y2="18"></line>
-                    </svg>
-                </button>
+                <div class="gallery-header-actions">
+                    <button class="gallery-download-btn" onclick="downloadCurrentImage()" title="Завантажити зображення">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                            <polyline points="7,10 12,15 17,10"/>
+                            <line x1="12" y1="15" x2="12" y2="3"/>
+                        </svg>
+                    </button>
+                    <button class="gallery-close-btn" onclick="closeGalleryModal()">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="18" y1="6" x2="6" y2="18"></line>
+                            <line x1="6" y1="6" x2="18" y2="18"></line>
+                        </svg>
+                    </button>
+                </div>
             </div>
             
             <!-- Main Image Area -->

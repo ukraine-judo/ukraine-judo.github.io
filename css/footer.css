@@ -1,4 +1,9 @@
-/* Footer Styles */
+.foot-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
 .footer {
     background: var(--text-dark);
     color: var(--text-white);
@@ -433,6 +438,11 @@
 
 /* FHD Screen Optimization (1920px+) */
 @media (min-width: 1920px) {
+    .foot-container {
+        max-width: 1600px;
+        margin: 0 auto;
+        padding: 0 2rem;
+    }
     .footer {
         padding: 5rem 0 3rem;
     }
@@ -552,12 +562,16 @@
 
 /* QHD Screen Optimization (2560px+) */
 @media (min-width: 2560px) {
+    .foot-container {
+        max-width: 1900px;
+        margin: 0 auto;
+        padding: 0 2rem;
+    }
     .footer {
         padding: 6rem 0 4rem;
     }
     
     .footer-content {
-        grid-template-columns: 3fr 1fr 1fr 1fr;
         gap: 5rem;
         margin-bottom: 5rem;
         max-width: none;

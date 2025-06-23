@@ -1,0 +1,294 @@
+/* Personal Information Section */
+.coach-biography {
+    padding: 3rem 0;
+    background: white;
+    position: relative;
+}
+
+.biography-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.biography-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.biography-header h2 {
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: 0.75rem;
+    position: relative;
+    display: inline-block;
+}
+
+.biography-header h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 4px;
+    background: linear-gradient(90deg, #ffd700, #ffed4a);
+    border-radius: 2px;
+}
+
+.biography-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.biography-section {
+    background: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    position: relative;
+    transition: transform 0.3s ease;
+}
+
+.biography-section h3 {
+    font-size: 1.25rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    position: relative;
+    padding-left: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.biography-section h3 svg {
+    width: 20px;
+    height: 20px;
+    color: var(--primary-color);
+}
+
+.biography-details {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+}
+
+.bio-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.bio-item:hover {
+    transform: translateX(4px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.bio-icon {
+    width: 32px;
+    height: 32px;
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    flex-shrink: 0;
+    transition: transform 0.3s ease;
+}
+
+.bio-icon svg {
+    width: 16px;
+    height: 16px;
+}
+
+.bio-item:hover .bio-icon svg {
+    transform: scale(1.1);
+}
+
+.bio-content {
+    flex: 1;
+}
+
+.bio-label {
+    font-size: 0.8rem;
+    color: #666;
+    margin-bottom: 0.2rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.bio-value {
+    font-weight: 600;
+    color: var(--primary-color);
+    font-size: 0.9rem;
+}
+
+/* ===== FHD ADAPTATION ===== */
+
+/* Large displays (≥1920px) - FHD and above */
+@media (min-width: 1920px) {
+    .coach-biography {
+        padding: 4rem 0;
+    }
+    
+    .biography-container {
+        max-width: 1600px;
+    }
+    
+    .biography-header {
+        margin-bottom: 3rem;
+    }
+    
+    .biography-header h2 {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+    }
+    
+    .biography-header h2::after {
+        width: 80px;
+        height: 5px;
+        bottom: -15px;
+    }
+    
+    .biography-grid {
+        max-width: 1200px;
+        gap: 3rem;
+    }
+    
+    .biography-section {
+        padding: 2.5rem;
+        border-radius: 16px;
+    }
+    
+    .biography-section h3 {
+        font-size: 1.5rem;
+        margin-bottom: 1.5rem;
+        padding-left: 1.5rem;
+        gap: 0.75rem;
+    }
+    
+    .biography-section h3 svg {
+        width: 24px;
+        height: 24px;
+    }
+    
+    .biography-details {
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 1.5rem;
+    }
+    
+    .bio-item {
+        gap: 1rem;
+        padding: 1.25rem;
+        border-radius: 12px;
+    }
+    
+    .bio-icon {
+        width: 40px;
+        height: 40px;
+        border-radius: 10px;
+    }
+    
+    .bio-icon svg {
+        width: 20px;
+        height: 20px;
+    }
+    
+    .bio-label {
+        font-size: 0.9rem;
+        margin-bottom: 0.3rem;
+    }
+    
+    .bio-value {
+        font-size: 1.1rem;
+    }
+}
+
+@media (min-width: 2560px) {
+    .coach-biography {
+        padding: 5rem 0;
+    }
+    
+    .biography-container {
+        max-width: 1800px;
+    }
+    
+    .biography-header {
+        margin-bottom: 4rem;
+    }
+    
+    .biography-header h2 {
+        font-size: 3rem;
+        margin-bottom: 1.25rem;
+    }
+    
+    .biography-header h2::after {
+        width: 100px;
+        height: 6px;
+        bottom: -20px;
+    }
+    
+    .biography-grid {
+        max-width: 1400px;
+        gap: 4rem;
+    }
+    
+    .biography-section {
+        padding: 3rem;
+        border-radius: 20px;
+    }
+    
+    .biography-section h3 {
+        font-size: 1.75rem;
+        margin-bottom: 2rem;
+        padding-left: 2rem;
+        gap: 1rem;
+    }
+    
+    .biography-section h3 svg {
+        width: 28px;
+        height: 28px;
+    }
+    
+    .biography-details {
+        grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+        gap: 2rem;
+    }
+    
+    .bio-item {
+        gap: 1.25rem;
+        padding: 1.5rem;
+        border-radius: 16px;
+    }
+    
+    .bio-icon {
+        width: 48px;
+        height: 48px;
+        border-radius: 12px;
+    }
+    
+    .bio-icon svg {
+        width: 24px;
+        height: 24px;
+    }
+    
+    .bio-label {
+        font-size: 1rem;
+        margin-bottom: 0.4rem;
+    }
+    
+    .bio-value {
+        font-size: 1.3rem;
+    }
+} 

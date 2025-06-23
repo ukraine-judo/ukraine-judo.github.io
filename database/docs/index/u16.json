@@ -1,0 +1,243 @@
+{
+  "title": "Чемпіонати України серед юнаків U16",
+  "description": "Чемпіонати України серед юнаків та дівчат до 16 років",
+  "competitions": [
+    {
+      "year": 2024,
+      "title": "Чемпіонат України серед юнаків та дівчат до 16 років (2009-2010 р.н.)",
+      "location": "Київ",
+      "date": "29 квітня-01 травня 2024",
+      "status": "completed",
+      "files": [
+        {
+          "name": "Протоколи ходу змагань",
+          "type": "results",
+          "icon": "results",
+          "path": "database/docs/champ/u16/2024-protocol.pdf",
+          "description": "Протоколи ходу змагань"
+        },
+        {
+          "name": "Підсумкові протоколи",
+          "type": "protocol",
+          "icon": "protocol",
+          "path": "database/docs/champ/u16/2024-results.pdf",
+          "description": "Підсумкові протоколи змагань"
+        }
+      ]
+    },
+    {
+      "year": 2023,
+      "title": "Чемпіонат України серед юнаків та дівчат до 16 років (2008-2009 р.н.)",
+      "location": "Київ",
+      "date": "16-17 травня 2023",
+      "status": "completed",
+      "files": [
+        {
+          "name": "Протоколи ходу змагань",
+          "type": "results",
+          "icon": "results",
+          "path": "database/docs/champ/u16/2023-protocol.pdf",
+          "description": "Протоколи ходу змагань"
+        },
+        {
+          "name": "Підсумкові протоколи",
+          "type": "protocol",
+          "icon": "protocol",
+          "path": "database/docs/champ/u16/2023-results.pdf",
+          "description": "Підсумкові протоколи змагань"
+        }
+      ]
+    },
+    {
+      "year": 2021,
+      "title": "Чемпіонат України серед юнаків та дівчат до 16 років (2006-2007 р.н.)",
+      "location": "Львів",
+      "date": "26-28 серпня 2021",
+      "status": "completed",
+      "files": [
+        {
+          "name": "Юнаки 1-й день",
+          "type": "results",
+          "icon": "results",
+          "path": "database/docs/champ/u16/2021-protocol-m1.pdf",
+          "description": "Протоколи ходу змагань серед юнаків 1-й день"
+        },
+        {
+          "name": "Юнаки 2-й день",
+          "type": "results",
+          "icon": "results",
+          "path": "database/docs/champ/u16/2021-protocol-m2.pdf",
+          "description": "Протоколи ходу змагань серед юнаків 2-й день"
+        },
+        {
+          "name": "Дівчата",
+          "type": "results",
+          "icon": "results",
+          "path": "database/docs/champ/u16/2021-protocol-w.pdf",
+          "description": "Протоколи ходу змагань серед дівчат"
+        },
+        {
+          "name": "Підсумкові протоколи юнаки",
+          "type": "protocol",
+          "icon": "protocol",
+          "path": "database/docs/champ/u16/2021-result-m.pdf",
+          "description": "Підсумкові протоколи серед юнаків"
+        },
+        {
+          "name": "Підсумкові протоколи дівчата",
+          "type": "protocol",
+          "icon": "protocol",
+          "path": "database/docs/champ/u16/2021-result-w.pdf",
+          "description": "Підсумкові протоколи серед дівчат"
+        }
+      ]
+    },
+    {
+      "year": 2019,
+      "title": "Чемпіонат України серед юнаків та дівчат до 16 років (2004-2005 р.н.)",
+      "location": "Львів",
+      "date": "12-13 квітня 2019",
+      "status": "completed",
+      "files": [
+        {
+          "name": "Дівчата",
+          "type": "results",
+          "icon": "results",
+          "path": "database/docs/champ/u16/2019-w.pdf",
+          "description": "Протоколи змагань серед дівчат"
+        },
+        {
+          "name": "Юнаки",
+          "type": "results",
+          "icon": "results",
+          "path": "database/docs/champ/u16/2019-m.pdf",
+          "description": "Протоколи змагань серед юнаків"
+        },
+        {
+          "name": "Юнаки - підсумкові протоколи",
+          "type": "protocol",
+          "icon": "protocol",
+          "path": "database/docs/champ/u16/2019-m-res.pdf",
+          "description": "Підсумкові протоколи серед юнаків"
+        }
+      ]
+    },
+    {
+      "year": 2018,
+      "title": "Чемпіонат України серед юнаків та дівчат до 16 років (2003-2004 р.н.)",
+      "location": "Київ",
+      "date": "06-07 червня 2018",
+      "status": "completed",
+      "files": [
+        {
+          "name": "Юнаки",
+          "type": "results",
+          "icon": "results",
+          "path": "database/docs/champ/u16/2018-m.pdf",
+          "description": "Протоколи змагань серед юнаків"
+        },
+        {
+          "name": "Дівчата",
+          "type": "results",
+          "icon": "results",
+          "path": "database/docs/champ/u16/2018-w.pdf",
+          "description": "Протоколи змагань серед дівчат"
+        }
+      ]
+    },
+    {
+      "year": 2017,
+      "title": "Чемпіонат України серед юнаків до 16 років (2002 р.н.)",
+      "location": "Львів",
+      "date": "14 травня 2017",
+      "status": "completed",
+      "files": [
+        {
+          "name": "Юнаки та дівчата",
+          "type": "results",
+          "icon": "results",
+          "path": "database/docs/champ/u16/2017.pdf",
+          "description": "Протоколи змагань серед юнаків та дівчат"
+        },
+        {
+          "name": "Командна першість",
+          "type": "protocol",
+          "icon": "protocol",
+          "path": "database/docs/champ/u16/2017-k.pdf",
+          "description": "Протоколи командної першості"
+        }
+      ]
+    },
+    {
+      "year": 2016,
+      "title": "Чемпіонат України серед юнаків та дівчат до 16 років (2001-2002 р.н.)",
+      "location": "Одеса",
+      "date": "10-11 травня 2016",
+      "status": "completed",
+      "files": [
+        {
+          "name": "Протоколи",
+          "type": "results",
+          "icon": "results",
+          "path": "database/docs/champ/u16/2016.pdf",
+          "description": "Протоколи змагань"
+        }
+      ]
+    },
+    {
+      "year": 2015,
+      "title": "Чемпіонат України серед юнаків та дівчат до 16 років (2000-2001 р.н.)",
+      "location": "Київ",
+      "date": "15-16 травня 2015",
+      "status": "completed",
+      "files": [
+        {
+          "name": "Юнаки",
+          "type": "results",
+          "icon": "results",
+          "path": "database/docs/champ/u16/2015-m.pdf",
+          "description": "Протоколи змагань серед юнаків"
+        },
+        {
+          "name": "Дівчата",
+          "type": "results",
+          "icon": "results",
+          "path": "database/docs/champ/u16/2015-w.pdf",
+          "description": "Протоколи змагань серед дівчат"
+        }
+      ]
+    },
+    {
+      "year": 2014,
+      "title": "Чемпіонат України серед юнаків та дівчат до 16 років (1999-2000 р.н.)",
+      "location": "Луцьк",
+      "date": "04-05 квітня 2014",
+      "status": "completed",
+      "files": [
+        {
+          "name": "Результати змагань",
+          "type": "modal",
+          "icon": "results",
+          "path": "database/docs/champ/u16/2014-results.html",
+          "description": "Результати змагань серед юнаків та дівчат з командними місцями"
+        }
+      ]
+    },
+    {
+      "year": 2011,
+      "title": "Чемпіонат України серед юнаків та дівчат до 16 років (1996-1997 р.н.)",
+      "location": "Луганськ",
+      "date": "28-29 жовтня 2011",
+      "status": "completed",
+      "files": [
+        {
+          "name": "Результати змагань",
+          "type": "modal",
+          "icon": "results",
+          "path": "database/docs/champ/u16/2011-results.html",
+          "description": "Результати змагань серед юнаків та дівчат з кількістю учасників"
+        }
+      ]
+    }
+  ]
+}

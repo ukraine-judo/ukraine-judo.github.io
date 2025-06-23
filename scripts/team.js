@@ -1363,13 +1363,13 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     /**
-     * Load coaches from coaches folder
+     * Load coaches from individual coach files
      */
     async function loadCoachesFromFolder() {
         const coaches = [];
         const coachFiles = getCoachFilesList();
         
-        // Load coaches in batches
+        // Load coaches in batches for better performance
         const batchSize = 3;
         for (let i = 0; i < coachFiles.length; i += batchSize) {
             const batch = coachFiles.slice(i, i + batchSize);
@@ -1385,12 +1385,15 @@ document.addEventListener('DOMContentLoaded', function() {
                                 position: coachData.position,
                                 category: coachData.category,
                                 experience: coachData.experience,
-                                image: coachData.image
+                                image: coachData.image,
+                                rank: coachData.rank || 999,
+                                status: coachData.status || 'main'
                             },
                             detailedData: coachData
                         };
                     }
                 } catch (error) {
+                    console.warn(`Failed to load coach file: ${fileName}`, error);
                     return null;
                 }
             });
@@ -1398,6 +1401,9 @@ document.addEventListener('DOMContentLoaded', function() {
             const batchResults = await Promise.all(batchPromises);
             coaches.push(...batchResults.filter(coach => coach !== null));
         }
+        
+        // Sort by rank
+        coaches.sort((a, b) => (a.data.rank || 999) - (b.data.rank || 999));
         
         return coaches;
     }
@@ -1407,12 +1413,20 @@ document.addEventListener('DOMContentLoaded', function() {
      */
     function getCoachFilesList() {
         return [
-            'serhiy-drebot.json', 'andriy-bloshenko.json', 'niabali-kedjau.json',
-            'dmytro-bondarchuk.json', 'hanna-kashtanova.json', 'vitaliy-dubrova.json',
-            'ivanna-makukha.json', 'andriy-burdun.json', 'oleksandr-kosinov.json',
-            'mykhailo-rudenko.json'
+            'vitaliy-dubrova.json',
+            'oleksandr-kosinov.json', 
+            'hanna-kashtanova.json',
+            'mykhailo-rudenko.json',
+            'serhiy-drebot.json',
+            'niabali-kedjau.json',
+            'dmytro-bondarchuk.json',
+            'ivanna-makukha.json',
+            'andriy-burdun.json',
+            'andriy-bloshenko.json'
         ];
     }
+
+
 
     /**
      * These functions are no longer needed since we load full data immediately
@@ -1447,8 +1461,17 @@ document.addEventListener('DOMContentLoaded', function() {
      */
     async function createCoachCard(coach, detailedData = null) {
         const card = document.createElement('div');
-        card.className = 'coach-card';
+        card.className = 'coach-card clickable-card';
         card.setAttribute('data-category', coach.category);
+        card.setAttribute('data-id', coach.id);
+        
+        // Add click handler to entire card
+        card.addEventListener('click', function(e) {
+            // Only navigate if click wasn't on a button or interactive element
+            if (!e.target.closest('button')) {
+                window.location.href = `coach.html?id=${coach.id}`;
+            }
+        });
         
         // Create image element with placeholder fallback
         const imageContent = createCoachImageContent(coach);
@@ -1466,33 +1489,41 @@ document.addEventListener('DOMContentLoaded', function() {
             </div>
             
             <div class="coach-content">
-                <h3 class="coach-name">${coach.name}</h3>
-                <div class="coach-position">${coach.position}</div>
-                
-                <div class="coach-experience-badge">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <circle cx="12" cy="12" r="3"/>
-                        <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1 1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/>
-                    </svg>
-                    ${experience} років досвіду
+                <div class="coach-header">
+                    <h3 class="coach-name">${coach.name}</h3>
                 </div>
                 
-                ${specialization ? `<p class="coach-specialization">${specialization}</p>` : ''}
+                <div class="coach-position">${coach.position}</div>
+                
+                <div class="coach-info-grid">
+                    <div class="coach-info-item">
+                        <svg class="coach-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="3"/>
+                            <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1 1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+                        </svg>
+                        <span class="coach-info-text">${experience} років досвіду</span>
+                    </div>
+                </div>
+                
+                ${specialization ? `<div class="coach-specialization">${specialization}</div>` : ''}
                 
                 ${achievements > 0 ? `
                 <div class="coach-achievements-preview">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/>
+                    </svg>
                     <span class="coach-achievement-count">${achievements} досягнень</span>
                 </div>
                 ` : ''}
                 
                 <div class="coach-actions">
-                    <button class="coach-btn" onclick="window.location.href='coach.html?id=${coach.id}'">
+                    <div class="coach-click-hint">
                         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
                             <circle cx="12" cy="12" r="3"/>
                         </svg>
-                        Переглянути профіль
-                    </button>
+                        Натисніть для перегляду профілю
+                    </div>
                 </div>
             </div>
         `;
@@ -1528,13 +1559,13 @@ document.addEventListener('DOMContentLoaded', function() {
                      class="coach-image"
                      onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                 <div class="coach-placeholder" style="display: none;">
-                    <span class="coach-placeholder-initials">${initials}</span>
+                    <div class="coach-placeholder-initials">${initials}</div>
                 </div>
             `;
         } else {
             return `
                 <div class="coach-placeholder">
-                    <span class="coach-placeholder-initials">${initials}</span>
+                    <div class="coach-placeholder-initials">${initials}</div>
                 </div>
             `;
         }
@@ -1545,13 +1576,15 @@ document.addEventListener('DOMContentLoaded', function() {
      */
     function getCategoryName(category) {
         const categories = {
-            'head': 'Керівництво',
             'men': 'Чоловіча',
-            'women': 'Жіноча', 
-            'youth': 'Молодіжна',
-            'technical': 'Технічний',
-            'medical': 'Медичний',
-            'physical': 'Фізична'
+            'women': 'Жіноча',
+            'cadet_boys': 'Кадети (Хлопці)',
+            'cadet_girls': 'Кадети (Дівчата)',
+            'youth': 'до 15 років',
+            'staff': 'Штат',
+            'reserve': 'Резервної',
+            'junior_women': 'Юніорська (Жінки)',
+            'junior_men': 'Юніорська (Чоловіки)'
         };
         return categories[category] || category;
     }

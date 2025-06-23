@@ -3,16 +3,168 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title id="page-title">Тренер - Федерація Дзюдо України</title>
-    <meta name="description" id="page-description" content="Профіль тренера національної збірної України з дзюдо">
+    
+    <!-- Primary Meta Tags - динамічно оновлюються JavaScript -->
+    <title id="page-title">Тренер збірної України з дзюдо | Профіль наставника ФДУ</title>
+    <meta name="title" id="page-meta-title" content="Тренер збірної України з дзюдо | Профіль наставника ФДУ">
+    <meta name="description" id="page-description" content="Офіційний профіль тренера національної збірної України з дзюдо: біографія, досвід, кар'єрні досягнення та методики підготовки спортсменів ФДУ">
+    <meta name="keywords" id="page-keywords" content="тренер дзюдо україна, наставник фду, тренерський штаб збірна, методики дзюдо, підготовка спортсменів, олімпійський тренер україна">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="Ukrainian">
+    <meta name="author" content="Федерація Дзюдо України">
+    
+    <!-- Open Graph / Facebook - динамічно оновлюються -->
+    <meta property="og:type" content="profile">
+    <meta property="og:url" id="og-url" content="https://motoshfq.github.io/coach.html">
+    <meta property="og:title" id="og-title" content="Тренер збірної України з дзюдо">
+    <meta property="og:description" id="og-description" content="Офіційний профіль тренера національної збірної України з дзюдо">
+    <meta property="og:image" id="og-image" content="https://motoshfq.github.io/assets/coaches/default-coach.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:locale" content="uk_UA">
+    <meta property="og:site_name" content="Федерація Дзюдо України">
+    
+    <!-- Twitter Cards - динамічно оновлюються -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" id="twitter-url" content="https://motoshfq.github.io/coach.html">
+    <meta property="twitter:title" id="twitter-title" content="🎯 Тренер збірної України з дзюдо">
+    <meta property="twitter:description" id="twitter-description" content="Офіційний профіль тренера національної збірної України з дзюдо">
+    <meta property="twitter:image" id="twitter-image" content="https://motoshfq.github.io/assets/coaches/default-coach.jpg">
+    
+    <!-- Additional SEO Meta Tags -->
+    <meta name="geo.region" content="UA">
+    <meta name="geo.placename" content="Київ, Україна">
+    <meta name="geo.position" content="50.4501;30.5234">
+    <meta name="ICBM" content="50.4501, 30.5234">
+    
+    <!-- Canonical URL - динамічно оновлюється -->
+    <link rel="canonical" id="canonical-url" href="https://motoshfq.github.io/coach.html">
+    
+    <!-- Hreflang -->
+    <link rel="alternate" hreflang="uk" href="https://motoshfq.github.io/coach.html">
+    <link rel="alternate" hreflang="x-default" href="https://motoshfq.github.io/coach.html">
+    
+    <!-- Favicon and Icons -->
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/fju-logo.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/fju-logo.png">
+    <link rel="apple-touch-icon" href="assets/fju-logo.png">
     <link rel="stylesheet" href="css/global.css">
     <link rel="stylesheet" href="css/navigation.css">
     <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/components/breadcrumb.css">
     <link rel="stylesheet" href="css/footer.css">
-    <link rel="stylesheet" href="css/pages/coach.css">
+    <link rel="stylesheet" href="css/pages/team/coaches/index.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- JSON-LD Structured Data - динамічно оновлюється JavaScript -->
+    <script type="application/ld+json" id="coach-schema">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Тренер ФДУ",
+        "jobTitle": "Тренер з дзюдо",
+        "description": "Тренер національної збірної України з дзюдо",
+        "url": "https://motoshfq.github.io/coach.html",
+        "image": "https://motoshfq.github.io/assets/coaches/default-coach.jpg",
+        "nationality": "Ukrainian",
+        "worksFor": {
+            "@type": "SportsOrganization",
+            "name": "Федерація Дзюдо України",
+            "url": "https://motoshfq.github.io/"
+        },
+        "address": {
+            "@type": "PostalAddress",
+            "addressCountry": "UA"
+        },
+        "knowsAbout": ["Judo", "Sports Training", "Athletic Coaching"],
+        "occupation": {
+            "@type": "Occupation",
+            "name": "Judo Coach"
+        }
+    }
+    </script>
+    
+    <!-- Breadcrumb Structured Data -->
+    <script type="application/ld+json" id="breadcrumb-schema">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Головна",
+                "item": "https://motoshfq.github.io/"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Збірна",
+                "item": "https://motoshfq.github.io/team.html"
+            },
+            {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "Тренерський штаб",
+                "item": "https://motoshfq.github.io/team.html#coaches"
+            },
+            {
+                "@type": "ListItem",
+                "position": 4,
+                "name": "Тренер",
+                "item": "https://motoshfq.github.io/coach.html"
+            }
+        ]
+    }
+    </script>
+    
+    <!-- ProfilePage Schema -->
+    <script type="application/ld+json" id="profile-page-schema">
+    {
+        "@context": "https://schema.org",
+        "@type": "ProfilePage",
+        "name": "Профіль тренера",
+        "description": "Офіційний профіль тренера національної збірної України з дзюдо",
+        "url": "https://motoshfq.github.io/coach.html",
+        "mainEntity": {
+            "@type": "Person",
+            "name": "Тренер ФДУ"
+        },
+        "breadcrumb": {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+                {
+                    "@type": "ListItem",
+                    "position": 1,
+                    "name": "Головна",
+                    "item": "https://motoshfq.github.io/"
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 2,
+                    "name": "Збірна",
+                    "item": "https://motoshfq.github.io/team.html"
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 3,
+                    "name": "Тренерський штаб",
+                    "item": "https://motoshfq.github.io/team.html#coaches"
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 4,
+                    "name": "Тренер",
+                    "item": "https://motoshfq.github.io/coach.html"
+                }
+            ]
+        },
+        "inLanguage": "uk-UA"
+    }
+    </script>
+    
     <script src="script.js"></script>
 </head>
 <body>
@@ -30,13 +182,8 @@
             <div class="nav-menu-overlay"></div>
             <ul class="nav-menu" id="navMenu">
                 <li class="nav-item" data-priority="1"><a href="index.html">Головна</a></li>
-                <li class="nav-item nav-dynamic-tab" id="navDynamicTab" style="display: none;">
-                    <a href="#" class="nav-dynamic-link active" id="navDynamicLink">
-                        <span class="nav-dynamic-text" id="navDynamicText"></span>
-                    </a>
-                </li>
                 <li class="nav-item" data-priority="2"><a href="about.html">Про нас</a></li>
-                <li class="nav-item" data-priority="3"><a href="team.html">Збірна</a></li>
+                <li class="nav-item" data-priority="3"><a href="team.html" class="active">Збірна</a></li>
                 <li class="nav-item" data-priority="4"><a href="news.html">Новини</a></li>
                 <li class="nav-item" data-priority="5"><a href="calendar.html">Календар</a></li>
                 <li class="nav-item" data-priority="6"><a href="documents.html">Документи</a></li>
@@ -86,17 +233,48 @@
     </header>
 
     <main>
-        <!-- Breadcrumb -->
-        <section class="breadcrumb">
+        <!-- Breadcrumb with Schema.org markup -->
+        <section class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
             <div class="container">
-                <nav class="breadcrumb-nav">
-                    <a href="index.html">Головна</a>
+                <nav class="breadcrumb-nav" aria-label="Breadcrumb navigation">
+                    <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                        <a href="index.html" itemprop="item" itemscope itemtype="https://schema.org/WebPage">
+                            <svg class="breadcrumb-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                                <polyline points="9,22 9,12 15,12 15,22"/>
+                            </svg>
+                            <span itemprop="name">Головна</span>
+                        </a>
+                        <meta itemprop="position" content="1">
+                    </span>
                     <span class="breadcrumb-separator">→</span>
-                    <a href="team.html">Збірна</a>
+                    <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                        <a href="team.html" itemprop="item" itemscope itemtype="https://schema.org/WebPage">
+                            <svg class="breadcrumb-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="3"/>
+                                <path d="M12 1v6m0 6v6"/>
+                                <path d="m15.5 3.5-1 1M8.5 20.5l1-1M3.5 8.5l1 1M20.5 15.5l-1-1"/>
+                            </svg>
+                            <span itemprop="name">Збірна</span>
+                        </a>
+                        <meta itemprop="position" content="2">
+                    </span>
                     <span class="breadcrumb-separator">→</span>
-                    <span>Тренерський штаб</span>
+                    <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                        <a href="team.html#coaches" itemprop="item" itemscope itemtype="https://schema.org/WebPage">
+                            <svg class="breadcrumb-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/>
+                                <rect x="8" y="2" width="8" height="4" rx="1" ry="1"/>
+                            </svg>
+                            <span itemprop="name">Тренерський штаб</span>
+                        </a>
+                        <meta itemprop="position" content="3">
+                    </span>
                     <span class="breadcrumb-separator">→</span>
-                    <span id="breadcrumb-name">Тренер</span>
+                    <span itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                        <span id="breadcrumb-name" itemprop="name">Тренер</span>
+                        <meta itemprop="position" content="4">
+                    </span>
                 </nav>
             </div>
         </section>
@@ -115,58 +293,77 @@
             </div>
         </div>
 
-        <!-- Coach Profile Content -->
-        <div id="coach-content" style="display: none;">
+        <!-- Coach Profile Content with Schema.org markup -->
+        <div id="coach-content" style="display: none;" itemscope itemtype="https://schema.org/Person">
             <!-- Hero Section -->
             <section class="coach-hero">
                 <div class="container">
                     <div class="coach-hero-content">
                         <div class="coach-hero-image">
-                            <img id="coach-image" src="" alt="" class="coach-main-image">
+                            <div class="coach-image-wrapper">
+                                <img id="coach-image" src="" alt="" class="coach-main-image" itemprop="image" itemscope itemtype="https://schema.org/ImageObject">
                             <div class="coach-badges">
-                                <div id="coach-category" class="coach-badge category"></div>
+                                    <div id="coach-category" class="coach-badge position"></div>
                                 <div id="coach-experience" class="coach-badge experience"></div>
+                                </div>
                             </div>
                         </div>
                         
                         <div class="coach-hero-info">
-                            <h1 id="coach-name" class="coach-hero-title"></h1>
-                            <p id="coach-name-en" class="coach-hero-subtitle"></p>
-                            <div id="coach-position" class="coach-position-title"></div>
+                            <div class="coach-name-section">
+                                <h1 id="coach-name" itemprop="name">Профіль тренера збірної України з дзюдо</h1>
+                                <p id="coach-name-en" class="coach-hero-subtitle" itemprop="alternateName"></p>
+                                <div id="coach-position" class="coach-position-title" itemprop="jobTitle"></div>
+                                <meta itemprop="nationality" content="Ukrainian">
+                                <meta itemprop="knowsAbout" content="Judo">
+                                <meta itemprop="knowsAbout" content="Sports Training">
+                                <meta itemprop="knowsAbout" content="Athletic Coaching">
+                            </div>
                             
-                            <div class="coach-basic-info">
-                                <div class="info-item">
-                                    <span class="info-icon">
-                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <div class="coach-stats-grid">
+                                <div class="coach-stat-card">
+                                    <div class="stat-header">
+                                        <svg class="stat-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                             <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
                                             <circle cx="12" cy="10" r="3"/>
                                         </svg>
-                                    </span>
-                                    <span id="coach-location"></span>
+                                        <span class="stat-label">Локація</span>
+                                    </div>
+                                    <span id="coach-location" class="stat-value"></span>
                                 </div>
-                                <div class="info-item">
-                                    <span class="info-icon">
-                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <div class="coach-stat-card">
+                                    <div class="stat-header">
+                                        <svg class="stat-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                             <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
                                             <line x1="16" y1="2" x2="16" y2="6"/>
                                             <line x1="8" y1="2" x2="8" y2="6"/>
                                             <line x1="3" y1="10" x2="21" y2="10"/>
                                         </svg>
-                                    </span>
-                                    <span id="coach-coaching-years"></span>
+                                        <span class="stat-label">Досвід</span>
+                                    </div>
+                                    <span id="coach-coaching-years" class="stat-value"></span>
                                 </div>
-
-                                <div class="info-item">
-                                    <span class="info-icon">
-                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <div class="coach-stat-card">
+                                    <div class="stat-header">
+                                        <svg class="stat-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                             <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
                                             <path d="M6 12v5c3 3 9 3 12 0v-5"/>
                                         </svg>
-                                    </span>
-                                    <span id="coach-education"></span>
+                                        <span class="stat-label">Освіта</span>
+                                    </div>
+                                    <span id="coach-education" class="stat-value"></span>
+                                </div>
+                                <div class="coach-stat-card">
+                                    <div class="stat-header">
+                                        <svg class="stat-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/>
+                                            <rect x="8" y="2" width="8" height="4" rx="1" ry="1"/>
+                                        </svg>
+                                        <span class="stat-label">Категорія</span>
+                                    </div>
+                                    <span id="coach-category-display" class="stat-value coaching-title"></span>
                                 </div>
                             </div>
-
                                         </div>
                     </div>
                 </div>
@@ -174,30 +371,46 @@
 
             <!-- Biography Section -->
             <section class="coach-biography">
-                <div class="container">
+                <div class="container biography-container">
                     <div class="biography-header">
-                        <h2>Біографія та Кар'єра</h2>
+                        <h2>Біографія та тренерська кар'єра</h2>
+                        <p class="biography-subtitle">Життєвий шлях, професійний досвід та методики підготовки спортсменів</p>
                     </div>
                     
-                    <div class="biography-content">
-                        <div class="biography-text">
-                            <h3>Особиста інформація</h3>
-                            <div id="biography-personal" class="biography-paragraph"></div>
-                            
-                            <h3>Тренерська кар'єра</h3>
-                            <div id="biography-career" class="biography-paragraph"></div>
+                    <div class="biography-grid">
+                        <div class="biography-section">
+                            <h3>
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                                    <circle cx="12" cy="7" r="4"/>
+                                </svg>
+                                Особиста інформація та освіта
+                            </h3>
+                            <div id="biography-personal" class="biography-details"></div>
+                        </div>
+                        
+                        <div class="biography-section">
+                            <h3>
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/>
+                                    <rect x="8" y="2" width="8" height="4" rx="1" ry="1"/>
+                                </svg>
+                                Тренерська кар'єра та досягнення
+                            </h3>
+                            <div id="biography-career" class="biography-details"></div>
                         </div>
                     </div>
                 </div>
             </section>
 
             <!-- Awards Section -->
-            <section class="coach-awards">
-                <div class="container awards-container">
-                    <div class="awards-header">
-                        <h2>Нагороди та звання</h2>
+            <section class="coach-achievements">
+                <div class="container achievements-container">
+                    <div class="achievements-header">
+                        <h2>Нагороди, звання та визнання</h2>
+                        <p class="achievements-subtitle">Професійні досягнення та відзнаки за внесок у розвиток дзюдо в Україні</p>
                     </div>
-                    <div id="awards-list" class="awards-grid"></div>
+                    <div id="awards-list" class="achievements-grid"></div>
                 </div>
             </section>
 
@@ -205,10 +418,10 @@
             <section class="coach-gallery">
                 <div class="container gallery-container">
                     <div class="gallery-header">
-                        <h2>Галерея</h2>
-                        <p>Фотографії з тренувань та змагань</p>
+                        <h2>Фотогалерея тренера</h2>
+                        <p>Фотографії з тренувань, змагань та церемоній нагородження учнів</p>
                     </div>
-                    <div id="gallery-grid" class="gallery-grid"></div>
+                    <div id="gallery-grid" class="gallery-grid" role="img" aria-label="Галерея фотографій тренера"></div>
                 </div>
             </section>
 
@@ -220,37 +433,51 @@
 
     <!-- Gallery Modal -->
     <div id="gallery-modal" class="gallery-modal">
-        <div class="gallery-modal-content">
+        <div class="gallery-modal-overlay" onclick="closeGalleryModal()"></div>
+        
+        <div class="gallery-modal-container">
+            <!-- Header -->
             <div class="gallery-modal-header">
-                <div id="gallery-counter" class="gallery-counter">1 з 10</div>
-                <button class="gallery-modal-close" onclick="closeGalleryModal()">
+                <div id="gallery-counter" class="gallery-counter">1 / 10</div>
+                <div class="gallery-header-actions">
+                    <button class="gallery-download-btn" onclick="downloadCurrentImage()" title="Завантажити зображення">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                            <polyline points="7,10 12,15 17,10"/>
+                            <line x1="12" y1="15" x2="12" y2="3"/>
+                        </svg>
+                    </button>
+                    <button class="gallery-close-btn" onclick="closeGalleryModal()">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <line x1="18" y1="6" x2="6" y2="18"></line>
                         <line x1="6" y1="6" x2="18" y2="18"></line>
                     </svg>
                 </button>
+                </div>
             </div>
             
-            <div class="gallery-modal-body">
-                <button class="gallery-nav-btn gallery-prev" onclick="previousImage()">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <!-- Main Image Area -->
+            <div class="gallery-modal-main">
+                <button class="gallery-nav-btn gallery-prev-btn" onclick="previousImage()">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <polyline points="15,18 9,12 15,6"></polyline>
                     </svg>
                 </button>
                 
-                <div class="gallery-main-image-container">
-                    <img id="gallery-modal-image" class="gallery-modal-image" src="" alt="">
+                <div class="gallery-image-container">
+                    <img id="gallery-modal-image" class="gallery-main-image" src="" alt="">
                 </div>
                 
-                <button class="gallery-nav-btn gallery-next" onclick="nextImage()">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <button class="gallery-nav-btn gallery-next-btn" onclick="nextImage()">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <polyline points="9,18 15,12 9,6"></polyline>
                     </svg>
                 </button>
             </div>
             
+            <!-- Thumbnails -->
             <div class="gallery-modal-footer">
-                <div id="gallery-thumbnails" class="gallery-thumbnails"></div>
+                <div id="gallery-thumbnails" class="gallery-thumbnails-container"></div>
             </div>
         </div>
     </div>
@@ -328,6 +555,7 @@
     </footer>
 
     <script src="scripts/script.js"></script>
+    <script src="scripts/coach-seo.js"></script>
     <script src="scripts/coach.js"></script>
 </body>
 </html> 
