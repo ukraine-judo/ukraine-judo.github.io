@@ -393,7 +393,7 @@ class DocumentsSEOManager {
     updateMetaTags() {
         const stats = this.getStatistics();
         
-        const description = `Офіційні документи Федерації Дзюдо України: протоколи чемпіонатів, статути, положення про змагання. 📊 ${stats.totalItems}+ документів за ${stats.yearsRange} роки з можливістю завантаження PDF`;
+        const description = `Документи ФДУ: протоколи чемпіонатів U15-U23, статути, положення про змагання. 📊 ${stats.totalItems}+ документів`;
         
         const descriptionMeta = document.querySelector('meta[name="description"]');
         if (descriptionMeta) {
