@@ -22,9 +22,13 @@ Disallow: /.git/
 Disallow: /database/
 Disallow: /test-smooth.html
 
-# Указываем sitemap
+# Sitemap files
 Sitemap: https://motoshfq.github.io/sitemap_index.xml
 Sitemap: https://motoshfq.github.io/sitemap.xml
+Sitemap: https://motoshfq.github.io/sitemap-main.xml
+Sitemap: https://motoshfq.github.io/sitemap-athletes.xml
+Sitemap: https://motoshfq.github.io/sitemap-coaches.xml
+Sitemap: https://motoshfq.github.io/sitemap-news.xml
 
 # Специальные инструкции для поисковых систем
 User-agent: Googlebot

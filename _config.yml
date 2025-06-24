@@ -19,11 +19,11 @@ plugins:
 lang: uk-UA
 locale: uk_UA
 
-# Sitemap settings
-sitemap:
-  priority: 1.0
-  changefreq: "daily"
-  lastmod: true
+# Disable Jekyll sitemap plugin (we use custom sitemaps)
+jekyll_sitemap_enabled: false
+
+# Custom sitemap settings
+sitemap_enabled: false
 
 # Include/exclude files
 include:

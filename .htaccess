@@ -1,0 +1,14 @@
+# MIME types for sitemap files
+AddType application/xml .xml
+AddType text/xml .xml
+
+# Set correct headers for sitemap files
+<FilesMatch "\.(xml)$">
+    Header set Content-Type "application/xml; charset=utf-8"
+</FilesMatch>
+
+# Cache control for sitemaps
+<FilesMatch "sitemap.*\.xml$">
+    ExpiresActive On
+    ExpiresDefault "access plus 1 day"
+</FilesMatch>
