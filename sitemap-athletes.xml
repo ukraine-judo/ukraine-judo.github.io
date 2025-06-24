@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+   <!-- Звезды команды - наивысший приоритет -->
+   <url>
+      <loc>https://motoshfq.github.io/athlete.html?id=daria-bilodid</loc>
+      <lastmod>2025-01-18</lastmod>
+      <changefreq>weekly</changefreq>
+      <priority>0.9</priority>
+      <image:image>
+         <image:loc>https://motoshfq.github.io/assets/team/bilodid-hero.jpg</image:loc>
+         <image:caption>Дарія Білодід - олімпійська чемпіонка з дзюдо</image:caption>
+         <image:title>Дарія Білодід профіль атлета</image:title>
+      </image:image>
+   </url>
+   
+   <url>
+      <loc>https://motoshfq.github.io/athlete.html?id=yakiv-khammo</loc>
+      <lastmod>2025-01-18</lastmod>
+      <changefreq>weekly</changefreq>
+      <priority>0.8</priority>
+      <image:image>
+         <image:loc>https://motoshfq.github.io/assets/team/yakiv-khammo.jpg</image:loc>
+         <image:caption>Яків Хаммо - чемпіон України з дзюдо</image:caption>
+         <image:title>Яків Хаммо профіль атлета</image:title>
+      </image:image>
+   </url>
+   
+   <!-- Ключевые атлеты мужской сборной -->
+   <url>
+      <loc>https://motoshfq.github.io/athlete.html?id=artem-lesiuk</loc>
+      <lastmod>2025-01-18</lastmod>
+      <changefreq>weekly</changefreq>
+      <priority>0.7</priority>
+   </url>
+   
+   <url>
+      <loc>https://motoshfq.github.io/athlete.html?id=georgiy-zantaraya</loc>
+      <lastmod>2025-01-18</lastmod>
+      <changefreq>weekly</changefreq>
+      <priority>0.7</priority>
+   </url>
+   
+   <url>
+      <loc>https://motoshfq.github.io/athlete.html?id=khazar-heydarov</loc>
+      <lastmod>2025-01-18</lastmod>
+      <changefreq>weekly</changefreq>
+      <priority>0.7</priority>
+   </url>
+   
+   <!-- Ключевые атлеты женской сборной -->
+   <url>
+      <loc>https://motoshfq.github.io/athlete.html?id=anna-oliinyk-korniiko</loc>
+      <lastmod>2025-01-18</lastmod>
+      <changefreq>weekly</changefreq>
+      <priority>0.8</priority>
+   </url>
+   
+   <url>
+      <loc>https://motoshfq.github.io/athlete.html?id=marharyta-miroshnichenko</loc>
+      <lastmod>2025-01-18</lastmod>
+      <changefreq>weekly</changefreq>
+      <priority>0.7</priority>
+   </url>
+   
+   <url>
+      <loc>https://motoshfq.github.io/athlete.html?id=sofia-bordinskih</loc>
+      <lastmod>2025-01-18</lastmod>
+      <changefreq>weekly</changefreq>
+      <priority>0.7</priority>
+   </url>
+   
+   <!-- Остальные атлеты сборной -->
+   <url>
+      <loc>https://motoshfq.github.io/athlete.html?id=anton-savytskiy</loc>
+      <lastmod>2025-01-18</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.6</priority>
+   </url>
+   
+   <url>
+      <loc>https://motoshfq.github.io/athlete.html?id=bogdan-yadov</loc>
+      <lastmod>2025-01-18</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.6</priority>
+   </url>
+   
+   <url>
+      <loc>https://motoshfq.github.io/athlete.html?id=dilshot-khalmatov</loc>
+      <lastmod>2025-01-18</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.6</priority>
+   </url>
+   
+   <url>
+      <loc>https://motoshfq.github.io/athlete.html?id=anastasia-antipina</loc>
+      <lastmod>2025-01-18</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.6</priority>
+   </url>
+   
+   <url>
+      <loc>https://motoshfq.github.io/athlete.html?id=yulia-kurchenko</loc>
+      <lastmod>2025-01-18</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.6</priority>
+   </url>
+</urlset> 

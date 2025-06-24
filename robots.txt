@@ -23,6 +23,7 @@ Disallow: /database/
 Disallow: /test-smooth.html
 
 # Указываем sitemap
+Sitemap: https://motoshfq.github.io/sitemap_index.xml
 Sitemap: https://motoshfq.github.io/sitemap.xml
 
 # Специальные инструкции для поисковых систем
