@@ -9,6 +9,7 @@ class DocumentsManager {
         this.filterManager = null;
         this.uiManager = null;
         this.statsManager = null;
+        this.seoManager = null;
         
         this.init();
     }
@@ -40,6 +41,7 @@ class DocumentsManager {
             this.filterManager = new DocumentsFilterManager();
             this.uiManager = new DocumentsUIManager();
             this.statsManager = new DocumentsStatsManager();
+            this.seoManager = new DocumentsSEOManager();
             
             // Get loaded data
             const data = this.dataManager.getData();
@@ -50,6 +52,9 @@ class DocumentsManager {
                 // Update UI with data
                 this.uiManager.updateStatistics(data);
                 this.statsManager.updateStats(data);
+                
+                // Initialize SEO manager with data
+                await this.seoManager.init(this.dataManager);
                 
                 // Initial render
                 this.renderCurrentDocuments();
@@ -73,7 +78,8 @@ class DocumentsManager {
             'scripts/documents/data-manager.js',
             'scripts/documents/filter-manager.js',
             'scripts/documents/ui-manager.js',
-            'scripts/documents/stats-manager.js'
+            'scripts/documents/stats-manager.js',
+            'scripts/documents/seo-manager.js'
         ];
 
         const loadPromises = modules.map(module => this.loadScript(module));
