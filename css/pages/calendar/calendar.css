@@ -4,7 +4,6 @@ Calendar Page - Modular CSS Structure
 */
 
 /* Core Calendar Components */
-@import url('../document/breadcrumbs.css'); /* Breadcrumb navigation */
 @import url('icons.css');          /* SVG Icons system */
 @import url('hero.css');           /* Hero section with page title */
 @import url('controls.css');       /* Filter tabs and view controls */
@@ -22,7 +21,6 @@ Calendar Page - Modular CSS Structure
 
 This modular CSS structure provides:
 
-0. breadcrumbs.css - Navigation breadcrumbs for SEO
 1. hero.css - Page header and title styling
 2. controls.css - Filter buttons and view toggles  
 3. navigation.css - Month navigation with arrows
@@ -39,7 +37,6 @@ Benefits:
 - Better team collaboration with separated concerns
 - Improved performance with selective loading
 - Clean separation of desktop and mobile styles
-- SEO optimized breadcrumb navigation
 
 Usage:
 Include this file in your HTML to load all calendar styles
