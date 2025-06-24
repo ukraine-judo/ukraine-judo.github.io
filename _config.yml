@@ -1,0 +1,52 @@
+# GitHub Pages configuration for Ukraine Judo Federation website
+
+# Basic settings
+title: "Федерація Дзюдо України"
+description: "Офіційний сайт Федерації дзюдо України"
+url: "https://motoshfq.github.io"
+baseurl: ""
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+
+# Plugins (excluding jekyll-sitemap to use custom sitemap files)
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+
+# SEO settings
+lang: uk-UA
+locale: uk_UA
+
+# Sitemap settings
+sitemap:
+  priority: 1.0
+  changefreq: "daily"
+  lastmod: true
+
+# Include/exclude files
+include:
+  - _pages
+  - sitemap.xml
+  - sitemap_index.xml
+  - sitemap-main.xml
+  - sitemap-athletes.xml
+  - sitemap-coaches.xml
+  - sitemap-news.xml
+  - robots.txt
+
+exclude:
+  - README.md
+  - LICENSE
+  - .gitignore
+  - .gitattributes
+  - database/
+  - test-*.html
+
+# Custom MIME types
+defaults:
+  - scope:
+      path: "sitemap*.xml"
+    values:
+      sitemap: false 

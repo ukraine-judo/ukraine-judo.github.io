@@ -1,0 +1,4 @@
+# Ensure XML files are treated correctly with UTF-8 encoding
+*.xml text eol=lf encoding=utf-8
+sitemap*.xml text eol=lf encoding=utf-8
+robots.txt text eol=lf 

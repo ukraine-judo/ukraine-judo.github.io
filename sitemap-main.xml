@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
-   <!-- Главная страница - наивысший приоритет -->
+   <!-- Homepage - highest priority -->
    <url>
       <loc>https://motoshfq.github.io/</loc>
       <lastmod>2025-01-18</lastmod>
@@ -9,12 +9,12 @@
       <priority>1.0</priority>
       <image:image>
          <image:loc>https://motoshfq.github.io/assets/fju-logo.png</image:loc>
-         <image:title>Федерація Дзюдо України</image:title>
-         <image:caption>Логотип Федерації Дзюдо України</image:caption>
+         <image:title>Ukraine Judo Federation</image:title>
+         <image:caption>Ukraine Judo Federation Logo</image:caption>
       </image:image>
    </url>
    
-   <!-- Ключевые страницы -->
+   <!-- Key pages -->
    <url>
       <loc>https://motoshfq.github.io/about.html</loc>
       <lastmod>2025-01-18</lastmod>
@@ -22,8 +22,8 @@
       <priority>0.9</priority>
       <image:image>
          <image:loc>https://motoshfq.github.io/assets/federation/koshlyak.jpg</image:loc>
-         <image:caption>Михайло Кошляк - Президент Федерації дзюдо України</image:caption>
-         <image:title>Президент ФДУ</image:title>
+         <image:caption>Mykhailo Koshlyak - President of Ukraine Judo Federation</image:caption>
+         <image:title>UJF President</image:title>
       </image:image>
    </url>
    
@@ -34,8 +34,8 @@
       <priority>0.9</priority>
       <image:image>
          <image:loc>https://motoshfq.github.io/assets/team/bilodid-hero.jpg</image:loc>
-         <image:caption>Дарія Білодід - дворазова чемпіонка світу з дзюдо</image:caption>
-         <image:title>Національна збірна України з дзюдо</image:title>
+         <image:caption>Daria Bilodid - two-time world champion in judo</image:caption>
+         <image:title>Ukraine National Judo Team</image:title>
       </image:image>
    </url>
    
@@ -67,7 +67,7 @@
       <priority>0.6</priority>
    </url>
    
-   <!-- Динамические страницы -->
+   <!-- Dynamic pages -->
    <url>
       <loc>https://motoshfq.github.io/athlete.html</loc>
       <lastmod>2025-01-18</lastmod>

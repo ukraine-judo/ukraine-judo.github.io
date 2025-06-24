@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-   <!-- Основные страницы сайта -->
+   <!-- Main website pages -->
    <sitemap>
       <loc>https://motoshfq.github.io/sitemap-main.xml</loc>
       <lastmod>2025-01-18T12:00:00+00:00</lastmod>
    </sitemap>
    
-   <!-- Профили спортсменов -->
+   <!-- Athletes profiles -->
    <sitemap>
       <loc>https://motoshfq.github.io/sitemap-athletes.xml</loc>
       <lastmod>2025-01-18T12:00:00+00:00</lastmod>
    </sitemap>
    
-   <!-- Профили тренеров -->
+   <!-- Coaches profiles -->
    <sitemap>
       <loc>https://motoshfq.github.io/sitemap-coaches.xml</loc>
       <lastmod>2025-01-18T12:00:00+00:00</lastmod>
    </sitemap>
    
-   <!-- Новости -->
+   <!-- News articles -->
    <sitemap>
       <loc>https://motoshfq.github.io/sitemap-news.xml</loc>
       <lastmod>2025-01-18T12:00:00+00:00</lastmod>
