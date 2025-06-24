@@ -5,8 +5,8 @@
 
 class AthleteSEO {
     constructor() {
-        this.defaultImage = 'https://motoshfq.github.io/assets/team/default-athlete.jpg';
-        this.siteUrl = 'https://motoshfq.github.io/';
+        this.defaultImage = 'https://ukraine-judo.github.io/assets/team/default-athlete.jpg';
+        this.siteUrl = 'https://ukraine-judo.github.io/';
         this.currentAthlete = null;
         
         // Емодзі для різних категорій атлетів

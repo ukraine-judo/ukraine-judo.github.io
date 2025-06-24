@@ -10,7 +10,7 @@ class DocumentsSEOManager {
         this.documentsData = [];
         this.protocolsData = [];
         this.metadata = {};
-        this.siteUrl = 'https://motoshfq.github.io/';
+        this.siteUrl = 'https://ukraine-judo.github.io/';
         
         // Mapping категорий документов к Schema.org типам
         this.categoryToSchemaType = {

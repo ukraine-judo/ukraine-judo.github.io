@@ -4,7 +4,7 @@
  */
 class ArticleSEO {
     constructor() {
-        this.baseUrl = 'https://motoshfq.github.io/';
+        this.baseUrl = 'https://ukraine-judo.github.io/';
         this.defaultImage = 'assets/fju-logo.png';
         this.organizationName = 'Федерація Дзюдо України';
         this.organizationLogo = 'assets/fju-logo.png';

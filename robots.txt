@@ -23,7 +23,7 @@ Disallow: /database/
 Disallow: /test-smooth.html
 
 # Sitemap location
-Sitemap: https://motoshfq.github.io/sitemap.xml
+Sitemap: https://ukraine-judo.github.io/sitemap.xml
 
 # Специальные инструкции для поисковых систем
 User-agent: Googlebot

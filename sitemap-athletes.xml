@@ -3,24 +3,24 @@
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
    <!-- Team stars - highest priority -->
    <url>
-      <loc>https://motoshfq.github.io/athlete.html?id=daria-bilodid</loc>
+      <loc>https://ukraine-judo.github.io/athlete.html?id=daria-bilodid</loc>
       <lastmod>2025-01-18</lastmod>
       <changefreq>weekly</changefreq>
       <priority>0.9</priority>
       <image:image>
-         <image:loc>https://motoshfq.github.io/assets/team/bilodid-hero.jpg</image:loc>
+         <image:loc>https://ukraine-judo.github.io/assets/team/bilodid-hero.jpg</image:loc>
          <image:caption>Daria Bilodid - Olympic champion in judo</image:caption>
          <image:title>Daria Bilodid athlete profile</image:title>
       </image:image>
    </url>
    
    <url>
-      <loc>https://motoshfq.github.io/athlete.html?id=yakiv-khammo</loc>
+      <loc>https://ukraine-judo.github.io/athlete.html?id=yakiv-khammo</loc>
       <lastmod>2025-01-18</lastmod>
       <changefreq>weekly</changefreq>
       <priority>0.8</priority>
       <image:image>
-         <image:loc>https://motoshfq.github.io/assets/team/yakiv-khammo.jpg</image:loc>
+         <image:loc>https://ukraine-judo.github.io/assets/team/yakiv-khammo.jpg</image:loc>
          <image:caption>Yakiv Khammo - Ukraine champion in judo</image:caption>
          <image:title>Yakiv Khammo athlete profile</image:title>
       </image:image>
@@ -28,21 +28,21 @@
    
    <!-- Key male athletes -->
    <url>
-      <loc>https://motoshfq.github.io/athlete.html?id=artem-lesiuk</loc>
+      <loc>https://ukraine-judo.github.io/athlete.html?id=artem-lesiuk</loc>
       <lastmod>2025-01-18</lastmod>
       <changefreq>weekly</changefreq>
       <priority>0.7</priority>
    </url>
    
    <url>
-      <loc>https://motoshfq.github.io/athlete.html?id=georgiy-zantaraya</loc>
+      <loc>https://ukraine-judo.github.io/athlete.html?id=georgiy-zantaraya</loc>
       <lastmod>2025-01-18</lastmod>
       <changefreq>weekly</changefreq>
       <priority>0.7</priority>
    </url>
    
    <url>
-      <loc>https://motoshfq.github.io/athlete.html?id=khazar-heydarov</loc>
+      <loc>https://ukraine-judo.github.io/athlete.html?id=khazar-heydarov</loc>
       <lastmod>2025-01-18</lastmod>
       <changefreq>weekly</changefreq>
       <priority>0.7</priority>
@@ -50,21 +50,21 @@
    
    <!-- Key female athletes -->
    <url>
-      <loc>https://motoshfq.github.io/athlete.html?id=anna-oliinyk-korniiko</loc>
+      <loc>https://ukraine-judo.github.io/athlete.html?id=anna-oliinyk-korniiko</loc>
       <lastmod>2025-01-18</lastmod>
       <changefreq>weekly</changefreq>
       <priority>0.8</priority>
    </url>
    
    <url>
-      <loc>https://motoshfq.github.io/athlete.html?id=marharyta-miroshnichenko</loc>
+      <loc>https://ukraine-judo.github.io/athlete.html?id=marharyta-miroshnichenko</loc>
       <lastmod>2025-01-18</lastmod>
       <changefreq>weekly</changefreq>
       <priority>0.7</priority>
    </url>
    
    <url>
-      <loc>https://motoshfq.github.io/athlete.html?id=sofia-bordinskih</loc>
+      <loc>https://ukraine-judo.github.io/athlete.html?id=sofia-bordinskih</loc>
       <lastmod>2025-01-18</lastmod>
       <changefreq>weekly</changefreq>
       <priority>0.7</priority>
@@ -72,35 +72,35 @@
    
    <!-- Other team athletes -->
    <url>
-      <loc>https://motoshfq.github.io/athlete.html?id=anton-savytskiy</loc>
+      <loc>https://ukraine-judo.github.io/athlete.html?id=anton-savytskiy</loc>
       <lastmod>2025-01-18</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.6</priority>
    </url>
    
    <url>
-      <loc>https://motoshfq.github.io/athlete.html?id=bogdan-yadov</loc>
+      <loc>https://ukraine-judo.github.io/athlete.html?id=bogdan-yadov</loc>
       <lastmod>2025-01-18</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.6</priority>
    </url>
    
    <url>
-      <loc>https://motoshfq.github.io/athlete.html?id=dilshot-khalmatov</loc>
+      <loc>https://ukraine-judo.github.io/athlete.html?id=dilshot-khalmatov</loc>
       <lastmod>2025-01-18</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.6</priority>
    </url>
    
    <url>
-      <loc>https://motoshfq.github.io/athlete.html?id=anastasia-antipina</loc>
+      <loc>https://ukraine-judo.github.io/athlete.html?id=anastasia-antipina</loc>
       <lastmod>2025-01-18</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.6</priority>
    </url>
    
    <url>
-      <loc>https://motoshfq.github.io/athlete.html?id=yulia-kurchenko</loc>
+      <loc>https://ukraine-judo.github.io/athlete.html?id=yulia-kurchenko</loc>
       <lastmod>2025-01-18</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.6</priority>

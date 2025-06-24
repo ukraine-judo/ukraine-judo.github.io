@@ -3,7 +3,7 @@
         xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">
    <!-- Main news articles -->
    <url>
-      <loc>https://motoshfq.github.io/news-article.html?id=latest</loc>
+      <loc>https://ukraine-judo.github.io/news-article.html?id=latest</loc>
       <lastmod>2025-01-18</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.8</priority>
@@ -18,7 +18,7 @@
    </url>
    
    <url>
-      <loc>https://motoshfq.github.io/news-article.html?id=championship-2025</loc>
+      <loc>https://ukraine-judo.github.io/news-article.html?id=championship-2025</loc>
       <lastmod>2025-01-18</lastmod>
       <changefreq>weekly</changefreq>
       <priority>0.7</priority>
@@ -33,7 +33,7 @@
    </url>
    
    <url>
-      <loc>https://motoshfq.github.io/news-article.html?id=team-selection</loc>
+      <loc>https://ukraine-judo.github.io/news-article.html?id=team-selection</loc>
       <lastmod>2025-01-18</lastmod>
       <changefreq>weekly</changefreq>
       <priority>0.7</priority>
@@ -48,7 +48,7 @@
    </url>
    
    <url>
-      <loc>https://motoshfq.github.io/news-article.html?id=international-tournament</loc>
+      <loc>https://ukraine-judo.github.io/news-article.html?id=international-tournament</loc>
       <lastmod>2025-01-18</lastmod>
       <changefreq>weekly</changefreq>
       <priority>0.6</priority>

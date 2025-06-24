@@ -195,7 +195,7 @@ class TeamSEO {
             "@type": "SearchAction",
             "target": {
                 "@type": "EntryPoint",
-                "urlTemplate": `https://motoshfq.github.io/team.html?search=${query}`
+                "urlTemplate": `https://ukraine-judo.github.io/team.html?search=${query}`
             },
             "query-input": {
                 "@type": "PropertyValueSpecification",

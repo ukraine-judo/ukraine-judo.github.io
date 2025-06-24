@@ -5,8 +5,8 @@
 
 class CoachSEO {
     constructor() {
-        this.defaultImage = 'https://motoshfq.github.io/assets/coaches/default-coach.jpg';
-        this.siteUrl = 'https://motoshfq.github.io/';
+        this.defaultImage = 'https://ukraine-judo.github.io/assets/coaches/default-coach.jpg';
+        this.siteUrl = 'https://ukraine-judo.github.io/';
         this.currentCoach = null;
         
         // Емодзі для різних категорій тренерів
