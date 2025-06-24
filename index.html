@@ -152,150 +152,9 @@
         }
     }
     </script>
-    
-    <style>
-        /* Warning Banner Styles */
-        .warning-banner {
-            background: linear-gradient(135deg, #dc3545, #c82333);
-            color: white;
-            padding: 1rem 0;
-            position: relative;
-            border-bottom: 3px solid #b21e2d;
-            box-shadow: 0 2px 10px rgba(220, 53, 69, 0.3);
-            z-index: 10000;
-            animation: slideDown 0.5s ease-out;
-        }
-        
-        .warning-banner-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 1rem;
-        }
-        
-        .warning-banner-text {
-            flex: 1;
-            font-size: 0.95rem;
-            font-weight: 500;
-            line-height: 1.4;
-        }
-        
-        .warning-banner-text strong {
-            font-weight: 700;
-            text-transform: uppercase;
-            margin-right: 0.5rem;
-        }
-        
-        .warning-banner-contact {
-            color: #fff;
-            text-decoration: underline;
-            font-weight: 600;
-            transition: color 0.2s ease;
-        }
-        
-        .warning-banner-contact:hover {
-            color: #ffeb3b;
-        }
-        
-        .warning-banner-close {
-            background: transparent;
-            border: 2px solid rgba(255, 255, 255, 0.3);
-            color: white;
-            border-radius: 50%;
-            width: 32px;
-            height: 32px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            font-size: 18px;
-            font-weight: bold;
-            flex-shrink: 0;
-            z-index: 10001;
-            position: relative;
-            -webkit-appearance: none;
-            -moz-appearance: none;
-            appearance: none;
-        }
-        
-        .warning-banner-close:hover {
-            background: rgba(255, 255, 255, 0.1);
-            border-color: rgba(255, 255, 255, 0.5);
-            transform: scale(1.1);
-        }
-        
-        @keyframes slideDown {
-            from {
-                transform: translateY(-100%);
-                opacity: 0;
-            }
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
-        }
-        
-        @media (max-width: 768px) {
-            .warning-banner-content {
-                flex-direction: column;
-                text-align: center;
-                gap: 0.75rem;
-                padding: 0 1rem;
-            }
-            
-            .warning-banner-text {
-                font-size: 0.9rem;
-            }
-            
-            .warning-banner-close {
-                position: absolute;
-                top: 0.5rem;
-                right: 1rem;
-                min-width: 32px;
-                min-height: 32px;
-                -webkit-tap-highlight-color: rgba(255, 255, 255, 0.2);
-                touch-action: manipulation;
-            }
-        }
-        
-        /* Additional touch-friendly styles */
-        @media (hover: none) and (pointer: coarse) {
-            .warning-banner-close {
-                min-width: 44px;
-                min-height: 44px;
-                -webkit-tap-highlight-color: rgba(255, 255, 255, 0.2);
-            }
-            
-            .warning-banner-close:active {
-                background: rgba(255, 255, 255, 0.1);
-                transform: scale(0.95);
-            }
-        }
-        
-        .warning-banner.hidden {
-            display: none !important;
-            animation: none !important;
-        }
-    </style>
+
 </head>
 <body>
-    <!-- Warning Banner -->
-    <div class="warning-banner" id="warningBanner">
-        <div class="warning-banner-content">
-            <div class="warning-banner-text">
-                <strong>УВАГА:</strong> Демонстраційний сайт Федерації Дзюдо України. Створено для демонстрації можливостей сучасного веб-дизайну для спортивних організацій.
-                <strong>Проект у розробці.</strong>
-                Розробник: <a href="tel:+380997107296" class="warning-banner-contact">+380997107296</a>
-            </div>
-            <button class="warning-banner-close" id="closeBanner" aria-label="Закрити повідомлення">
-                ×
-            </button>
-        </div>
-    </div>
 
     <header class="header">
         <nav class="nav">
@@ -534,13 +393,19 @@
 
     <footer class="footer">
         <div class="foot-container">
+            <div class="footer-disclaimer">
+                <h4>⚠️ Неофіційний сайт</h4>
+                <p>Цей сайт не є офіційним ресурсом Федерації Дзюдо України та створений на основі відкритих джерел.</p>
+                <div class="sources">Вся інформація взята з офіційного сайту ФДУ або з відкритих джерел в інтернеті.</div>
+            </div>
+            
             <div class="footer-content">
                 <div class="footer-section">
                     <div class="footer-brand">
                         <img src="assets/fju-logo.png" alt="Логотип Федерації Дзюдо України" class="footer-logo">
                         <div class="brand-info">
                             <h3>Федерація Дзюдо України</h3>
-                            <p>Офіційна організація з розвитку дзюдо в Україні</p>
+                            <p>Неофіційний портал з інформацією про дзюдо в Україні</p>
                         </div>
                     </div>
                 </div>

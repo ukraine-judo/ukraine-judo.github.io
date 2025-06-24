@@ -53,6 +53,137 @@
 }
 
 /* Main Content */
+/* Developer Banner */
+.developer-banner {
+    background: linear-gradient(135deg, #2d5a8a 0%, #1a3f67 50%, #0f2940 100%);
+    color: white;
+    padding: 40px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.developer-banner::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="10" cy="10" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="90" cy="30" r="1.5" fill="rgba(255,255,255,0.1)"/><circle cx="30" cy="90" r="0.8" fill="rgba(255,255,255,0.1)"/><circle cx="70" cy="70" r="1.2" fill="rgba(255,255,255,0.1)"/></svg>');
+    animation: float 25s infinite linear;
+}
+
+.developer-card {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    padding: 35px;
+    backdrop-filter: blur(10px);
+    position: relative;
+    z-index: 1;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+.developer-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+}
+
+.developer-header h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 25px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: white;
+}
+
+.developer-header h2 svg {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.developer-content {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 35px;
+    align-items: center;
+}
+
+.developer-info {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.developer-name {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 5px;
+}
+
+.developer-contacts {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.developer-contact {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 1.1rem;
+}
+
+.developer-contact span {
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.developer-contact svg {
+    color: rgba(255, 255, 255, 0.8);
+    flex-shrink: 0;
+}
+
+.developer-contact a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.developer-contact a::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: white;
+    transition: width 0.3s ease;
+}
+
+.developer-contact a:hover::after {
+    width: 100%;
+}
+
+.developer-contact a:hover {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.developer-message p {
+    font-size: 1.15rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.95);
+    font-style: italic;
+    margin: 0;
+    text-align: right;
+}
+
 .contacts-content {
     padding: 80px 0;
     background: #fafafa;
@@ -560,6 +691,30 @@
         padding: 25px;
         font-size: 1.05rem;
     }
+    
+    .developer-banner {
+        padding: 35px 0;
+    }
+    
+    .developer-card {
+        padding: 30px;
+    }
+    
+    .developer-header h2 {
+        font-size: 1.7rem;
+    }
+    
+    .developer-content {
+        gap: 25px;
+    }
+    
+    .developer-name {
+        font-size: 1.5rem;
+    }
+    
+    .developer-message p {
+        font-size: 1rem;
+    }
 }
 
 /* FHD and Large Screens */
@@ -746,6 +901,32 @@
         margin-top: 35px;
         border-radius: 16px;
     }
+    
+    .developer-banner {
+        padding: 50px 0;
+    }
+    
+    .developer-card {
+        padding: 45px;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+    
+    .developer-header h2 {
+        font-size: 2.3rem;
+    }
+    
+    .developer-content {
+        gap: 40px;
+    }
+    
+    .developer-name {
+        font-size: 2rem;
+    }
+    
+    .developer-message p {
+        font-size: 1.25rem;
+    }
 }
 
 @media (min-width: 1440px) and (max-width: 1919px) {
@@ -862,6 +1043,32 @@
         padding: 30px;
         font-size: 1.2rem;
     }
+    
+    .developer-banner {
+        padding: 45px 0;
+    }
+    
+    .developer-card {
+        padding: 40px;
+        max-width: 1000px;
+        margin: 0 auto;
+    }
+    
+    .developer-header h2 {
+        font-size: 2.1rem;
+    }
+    
+    .developer-content {
+        gap: 35px;
+    }
+    
+    .developer-name {
+        font-size: 1.7rem;
+    }
+    
+    .developer-message p {
+        font-size: 1.15rem;
+    }
 }
 
 /* Responsive Design */
@@ -966,6 +1173,44 @@
         padding: 20px;
         font-size: 1rem;
     }
+    
+    .developer-banner {
+        padding: 30px 0;
+    }
+    
+    .developer-card {
+        padding: 25px;
+        border-radius: 16px;
+    }
+    
+    .developer-header h2 {
+        font-size: 1.5rem;
+        margin-bottom: 20px;
+    }
+    
+    .developer-content {
+        grid-template-columns: 1fr;
+        gap: 25px;
+        text-align: center;
+    }
+    
+    .developer-name {
+        font-size: 1.4rem;
+    }
+    
+    .developer-contacts {
+        align-items: center;
+    }
+    
+    .developer-contact {
+        justify-content: center;
+        font-size: 1rem;
+    }
+    
+    .developer-message p {
+        font-size: 1rem;
+        text-align: center;
+    }
 }
 
 @media (max-width: 480px) {
@@ -992,5 +1237,40 @@
     
     .section-divider {
         margin: 25px 0 20px 0;
+    }
+    
+    .developer-banner {
+        padding: 25px 0;
+    }
+    
+    .developer-card {
+        padding: 20px;
+        border-radius: 12px;
+    }
+    
+    .developer-header h2 {
+        font-size: 1.3rem;
+        margin-bottom: 15px;
+        flex-direction: column;
+        gap: 8px;
+    }
+    
+    .developer-content {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        text-align: center;
+    }
+    
+    .developer-name {
+        font-size: 1.2rem;
+    }
+    
+    .developer-contact {
+        font-size: 0.9rem;
+    }
+    
+    .developer-message p {
+        font-size: 0.9rem;
+        text-align: center;
     }
 } 
