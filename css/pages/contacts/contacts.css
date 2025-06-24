@@ -436,7 +436,7 @@
 /* HD Screens */
 @media (min-width: 1080px) and (max-width: 1439px) {
     .contacts-hero {
-        padding: 70px 0 50px 0;
+        padding: 11rem 0 5rem 0;
     }
     
     .contacts-hero h1 {
