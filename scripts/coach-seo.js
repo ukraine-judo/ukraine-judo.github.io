@@ -36,18 +36,17 @@ class CoachSEO {
         
         const emoji = this.categoryEmoji[coach.position] || this.categoryEmoji.default;
         const position = coach.position ? ` | ${coach.position}` : '';
-        const experience = coach.experience ? ` (${coach.experience} досвіду)` : '';
         
-        return `${emoji} ${coach.name} - тренер збірної України з дзюдо${position}${experience} | ФДУ`;
+        return `${emoji} ${coach.name} - тренер збірної України з дзюдо${position} | ФДУ`;
     }
 
     /**
      * Генерує SEO-friendly description
      */
     generateDescription(coach) {
-        if (!coach) return 'Офіційний профіль тренера національної збірної України з дзюдо: біографія, досвід, кар\'єрні досягнення та методики підготовки спортсменів ФДУ';
+        if (!coach) return 'Профіль тренера збірної України з дзюдо: біографія, досвід, досягнення та методики підготовки ФДУ';
         
-        let description = `Офіційний профіль ${coach.name} - тренера національної збірної України з дзюдо. `;
+        let description = `Профіль ${coach.name} - тренера збірної України з дзюдо. `;
         
         if (coach.position) {
             description += `${coach.position} з досвідом роботи `;
@@ -57,20 +56,16 @@ class CoachSEO {
             description += `${coach.experience}. `;
         }
         
-        if (coach.education) {
-            description += `Освіта: ${coach.education}. `;
-        }
-        
         if (coach.awards && coach.awards.length > 0) {
             const mainAward = coach.awards[0];
             description += `${mainAward.title}. `;
         }
         
         if (coach.titles && coach.titles.length > 0) {
-            description += `Звання: ${coach.titles.join(', ')}. `;
+            description += `Звання: ${coach.titles[0]}. `;
         }
         
-        description += 'Біографія, досвід та методики підготовки спортсменів на офіційному сайті ФДУ.';
+        description += 'Біографія та досвід на сайті ФДУ.';
         
         return description;
     }

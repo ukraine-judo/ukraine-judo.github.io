@@ -1,0 +1,996 @@
+/* Contacts Page Styles */
+
+/* Hero Section */
+.contacts-hero {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    color: white;
+    padding: 80px 0 60px 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.contacts-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="2" fill="rgba(255,255,255,0.1)"/><circle cx="80" cy="40" r="1.5" fill="rgba(255,255,255,0.1)"/><circle cx="40" cy="80" r="1" fill="rgba(255,255,255,0.1)"/></svg>');
+    animation: float 20s infinite linear;
+}
+
+@keyframes float {
+    0% { transform: translateY(0px) rotate(0deg); }
+    100% { transform: translateY(-100px) rotate(360deg); }
+}
+
+.contacts-hero h1 {
+    font-size: 3.5rem;
+    color: var(--text-white);
+    font-weight: 700;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    position: relative;
+    z-index: 1;
+}
+
+.contacts-hero h1 svg {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.contacts-hero p {
+    font-size: 1.3rem;
+    opacity: 0.9;
+    color: var(--text-white);
+    font-weight: 300;
+    position: relative;
+    z-index: 1;
+}
+
+/* Main Content */
+.contacts-content {
+    padding: 80px 0;
+    background: #fafafa;
+}
+
+.contact-section {
+    background: white;
+    border-radius: 20px;
+    padding: 50px;
+    margin-bottom: 40px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.contact-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: linear-gradient(180deg, var(--primary-color), var(--secondary-color));
+}
+
+.contact-section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12);
+}
+
+.contact-section h2 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 40px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.contact-section h2 svg {
+    color: var(--primary-color);
+}
+
+.contact-section h3 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin: 40px 0 30px 0;
+    padding-left: 20px;
+    border-left: 4px solid var(--secondary-color);
+}
+
+.section-divider {
+    height: 2px;
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color), transparent);
+    margin: 50px 0 40px 0;
+    border-radius: 1px;
+    opacity: 0.3;
+}
+
+/* Contact Rows */
+.contact-row {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 30px;
+    padding: 20px 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+}
+
+.contact-row:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+.contact-row:hover {
+    background: rgba(var(--primary-rgb), 0.02);
+    padding-left: 20px;
+    margin-left: -20px;
+    margin-right: -20px;
+    border-radius: 12px;
+}
+
+.contact-label {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-weight: 600;
+    color: var(--text-dark);
+    min-width: 140px;
+    font-size: 1.1rem;
+}
+
+.contact-label svg {
+    color: var(--primary-color);
+    flex-shrink: 0;
+}
+
+.contact-value {
+    flex: 1;
+    font-size: 1.1rem;
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+.contact-value a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.contact-value a::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--primary-color);
+    transition: width 0.3s ease;
+}
+
+.contact-value a:hover::after {
+    width: 100%;
+}
+
+.contact-value a:hover {
+    color: var(--secondary-color);
+}
+
+/* Staff Grid */
+.staff-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    margin-top: 20px;
+}
+
+.staff-person {
+    background: linear-gradient(135deg, rgba(var(--primary-rgb), 0.05) 0%, rgba(var(--secondary-rgb), 0.05) 100%);
+    padding: 30px;
+    border-radius: 16px;
+    border: 1px solid rgba(var(--primary-rgb), 0.1);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.staff-person::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+}
+
+.staff-person:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+}
+
+.staff-title {
+    font-size: 0.95rem;
+    color: var(--primary-color);
+    font-weight: 600;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.staff-name {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 10px;
+}
+
+.staff-contact a {
+    color: var(--secondary-color);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.staff-contact a:hover {
+    color: var(--primary-color);
+}
+
+/* Coaching Staff */
+.coaching-staff {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 25px;
+    margin-top: 20px;
+}
+
+.coach-item {
+    background: rgba(var(--secondary-rgb), 0.03);
+    padding: 25px;
+    border-radius: 12px;
+    border-left: 4px solid var(--secondary-color);
+    transition: all 0.3s ease;
+}
+
+.coach-item:hover {
+    background: rgba(var(--secondary-rgb), 0.08);
+    transform: translateX(5px);
+}
+
+.coach-title {
+    font-size: 1rem;
+    color: var(--secondary-color);
+    font-weight: 600;
+    margin-bottom: 8px;
+    line-height: 1.4;
+}
+
+.coach-name {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--text-dark);
+}
+
+/* Media Content */
+.media-content {
+    background: rgba(var(--primary-rgb), 0.02);
+    padding: 30px;
+    border-radius: 16px;
+    border: 1px solid rgba(var(--primary-rgb), 0.1);
+}
+
+.media-content p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: var(--text-color);
+    margin-bottom: 25px;
+}
+
+.media-content a {
+    color: var(--primary-color);
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.media-content a:hover {
+    color: var(--secondary-color);
+}
+
+.press-contact {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    margin: 25px 0;
+    border-left: 4px solid var(--primary-color);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+}
+
+.press-title {
+    font-size: 1rem;
+    color: var(--primary-color);
+    font-weight: 600;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.press-name {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 10px;
+}
+
+.press-phone a {
+    color: var(--secondary-color);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.press-phone a:hover {
+    color: var(--primary-color);
+}
+
+.thanks-note {
+    font-style: italic;
+    color: var(--text-light);
+    text-align: center;
+    font-size: 1.1rem;
+    margin-top: 20px;
+}
+
+/* Banking Section */
+.banking-section {
+    background: linear-gradient(135deg, rgba(var(--primary-rgb), 0.02) 0%, rgba(var(--secondary-rgb), 0.02) 100%);
+    border: 2px solid rgba(var(--primary-rgb), 0.1);
+}
+
+.banking-section::before {
+    background: linear-gradient(180deg, #FFD700, #FFA500);
+}
+
+.bank-org {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 30px;
+    text-align: center;
+    padding: 20px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+}
+
+.bank-details {
+    background: white;
+    padding: 30px;
+    border-radius: 16px;
+    margin: 25px 0;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+}
+
+.bank-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+}
+
+.bank-row:last-child {
+    border-bottom: none;
+}
+
+.bank-row:hover {
+    background: rgba(var(--primary-rgb), 0.02);
+    margin: 0 -15px;
+    padding-left: 15px;
+    padding-right: 15px;
+    border-radius: 8px;
+}
+
+.bank-label {
+    font-weight: 600;
+    color: var(--text-dark);
+    font-size: 1.1rem;
+}
+
+.bank-value {
+    font-family: 'Courier New', monospace;
+    font-weight: 500;
+    color: var(--primary-color);
+    font-size: 1.1rem;
+    text-align: right;
+}
+
+.bank-note {
+    background: rgba(255, 193, 7, 0.1);
+    border: 1px solid rgba(255, 193, 7, 0.3);
+    border-radius: 12px;
+    padding: 25px;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: var(--text-dark);
+    text-align: center;
+    margin-top: 25px;
+}
+
+.bank-note strong {
+    color: #e65100;
+}
+
+/* HD Screens */
+@media (min-width: 1080px) and (max-width: 1439px) {
+    .contacts-hero {
+        padding: 70px 0 50px 0;
+    }
+    
+    .contacts-hero h1 {
+        font-size: 3.2rem;
+    }
+    
+    .contacts-hero p {
+        font-size: 1.25rem;
+    }
+    
+    .contacts-content {
+        padding: 70px 0;
+    }
+    
+    .contact-section {
+        padding: 45px;
+        margin-bottom: 35px;
+        max-width: 1100px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    .contact-section h2 {
+        font-size: 2.1rem;
+        margin-bottom: 35px;
+    }
+    
+    .contact-section h3 {
+        font-size: 1.6rem;
+        margin: 35px 0 25px 0;
+        padding-left: 18px;
+    }
+    
+    .section-divider {
+        margin: 40px 0 35px 0;
+    }
+    
+    .contact-row {
+        margin-bottom: 28px;
+        padding: 18px 0;
+    }
+    
+    .contact-label {
+        min-width: 130px;
+        font-size: 1.05rem;
+    }
+    
+    .contact-value {
+        font-size: 1.05rem;
+    }
+    
+    .staff-grid {
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 25px;
+    }
+    
+    .staff-person {
+        padding: 28px;
+    }
+    
+    .staff-title {
+        font-size: 0.9rem;
+    }
+    
+    .staff-name {
+        font-size: 1.25rem;
+    }
+    
+    .staff-contact a {
+        font-size: 0.95rem;
+    }
+    
+    .coaching-staff {
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 25px;
+    }
+    
+    .coach-item {
+        padding: 22px;
+    }
+    
+    .coach-title {
+        font-size: 0.95rem;
+    }
+    
+    .coach-name {
+        font-size: 1.3rem;
+    }
+    
+    .media-content {
+        padding: 8px;
+    }
+    
+    .media-content p {
+        font-size: 1.05rem;
+    }
+    
+    .press-contact {
+        padding: 25px;
+    }
+    
+    .press-name {
+        font-size: 1.3rem;
+    }
+    
+    .bank-org {
+        font-size: 1.35rem;
+        padding: 22px;
+    }
+    
+    .bank-details {
+        padding: 28px;
+    }
+    
+    .bank-label,
+    .bank-value {
+        font-size: 1.05rem;
+    }
+    
+    .bank-note {
+        padding: 25px;
+        font-size: 1.05rem;
+    }
+}
+
+/* FHD and Large Screens */
+@media (min-width: 1920px) {
+    .contacts-hero {
+        padding: 120px 0 80px 0;
+    }
+    
+    .contacts-hero h1 {
+        font-size: 4.5rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .contacts-hero p {
+        font-size: 1.6rem;
+        max-width: 800px;
+        margin: 0 auto;
+    }
+    
+    .contacts-content {
+        padding: 120px 0;
+    }
+    
+    .contact-section {
+        padding: 70px 80px;
+        margin-bottom: 60px;
+        max-width: 1400px;
+        margin-left: auto;
+        margin-right: auto;
+        border-radius: 24px;
+    }
+    
+    .contact-section h2 {
+        font-size: 2.8rem;
+        margin-bottom: 50px;
+        gap: 20px;
+    }
+    
+    .contact-section h2 svg {
+        width: 32px;
+        height: 32px;
+    }
+    
+    .contact-section h3 {
+        font-size: 2.2rem;
+        margin: 50px 0 35px 0;
+        padding-left: 25px;
+        border-left-width: 5px;
+    }
+    
+    .section-divider {
+        margin: 60px 0 50px 0;
+        height: 3px;
+    }
+    
+    .contact-row {
+        margin-bottom: 40px;
+        padding: 25px 0;
+    }
+    
+    .contact-label {
+        min-width: 180px;
+        font-size: 1.3rem;
+        gap: 15px;
+    }
+    
+    .contact-label svg {
+        width: 24px;
+        height: 24px;
+    }
+    
+    .contact-value {
+        font-size: 1.3rem;
+    }
+    
+    .staff-grid {
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 35px;
+        margin-top: 30px;
+    }
+    
+    .staff-person {
+        padding: 40px;
+        border-radius: 20px;
+    }
+    
+    .staff-title {
+        font-size: 1.1rem;
+        margin-bottom: 12px;
+    }
+    
+    .staff-name {
+        font-size: 1.6rem;
+        margin-bottom: 15px;
+    }
+    
+    .staff-contact a {
+        font-size: 1.2rem;
+    }
+    
+    .coaching-staff {
+        grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+        gap: 35px;
+        margin-top: 30px;
+    }
+    
+    .coach-item {
+        padding: 35px;
+        border-radius: 16px;
+    }
+    
+    .coach-title {
+        font-size: 1.2rem;
+        margin-bottom: 12px;
+    }
+    
+    .coach-name {
+        font-size: 1.7rem;
+    }
+    
+    .media-content {
+        padding: 40px;
+        border-radius: 20px;
+    }
+    
+    .media-content p {
+        font-size: 1.3rem;
+        margin-bottom: 30px;
+    }
+    
+    .press-contact {
+        padding: 35px;
+        margin: 35px 0;
+        border-radius: 16px;
+    }
+    
+    .press-title {
+        font-size: 1.2rem;
+        margin-bottom: 12px;
+    }
+    
+    .press-name {
+        font-size: 1.7rem;
+        margin-bottom: 15px;
+    }
+    
+    .press-phone a {
+        font-size: 1.2rem;
+    }
+    
+    .thanks-note {
+        font-size: 1.3rem;
+        margin-top: 25px;
+    }
+    
+    .bank-org {
+        font-size: 1.7rem;
+        margin-bottom: 40px;
+        padding: 30px;
+        border-radius: 16px;
+    }
+    
+    .bank-details {
+        padding: 40px;
+        border-radius: 20px;
+        margin: 35px 0;
+    }
+    
+    .bank-row {
+        padding: 20px 0;
+    }
+    
+    .bank-label {
+        font-size: 1.3rem;
+    }
+    
+    .bank-value {
+        font-size: 1.3rem;
+    }
+    
+    .bank-note {
+        padding: 35px;
+        font-size: 1.3rem;
+        margin-top: 35px;
+        border-radius: 16px;
+    }
+}
+
+@media (min-width: 1440px) and (max-width: 1919px) {
+    .contacts-hero {
+        padding: 100px 0 70px 0;
+    }
+    
+    .contacts-hero h1 {
+        font-size: 4rem;
+    }
+    
+    .contacts-hero p {
+        font-size: 1.4rem;
+    }
+    
+    .contacts-content {
+        padding: 100px 0;
+    }
+    
+    .contact-section {
+        padding: 60px;
+        margin-bottom: 50px;
+        max-width: 1200px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    .contact-section h2 {
+        font-size: 2.5rem;
+        margin-bottom: 45px;
+    }
+    
+    .contact-section h3 {
+        font-size: 2rem;
+        margin: 45px 0 30px 0;
+        padding-left: 22px;
+    }
+    
+    .section-divider {
+        margin: 55px 0 45px 0;
+    }
+    
+    .contact-row {
+        margin-bottom: 35px;
+        padding: 22px 0;
+    }
+    
+    .contact-label {
+        min-width: 160px;
+        font-size: 1.2rem;
+    }
+    
+    .contact-value {
+        font-size: 1.2rem;
+    }
+    
+    .staff-grid {
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 30px;
+    }
+    
+    .staff-person {
+        padding: 35px;
+    }
+    
+    .staff-name {
+        font-size: 1.4rem;
+    }
+    
+    .coaching-staff {
+        grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+        gap: 30px;
+    }
+    
+    .coach-item {
+        padding: 30px;
+    }
+    
+    .coach-name {
+        font-size: 1.5rem;
+    }
+    
+    .media-content {
+        padding: 35px;
+    }
+    
+    .media-content p {
+        font-size: 1.2rem;
+    }
+    
+    .press-contact {
+        padding: 30px;
+    }
+    
+    .press-name {
+        font-size: 1.5rem;
+    }
+    
+    .bank-org {
+        font-size: 1.5rem;
+        padding: 25px;
+    }
+    
+    .bank-details {
+        padding: 35px;
+    }
+    
+    .bank-label,
+    .bank-value {
+        font-size: 1.2rem;
+    }
+    
+    .bank-note {
+        padding: 30px;
+        font-size: 1.2rem;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .contacts-hero {
+        padding: 60px 0 40px 0;
+    }
+    
+    .contacts-hero h1 {
+        font-size: 2.5rem;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .contacts-hero p {
+        font-size: 1.1rem;
+    }
+    
+    .contacts-content {
+        padding: 40px 0;
+    }
+    
+    .contact-section {
+        padding: 30px 20px;
+        margin-bottom: 25px;
+        border-radius: 16px;
+    }
+    
+    .contact-section h2 {
+        font-size: 1.8rem;
+        margin-bottom: 25px;
+    }
+    
+    .contact-section h3 {
+        font-size: 1.4rem;
+        margin: 30px 0 20px 0;
+        padding-left: 15px;
+        border-left-width: 3px;
+    }
+    
+    .section-divider {
+        margin: 35px 0 30px 0;
+        height: 1px;
+    }
+    
+    .contact-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+        padding: 15px 0;
+    }
+    
+    .contact-label {
+        min-width: auto;
+        font-size: 1rem;
+    }
+    
+    .contact-value {
+        font-size: 1rem;
+        margin-left: 32px;
+    }
+    
+    .staff-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .staff-person {
+        padding: 20px;
+    }
+    
+    .coaching-staff {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .coach-item {
+        padding: 20px;
+    }
+    
+    .media-content {
+        padding: 20px;
+    }
+    
+    .bank-details {
+        padding: 20px;
+    }
+    
+    .bank-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px;
+    }
+    
+    .bank-value {
+        text-align: left;
+        font-size: 1rem;
+        word-break: break-all;
+    }
+    
+    .bank-note {
+        padding: 20px;
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .contacts-hero h1 {
+        font-size: 2rem;
+    }
+    
+    .contact-section {
+        padding: 20px 15px;
+    }
+    
+    .contact-section h2 {
+        font-size: 1.5rem;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+    
+    .contact-section h3 {
+        font-size: 1.2rem;
+        margin: 25px 0 15px 0;
+        padding-left: 12px;
+    }
+    
+    .section-divider {
+        margin: 25px 0 20px 0;
+    }
+} 
