@@ -1,0 +1,1079 @@
+/* Disclaimer Page Styles */
+
+.disclaimer-hero {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+    color: white;
+    padding: 8rem 0 3.75rem;
+    text-align: center;
+}
+
+.disclaimer-hero h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin: 0 0 0.9375rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.9375rem;
+    flex-wrap: wrap;
+    color: white;
+}
+
+.disclaimer-hero p {
+    font-size: 1.2rem;
+    color: white;
+    margin: 0;
+    max-width: 37.5rem;
+    margin: 0 auto;
+}
+
+.disclaimer-content {
+    padding: 3.75rem 0;
+}
+
+.disclaimer-section {
+    margin-bottom: 3.75rem;
+}
+
+.disclaimer-section h2 {
+    font-size: 2rem;
+    margin-bottom: 1.875rem;
+    color: #333;
+    display: flex;
+    align-items: center;
+    gap: 0.9375rem;
+}
+
+/* Warning Section */
+.warning-section {
+    background: white;
+    padding: 2.5rem;
+    border-radius: 1.25rem;
+    box-shadow: 0 0.625rem 1.875rem rgba(0,0,0,0.1);
+    margin-bottom: 3.75rem;
+    border-left: 0.3125rem solid #dc3545;
+}
+
+.warning-section h2 {
+    color: var(--text-dark);
+    margin-bottom: 1.25rem;
+}
+
+.warning-text {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--text-dark);
+    margin-bottom: 1.25rem;
+}
+
+.warning-text strong {
+    font-weight: 700;
+}
+
+.official-links {
+    margin: 1.25rem 0;
+}
+
+.official-links ul {
+    margin-left: 1.25rem;
+    list-style-type: disc;
+}
+
+.official-links a {
+    color: #0066cc;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.official-links a:hover {
+    text-decoration: underline;
+}
+
+.warning-footer {
+    color: #721c24;
+    font-weight: 600;
+    background: #f8d7da;
+    padding: 0.9375rem;
+    border-radius: 0.5rem;
+    border-left: 0.25rem solid #dc3545;
+}
+
+/* Author Section */
+.author-section {
+    background: white;
+    padding: 2.5rem;
+    border-radius: 1.25rem;
+    box-shadow: 0 0.625rem 1.875rem rgba(0,0,0,0.1);
+    margin-bottom: 3.75rem;
+}
+
+.author-header {
+    display: flex;
+    align-items: center;
+    gap: 1.5625rem;
+    margin-bottom: 1.875rem;
+    flex-wrap: wrap;
+}
+
+.author-avatar {
+    width: 90px;
+    height: 5.625rem;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 2.5rem;
+    font-weight: bold;
+    flex-shrink: 0;
+}
+
+.author-info h3 {
+    margin: 0;
+    font-size: 1.8rem;
+    color: #333;
+    font-weight: 700;
+}
+
+.author-info .subtitle {
+    margin: 0.5rem 0 0 0;
+    color: #666;
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(17.5rem, 1fr));
+    gap: 1.25rem;
+}
+
+.contact-card {
+    display: flex;
+    align-items: center;
+    gap: 0.9375rem;
+    padding: 1.25rem;
+    background: #f8f9fa;
+    border-radius: 0.75rem;
+    transition: all 0.3s ease;
+    border: 0.125rem solid transparent;
+}
+
+.contact-card:hover {
+    background: #e9ecef;
+    border-color: #007bff;
+    transform: translateY(-0.125rem);
+}
+
+.contact-icon {
+    flex-shrink: 0;
+}
+
+.contact-details strong {
+    display: block;
+    margin-bottom: 0.3125rem;
+    color: #333;
+    font-weight: 600;
+}
+
+.contact-details a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.contact-details a:hover {
+    text-decoration: underline;
+}
+
+/* Technical Section */
+.technical-section {
+    background: #f8f9fa;
+    padding: 0.5rem 0;
+    margin: 2.5rem 0;
+    border-radius: 1.25rem;
+}
+
+.tech-intro {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 2.5rem;
+    border-radius: 0.9375rem;
+    margin-bottom: 2.5rem;
+    text-align: center;
+}
+
+.tech-intro h3 {
+    margin: 0 0 1.25rem 0;
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+
+.tech-intro p {
+    font-size: 1.2rem;
+    line-height: 1.7;
+    margin: 0;
+    opacity: 0.95;
+}
+
+.tech-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+    gap: 1.875rem;
+    margin-bottom: 2.5rem;
+}
+
+.tech-card {
+    background: white;
+    padding: 1.875rem;
+    border-radius: 0.9375rem;
+    box-shadow: 0 0.5rem 1.5625rem rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    border-top: 0.25rem solid;
+    position: relative;
+    overflow: hidden;
+}
+
+.tech-card:hover {
+    transform: translateY(-0.3125rem);
+    box-shadow: 0 0.9375rem 2.1875rem rgba(0,0,0,0.15);
+}
+
+.tech-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 0.25rem;
+}
+
+.tech-card.html { border-top-color: #e74c3c; color: #e74c3c; }
+.tech-card.js { border-top-color: #f1c40f; color: #f1c40f; }
+.tech-card.seo { border-top-color: #27ae60; color: #27ae60; }
+.tech-card.json { border-top-color: #3498db; color: #3498db; }
+.tech-card.responsive { border-top-color: #9b59b6; color: #9b59b6; }
+.tech-card.hosting { border-top-color: #e67e22; color: #e67e22; }
+
+.tech-card h4 {
+    margin: 0 0 0.9375rem 0;
+    font-size: 1.3rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: inherit;
+}
+
+.tech-card p {
+    margin: 0;
+    line-height: 1.7;
+    color: #555;
+    font-size: 1rem;
+}
+
+.tech-footer {
+    background: white;
+    padding: 2.5rem;
+    border-radius: 0.9375rem;
+    text-align: center;
+    box-shadow: 0 0.3125rem 1.25rem rgba(0,0,0,0.08);
+}
+
+.tech-footer h3 {
+    margin: 0 0 0.9375rem 0;
+    color: #333;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.tech-footer p {
+    margin: 0;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #666;
+}
+
+/* Footer Disclaimer Note */
+.footer-disclaimer-note {
+    font-size: 0.9rem;
+    color: #aaa;
+    margin-top: 0.3125rem;
+}
+
+.footer-disclaimer-note a {
+    color: #aaa;
+    text-decoration: underline;
+}
+
+.footer-disclaimer-note a:hover {
+    color: #007bff;
+}
+
+/* =================== ИДЕАЛЬНАЯ АДАПТАЦИЯ =================== */
+
+/* ULTRA SMALL MOBILE - до 320px */
+@media (max-width: 20rem) {
+    .disclaimer-hero {
+        padding: 3rem 0 1.5rem;
+    }
+    
+    .disclaimer-hero h1 {
+        font-size: 1.4rem;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .disclaimer-hero p {
+        font-size: 0.9rem;
+    }
+    
+    .disclaimer-content {
+        padding: 1.5rem 0;
+    }
+    
+    .disclaimer-section {
+        margin-bottom: 1.5rem;
+    }
+    
+    .disclaimer-section h2 {
+        font-size: 1.2rem;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .warning-section,
+    .author-section {
+        padding: 1rem;
+        margin-bottom: 2rem;
+    }
+    
+    .tech-card {
+        padding: 1rem;
+    }
+    
+    .tech-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 0.75rem;
+    }
+    
+    .contact-card {
+        padding: 0.75rem;
+        flex-direction: column;
+        text-align: center;
+    }
+    
+         .author-avatar {
+         width: 64px;
+         height: 4rem;
+         font-size: 1.8rem;
+     }
+}
+
+/* SMALL MOBILE - 320px - 480px */
+@media (min-width: 20rem) and (max-width: 30rem) {
+    .disclaimer-hero {
+        padding: 4rem 0 2rem;
+    }
+    
+    .disclaimer-hero h1 {
+        font-size: 1.6rem;
+        flex-direction: column;
+        gap: 0.625rem;
+    }
+    
+    .disclaimer-hero p {
+        font-size: 1rem;
+    }
+    
+    .disclaimer-content {
+        padding: 2rem 0;
+    }
+    
+    .disclaimer-section {
+        margin-bottom: 2rem;
+    }
+    
+    .disclaimer-section h2 {
+        font-size: 1.4rem;
+        flex-direction: column;
+        gap: 0.625rem;
+    }
+    
+    .warning-section,
+    .author-section {
+        padding: 1.25rem;
+    }
+    
+    .tech-card {
+        padding: 1.25rem;
+    }
+    
+    .tech-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .author-header {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+    }
+    
+         .author-avatar {
+         width: 72px;
+         height: 4.5rem;
+         font-size: 2rem;
+     }
+}
+
+/* LARGE MOBILE - 480px - 768px */
+@media (min-width: 30rem) and (max-width: 48rem) {
+    .disclaimer-hero {
+        padding: 5rem 0 2.5rem;
+    }
+    
+    .disclaimer-hero h1 {
+        font-size: 1.8rem;
+    }
+    
+    .disclaimer-hero p {
+        font-size: 1.1rem;
+    }
+    
+    .disclaimer-content {
+        padding: 2.5rem 0;
+    }
+    
+    .disclaimer-section {
+        margin-bottom: 2.5rem;
+    }
+    
+    .disclaimer-section h2 {
+        font-size: 1.6rem;
+    }
+    
+    .warning-section,
+    .author-section {
+        padding: 1.5rem;
+    }
+    
+    .tech-grid {
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+    }
+    
+    .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .author-header {
+        flex-direction: column;
+        text-align: center;
+        gap: 1.25rem;
+    }
+    
+         .author-avatar {
+         width: 80px;
+         height: 5rem;
+         font-size: 2.2rem;
+     }
+}
+
+/* TABLET PORTRAIT - 768px - 1024px */
+@media (min-width: 48rem) and (max-width: 64rem) {
+    .disclaimer-hero {
+        padding: 6rem 0 3rem;
+    }
+    
+    .disclaimer-hero h1 {
+        font-size: 2.2rem;
+    }
+    
+    .disclaimer-hero p {
+        font-size: 1.25rem;
+        max-width: 40rem;
+    }
+    
+    .disclaimer-content {
+        padding: 3rem 0;
+    }
+    
+    .disclaimer-section h2 {
+        font-size: 1.8rem;
+    }
+    
+    .tech-grid {
+        grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+        gap: 1.5rem;
+    }
+    
+    .contact-grid {
+        grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+        gap: 1.25rem;
+    }
+    
+    .author-header {
+        gap: 1.5rem;
+    }
+    
+    .warning-section,
+    .author-section {
+        padding: 2rem;
+    }
+}
+
+/* TABLET LANDSCAPE / SMALL DESKTOP - 1024px - 1366px */
+@media (min-width: 64rem) and (max-width: 85.375rem) {
+    .container {
+        max-width: 70rem;
+    }
+    .disclaimer-hero {
+        padding: 7rem 0 3.75rem;
+    }
+    
+    .disclaimer-hero h1 {
+        font-size: 2.5rem;
+    }
+    
+    .disclaimer-hero p {
+        font-size: 1.3rem;
+        max-width: 42rem;
+    }
+    
+    .disclaimer-content {
+        padding: 3.75rem 0;
+    }
+    
+    .disclaimer-section h2 {
+        font-size: 2rem;
+    }
+    
+    .tech-grid {
+        grid-template-columns: repeat(auto-fit, minmax(19rem, 1fr));
+        gap: 1.75rem;
+    }
+    
+    .contact-grid {
+        grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr));
+        gap: 1.25rem;
+    }
+    
+    .warning-section,
+    .author-section {
+        padding: 2.5rem;
+    }
+}
+
+/* HD DESKTOP - 1366px - 1920px */
+@media (min-width: 85.375rem) and (max-width: 120rem) {
+    .container {
+        max-width: 75rem;
+    }
+    .disclaimer-hero {
+        padding: 8rem 0 4.5rem;
+    }
+    
+    .disclaimer-hero h1 {
+        font-size: 3rem;
+    }
+    
+    .disclaimer-hero p {
+        font-size: 1.4rem;
+        max-width: 45rem;
+    }
+    
+    .disclaimer-content {
+        padding: 4.5rem 0;
+    }
+    
+    .disclaimer-section {
+        margin-bottom: 4rem;
+    }
+    
+    .disclaimer-section h2 {
+        font-size: 2.25rem;
+    }
+    
+    .tech-grid {
+        grid-template-columns: repeat(auto-fit, minmax(22rem, 1fr));
+        gap: 2.25rem;
+    }
+    
+    .contact-grid {
+        grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+        gap: 1.5rem;
+    }
+    
+    .warning-section,
+    .author-section {
+        padding: 3rem;
+    }
+    
+    .tech-card {
+        padding: 2.25rem;
+    }
+    
+         .author-avatar {
+         width: 96px;
+         height: 6rem;
+         font-size: 2.75rem;
+     }
+    
+    .author-info h3 {
+        font-size: 2rem;
+    }
+    
+    .author-info .subtitle {
+        font-size: 1.2rem;
+    }
+}
+
+/* FHD DESKTOP - 1920px - 2560px */
+@media (min-width: 120rem) and (max-width: 160rem) {
+    .container {
+        max-width: 90rem;
+    }
+    
+    .disclaimer-hero {
+        padding: 10rem 0 5.625rem;
+    }
+    
+    .disclaimer-hero h1 {
+        font-size: 3.5rem;
+        gap: 1.25rem;
+    }
+    
+    .disclaimer-hero p {
+        font-size: 1.5rem;
+        max-width: 50rem;
+    }
+    
+    .disclaimer-content {
+        padding: 5.625rem 0;
+    }
+    
+    .disclaimer-section {
+        margin-bottom: 5rem;
+    }
+    
+    .disclaimer-section h2 {
+        font-size: 2.5rem;
+        margin-bottom: 2.25rem;
+    }
+    
+    .warning-section,
+    .author-section {
+        padding: 3.75rem;
+    }
+    
+    .tech-intro {
+        padding: 3.75rem;
+        margin-bottom: 3.75rem;
+    }
+    
+    .tech-intro h3 {
+        font-size: 2.25rem;
+        margin-bottom: 1.875rem;
+    }
+    
+    .tech-intro p {
+        font-size: 1.4rem;
+    }
+    
+    .tech-grid {
+        grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+        gap: 2.5rem;
+        margin-bottom: 3.75rem;
+    }
+    
+    .tech-card {
+        padding: 2.5rem;
+    }
+    
+    .tech-card h4 {
+        font-size: 1.5rem;
+        margin-bottom: 1.25rem;
+    }
+    
+    .tech-card p {
+        font-size: 1.1rem;
+    }
+    
+    .contact-grid {
+        grid-template-columns: repeat(auto-fit, minmax(22rem, 1fr));
+        gap: 2rem;
+    }
+    
+    .contact-card {
+        padding: 1.875rem;
+    }
+    
+         .author-avatar {
+         width: 112px;
+         height: 7rem;
+         font-size: 3rem;
+     }
+    
+    .author-info h3 {
+        font-size: 2.25rem;
+    }
+    
+    .author-info .subtitle {
+        font-size: 1.3rem;
+    }
+}
+
+/* QHD DESKTOP - 2560px - 3440px */
+@media (min-width: 160rem) and (max-width: 215rem) {
+    .container {
+        max-width: 115rem;
+    }
+    
+    .disclaimer-hero {
+        padding: 12rem 0 6.5rem;
+    }
+    
+    .disclaimer-hero h1 {
+        font-size: 4rem;
+        gap: 1.75rem;
+    }
+    
+    .disclaimer-hero p {
+        font-size: 1.7rem;
+        max-width: 55rem;
+    }
+    
+    .disclaimer-content {
+        padding: 6.5rem 0;
+    }
+    
+    .disclaimer-section {
+        margin-bottom: 6rem;
+    }
+    
+    .disclaimer-section h2 {
+        font-size: 3rem;
+        margin-bottom: 2.75rem;
+        gap: 1.25rem;
+    }
+    
+    .warning-section,
+    .author-section {
+        padding: 4.5rem;
+        border-radius: 1.75rem;
+    }
+    
+    .warning-section {
+        border-left: 0.4375rem solid #dc3545;
+    }
+    
+    .tech-intro {
+        padding: 4.5rem;
+        margin-bottom: 4.5rem;
+        border-radius: 1.25rem;
+    }
+    
+    .tech-intro h3 {
+        font-size: 2.75rem;
+        margin-bottom: 2.25rem;
+    }
+    
+    .tech-intro p {
+        font-size: 1.6rem;
+    }
+    
+    .tech-grid {
+        grid-template-columns: repeat(auto-fit, minmax(27rem, 1fr));
+        gap: 3rem;
+        margin-bottom: 4.5rem;
+    }
+    
+    .tech-card {
+        padding: 3rem;
+        border-radius: 1.25rem;
+        border-top: 0.3125rem solid;
+    }
+    
+    .tech-card h4 {
+        font-size: 1.75rem;
+        margin-bottom: 1.25rem;
+        gap: 0.875rem;
+    }
+    
+    .tech-card p {
+        font-size: 1.25rem;
+        line-height: 1.75;
+    }
+    
+    .contact-grid {
+        grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+        gap: 2.25rem;
+    }
+    
+    .contact-card {
+        padding: 2.25rem;
+        border-radius: 0.875rem;
+        gap: 1.25rem;
+    }
+    
+    .contact-details strong {
+        font-size: 1.15rem;
+        margin-bottom: 0.4375rem;
+    }
+    
+    .contact-details a {
+        font-size: 1.05rem;
+    }
+    
+    .author-avatar {
+        width: 140px;
+        height: 8.75rem;
+        font-size: 4rem;
+    }
+    
+    .author-info h3 {
+        font-size: 2.75rem;
+    }
+    
+    .author-info .subtitle {
+        font-size: 1.5rem;
+        margin-top: 0.625rem;
+    }
+    
+    .warning-text,
+    .warning-footer {
+        font-size: 1.2rem;
+    }
+    
+    .official-links ul {
+        margin-left: 1.75rem;
+    }
+    
+    .official-links a {
+        font-size: 1.15rem;
+    }
+    
+    .tech-footer {
+        padding: 3rem;
+    }
+    
+    .tech-footer h3 {
+        font-size: 2rem;
+        margin-bottom: 1.25rem;
+    }
+    
+    .tech-footer p {
+        font-size: 1.25rem;
+    }
+}
+
+/* 4K ULTRA HD - 3440px+ */
+@media (min-width: 215rem) {
+    .container {
+        max-width: 150rem;
+    }
+    
+    .disclaimer-hero {
+        padding: 15rem 0 7.5rem;
+    }
+    
+    .disclaimer-hero h1 {
+        font-size: 4.5rem;
+        gap: 2rem;
+    }
+    
+    .disclaimer-hero p {
+        font-size: 2rem;
+        max-width: 60rem;
+    }
+    
+    .disclaimer-content {
+        padding: 7.5rem 0;
+    }
+    
+    .disclaimer-section {
+        margin-bottom: 7.5rem;
+    }
+    
+    .disclaimer-section h2 {
+        font-size: 3.5rem;
+        margin-bottom: 3rem;
+        gap: 1.5rem;
+    }
+    
+    .warning-section,
+    .author-section {
+        padding: 5rem;
+        border-radius: 2rem;
+    }
+    
+    .warning-section {
+        border-left: 0.5rem solid #dc3545;
+    }
+    
+    .tech-intro {
+        padding: 5rem;
+        margin-bottom: 5rem;
+        border-radius: 1.5rem;
+    }
+    
+    .tech-intro h3 {
+        font-size: 3rem;
+        margin-bottom: 2.5rem;
+    }
+    
+    .tech-intro p {
+        font-size: 1.8rem;
+    }
+    
+    .tech-grid {
+        grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+        gap: 3.5rem;
+        margin-bottom: 5rem;
+    }
+    
+    .tech-card {
+        padding: 3.5rem;
+        border-radius: 1.5rem;
+        border-top: 0.375rem solid;
+    }
+    
+    .tech-card h4 {
+        font-size: 2rem;
+        margin-bottom: 1.5rem;
+        gap: 1rem;
+    }
+    
+    .tech-card p {
+        font-size: 1.4rem;
+        line-height: 1.8;
+    }
+    
+    .contact-grid {
+        grid-template-columns: repeat(auto-fit, minmax(28rem, 1fr));
+        gap: 2.5rem;
+    }
+    
+    .contact-card {
+        padding: 2.5rem;
+        border-radius: 1rem;
+        gap: 1.5rem;
+    }
+    
+    .contact-details strong {
+        font-size: 1.2rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .contact-details a {
+        font-size: 1.1rem;
+    }
+    
+         .author-avatar {
+         width: 160px;
+         height: 10rem;
+         font-size: 4.5rem;
+     }
+    
+    .author-info h3 {
+        font-size: 3rem;
+    }
+    
+    .author-info .subtitle {
+        font-size: 1.6rem;
+        margin-top: 0.75rem;
+    }
+    
+    .warning-text,
+    .warning-footer {
+        font-size: 1.3rem;
+    }
+    
+    .official-links ul {
+        margin-left: 2rem;
+    }
+    
+    .official-links a {
+        font-size: 1.2rem;
+    }
+}
+
+/* LANDSCAPE ORIENTATION ADJUSTMENTS */
+@media (orientation: landscape) and (max-height: 30rem) {
+    .disclaimer-hero {
+        padding: 3rem 0 1.5rem;
+    }
+    
+    .disclaimer-hero h1 {
+        font-size: 1.8rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .disclaimer-hero p {
+        font-size: 1rem;
+    }
+    
+    .disclaimer-content {
+        padding: 2rem 0;
+    }
+    
+    .disclaimer-section {
+        margin-bottom: 2rem;
+    }
+    
+    .warning-section,
+    .author-section {
+        padding: 1.5rem;
+    }
+}
+
+/* HIGH DPI SCREENS */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .tech-card,
+    .contact-card,
+    .warning-section,
+    .author-section {
+        box-shadow: 0 0.125rem 0.5rem rgba(0,0,0,0.15);
+    }
+    
+    .tech-card:hover {
+        box-shadow: 0 0.25rem 1rem rgba(0,0,0,0.2);
+    }
+}
+
+/* PRINT STYLES */
+@media print {
+    .disclaimer-hero {
+        background: none !important;
+        color: black !important;
+        padding: 1rem 0;
+    }
+    
+    .tech-card,
+    .contact-card,
+    .warning-section,
+    .author-section {
+        box-shadow: none !important;
+        border: 1px solid #ddd !important;
+    }
+    
+    .tech-card:hover {
+        transform: none !important;
+    }
+    
+    .contact-card:hover {
+        transform: none !important;
+    }
+} 

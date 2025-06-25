@@ -1,0 +1,24 @@
+/* Footer Contact Component */
+.contact-info p {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.95rem;
+    margin-bottom: 0.75rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    line-height: 1.5;
+    word-break: break-word;
+    overflow-wrap: break-word;
+    max-width: 100%;
+}
+
+.contact-info p:last-child {
+    margin-bottom: 0;
+}
+
+.contact-info svg {
+    color: var(--primary-color);
+    flex-shrink: 0;
+    margin-top: 0.125rem;
+    min-width: 16px;
+} 

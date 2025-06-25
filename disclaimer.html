@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Primary Meta Tags -->
+    <title>Важлива інформація | Про сайт ФДУ - автор, технології та мета</title>
+    <meta name="title" content="Важлива інформація | Про сайт ФДУ - автор, технології та мета">
+    <meta name="description" content="Важлива інформація про неофіційний сайт Федерації Дзюдо України, його автора та технічну реалізацію. Навчальний проект студента.">
+    <meta name="keywords" content="важлива інформація фду, неофіційний сайт, про автора, навчальний проект, федерація дзюдо україни, веб-розробка"
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="uk">
+    <meta name="author" content="Автор сайту">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ukraine-judo.github.io/disclaimer.html">
+    <meta property="og:title" content="Важлива інформація | Про сайт ФДУ">
+    <meta property="og:description" content="Важлива інформація про неофіційний сайт Федерації Дзюдо України, його автора та технічну реалізацію.">
+    <meta property="og:image" content="https://ukraine-judo.github.io/assets/fju-logo.png">
+    <meta property="og:locale" content="uk_UA">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://ukraine-judo.github.io/disclaimer.html">
+    <meta property="twitter:title" content="Важлива інформація | Про сайт ФДУ">
+    <meta property="twitter:description" content="Важлива інформація про неофіційний сайт ФДУ та його навчальну мету."
+    <meta property="twitter:image" content="https://ukraine-judo.github.io/assets/fju-logo.png">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://ukraine-judo.github.io/disclaimer.html">
+    
+    <!-- Favicon and Icons -->
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/fju-logo.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/fju-logo.png">
+    <link rel="apple-touch-icon" href="assets/fju-logo.png">
+    
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/navigation.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/pages/disclaimer/disclaimer.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "Важлива інформація - Про сайт ФДУ",
+        "description": "Важлива інформація про неофіційний сайт Федерації Дзюдо України, його автора та навчальну мету",
+        "url": "https://ukraine-judo.github.io/disclaimer.html",
+        "breadcrumb": {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+                {
+                    "@type": "ListItem",
+                    "position": 1,
+                    "name": "Головна",
+                    "item": "https://ukraine-judo.github.io/"
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 2,
+                    "name": "Важлива інформація",
+                    "item": "https://ukraine-judo.github.io/disclaimer.html"
+                }
+            ]
+        },
+        "inLanguage": "uk-UA",
+        "author": {
+            "@type": "Person",
+            "name": "Марк",
+            "jobTitle": "Студент",
+            "affiliation": "Коледж ім. С. Бубки"
+        }
+    }
+    </script>
+    
+    <script src="scripts/smooth-scroll.js"></script>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-brand">
+                <img src="assets/fju-logo.png" alt="FJU Logo" class="logo" width="48" height="48">
+                <span class="brand-text">
+                    <strong class="brand-full">Федерація Дзюдо України</strong>
+                    <strong class="brand-short">ФДУ</strong>
+                    <small class="brand-subtitle-full">Federation Judo Ukraine</small>
+                    <small class="brand-subtitle-short">FJU</small>
+                </span>
+            </div>
+            <div class="nav-menu-overlay"></div>
+            <ul class="nav-menu" id="navMenu">
+                <li class="nav-item" data-priority="1"><a href="index.html">Головна</a></li>
+                <li class="nav-item nav-dynamic-tab" id="navDynamicTab" style="display: none;">
+                    <a href="#" class="nav-dynamic-link active" id="navDynamicLink">
+                        <span class="nav-dynamic-text" id="navDynamicText"></span>
+                    </a>
+                </li>
+                <li class="nav-item" data-priority="2"><a href="about.html">Про нас</a></li>
+                <li class="nav-item" data-priority="3"><a href="team.html">Збірна</a></li>
+                <li class="nav-item" data-priority="4"><a href="news.html">Новини</a></li>
+                <li class="nav-item" data-priority="5"><a href="calendar.html">Календар</a></li>
+                <li class="nav-item" data-priority="6"><a href="documents.html">Документи</a></li>
+                <li class="nav-item" data-priority="7"><a href="regions.html">Регіони</a></li>
+                <li class="nav-item" data-priority="8"><a href="gallery.html">Галерея</a></li>
+                <li class="nav-item" data-priority="9"><a href="contacts.html">Контакти</a></li>
+                <li class="nav-item-more" id="navMoreItem" style="display: none;">
+                    <button class="nav-more-toggle" aria-label="Більше розділів" id="navMoreToggle">
+                        <span class="nav-more-text">Ще</span>
+                        <svg class="nav-more-arrow" width="12" height="8" viewBox="0 0 12 8" fill="none">
+                            <path d="M1 1L6 6L11 1" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                </li>
+            </ul>
+            
+            <!-- Hidden overflow menu -->
+            <ul class="nav-hidden-items" id="navHiddenItems">
+                <!-- Hidden items will be moved here dynamically -->
+            </ul>
+            <button class="nav-toggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
+        
+        <!-- Fullscreen overlay menu -->
+        <div class="nav-fullscreen-overlay" id="navFullscreenOverlay">
+            <div class="nav-fullscreen-content">
+                <div class="nav-fullscreen-header">
+                    <h2>Навігація</h2>
+                    <button class="nav-fullscreen-close" id="navFullscreenClose" aria-label="Закрити меню">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                </div>
+                <div class="nav-fullscreen-menu" id="navFullscreenMenu">
+                    <!-- All menu items will appear here -->
+                </div>
+                <div class="nav-fullscreen-footer">
+                    <p class="nav-fullscreen-footer-text">Федерація Дзюдо України • Перемагаємо разом</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="disclaimer-hero">
+            <div class="container">
+                <h1>
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"/>
+                        <path d="M12 6v6l4 2"/>
+                    </svg>
+                    Важлива інформація
+                </h1>
+                <p>Про цей сайт, його автора та освітню мету</p>
+            </div>
+        </section>
+
+        <!-- Main Content -->
+        <section class="disclaimer-content">
+            <div class="container">
+                <!-- Disclaimer Section -->
+                <div class="disclaimer-section warning-section">
+                    <h2>
+                        <span class="warning-icon">⚠️</span>
+                        Увага!
+                    </h2>
+                    
+                    <div class="warning-text">
+                        <p><strong>Цей сайт НЕ є офіційним ресурсом Федерації Дзюдо України.</strong></p>
+                        
+                        <p>Це навчальний проект студента коледжу, створений з метою вивчення сучасних технологій веб-розробки. Весь контент базується на публічно доступній інформації з офіційних джерел ФДУ, соціальних мереж та спортивних ресурсів.</p>
+                        
+                        <p><strong>Мета проекту:</strong> практичне застосування знань з HTML, CSS, JavaScript та створення сучасного веб-сайту з адаптивним дизайном.</p>
+                        
+                        <div class="official-links">
+                            <p><strong>Офіційні канали Федерації Дзюдо України:</strong></p>
+                            <ul>
+                                <li>Офіційна сторінка Facebook: <a href="https://www.facebook.com/UkraineJudoFederation" target="_blank">UkraineJudoFederation</a></li>
+                                <li>Instagram: <a href="https://www.instagram.com/ukraine_judo_official" target="_blank">@ukraine_judo_official</a></li>
+                                <li>Telegram: <a href="https://t.me/ukrainianjudofederation" target="_blank">@ukrainianjudofederation</a></li>
+                                <li>Email: judoukr@ukr.net</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="warning-footer">
+                        ⚠️ Для отримання офіційної інформації про дзюдо в Україні звертайтесь безпосередньо до Федерації Дзюдо України через вищезазначені канали.
+                    </div>
+                </div>
+
+                <!-- About Author Section -->
+                <div class="disclaimer-section author-section">
+                    <h2>
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                            <circle cx="12" cy="7" r="4"/>
+                        </svg>
+                        Про автора
+                    </h2>
+                    
+                    <div class="author-header">
+                        <div class="author-avatar">📚</div>
+                        <div class="author-info">
+                            <h3>Марк</h3>
+                            <p class="subtitle">Учень 1 курсу, Коледж ім. С. Бубки</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-grid">
+                        <div class="contact-card">
+                            <div class="contact-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#007bff" stroke-width="2">
+                                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                                    <polyline points="22,6 12,13 2,6"/>
+                                </svg>
+                            </div>
+                            <div class="contact-details">
+                                <strong>Email:</strong>
+                                <a href="mailto:motoshfq@proton.me">motoshfq@proton.me</a>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-card">
+                            <div class="contact-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0088cc" stroke-width="2">
+                                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                                </svg>
+                            </div>
+                            <div class="contact-details">
+                                <strong>Telegram:</strong>
+                                <a href="https://t.me/fqmotosh">@fqmotosh</a>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-card">
+                            <div class="contact-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#28a745" stroke-width="2">
+                                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                                </svg>
+                            </div>
+                            <div class="contact-details">
+                                <strong>Телефон:</strong>
+                                <a href="tel:+380997107296">+380 99 710 7296</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Technical Section -->
+                <div class="disclaimer-section technical-section">
+                    <div class="container">
+                        <h2>
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="3"/>
+                                <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1 -1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+                            </svg>
+                            Технічна складова
+                        </h2>
+                        
+                        
+                        <div class="tech-grid">
+                            <div class="tech-card html">
+                                <h4>
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <polygon points="13,2 3,14 12,14 11,22 21,10 12,10"/>
+                                    </svg>
+                                    HTML5 + CSS3
+                                </h4>
+                                <p>Сучасна семантична розмітка з використанням CSS Grid, Flexbox, CSS змінних та адаптивного дизайну для всіх пристроїв.</p>
+                            </div>
+                            
+                            <div class="tech-card js">
+                                <h4>
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                                        <polyline points="9,22 9,12 15,12 15,22"/>
+                                    </svg>
+                                    JavaScript ES6+
+                                </h4>
+                                <p>Модульна архітектура, асинхронні операції, динамічне завантаження контенту з JSON файлів, DOM маніпуляції.</p>
+                            </div>
+                            
+                            <div class="tech-card seo">
+                                <h4>
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <circle cx="12" cy="12" r="3"/>
+                                        <path d="M12 1v6m0 6v6m11-7h-6m-6 0H1"/>
+                                    </svg>
+                                    SEO оптимізація
+                                </h4>
+                                <p>JSON-LD структуровані дані, Open Graph, мета-теги, семантична розмітка для пошукових систем.</p>
+                            </div>
+                            
+                            <div class="tech-card json">
+                                <h4>
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18"/>
+                                        <line x1="7" y1="2" x2="7" y2="22"/>
+                                        <line x1="17" y1="2" x2="17" y2="22"/>
+                                        <line x1="2" y1="12" x2="22" y2="12"/>
+                                        <line x1="2" y1="7" x2="7" y2="7"/>
+                                        <line x1="2" y1="17" x2="7" y2="17"/>
+                                        <line x1="17" y1="17" x2="22" y2="17"/>
+                                        <line x1="17" y1="7" x2="22" y2="7"/>
+                                    </svg>
+                                    База даних JSON
+                                </h4>
+                                <p>Структурована система зберігання даних про спортсменів, новини, документи та події у форматі JSON.</p>
+                            </div>
+                            
+                            <div class="tech-card responsive">
+                                <h4>
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+                                        <circle cx="8.5" cy="8.5" r="1.5"/>
+                                        <polyline points="21,15 16,10 5,21"/>
+                                    </svg>
+                                    Responsive Design
+                                </h4>
+                                <p>Адаптивний дизайн для мобільних пристроїв, планшетів та десктопів з оптимізацією швидкості завантаження.</p>
+                            </div>
+                            
+                            <div class="tech-card hosting">
+                                <h4>
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M9 12l2 2 4-4"/>
+                                        <path d="M21 12c-1 0-3-1-3-3s2-3 3-3 3 1 3 3-2 3-3 3"/>
+                                        <path d="M3 12c1 0 3-1 3-3s-2-3-3-3-3 1-3 3 2 3 3 3"/>
+                                        <path d="M12 3c0 1-1 3-3 3s-3-2-3-3 1-3 3-3 3 2 3 3"/>
+                                        <path d="M12 21c0-1 1-3 3-3s3 2 3 3-1 3-3 3-3-2-3-3"/>
+                                    </svg>
+                                    GitHub Pages
+                                </h4>
+                                <p>Безкоштовний хостинг на GitHub Pages з автоматичним деплоєм та контролем версій через Git.</p>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="foot-container">
+            <div class="footer-disclaimer">
+                <h4>
+                    <span class="warning-icon">⚠️</span>
+                    Неофіційний сайт
+                </h4>
+                <p>Цей сайт не є офіційним ресурсом Федерації Дзюдо України та створений виключно з освітньою метою на основі відкритих джерел.</p>
+                <div class="sources">Вся інформація взята з офіційного сайту ФДУ або з відкритих джерел в інтернеті.</div>
+                <a href="disclaimer.html" class="disclaimer-link">
+                    Детальна інформація
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M7 17L17 7"/>
+                        <path d="M7 7h10v10"/>
+                    </svg>
+                </a>
+            </div>
+            
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-brand">
+                        <img src="assets/fju-logo.png" alt="Логотип Федерації Дзюдо України" class="footer-logo">
+                        <div class="brand-info">
+                            <h3>Федерація Дзюдо України</h3>
+                            <p>Неофіційний портал з інформацією про дзюдо в Україні</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Розділи</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Головна</a></li>
+                        <li><a href="about.html">Федерація</a></li>
+                        <li><a href="news.html">Новини</a></li>
+                        <li><a href="calendar.html">Календар</a></li>
+                        <li><a href="gallery.html">Галерея</a></li>
+                        <li><a href="contacts.html">Контакти</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Контакти</h4>
+                    <div class="contact-info">
+                        <p>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                                <polyline points="22,6 12,13 2,6"/>
+                            </svg>
+                            judoukr@ukr.net
+                        </p>
+                        <p>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                            </svg>
+                            +38 044 284-38-39
+                        </p>
+                        <p>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                                <circle cx="12" cy="10" r="3"/>
+                            </svg>
+                            Україна, 01601, м. Київ, вул. Еспланадна, 42, офіс 808
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Соціальні мережі</h4>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/UkraineJudoFederation" class="social-link">Facebook</a>
+                        <a href="https://www.instagram.com/ukraine_judo_official" class="social-link">Instagram</a>
+                        <a href="https://t.me/ukrainianjudofederation" class="social-link">Telegram</a>
+                        <a href="https://www.youtube.com/@ukrainejudo" class="social-link">YouTube</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Федерація Дзюдо України. Всі права захищені.</p>
+                <div class="footer-bottom-links">
+                    <a href="disclaimer.html">Важлива інформація</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="scripts/script.js"></script>
+    <script src="scripts/smooth-scroll.js"></script>
+</body>
+</html> 
