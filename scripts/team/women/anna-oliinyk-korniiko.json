@@ -34,6 +34,13 @@
   ],
   "achievements": [
     {
+      "type": "gold",
+      "title": "Кубок Європи",
+      "year": 2025,
+      "location": "Каунас, Литва",
+      "description": "Чемпіонка Кубку Європи серед юніорів"
+    },
+    {
       "type": "silver",
       "title": "Ljubljana European Open 2025",
       "year": 2025,

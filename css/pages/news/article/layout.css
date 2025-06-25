@@ -375,7 +375,7 @@
 }
 
 /* Loading Overlay */
-.loading-overlay {
+.loading-overlay, .loading-spinner {
     position: fixed;
     top: 0;
     left: 0;
@@ -396,6 +396,8 @@
     border: 4px solid #e9ecef;
     border-top: 4px solid var(--primary-color);
     border-radius: 50%;
+    align-items: center;
+    justify-content: center;
     animation: spin 1s linear infinite;
     margin-bottom: 20px;
 }

@@ -6,7 +6,7 @@ class NewsLoader {
     constructor() {
         this.cache = new Map();
         this.articlesCache = new Map();
-        this.cacheExpiry = 10 * 60 * 1000; // 10 минут (увеличил время кеширования)
+        this.cacheExpiry = 0; // Отключаем кеширование (0 = всегда свежие данные)
         this.baseUrl = 'database/articles/';
         this.loadedFiles = new Set();
         this.totalArticles = null;
@@ -28,18 +28,8 @@ class NewsLoader {
      * Создает манифест статей для быстрого доступа
      */
     async createArticlesManifest() {
-        if (this.manifestCache) {
-            return this.manifestCache;
-        }
-
-        const cacheKey = 'articles-manifest';
-        
-        // Проверяем localStorage
-        const cachedManifest = this.getFromLocalStorage(cacheKey);
-        if (cachedManifest && Date.now() - cachedManifest.timestamp < this.cacheExpiry) {
-            this.manifestCache = cachedManifest.data;
-            return this.manifestCache;
-        }
+        // Отключаем кеширование - всегда создаем новый манифест
+        this.manifestCache = null;
 
         // Если нет кеша, создаем быстрый манифест
         const manifest = {
@@ -47,45 +37,124 @@ class NewsLoader {
             lastUpdate: Date.now()
         };
 
-        // Пробуем загрузить первые 20 статей с минимальными данными
-        const maxFiles = 20;
-        const loadPromises = [];
-
-        for (let i = 1; i <= maxFiles; i++) {
-            loadPromises.push(this.loadArticleMetadata(i));
-        }
-
-        // Загружаем параллельно, но с ограничением
-        const results = await this.batchLoad(loadPromises, 5);
-        
-        results.forEach(article => {
-            if (article) manifest.articles.push(article);
-        });
+        // Автоматически сканируем все JSON файлы в папке
+        const articles = await this.scanAllArticleFiles();
+        manifest.articles = articles;
 
         // Сортируем по дате
         manifest.articles.sort((a, b) => new Date(b.publishedAt) - new Date(a.publishedAt));
-
-        // Сохраняем в localStorage
-        this.saveToLocalStorage(cacheKey, {
-            data: manifest,
-            timestamp: Date.now()
-        });
 
         this.manifestCache = manifest;
         return manifest;
     }
 
     /**
+     * Сканирует все JSON файлы статей в папке
+     */
+    async scanAllArticleFiles() {
+        const articles = [];
+        
+        // Получаем список всех файлов через API или файловую систему
+        const fileList = await this.getArticleFileList();
+        
+        if (fileList && fileList.length > 0) {
+            // Загружаем метаданные всех файлов параллельно
+            const loadPromises = fileList.map(fileInfo => {
+                // fileInfo теперь объект с id, path, title
+                return this.loadArticleMetadata(fileInfo.id, fileInfo.path);
+            });
+
+            const results = await this.batchLoad(loadPromises, 5);
+            
+            results.forEach(article => {
+                if (article) articles.push(article);
+            });
+        }
+
+        return articles;
+    }
+
+    /**
+     * Получает список всех JSON файлов статей
+     */
+    async getArticleFileList() {
+        try {
+            // Пробуем получить список файлов через специальный endpoint
+            const response = await this.queuedFetch('database/articles/index.json');
+            if (response && response.ok) {
+                const index = await response.json();
+                if (index.files && Array.isArray(index.files)) {
+                    // Возвращаем массив объектов с id, path и title
+                    return index.files;
+                }
+            }
+        } catch (error) {
+            console.warn('Failed to load articles index, using fallback method');
+        }
+
+        // Fallback: пробуем загрузить известные файлы
+        return this.getKnownArticleFiles();
+    }
+
+    /**
+     * Fallback метод для получения списка файлов
+     */
+    async getKnownArticleFiles() {
+        const knownFiles = [];
+        
+        // Пробуем загрузить файлы с разными именами
+        const testFiles = [
+            // Числовые файлы (для обратной совместимости)
+            ...Array.from({length: 20}, (_, i) => ({
+                id: i + 1,
+                path: `${i + 1}.json`,
+                title: `Статья ${i + 1}`
+            })),
+            // Строковые файлы
+            {
+                id: 'cism-world-champship',
+                path: 'cism-world-champship.json',
+                title: 'CISM World Championship'
+            },
+            {
+                id: 'gontyk-master-class-kolomya',
+                path: 'gontyk-master-class-kolomya.json',
+                title: 'Gontyk Master Class Kolomya'
+            }
+        ];
+
+        // Проверяем существование каждого файла
+        const checkPromises = testFiles.map(async (fileInfo) => {
+            try {
+                const response = await this.queuedFetch(`database/articles/${fileInfo.path}`);
+                return response.ok ? fileInfo : null;
+            } catch (error) {
+                return null;
+            }
+        });
+
+        const results = await Promise.allSettled(checkPromises);
+        
+        results.forEach(result => {
+            if (result.status === 'fulfilled' && result.value) {
+                knownFiles.push(result.value);
+            }
+        });
+
+        return knownFiles;
+    }
+
+    /**
      * Загружает только метаданные статьи (без контента)
      */
-    async loadArticleMetadata(fileIndex) {
+    async loadArticleMetadata(fileId, path) {
         try {
-            const response = await this.queuedFetch(`${this.baseUrl}${fileIndex}.json`);
+            const response = await this.queuedFetch(`${this.baseUrl}${path}`);
             if (response && response.ok) {
                 const article = await response.json();
                 if (this.validateArticle(article)) {
                     return {
-                        id: article.id,
+                        id: article.id || fileId, // Используем ID из файла или имя файла
                         slugId: this.generateSlugId(article.title),
                         title: article.title,
                         excerpt: article.excerpt,
@@ -100,7 +169,7 @@ class NewsLoader {
                 }
             }
         } catch (error) {
-            console.warn(`Failed to load metadata for article ${fileIndex}:`, error);
+            console.warn(`Failed to load metadata for article ${fileId}:`, error);
         }
         return null;
     }
@@ -147,34 +216,8 @@ class NewsLoader {
      * Старый метод сканирования (fallback)
      */
     async scanArticlesLegacy() {
-        const articles = [];
-        let fileIndex = 1;
-        const maxFiles = 50; // Уменьшил лимит для лучшей производительности
-
-        // Загружаем статьи пакетами
-        const batchSize = 5;
-
-        while (fileIndex <= maxFiles) {
-            const batch = [];
-            
-            for (let i = 0; i < batchSize && fileIndex <= maxFiles; i++, fileIndex++) {
-                batch.push(this.loadArticleMetadata(fileIndex));
-            }
-
-            const batchResults = await this.batchLoad(batch, 3);
-            batchResults.forEach(article => {
-                if (article) articles.push(article);
-            });
-
-            // Прерываем если нашли несколько файлов подряд которых нет
-            if (batchResults.every(result => result === null)) {
-                    break;
-            }
-        }
-
-        // Сортируем по дате публикации
-        articles.sort((a, b) => new Date(b.publishedAt) - new Date(a.publishedAt));
-        return articles;
+        // Используем новый метод сканирования
+        return this.scanAllArticleFiles();
     }
 
     /**
@@ -261,20 +304,41 @@ class NewsLoader {
         try {
             let article = null;
 
-            // Если это числовой ID
-            if (typeof identifier === 'number' || !isNaN(identifier)) {
-                const response = await this.queuedFetch(`${this.baseUrl}${identifier}.json`);
+            // Сначала пробуем найти статью в индексе
+            const fileList = await this.getArticleFileList();
+            const fileInfo = fileList.find(file => file.id == identifier || file.id === identifier);
+            
+            if (fileInfo) {
+                // Загружаем по пути из индекса
+                const response = await this.queuedFetch(`${this.baseUrl}${fileInfo.path}`);
                 if (response && response.ok) {
                     article = await response.json();
                 }
             } else {
-                // Если это slugId, используем манифест для быстрого поиска
-                const manifest = await this.createArticlesManifest();
-                const found = manifest.articles.find(a => a.slugId === identifier);
-                if (found) {
-                    const response = await this.queuedFetch(`${this.baseUrl}${found.id}.json`);
+                // Fallback для обратной совместимости
+                if (typeof identifier === 'number' || !isNaN(identifier)) {
+                    const response = await this.queuedFetch(`${this.baseUrl}${identifier}.json`);
                     if (response && response.ok) {
                         article = await response.json();
+                    }
+                } else {
+                    // Если это строковый ID, пробуем загрузить напрямую
+                    const response = await this.queuedFetch(`${this.baseUrl}${identifier}.json`);
+                    if (response && response.ok) {
+                        article = await response.json();
+                    } else {
+                        // Если не найден, ищем по slugId в манифесте
+                        const manifest = await this.createArticlesManifest();
+                        const found = manifest.articles.find(a => a.slugId === identifier);
+                        if (found) {
+                            const foundFileInfo = fileList.find(file => file.id == found.id || file.id === found.id);
+                            if (foundFileInfo) {
+                                const response = await this.queuedFetch(`${this.baseUrl}${foundFileInfo.path}`);
+                                if (response && response.ok) {
+                                    article = await response.json();
+                                }
+                            }
+                        }
                     }
                 }
             }
@@ -501,6 +565,18 @@ class NewsLoader {
         } catch (error) {
             console.warn('Failed to clear localStorage cache:', error);
         }
+    }
+
+    /**
+     * Принудительно обновляет манифест статей
+     */
+    async refreshManifest() {
+        this.manifestCache = null;
+        const keys = Object.keys(localStorage);
+        keys.filter(key => key.startsWith('fju_news_articles-manifest')).forEach(key => {
+            localStorage.removeItem(key);
+        });
+        return await this.createArticlesManifest();
     }
 }
 

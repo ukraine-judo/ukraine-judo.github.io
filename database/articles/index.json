@@ -1,0 +1,206 @@
+{
+    "files": [
+        {
+            "id": 1,
+            "path": "2025/06/1.json",
+            "title": "Первая статья"
+        },
+        {
+            "id": 2,
+            "path": "2025/06/2.json",
+            "title": "Вторая статья"
+        },
+        {
+            "id": 3,
+            "path": "2025/06/3.json",
+            "title": "Третья статья"
+        },
+        {
+            "id": 4,
+            "path": "2025/06/4.json",
+            "title": "Четвертая статья"
+        },
+        {
+            "id": 5,
+            "path": "2025/06/5.json",
+            "title": "Пятая статья"
+        },
+        {
+            "id": 6,
+            "path": "2025/06/6.json",
+            "title": "Шестая статья"
+        },
+        {
+            "id": 7,
+            "path": "2025/06/7.json",
+            "title": "Національна академія СБУ та Федерація дзюдо України підписали Меморандум про співпрацю"
+        },
+        {
+            "id": 8,
+            "path": "2025/06/8.json",
+            "title": "Восьмая статья"
+        },
+        {
+            "id": 9,
+            "path": "2025/06/9.json",
+            "title": "Девятая статья"
+        },
+        {
+            "id": "cism-world-champship",
+            "path": "2025/06/cism-world-champship.json",
+            "title": "6 дзюдоїстів представлять Україну на чемпіонаті світу з єдиноборств серед військових"
+        },
+        {
+            "id": "gontyk-master-class-kolomya",
+            "path": "2025/06/gontyk-master-class-kolomya.json",
+            "title": "Мастер-класс Гонтыка в Коломые"
+        },
+        {
+            "id": "cup-and-championship-ukraine",
+            "path": "2025/06/cup-and-championship-ukraine.json",
+            "title": "Кубок и чемпионат Украины"
+        },
+        {
+            "id": "fju-reminds-about-athlete-transition-regulation",
+            "path": "2025/06/fju-reminds-about-athlete-transition-regulation.json",
+            "title": "ФДУ напоминает о регламенте перехода спортсменов"
+        },
+        {
+            "id": "happy-birthday-ivanna-makuha-2025",
+            "path": "2025/06/happy-birthday-ivanna-makuha-2025.json",
+            "title": "С днем рождения, Иванна Макуха!"
+        },
+        {
+            "id": "happy-birthday-serhii-koznov-2025",
+            "path": "2025/06/happy-birthday-serhii-koznov-2025.json",
+            "title": "С днем рождения, Сергей Кознов!"
+        },
+        {
+            "id": "yudanov-gold-vozniuk-bronze-berlin-junior-european-cup",
+            "path": "2025/06/yudanov-gold-vozniuk-bronze-berlin-junior-european-cup.json",
+            "title": "Юданов - золото, Вознюк - бронза на юниорском Кубке Европы в Берлине"
+        },
+        {
+            "id": "all-ukrainian-judo-tournament-lutsk",
+            "path": "2025/06/all-ukrainian-judo-tournament-lutsk.json",
+            "title": "Всеукраинский турнир по дзюдо в Луцке"
+        },
+        {
+            "id": "champions-path-project-judo-coaches",
+            "path": "2025/06/champions-path-project-judo-coaches.json",
+            "title": "Проект 'Путь чемпионов' для тренеров по дзюдо"
+        },
+        {
+            "id": "ijf-academy-recruitment-open",
+            "path": "2025/06/ijf-academy-recruitment-open.json",
+            "title": "Открыт набор в Академию IJF"
+        },
+        {
+            "id": "official-statement-ukrainian-judo-federation",
+            "path": "2025/05/official-statement-ukrainian-judo-federation.json",
+            "title": "Официальное заявление Федерации дзюдо Украины"
+        },
+        {
+            "id": "roman-hontiuk-open-trainings-dnipro-kryvyi-rih",
+            "path": "2025/05/roman-hontiuk-open-trainings-dnipro-kryvyi-rih.json",
+            "title": "Роман Гонтюк провів відкриті тренування в Дніпрі та Кривому Розі"
+        },
+        {
+            "id": "ukraine-u15-european-hopes-cup-bytom",
+            "path": "2025/05/ukraine-u15-european-hopes-cup-bytom.json",
+            "title": "Збірна України U15 успішно завершила Кубок Європейських надій в Битомі"
+        },
+        {
+            "id": "ukraine-junior-european-cup-kaunas",
+            "path": "2025/05/ukraine-junior-european-cup-kaunas.json",
+            "title": "16 нагород здобули українські юніори на Кубку Європи в Каунасі"
+        },
+        {
+            "id": "ukrainian-veterans-european-championships-riga",
+            "path": "2025/05/ukrainian-veterans-european-championships-riga.json",
+            "title": "Українські ветерани здобули 5 нагород чемпіонату Європи в Ризі"
+        },
+        {
+            "id": "ukraine-national-team-training-camp-benidorm",
+            "path": "2025/05/ukraine-national-team-training-camp-benidorm.json",
+            "title": "Збірна України проводить міжнародний тренувальний збір в Бенідормі"
+        },
+        {
+            "id": "ukraine-veterans-european-championships-riga-preview",
+            "path": "2025/05/ukraine-veterans-european-championships-riga-preview.json",
+            "title": "21 ветеран представить Україну на чемпіонаті Європи в Ризі"
+        },
+        {
+            "id": "lecture-seminar-coaches-dnipro",
+            "path": "2025/05/lecture-seminar-coaches-dnipro.json",
+            "title": "У Дніпрі відбулася лекція-семінар для тренерів груп початкової та базової підготовки"
+        },
+        {
+            "id": "ukrainian-judo-team-training-camp-italy-olympic-dreams",
+            "path": "2025/05/ukrainian-judo-team-training-camp-italy-olympic-dreams.json",
+            "title": "Українські дзюдоїсти провели міжнародний збір в Італії в межах проєкту Olympic Dreams"
+        },
+        {
+            "id": "tascombank-official-sponsor-fju",
+            "path": "2025/05/tascombank-official-sponsor-fju.json",
+            "title": "ТАСКОМБАНК - офіційний спонсор Федерації дзюдо України!"
+        },
+        {
+            "id": "mykhailo-koshliak-sbc-summit-ukraine-2025",
+            "path": "2025/05/mykhailo-koshliak-sbc-summit-ukraine-2025.json",
+            "title": "Михайло Кошляк взяв участь в конференції SBC Summit Ukraine 2025"
+        },
+        {
+            "id": "eduard-melenevsky-birthday",
+            "path": "2025/05/eduard-melenevsky-birthday.json",
+            "title": "День народження Едуарда Меленевського"
+        },
+        {
+            "id": "ukraine-cadets-european-cup-bielsko-biala",
+            "path": "2025/05/ukraine-cadets-european-cup-bielsko-biala.json",
+            "title": "Українські кадети здобули 6 нагород на Кубку Європи в Б’єлсько-Б’яла"
+        },
+        {
+            "id": "serhii-drebot-birthday",
+            "path": "2025/05/serhii-drebot-birthday.json",
+            "title": "День народження Сергія Дребота"
+        },
+        {
+            "id": "ukraine-european-open-benidorm-preview",
+            "path": "2025/05/ukraine-european-open-benidorm-preview.json",
+            "title": "9 дзюдоїстів представлять Україну на European Open в Бенідормі"
+        },
+        {
+            "id": "ukraine-parajudo-world-championships-astana",
+            "path": "2025/05/ukraine-parajudo-world-championships-astana.json",
+            "title": "Українські парадзюдоїсти здобули дві нагороди на чемпіонаті світу"
+        },
+        {
+            "id": "davidchuk-sokyrko-european-cup-gori",
+            "path": "2025/05/davidchuk-sokyrko-european-cup-gori.json",
+            "title": "Давидчук – чемпіон, Сокирко – срібний призер Кубку Європи в Горі"
+        },
+        {
+            "id": "ukraine-grand-slam-astana-no-medals",
+            "path": "2025/05/ukraine-grand-slam-astana-no-medals.json",
+            "title": "Українці залишилися без нагород на Grand Slam в Астані"
+        },
+        {
+            "id": "victory-day-remembrance-wwii",
+            "path": "2025/05/victory-day-remembrance-wwii.json",
+            "title": "8 травня — День пам’яті та перемоги над нацизмом у Другій світовій війні"
+        },
+        {
+            "id": "first-all-ukrainian-childrens-judo-league-dnipro",
+            "path": "2025/04/first-all-ukrainian-childrens-judo-league-dnipro.json",
+            "title": "У Дніпрі вперше пройшла Всеукраїнська Дитяча Ліга дзюдо"
+        },
+        {
+            "id": "european-judo-championships-podgorica-results",
+            "path": "2025/04/european-judo-championships-podgorica-results.json",
+            "title": "Бронза Курченко і два п'ятих місця. Підсумки чемпіонату Європи"
+        }
+    ],
+    "lastUpdate": "2025-01-27T12:00:00Z",
+    "totalArticles": 20
+} 

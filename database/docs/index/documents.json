@@ -239,6 +239,26 @@
       "path": "database/docs/all/training_plan_template.docx",
       "date": "2024-01-25",
       "tags": ["шаблон", "тренувальний план", "тренер", "навчання"]
+    },
+    {
+      "id": "multi-sport-project",
+      "title": "Мультиспортивний проєкт «Шлях чемпіонів»",
+      "category": "education",
+      "description": "Проєкт ініціативи ММтСУ для підтримки спорту",
+      "filename": "Shliakh_chempioniv.pdf",
+      "path": "database/docs/all/Shliakh_chempioniv.pdf",
+      "date": "2025-06-02",
+      "tags": ["шаблон", "тренувальний план", "навчання"]
+    },
+    {
+      "id": "ijf-academy-application",
+      "title": "Заява на курси Академії IJF",
+      "category": "education",
+      "description": "Форма заяви на курси Академії IJF",
+      "filename": "Zayava_IJF_Academy_2025.doc",
+      "path": "database/docs/all/Zayava_IJF_Academy_2025.doc",
+      "date": "2025-06-25",
+      "tags": ["шаблон", "тренувальний план", "навчання"]
     }
   ],
   "categories": [
@@ -291,6 +311,7 @@
       "icon": "🎓",
       "color": "#6f42c1"
     }
+
   ],
   "metadata": {
     "lastUpdated": "2024-03-15T10:30:00Z",

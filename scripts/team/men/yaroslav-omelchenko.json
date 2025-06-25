@@ -25,6 +25,13 @@
   ],
   "achievements": [
     {
+      "type": "bronze",
+      "title": "Кубок Європи",
+      "year": 2025,
+      "location": "Каунас, Литва",
+      "description": "Бронзовий призер Кубку Європи серед юніорів"
+    },
+    {
       "type": "silver",
       "title": "Чемпіонат України U23",
       "year": 2025,
