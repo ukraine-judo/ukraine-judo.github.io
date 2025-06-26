@@ -71,11 +71,12 @@ class NewsInit {
      */
     async initNewsArticle() {
         try {
+            console.log('NewsInit: Initializing NewsArticle...'); // Отладка
             this.components.article = new NewsArticle();
             await this.components.article.init();
-            console.log('News Article initialized successfully');
+            console.log('NewsInit: News Article initialized successfully'); // Отладка
         } catch (error) {
-            console.error('Failed to initialize News Article:', error);
+            console.error('NewsInit: Failed to initialize News Article:', error);
         }
     }
 

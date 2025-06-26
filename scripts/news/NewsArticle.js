@@ -19,32 +19,45 @@ class NewsArticle {
      * Инициализация страницы статьи
      */
     async init() {
+        console.log('NewsArticle.init() started'); // Отладка
         this.currentId = this.getIdFromUrl();
         
         if (!this.currentId) {
+            console.log('No article ID found in URL'); // Отладка
             this.showError('ID статьи не указан');
             return;
         }
+
+        console.log('Article ID from URL:', this.currentId); // Отладка
 
         try {
             this.showLoading();
             
             // Загружаем статью
+            console.log('Loading article...'); // Отладка
             this.article = await this.loader.loadArticle(this.currentId);
             
             if (!this.article) {
+                console.log('Article not found'); // Отладка
                 this.showError('Статья не найдена');
                 return;
             }
+
+            console.log('Article loaded successfully:', this.article.title); // Отладка
 
             // Рендерим статью
             await this.render();
             await this.renderRelated();
             await this.renderSidebar();
             await this.renderNavigation();
+            
+            console.log('Setting up events...'); // Отладка
             this.setupEvents();
+            
             this.updatePageMeta();
             this.hideLoading();
+            
+            console.log('NewsArticle initialization completed'); // Отладка
             
         } catch (error) {
             console.error('Failed to load article:', error);
@@ -380,39 +393,137 @@ class NewsArticle {
     }
 
     /**
+     * Тестовая функция для проверки копирования
+     */
+
+
+    /**
      * Настройка событий
      */
     setupEvents() {
-        document.querySelectorAll('[data-share]').forEach(button => {
+        console.log('Setting up events...'); // Отладка
+        
+        // Обработка всех кнопок "Поделиться" (включая копирование)
+        const shareButtons = document.querySelectorAll('.share-btn');
+        console.log('Found share buttons:', shareButtons.length); // Отладка
+        
+        shareButtons.forEach((button, index) => {
+            const platform = button.getAttribute('data-platform');
+            const buttonText = button.textContent || button.innerText;
+            console.log(`Button ${index}: platform = ${platform}, text = "${buttonText}"`); // Отладка
+            
             button.addEventListener('click', (e) => {
                 e.preventDefault();
-                this.share(button.dataset.share);
+                console.log('Share button clicked:', platform, 'text:', buttonText); // Отладка
+                if (platform) {
+                    this.share(platform);
+                } else {
+                    console.error('No platform attribute found for button:', buttonText); // Отладка
+                }
             });
         });
+        
+        // Специальная проверка кнопки копирования
+        const copyButton = document.getElementById('copy-link-btn');
+        if (copyButton) {
+            console.log('Copy button found:', copyButton); // Отладка
+            console.log('Copy button classes:', copyButton.className); // Отладка
+            console.log('Copy button data-platform:', copyButton.getAttribute('data-platform')); // Отладка
+            
+            // Добавляем дополнительный обработчик для кнопки копирования
+            copyButton.addEventListener('click', (e) => {
+                e.preventDefault();
+                console.log('Copy button clicked directly!'); // Отладка
+                this.share('copy');
+            });
+        } else {
+            console.error('Copy button not found!'); // Отладка
+        }
+        
+        
+        console.log('Events setup completed'); // Отладка
     }
 
     /**
      * Поделиться
      */
     share(platform) {
+        console.log('Share method called with platform:', platform); // Отладка
+        
         const url = encodeURIComponent(window.location.href);
         const title = encodeURIComponent(this.article.title);
+        const text = encodeURIComponent(this.article.excerpt || this.article.title);
+
+        console.log('Share data:', { url, title, text }); // Отладка
 
         const shareUrls = {
             facebook: `https://www.facebook.com/sharer/sharer.php?u=${url}`,
+            twitter: `https://twitter.com/intent/tweet?url=${url}&text=${title}`,
             telegram: `https://t.me/share/url?url=${url}&text=${title}`,
             copy: () => {
-                navigator.clipboard.writeText(window.location.href);
-                this.showNotification('Посилання скопійовано!');
+                console.log('=== COPY FUNCTION STARTED ==='); // Отладка
+                console.log('Copying URL to clipboard:', window.location.href); // Отладка
+                
+                // Проверяем поддержку Clipboard API
+                if (navigator.clipboard && navigator.clipboard.writeText) {
+                    console.log('Using modern Clipboard API'); // Отладка
+                    navigator.clipboard.writeText(window.location.href).then(() => {
+                        console.log('URL copied successfully via Clipboard API'); // Отладка
+                        this.showNotification('Посилання скопійовано в буфер обміну!');
+                    }).catch((error) => {
+                        console.error('Clipboard API failed:', error); // Отладка
+                        console.log('Trying fallback method...'); // Отладка
+                        this.copyWithFallback();
+                    });
+                } else {
+                    console.log('Clipboard API not supported, using fallback'); // Отладка
+                    this.copyWithFallback();
+                }
             }
         };
 
         if (shareUrls[platform]) {
+            console.log('Executing share for platform:', platform); // Отладка
             if (typeof shareUrls[platform] === 'function') {
                 shareUrls[platform]();
             } else {
-                window.open(shareUrls[platform], '_blank', 'width=600,height=400');
+                window.open(shareUrls[platform], '_blank', 'width=600,height=400,scrollbars=yes,resizable=yes');
             }
+        } else {
+            console.error('Unknown platform:', platform); // Отладка
+        }
+    }
+
+    /**
+     * Fallback метод копирования
+     */
+    copyWithFallback() {
+        console.log('Using fallback copy method'); // Отладка
+        try {
+            const textArea = document.createElement('textarea');
+            textArea.value = window.location.href;
+            textArea.style.position = 'fixed';
+            textArea.style.left = '-999999px';
+            textArea.style.top = '-999999px';
+            document.body.appendChild(textArea);
+            textArea.focus();
+            textArea.select();
+            
+            const successful = document.execCommand('copy');
+            console.log('execCommand copy result:', successful); // Отладка
+            
+            document.body.removeChild(textArea);
+            
+            if (successful) {
+                console.log('URL copied using fallback method'); // Отладка
+                this.showNotification('Посилання скопійовано в буфер обміну!');
+            } else {
+                console.error('Fallback copy failed'); // Отладка
+                this.showNotification('Помилка копіювання посилання');
+            }
+        } catch (error) {
+            console.error('Fallback copy error:', error); // Отладка
+            this.showNotification('Помилка копіювання: ' + error.message);
         }
     }
 
@@ -420,13 +531,77 @@ class NewsArticle {
      * Показать уведомление
      */
     showNotification(message) {
+        // Удаляем существующие уведомления
+        const existingNotifications = document.querySelectorAll('.notification');
+        existingNotifications.forEach(notification => {
+            document.body.removeChild(notification);
+        });
+
         const notification = document.createElement('div');
         notification.className = 'notification';
-        notification.textContent = message;
+        notification.innerHTML = `
+            <div class="notification-content">
+                <span class="notification-icon">✅</span>
+                <span class="notification-text">${message}</span>
+            </div>
+        `;
+        
+        // Добавляем стили
+        notification.style.cssText = `
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #4CAF50;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            z-index: 10000;
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            font-weight: 500;
+            max-width: 300px;
+            animation: slideIn 0.3s ease-out;
+        `;
+        
+        // Добавляем CSS анимацию
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes slideIn {
+                from {
+                    transform: translateX(100%);
+                    opacity: 0;
+                }
+                to {
+                    transform: translateX(0);
+                    opacity: 1;
+                }
+            }
+            .notification-content {
+                display: flex;
+                align-items: center;
+                gap: 8px;
+            }
+            .notification-icon {
+                font-size: 16px;
+            }
+        `;
+        document.head.appendChild(style);
+        
         document.body.appendChild(notification);
         
+        // Автоматически удаляем через 3 секунды
         setTimeout(() => {
+            if (document.body.contains(notification)) {
+                notification.style.animation = 'slideOut 0.3s ease-in';
+                notification.style.transform = 'translateX(100%)';
+                notification.style.opacity = '0';
+                setTimeout(() => {
+                    if (document.body.contains(notification)) {
             document.body.removeChild(notification);
+                    }
+                }, 300);
+            }
         }, 3000);
     }
 
