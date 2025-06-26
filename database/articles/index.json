@@ -199,7 +199,50 @@
             "id": "european-judo-championships-podgorica-results",
             "path": "2025/04/european-judo-championships-podgorica-results.json",
             "title": "Бронза Курченко і два п'ятих місця. Підсумки чемпіонату Європи"
+        },
+        {
+            "id": "judo-tascombank-meeting-2025",
+            "path": "2025/06/judo-tascombank-meeting-2025.json",
+            "title": "Провідні українські дзюдоїсти зустрілися з представниками ТАСКОМБАНКУ"
+        },
+        {
+            "id": "ukraine-juniors-european-cup-lignano-2025",
+            "path": "2025/04/ukraine-juniors-european-cup-lignano-2025.json",
+            "title": "Три золота від українських юніорів з Кубку Європи в Ліньяно"
+        },
+        {
+            "id": "ukraine-veterans-european-cup-warsaw-2025",
+            "path": "2025/04/ukraine-veterans-european-cup-warsaw-2025.json",
+            "title": "15 нагород від українських ветеранів з Кубку Європи у Варшаві!"
+        },
+        {
+            "id": "ukraine-judo-championships-cancelled-2025",
+            "path": "2025/04/ukraine-judo-championships-cancelled-2025.json",
+            "title": "Увага! Чемпіонат України U16 та Кубок України з дзюдо скасовані"
+        },
+        {
+            "id": "fju-presidium-decision-april-18-2025",
+            "path": "2025/04/fju-presidium-decision-april-18-2025.json",
+            "title": "Рішення Президії ФДУ від 18 квітня 2025 року"
+        },
+        {
+            "id": "happy-birthday-natalia-redkina-2025",
+            "path": "2025/04/happy-birthday-natalia-redkina-2025.json",
+            "title": "День народження Наталії Редкіної"
+        },
+
+        {
+            "id": "happy-birthday-valerii-peresoliak-2025",
+            "path": "2025/04/happy-birthday-valerii-peresoliak-2025.json",
+            "title": "День народження Валерія Пересоляка"
+        },
+        {
+            "id": "happy-birthday-serhii-barashko-2025",
+            "path": "2025/04/happy-birthday-serhii-barashko-2025.json",
+            "title": "День народження Сергія Барашка"
         }
+        
+        
     ],
     "lastUpdate": "2025-01-27T12:00:00Z",
     "totalArticles": 20
