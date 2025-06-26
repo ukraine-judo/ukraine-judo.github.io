@@ -373,7 +373,7 @@
 @media (min-width: 1920px) {
     /* Container optimization for large screens */
     .container {
-        max-width: 1600px;
+        max-width: 1750px;
         margin: 0 auto;
         padding: 0 2rem;
     }
@@ -382,7 +382,6 @@
     .news-grid {
         display: grid;
         grid-template-columns: 1fr 380px;
-        gap: 4rem;
         align-items: start;
     }
 
@@ -482,19 +481,9 @@
 @media (min-width: 2560px) {
     /* Container optimization for QHD screens */
     .container {
-        max-width: 2200px;
+        max-width: 2400px;
         margin: 0 auto;
         padding: 0 3rem;
-    }
-
-    /* Grid improvements for ultra-wide QHD layouts */
-    .news-grid {
-        display: grid;
-        grid-template-columns: 1fr 420px;
-        gap: 0;
-        align-items: start;
-        max-width: 2200px;
-        margin: 0 auto;
     }
 
     /* Enhanced article cards for QHD */

@@ -24,7 +24,7 @@
 @media (min-width: 1920px) {
     .nav {
         padding: 1.25rem 2.5rem;
-        max-width: 1400px;
+        max-width: 1800px;
     }
     
     .nav-brand {
@@ -69,7 +69,7 @@
 @media (min-width: 2560px) {
     .nav {
         padding: 1.5rem 3rem;
-        max-width: 1600px;
+        max-width: 2300px;
     }
     
     .nav-brand {

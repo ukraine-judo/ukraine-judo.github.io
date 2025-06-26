@@ -2,7 +2,6 @@
 
 .article-navigation {
     background: white;
-    padding: 3rem 0;
     border-top: 1px solid #e9ecef;
     position: relative;
 }
@@ -394,7 +393,6 @@
 /* FHD Screen Optimization (1920px+) */
 @media (min-width: 1920px) {
     .article-navigation {
-        padding: 4rem 0;
         background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
         backdrop-filter: blur(10px);
     }
@@ -509,10 +507,7 @@
 }
 
 /* QHD Screen Optimization (2560px+) */
-@media (min-width: 2560px) {
-    .article-navigation {
-        padding: 4.5rem 0;
-    }
+@media (min-width: 2560px) {    
     
     .nav-articles {
         gap: 3.5rem;

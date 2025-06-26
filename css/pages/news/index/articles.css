@@ -466,7 +466,8 @@
     /* Regular Articles - Better spacing */
     .regular-article {
         grid-template-columns: 320px 1fr;
-        min-height: 220px;
+        min-height: 200px;
+        max-width: 2000px;
     }
 
     .regular-article .article-content {
@@ -555,6 +556,7 @@
     .regular-article {
         grid-template-columns: 380px 1fr;
         min-height: 260px;
+        max-width: 1900px;
     }
 
     .regular-article .article-content {

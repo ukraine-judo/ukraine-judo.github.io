@@ -16,6 +16,7 @@ class NewsManager {
         this.allArticles = [];
         this.filteredArticles = [];
         this.currentArchiveFilter = null; // Текущий фильтр по архиву
+        this.currentArchiveYear = null; // Текущий год в архиве
         
         // Элементы управления
         this.loadingElement = document.querySelector('.loading-overlay');
@@ -272,7 +273,6 @@ class NewsManager {
             .sort((a, b) => new Date(b.publishedAt) - new Date(a.publishedAt))
             .slice(0, 5);
         
-        const archiveByMonth = this.getArchiveByMonth();
         const categories = this.getCategories();
 
         const sidebarHTML = `
@@ -303,22 +303,7 @@ class NewsManager {
                 </div>
             </div>
 
-            <div class="sidebar-widget">
-                <h3>Архів новин</h3>
-                <div class="archive-list">
-                    ${archiveByMonth.map(month => {
-                        const dateKey = `${month.year}-${month.month}`;
-                        const isActive = this.currentArchiveFilter === dateKey;
-                        return `
-                            <div class="archive-item ${isActive ? 'active' : ''}">
-                                <a href="#" data-date="${dateKey}">
-                                    ${month.name} ${month.year} (${month.count})
-                                </a>
-                            </div>
-                        `;
-                    }).join('')}
-                </div>
-            </div>
+            ${this.renderAdvancedArchive()}
 
             <div class="sidebar-widget">
                 <h3>Наші партнери</h3>
@@ -355,23 +340,7 @@ class NewsManager {
      * Настройка событий для архива
      */
     setupArchiveEvents() {
-        const archiveLinks = this.sidebarContainer.querySelectorAll('.archive-item a');
-        console.log('Setting up archive events for', archiveLinks.length, 'links');
-        
-        archiveLinks.forEach(link => {
-            const dateKey = link.getAttribute('data-date');
-            console.log('Setting up event for date:', dateKey);
-            
-            link.addEventListener('click', (e) => {
-                e.preventDefault();
-                console.log('Archive link clicked for date:', dateKey);
-                if (dateKey) {
-                    this.filterByDate(dateKey);
-                }
-            });
-        });
-
-        // Также настраиваем события для категорий
+        // Настраиваем события для категорий
         const categoryLinks = this.sidebarContainer.querySelectorAll('.category-item a');
         console.log('Setting up category events for', categoryLinks.length, 'links');
         
@@ -386,6 +355,9 @@ class NewsManager {
                 }
             });
         });
+
+        // Новый архив использует onclick атрибуты, поэтому дополнительная настройка не нужна
+        console.log('Archive events setup completed for advanced archive navigation');
     }
 
     /**
@@ -439,6 +411,164 @@ class NewsManager {
         });
 
         return Object.values(categories);
+    }
+
+    /**
+     * Рендерит улучшенный архив
+     */
+    renderAdvancedArchive() {
+        const archiveData = this.getArchiveData();
+        const currentYear = this.currentArchiveYear || new Date().getFullYear();
+        const availableYears = archiveData.years;
+        const monthsData = archiveData.monthsByYear[currentYear] || [];
+
+        return `
+            <div class="sidebar-widget">
+                <div class="archive-navigation" data-year="${currentYear}">
+                    <div class="archive-header">
+                        <h3 class="archive-title">Архів новин</h3>
+                        <button class="archive-toggle" onclick="newsManager.toggleArchive()">
+                            <span>Згорнути</span>
+                            <svg class="archive-toggle-icon" width="12" height="8" viewBox="0 0 12 8">
+                                <path d="M1 7L6 2L11 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
+                    </div>
+                    
+                    <div class="year-navigation">
+                        <button class="year-nav-btn" onclick="newsManager.changeArchiveYear(${currentYear - 1})" 
+                                ${!availableYears.includes(currentYear - 1) ? 'disabled' : ''}>
+                            ‹
+                        </button>
+                        <div class="current-year">${currentYear}</div>
+                        <button class="year-nav-btn" onclick="newsManager.changeArchiveYear(${currentYear + 1})" 
+                                ${!availableYears.includes(currentYear + 1) ? 'disabled' : ''}>
+                            ›
+                        </button>
+                    </div>
+                    
+                    <div class="months-grid">
+                        ${this.renderMonthsGrid(monthsData, currentYear)}
+                    </div>
+                    
+                    <div class="archive-summary">
+                        <div class="summary-stats">
+                            <div class="summary-item">
+                                <span class="summary-number">${archiveData.totalArticles}</span>
+                                <span class="summary-label">Всього</span>
+                            </div>
+                            <div class="summary-divider"></div>
+                            <div class="summary-item">
+                                <span class="summary-number">${monthsData.reduce((sum, m) => sum + m.count, 0)}</span>
+                                <span class="summary-label">${currentYear}</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    ${this.currentArchiveFilter ? `
+                        <button class="clear-archive-filter" onclick="newsManager.clearArchiveFilter()">
+                            Показати всі новини
+                        </button>
+                    ` : ''}
+                </div>
+            </div>
+        `;
+    }
+
+    /**
+     * Рендерит сетку месяцев
+     */
+    renderMonthsGrid(monthsData, year) {
+        const monthNames = [
+            'Січ', 'Лют', 'Бер', 'Кві', 'Тра', 'Чер',
+            'Лип', 'Сер', 'Вер', 'Жов', 'Лис', 'Гру'
+        ];
+
+        return monthNames.map((name, index) => {
+            const month = index + 1;
+            const monthData = monthsData.find(m => m.month === month);
+            const count = monthData ? monthData.count : 0;
+            const dateKey = `${year}-${month}`;
+            const isActive = this.currentArchiveFilter === dateKey;
+            const isDisabled = count === 0;
+
+            return `
+                <div class="month-item ${isActive ? 'active' : ''} ${isDisabled ? 'disabled' : ''}" 
+                     onclick="${!isDisabled ? `newsManager.filterByDate('${dateKey}')` : ''}">
+                    <span class="month-name">${name}</span>
+                    <span class="month-count">${count}</span>
+                </div>
+            `;
+        }).join('');
+    }
+
+    /**
+     * Получает данные архива
+     */
+    getArchiveData() {
+        const monthsByYear = {};
+        const years = new Set();
+        const monthNames = [
+            'Січень', 'Лютий', 'Березень', 'Квітень', 'Травень', 'Червень',
+            'Липень', 'Серпень', 'Вересень', 'Жовтень', 'Листопад', 'Грудень'
+        ];
+
+        this.allArticles.forEach(article => {
+            const date = new Date(article.publishedAt);
+            const year = date.getFullYear();
+            const month = date.getMonth() + 1;
+
+            years.add(year);
+
+            if (!monthsByYear[year]) {
+                monthsByYear[year] = [];
+            }
+
+            let monthData = monthsByYear[year].find(m => m.month === month);
+            if (!monthData) {
+                monthData = {
+                    year,
+                    month,
+                    name: monthNames[month - 1],
+                    count: 0
+                };
+                monthsByYear[year].push(monthData);
+            }
+            monthData.count++;
+        });
+
+        // Сортируем месяцы в каждом году
+        Object.keys(monthsByYear).forEach(year => {
+            monthsByYear[year].sort((a, b) => a.month - b.month);
+        });
+
+        return {
+            years: Array.from(years).sort((a, b) => b - a),
+            monthsByYear,
+            totalArticles: this.allArticles.length
+        };
+    }
+
+    /**
+     * Переключение отображения архива
+     */
+    toggleArchive() {
+        const archiveNav = this.sidebarContainer.querySelector('.archive-navigation');
+        if (archiveNav) {
+            archiveNav.classList.toggle('collapsed');
+            const toggleBtn = archiveNav.querySelector('.archive-toggle span');
+            const isCollapsed = archiveNav.classList.contains('collapsed');
+            toggleBtn.textContent = isCollapsed ? 'Розгорнути' : 'Згорнути';
+        }
+    }
+
+    /**
+     * Изменение года в архиве
+     */
+    async changeArchiveYear(year) {
+        this.currentArchiveYear = year;
+        await this.renderSidebar();
+        this.setupArchiveEvents();
     }
 
     /**

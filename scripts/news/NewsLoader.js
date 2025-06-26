@@ -426,19 +426,210 @@ class NewsLoader {
     }
 
     /**
-     * Получает связанные статьи
+     * Получает связанные статьи с улучшенным алгоритмом
      */
     async getRelatedArticles(currentArticle, limit = 3) {
         const manifest = await this.createArticlesManifest();
+        const allArticles = manifest.articles.filter(article => article.id !== currentArticle.id);
         
-        return manifest.articles
-            .filter(article => 
-                article.id !== currentArticle.id &&
-                (article.category === currentArticle.category ||
-                 (currentArticle.tags && article.tags && 
-                  currentArticle.tags.some(tag => article.tags.includes(tag))))
-            )
+        // 1. Сначала проверяем предопределенные связанные статьи
+        let relatedArticles = [];
+        if (currentArticle.related && Array.isArray(currentArticle.related)) {
+            const predefinedRelated = allArticles.filter(article => 
+                currentArticle.related.includes(article.id)
+            );
+            relatedArticles.push(...predefinedRelated);
+        }
+        
+        // 2. Если недостаточно предопределенных, добавляем по алгоритму схожести
+        if (relatedArticles.length < limit) {
+            const remainingSlots = limit - relatedArticles.length;
+            const excludeIds = new Set(relatedArticles.map(a => a.id));
+            
+            // Вычисляем рейтинг схожести для каждой статьи
+            const scoredArticles = allArticles
+                .filter(article => !excludeIds.has(article.id))
+                .map(article => ({
+                    article,
+                    score: this.calculateSimilarityScore(currentArticle, article)
+                }))
+                .filter(item => item.score > 0)
+                .sort((a, b) => b.score - a.score);
+            
+            // Добавляем наиболее похожие статьи
+            const algorithmicRelated = scoredArticles
+                .slice(0, remainingSlots)
+                .map(item => item.article);
+            
+            relatedArticles.push(...algorithmicRelated);
+        }
+        
+        // 3. Если все еще недостаточно, добавляем последние из той же категории
+        if (relatedArticles.length < limit) {
+            const remainingSlots = limit - relatedArticles.length;
+            const excludeIds = new Set(relatedArticles.map(a => a.id));
+            
+            const categoryArticles = allArticles
+                .filter(article => 
+                    !excludeIds.has(article.id) && 
+                    article.category === currentArticle.category
+                )
+                .sort((a, b) => new Date(b.publishedAt) - new Date(a.publishedAt))
+                .slice(0, remainingSlots);
+            
+            relatedArticles.push(...categoryArticles);
+        }
+        
+        return relatedArticles.slice(0, limit);
+    }
+
+    /**
+     * Вычисляет рейтинг схожести между двумя статьями
+     */
+    calculateSimilarityScore(article1, article2) {
+        let score = 0;
+        
+        // Совпадение категории (высокий приоритет)
+        if (article1.category === article2.category) {
+            score += 50;
+        }
+        
+        // Совпадение тегов (средний приоритет)
+        if (article1.tags && article2.tags) {
+            const commonTags = article1.tags.filter(tag => 
+                article2.tags.some(tag2 => 
+                    tag.toLowerCase() === tag2.toLowerCase()
+                )
+            );
+            score += commonTags.length * 15;
+        }
+        
+        // Совпадение автора (низкий приоритет)
+        if (article1.author && article2.author && 
+            article1.author.name === article2.author.name) {
+            score += 10;
+        }
+        
+        // Близость по времени публикации (бонус для недавних статей)
+        const date1 = new Date(article1.publishedAt);
+        const date2 = new Date(article2.publishedAt);
+        const daysDiff = Math.abs(date1 - date2) / (1000 * 60 * 60 * 24);
+        
+        if (daysDiff <= 7) {
+            score += 10;
+        } else if (daysDiff <= 30) {
+            score += 5;
+        }
+        
+        // Схожесть заголовков (проверяем общие ключевые слова)
+        const title1Words = article1.title.toLowerCase().split(/\s+/).filter(w => w.length > 3);
+        const title2Words = article2.title.toLowerCase().split(/\s+/).filter(w => w.length > 3);
+        const commonWords = title1Words.filter(word => title2Words.includes(word));
+        score += commonWords.length * 8;
+        
+        // Популярность статьи (бонус для статей с высоким рейтингом)
+        if (article2.stats) {
+            const popularity = (article2.stats.views || 0) + (article2.stats.likes || 0) * 2;
+            if (popularity > 1000) {
+                score += 5;
+            }
+        }
+        
+        return score;
+    }
+
+    /**
+     * Предлагает связанные статьи для редактирования (для админ-панели)
+     */
+    async suggestRelatedArticles(currentArticle, limit = 10) {
+        const manifest = await this.createArticlesManifest();
+        const allArticles = manifest.articles.filter(article => article.id !== currentArticle.id);
+        
+        // Вычисляем рейтинг схожести для всех статей
+        const scoredArticles = allArticles
+            .map(article => ({
+                article,
+                score: this.calculateSimilarityScore(currentArticle, article),
+                reasons: this.getSimilarityReasons(currentArticle, article)
+            }))
+            .filter(item => item.score > 0)
+            .sort((a, b) => b.score - a.score)
             .slice(0, limit);
+        
+        return scoredArticles;
+    }
+
+    /**
+     * Получает причины схожести статей (для отладки и пояснений)
+     */
+    getSimilarityReasons(article1, article2) {
+        const reasons = [];
+        
+        if (article1.category === article2.category) {
+            reasons.push(`Одна категория: ${article1.category}`);
+        }
+        
+        if (article1.tags && article2.tags) {
+            const commonTags = article1.tags.filter(tag => 
+                article2.tags.some(tag2 => tag.toLowerCase() === tag2.toLowerCase())
+            );
+            if (commonTags.length > 0) {
+                reasons.push(`Общие теги: ${commonTags.join(', ')}`);
+            }
+        }
+        
+        if (article1.author && article2.author && 
+            article1.author.name === article2.author.name) {
+            reasons.push(`Тот же автор: ${article1.author.name}`);
+        }
+        
+        const date1 = new Date(article1.publishedAt);
+        const date2 = new Date(article2.publishedAt);
+        const daysDiff = Math.abs(date1 - date2) / (1000 * 60 * 60 * 24);
+        
+        if (daysDiff <= 7) {
+            reasons.push('Опубликованы в течение недели');
+        } else if (daysDiff <= 30) {
+            reasons.push('Опубликованы в течение месяца');
+        }
+        
+        const title1Words = article1.title.toLowerCase().split(/\s+/).filter(w => w.length > 3);
+        const title2Words = article2.title.toLowerCase().split(/\s+/).filter(w => w.length > 3);
+        const commonWords = title1Words.filter(word => title2Words.includes(word));
+        if (commonWords.length > 0) {
+            reasons.push(`Общие слова в заголовке: ${commonWords.join(', ')}`);
+        }
+        
+        return reasons;
+    }
+
+    /**
+     * Автоматически обновляет поле related для статьи
+     */
+    async autoUpdateRelatedArticles(articleId, limit = 5) {
+        try {
+            const article = await this.loadArticle(articleId);
+            if (!article) {
+                throw new Error(`Article ${articleId} not found`);
+            }
+            
+            const suggestions = await this.suggestRelatedArticles(article, limit);
+            const relatedIds = suggestions.map(item => item.article.id);
+            
+            return {
+                currentRelated: article.related || [],
+                suggestedRelated: relatedIds,
+                suggestions: suggestions.map(item => ({
+                    id: item.article.id,
+                    title: item.article.title,
+                    score: item.score,
+                    reasons: item.reasons
+                }))
+            };
+        } catch (error) {
+            console.error('Failed to auto-update related articles:', error);
+            throw error;
+        }
     }
 
     calculateReadingTime(text) {

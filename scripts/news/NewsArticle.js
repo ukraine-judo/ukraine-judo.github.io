@@ -310,37 +310,40 @@ class NewsArticle {
             
             if (navigationContainer) {
                 navigationContainer.innerHTML = `
-                    <div class="nav-links">
-                        <div class="nav-link-item">
+                    <div class="article-nav">
+                        <div class="nav-grid">
                             ${prevArticle ? `
-                                <a href="news-article.html?id=${prevArticle.slugId}" class="nav-button prev-button">
-                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <a href="news-article.html?id=${prevArticle.slugId}" class="nav-block prev-block">
+                                    <div class="nav-direction">
+                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
                                         <path d="M15 18L9 12L15 6"/>
                                     </svg>
+                                        <span>Попередня</span>
+                                    </div>
+                                    <h3 class="nav-article-title">${prevArticle.title}</h3>
                                 </a>
-                            ` : ''}
-                        </div>
-                        
-                        <div class="nav-center">
-                            <a href="news.html" class="back-to-news">
-                                <div class="back-icon">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <path d="M3 7v10a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2z"/>
-                                        <polyline points="3,9 12,2 21,9"/>
+                            ` : '<div class="nav-block-empty"></div>'}
+                            
+                            <div class="nav-home">
+                                <a href="news.html" class="home-button">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
                                     </svg>
-                                </div>
                                 <span>Всі новини</span>
                             </a>
                         </div>
                         
-                        <div class="nav-link-item">
                             ${nextArticle ? `
-                                <a href="news-article.html?id=${nextArticle.slugId}" class="nav-button next-button">
-                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <a href="news-article.html?id=${nextArticle.slugId}" class="nav-block next-block">
+                                    <div class="nav-direction">
+                                        <span>Наступна</span>
+                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
                                         <path d="M9 18L15 12L9 6"/>
                                     </svg>
+                                    </div>
+                                    <h3 class="nav-article-title">${nextArticle.title}</h3>
                                 </a>
-                            ` : ''}
+                            ` : '<div class="nav-block-empty"></div>'}
                         </div>
                     </div>
                 `;
@@ -541,68 +544,196 @@ class NewsArticle {
         notification.className = 'notification';
         notification.innerHTML = `
             <div class="notification-content">
-                <span class="notification-icon">✅</span>
+                <div class="notification-icon-wrapper">
+                    <svg class="notification-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <polyline points="20,6 9,17 4,12"/>
+                    </svg>
+                </div>
                 <span class="notification-text">${message}</span>
+                <div class="notification-progress"></div>
             </div>
         `;
         
-        // Добавляем стили
+        // Добавляем современные стили
         notification.style.cssText = `
             position: fixed;
-            top: 20px;
-            right: 20px;
-            background: #4CAF50;
+            top: 25px;
+            right: 25px;
+            background: linear-gradient(135deg, #00c851 0%, #28a745 100%);
             color: white;
-            padding: 12px 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            padding: 0;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(40, 167, 69, 0.3), 0 4px 15px rgba(0, 0, 0, 0.1);
             z-index: 10000;
-            font-family: 'Inter', sans-serif;
-            font-size: 14px;
-            font-weight: 500;
-            max-width: 300px;
-            animation: slideIn 0.3s ease-out;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-size: 15px;
+            font-weight: 600;
+            max-width: 350px;
+            min-width: 280px;
+            animation: fadeIn 0.4s ease-out;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            overflow: hidden;
         `;
         
-        // Добавляем CSS анимацию
+        // Добавляем улучшенный CSS
         const style = document.createElement('style');
         style.textContent = `
-            @keyframes slideIn {
-                from {
-                    transform: translateX(100%);
+            @keyframes fadeIn {
+                0% {
                     opacity: 0;
+                    transform: translateY(-10px);
                 }
-                to {
-                    transform: translateX(0);
+                100% {
                     opacity: 1;
+                    transform: translateY(0);
                 }
             }
+            
+            @keyframes slideOutSmooth {
+                0% {
+                    transform: translateX(0) scale(1);
+                    opacity: 1;
+                }
+                100% {
+                    transform: translateX(100%) scale(0.9);
+                    opacity: 0;
+                }
+            }
+            
+            @keyframes progressBar {
+                0% { width: 100%; }
+                100% { width: 0%; }
+            }
+            
             .notification-content {
                 display: flex;
                 align-items: center;
-                gap: 8px;
+                gap: 12px;
+                padding: 16px 20px;
+                position: relative;
+                z-index: 2;
             }
+            
+            .notification-icon-wrapper {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 28px;
+                height: 28px;
+                background: rgba(255, 255, 255, 0.2);
+                border-radius: 50%;
+                flex-shrink: 0;
+                animation: iconPulse 0.6s ease-out;
+            }
+            
             .notification-icon {
-                font-size: 16px;
+                width: 16px;
+                height: 16px;
+                stroke: currentColor;
+                stroke-width: 3;
+            }
+            
+            .notification-text {
+                flex: 1;
+                line-height: 1.4;
+                letter-spacing: 0.3px;
+            }
+            
+            .notification-progress {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                height: 3px;
+                background: rgba(255, 255, 255, 0.8);
+                border-radius: 0 0 16px 16px;
+                animation: progressBar 3s linear;
+                z-index: 1;
+            }
+            
+            @keyframes iconPulse {
+                0% {
+                    transform: scale(0);
+                    opacity: 0;
+                }
+                50% {
+                    transform: scale(1.2);
+                    opacity: 1;
+                }
+                100% {
+                    transform: scale(1);
+                    opacity: 1;
+                }
+            }
+            
+            /* Hover эффект для уведомления */
+            .notification:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 15px 40px rgba(40, 167, 69, 0.4), 0 8px 20px rgba(0, 0, 0, 0.15);
+                transition: all 0.3s ease;
+            }
+            
+            .notification:hover .notification-progress {
+                animation-play-state: paused;
+            }
+            
+            /* Адаптация для мобильных */
+            @media (max-width: 480px) {
+                .notification {
+                    right: 15px !important;
+                    top: 15px !important;
+                    left: 15px !important;
+                    max-width: none !important;
+                    min-width: auto !important;
+                }
+                
+                .notification-content {
+                    padding: 14px 16px !important;
+                    gap: 10px !important;
+                }
+                
+                .notification-text {
+                    font-size: 14px !important;
+                }
+                
+                .notification-icon-wrapper {
+                    width: 24px !important;
+                    height: 24px !important;
+                }
+                
+                .notification-icon {
+                    width: 14px !important;
+                    height: 14px !important;
+                }
             }
         `;
         document.head.appendChild(style);
         
         document.body.appendChild(notification);
         
-        // Автоматически удаляем через 3 секунды
+        // Автоматически удаляем через 3 секунды с плавной анимацией
         setTimeout(() => {
             if (document.body.contains(notification)) {
-                notification.style.animation = 'slideOut 0.3s ease-in';
-                notification.style.transform = 'translateX(100%)';
-                notification.style.opacity = '0';
+                notification.style.animation = 'slideOutSmooth 0.4s cubic-bezier(0.4, 0, 1, 1) forwards';
+                setTimeout(() => {
+                    if (document.body.contains(notification)) {
+                        document.body.removeChild(notification);
+                    }
+                }, 400);
+            }
+        }, 3000);
+        
+        // Позволяем закрывать уведомление по клику
+        notification.addEventListener('click', () => {
+            if (document.body.contains(notification)) {
+                notification.style.animation = 'slideOutSmooth 0.3s cubic-bezier(0.4, 0, 1, 1) forwards';
                 setTimeout(() => {
                     if (document.body.contains(notification)) {
             document.body.removeChild(notification);
                     }
                 }, 300);
             }
-        }, 3000);
+        });
     }
 
     getCategoryName(category) {
