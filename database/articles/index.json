@@ -1,6 +1,81 @@
 {
     "files": [
         {
+            "id": "inside-judo-ukrainian-team-series-2025",
+            "path": "2025/03/inside-judo-ukrainian-team-series-2025.json",
+            "title": "Inside Judo Ukrainian Team – серія сюжетів про українську команду!"
+        },
+        {
+            "id": "judo-instructor-course-first-level-fju-2025",
+            "path": "2025/03/judo-instructor-course-first-level-fju-2025.json",
+            "title": "Стартував підготовчий курс «Інструктор дзюдо: перший рівень» від ФДУ"
+        },
+        {
+            "id": "anton-savitsky-grand-slam-tbilisi-champion-2025",
+            "path": "2025/03/anton-savitsky-grand-slam-tbilisi-champion-2025.json",
+            "title": "Антон Савицький – чемпіон турніру Grand Slam в Тбілісі!"
+        },
+        {
+            "id": "all-ukrainian-training-camp-piddubny-college-kyiv-2025",
+            "path": "2025/03/all-ukrainian-training-camp-piddubny-college-kyiv-2025.json",
+            "title": "В олімпійському фаховому коледжі ім. І. Піддубного відбувся масштабний Всеукраїнський збір"
+        },
+        {
+            "id": "ukraine-parajudo-world-cup-tbilisi-2025",
+            "path": "2025/03/ukraine-parajudo-world-cup-tbilisi-2025.json",
+            "title": "Українські паралімпійці здобули повний комплект нагород на Кубку світу в Тбілісі"
+        },
+        {
+            "id": "ukraine-national-team-european-championships-podgorica-2025",
+            "path": "2025/03/ukraine-national-team-european-championships-podgorica-2025.json",
+            "title": "Затверджено склад збірної України на чемпіонат Європи з дзюдо в Подгориці"
+        },
+        {
+            "id": "ukraine-veterans-british-open-london-2025",
+            "path": "2025/03/ukraine-veterans-british-open-london-2025.json",
+            "title": "Українські ветерани здобули три золоті нагороди на турнірі в Лондоні"
+        },
+        {
+            "id": "xx-summer-universiade-ukraine-judo-khmelnytskyi-2025",
+            "path": "2025/03/xx-summer-universiade-ukraine-judo-khmelnytskyi-2025.json",
+            "title": "Хмельницький прийняв XX літню Універсіаду України з дзюдо"
+        },
+        {
+            "id": "ukraine-u15-team-world-gymnasia-2025",
+            "path": "2025/04/ukraine-u15-team-world-gymnasia-2025.json",
+            "title": "Юнацька збірна України U15 відправилася на Всесвітню Гімназіаду"
+        },
+        {
+            "id": "kremen-cup-kremenchuk-2025",
+            "path": "2025/03/kremen-cup-kremenchuk-2025.json",
+            "title": "В Кременчуці відбувся традиційний всеукраїнський турнір з дзюдо «Kremen Cup»"
+        },
+        {
+            "id": "xxxv-memorial-ivan-prishchepa-dnipro-2025",
+            "path": "2025/04/xxxv-memorial-ivan-prishchepa-dnipro-2025.json",
+            "title": "В Дніпрі відбувся XXXV турнір «Меморіал Івана Прищепи»"
+        },
+        {
+            "id": "mykhailo-svidrak-european-cup-dubrovnik-winner-2025",
+            "path": "2025/04/mykhailo-svidrak-european-cup-dubrovnik-winner-2025.json",
+            "title": "Михайло Свідрак – переможець Кубку Європи в Дубровніку!"
+        },
+        {
+            "id": "ukraine-juniors-european-cup-poznan-2025",
+            "path": "2025/04/ukraine-juniors-european-cup-poznan-2025.json",
+            "title": "П'ять нагород здобули українські юніори на Кубку Європи у Познані"
+        },
+        {
+            "id": "ukraine-cadets-european-cup-teplice-2025",
+            "path": "2025/04/ukraine-cadets-european-cup-teplice-2025.json",
+            "title": "Українські кадети здобули 9 нагород Кубку Європи у Тепліце"
+        },
+        {
+            "id": "ukraine-national-team-training-camp-tata-2025",
+            "path": "2025/04/ukraine-national-team-training-camp-tata-2025.json",
+            "title": "Збірна України перебуває на міжнародному тренувальному зборі в Таті"
+        },
+        {
             "id": 1,
             "path": "2025/06/1.json",
             "title": "Первая статья"
@@ -158,7 +233,7 @@
         {
             "id": "ukraine-cadets-european-cup-bielsko-biala",
             "path": "2025/05/ukraine-cadets-european-cup-bielsko-biala.json",
-            "title": "Українські кадети здобули 6 нагород на Кубку Європи в Б’єлсько-Б’яла"
+            "title": "Українські кадети здобули 6 нагород на Кубку Європи в Б'єлсько-Б'яла"
         },
         {
             "id": "serhii-drebot-birthday",
@@ -188,7 +263,7 @@
         {
             "id": "victory-day-remembrance-wwii",
             "path": "2025/05/victory-day-remembrance-wwii.json",
-            "title": "8 травня — День пам’яті та перемоги над нацизмом у Другій світовій війні"
+            "title": "8 травня — День пам'яті та перемоги над нацизмом у Другій світовій війні"
         },
         {
             "id": "first-all-ukrainian-childrens-judo-league-dnipro",
@@ -230,7 +305,6 @@
             "path": "2025/04/happy-birthday-natalia-redkina-2025.json",
             "title": "День народження Наталії Редкіної"
         },
-
         {
             "id": "happy-birthday-valerii-peresoliak-2025",
             "path": "2025/04/happy-birthday-valerii-peresoliak-2025.json",
@@ -241,9 +315,7 @@
             "path": "2025/04/happy-birthday-serhii-barashko-2025.json",
             "title": "День народження Сергія Барашка"
         }
-        
-        
     ],
-    "lastUpdate": "2025-01-27T12:00:00Z",
-    "totalArticles": 20
+    "lastUpdate": "2025-03-19T16:00:00Z",
+    "totalArticles": 35
 } 
