@@ -69,7 +69,7 @@ class NewsPagination {
                 </a>
             `;
         }
-        
+
         // Кнопка "Назад"
         if (currentPage > 1) {
             html += `
@@ -138,7 +138,7 @@ class NewsPagination {
         }
         
         html += '</div>';
-        
+
         return html;
     }
 
@@ -177,7 +177,7 @@ class NewsPagination {
                 }
             } else {
                 // В середине: показываем первую + текущую и соседние + последнюю
-                pages.push(1);
+        pages.push(1);
                 pages.push('...');
                 for (let i = currentPage - 1; i <= currentPage + 1; i++) {
                     pages.push(i);
@@ -199,7 +199,7 @@ class NewsPagination {
             if (totalPages > 4) {
                 pages.push('...');
                 pages.push(totalPages);
-            }
+        }
         } else if (currentPage >= totalPages - 1) {
             // В конце: показываем первую + 3 последние
             pages.push(1);
@@ -213,10 +213,10 @@ class NewsPagination {
             pages.push('...');
             for (let i = currentPage - 1; i <= currentPage + 1; i++) {
                 pages.push(i);
-            }
+        }
             if (currentPage + 1 < totalPages) {
                 pages.push('...');
-                pages.push(totalPages);
+            pages.push(totalPages);
             }
         }
 
@@ -231,7 +231,7 @@ class NewsPagination {
 
         // Удаляем старые обработчики
         if (this.handleClick) {
-            this.container.removeEventListener('click', this.handleClick);
+        this.container.removeEventListener('click', this.handleClick);
         }
         
         // Привязываем новый обработчик
@@ -295,14 +295,14 @@ class NewsPagination {
      * Переход на страницу
      */
     goToPage(page) {
-        if (page && page !== this.options.currentPage) {
-            console.log('Pagination: changing to page', page);
-            this.options.currentPage = page;
-            if (this.options.onPageChange) {
-                this.options.onPageChange(page);
+                if (page && page !== this.options.currentPage) {
+                    console.log('Pagination: changing to page', page);
+                    this.options.currentPage = page;
+                    if (this.options.onPageChange) {
+                        this.options.onPageChange(page);
+                    }
+                }
             }
-        }
-    }
 
     /**
      * Изменение количества элементов на странице
@@ -386,7 +386,7 @@ class NewsPagination {
     destroy() {
         if (this.handleClick) {
             this.container.removeEventListener('click', this.handleClick);
-        }
+            }
         if (this.handleResize) {
             window.removeEventListener('resize', this.handleResize);
         }

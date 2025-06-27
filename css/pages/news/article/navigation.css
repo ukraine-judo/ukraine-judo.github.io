@@ -273,10 +273,26 @@
         grid-template-columns: 1fr;
         gap: 1.5rem;
         min-height: auto;
+        grid-template-areas: 
+            "prev"
+            "home"
+            "next";
     }
     
     .nav-article {
         padding: 1.25rem;
+    }
+    
+    .nav-article.prev-article {
+        grid-area: prev;
+    }
+    
+    .nav-article.home-article {
+        grid-area: home;
+    }
+    
+    .nav-article.next-article {
+        grid-area: next;
     }
     
     .nav-article-image {

@@ -12,6 +12,9 @@ class AdditionalMenuManager {
             category: 'all'
         };
         
+        // URL параметры
+        this.urlParams = new URLSearchParams(window.location.search);
+        
         this.init();
     }
     
@@ -19,6 +22,7 @@ class AdditionalMenuManager {
         this.bindEvents();
         this.loadArchiveData();
         this.updateStats();
+        this.applyUrlParams();
     }
     
     bindEvents() {
@@ -83,26 +87,36 @@ class AdditionalMenuManager {
     openMenu() {
         const overlay = document.getElementById('additionalMenuOverlay');
         if (overlay) {
-            overlay.classList.add('active');
-            this.isOpen = true;
-            document.body.style.overflow = 'hidden';
-            
-            // Обновляем данные при открытии
-            this.updateStats();
-            this.loadArchiveData();
+            // Используем requestAnimationFrame для плавной анимации
+            requestAnimationFrame(() => {
+                overlay.classList.add('active');
+                this.isOpen = true;
+                document.body.style.overflow = 'hidden';
+                
+                // Обновляем данные при открытии (асинхронно)
+                setTimeout(() => {
+                    this.updateStats();
+                    this.loadArchiveData();
+                }, 100);
+            });
         }
     }
     
     closeMenu() {
         const overlay = document.getElementById('additionalMenuOverlay');
         if (overlay) {
-            overlay.classList.remove('active');
-            this.isOpen = false;
-            document.body.style.overflow = '';
+            // Используем requestAnimationFrame для плавной анимации
+            requestAnimationFrame(() => {
+                overlay.classList.remove('active');
+                this.isOpen = false;
+                document.body.style.overflow = '';
+            });
         }
     }
     
     handlePeriodFilter(button) {
+        if (!button) return;
+        
         // Убираем активный класс с других кнопок
         document.querySelectorAll('.date-filter-btn').forEach(btn => {
             btn.classList.remove('active');
@@ -116,9 +130,12 @@ class AdditionalMenuManager {
         
         // Применяем фильтр
         this.applyFilters();
+        this.updateUrl();
     }
     
     handleSortFilter(button) {
+        if (!button) return;
+        
         // Убираем активный класс с других кнопок
         document.querySelectorAll('.sort-filter-btn').forEach(btn => {
             btn.classList.remove('active');
@@ -132,9 +149,12 @@ class AdditionalMenuManager {
         
         // Применяем фильтр
         this.applyFilters();
+        this.updateUrl();
     }
     
     handlePerPageFilter(button) {
+        if (!button) return;
+        
         // Убираем активный класс с других кнопок
         document.querySelectorAll('.per-page-btn').forEach(btn => {
             btn.classList.remove('active');
@@ -148,9 +168,12 @@ class AdditionalMenuManager {
         
         // Применяем фильтр
         this.applyFilters();
+        this.updateUrl();
     }
     
     handleCategoryFilter(button) {
+        if (!button) return;
+        
         // Убираем активный класс с других кнопок
         document.querySelectorAll('.category-filter-btn').forEach(btn => {
             btn.classList.remove('active');
@@ -164,6 +187,7 @@ class AdditionalMenuManager {
         
         // Применяем фильтр
         this.applyFilters();
+        this.updateUrl();
     }
     
     applyFilters() {
@@ -429,6 +453,89 @@ class AdditionalMenuManager {
         if (sortBtn) sortBtn.classList.add('active');
         if (perPageBtn) perPageBtn.classList.add('active');
         if (categoryBtn) categoryBtn.classList.add('active');
+    }
+    
+    applyUrlParams() {
+        // Применяем параметры из URL
+        const period = this.urlParams.get('period');
+        const sort = this.urlParams.get('sort');
+        const perPage = this.urlParams.get('perPage');
+        const category = this.urlParams.get('category');
+        
+        if (period && period !== 'all') {
+            this.currentFilters.period = period;
+            const periodBtn = document.querySelector(`[data-period="${period}"]`);
+            if (periodBtn) {
+                document.querySelectorAll('.date-filter-btn').forEach(btn => btn.classList.remove('active'));
+                periodBtn.classList.add('active');
+            }
+        }
+        
+        if (sort && sort !== 'date-desc') {
+            this.currentFilters.sort = sort;
+            const sortBtn = document.querySelector(`[data-sort="${sort}"]`);
+            if (sortBtn) {
+                document.querySelectorAll('.sort-filter-btn').forEach(btn => btn.classList.remove('active'));
+                sortBtn.classList.add('active');
+            }
+        }
+        
+        if (perPage && perPage !== '6') {
+            this.currentFilters.perPage = parseInt(perPage);
+            const perPageBtn = document.querySelector(`[data-per-page="${perPage}"]`);
+            if (perPageBtn) {
+                document.querySelectorAll('.per-page-btn').forEach(btn => btn.classList.remove('active'));
+                perPageBtn.classList.add('active');
+            }
+        }
+        
+        if (category && category !== 'all') {
+            this.currentFilters.category = category;
+            const categoryBtn = document.querySelector(`[data-category="${category}"]`);
+            if (categoryBtn) {
+                document.querySelectorAll('.category-filter-btn').forEach(btn => btn.classList.remove('active'));
+                categoryBtn.classList.add('active');
+            }
+        }
+    }
+
+    /**
+     * Обновляет URL с текущими параметрами
+     */
+    updateUrl() {
+        const url = new URL(window.location);
+        const params = url.searchParams;
+        
+        // Период
+        if (this.currentFilters.period !== 'all') {
+            params.set('period', this.currentFilters.period);
+        } else {
+            params.delete('period');
+        }
+        
+        // Сортировка
+        if (this.currentFilters.sort !== 'date-desc') {
+            params.set('sort', this.currentFilters.sort);
+        } else {
+            params.delete('sort');
+        }
+        
+        // Количество на странице
+        if (this.currentFilters.perPage !== 6) {
+            params.set('perPage', this.currentFilters.perPage.toString());
+        } else {
+            params.delete('perPage');
+        }
+        
+        // Категория
+        if (this.currentFilters.category !== 'all') {
+            params.set('category', this.currentFilters.category);
+        } else {
+            params.delete('category');
+        }
+        
+        // Обновляем URL без перезагрузки страницы
+        window.history.replaceState({}, '', url.toString());
     }
 }
 

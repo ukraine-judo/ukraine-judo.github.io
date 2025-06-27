@@ -322,7 +322,7 @@ class NewsArticle {
                                     </div>
                                     <h3 class="nav-article-title">${prevArticle.title}</h3>
                                 </a>
-                            ` : '<div class="nav-block-empty"></div>'}
+                            ` : '<div class="nav-block nav-block-empty"></div>'}
                             
                             <div class="nav-home">
                                 <a href="news.html" class="home-button">
@@ -343,7 +343,7 @@ class NewsArticle {
                                     </div>
                                     <h3 class="nav-article-title">${nextArticle.title}</h3>
                                 </a>
-                            ` : '<div class="nav-block-empty"></div>'}
+                            ` : '<div class="nav-block nav-block-empty"></div>'}
                         </div>
                     </div>
                 `;

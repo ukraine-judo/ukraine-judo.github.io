@@ -605,10 +605,26 @@
         grid-template-columns: 1fr;
         gap: 1.5rem;
         text-align: center;
+        grid-template-areas: 
+            "prev"
+            "home"
+            "next";
     }
     
     .nav-link-item {
         justify-content: center !important;
+    }
+    
+    .nav-link-item.prev-item {
+        grid-area: prev;
+    }
+    
+    .nav-link-item.home-item {
+        grid-area: home;
+    }
+    
+    .nav-link-item.next-item {
+        grid-area: next;
     }
     
     .nav-link {

@@ -141,6 +141,9 @@
 /* Sponsors Grid - Improved visibility */
 .sponsors-grid {
     display: grid;
+    align-items: center;
+    align-content: center;
+    align-self: center;
     grid-template-columns: repeat(2, 1fr);
     gap: 1.5rem;
     margin-top: 1.5rem;

@@ -1,0 +1,426 @@
+/* Competitions Grid and Cards Styles */
+
+/* Competitions Grid */
+.competitions-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+@media (min-width: 1200px) {
+    .competitions-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (min-width: 1600px) {
+    .competitions-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+/* Competition Card */
+.competition-card {
+    background: white;
+    border: 2px solid #e9ecef;
+    border-radius: 20px;
+    padding: 2rem;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+    position: relative;
+    overflow: hidden;
+}
+
+.competition-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary-color), var(--primary-light));
+    transform: scaleX(0);
+    transition: transform 0.4s ease;
+}
+
+.competition-card:hover::before {
+    transform: scaleX(1);
+}
+
+.competition-card:hover {
+    border-color: rgba(26, 63, 103, 0.3);
+    transform: translateY(-8px);
+    box-shadow: 0 20px 60px rgba(26, 63, 103, 0.15);
+}
+
+/* Competition Header */
+.competition-header {
+    margin-bottom: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.competition-year {
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+    color: white;
+    padding: 0.75rem 1.25rem;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    box-shadow: 0 4px 16px rgba(26, 63, 103, 0.3);
+    display: inline-block;
+    margin-bottom: 1rem;
+}
+
+.competition-year.upcoming {
+    background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+    animation: upcomingPulse 2s ease-in-out infinite;
+}
+
+.competition-year.upcoming::after {
+    content: 'СКОРО';
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background: #ff4757;
+    color: white;
+    font-size: 0.7rem;
+    padding: 2px 6px;
+    border-radius: 6px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+}
+
+.competition-title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    line-height: 1.4;
+}
+
+/* Competition Info */
+.competition-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-bottom: 2rem;
+}
+
+.info-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 1rem;
+    color: #666;
+}
+
+.info-icon {
+    flex-shrink: 0;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary-color);
+    background: rgba(26, 63, 103, 0.1);
+    border-radius: 8px;
+    padding: 4px;
+}
+
+.info-icon svg {
+    width: 16px;
+    height: 16px;
+}
+
+.info-text {
+    font-weight: 500;
+}
+
+/* Competition Files */
+.competition-files {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.competition-file {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 1.5rem;
+    background: #f8f9fa;
+    border: 2px solid transparent;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.competition-file::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 4px;
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+    transform: scaleY(0);
+    transition: transform 0.3s ease;
+}
+
+.competition-file:hover::before {
+    transform: scaleY(1);
+}
+
+.competition-file:hover {
+    background: white;
+    border-color: rgba(26, 63, 103, 0.2);
+    box-shadow: 0 4px 16px rgba(26, 63, 103, 0.1);
+    transform: translateX(8px);
+}
+
+/* File Info */
+.file-info {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex: 1;
+}
+
+.file-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.file-icon.protocol {
+    background: linear-gradient(135deg, #3b82f6, #2563eb);
+}
+
+.file-icon.results {
+    background: linear-gradient(135deg, #10b981, #059669);
+}
+
+.file-icon.team {
+    background: linear-gradient(135deg, #f59e0b, #d97706);
+}
+
+.file-icon.media {
+    background: linear-gradient(135deg, #ec4899, #db2777);
+}
+
+.file-icon.modal {
+    background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+}
+
+.file-details {
+    flex: 1;
+    min-width: 0;
+}
+
+.file-name {
+    display: block;
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-bottom: 0.25rem;
+    line-height: 1.3;
+}
+
+.file-meta {
+    font-size: 0.85rem;
+    color: #999;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.file-size {
+    font-weight: 500;
+}
+
+/* File Download */
+.file-download {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    background: rgba(26, 63, 103, 0.1);
+    color: var(--primary-color);
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+}
+
+.competition-file:hover .file-download {
+    background: var(--primary-color);
+    color: white;
+    transform: scale(1.1);
+}
+
+/* Empty State */
+.no-competitions {
+    text-align: center;
+    padding: 4rem 2rem;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+    margin: 2rem 0;
+}
+
+.no-competitions .empty-icon {
+    font-size: 4rem;
+    margin-bottom: 1.5rem;
+    opacity: 0.7;
+}
+
+.no-competitions h4 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: #999;
+}
+
+.no-competitions p {
+    font-size: 1.1rem;
+    color: #666;
+    margin: 0;
+    line-height: 1.6;
+}
+
+/* Pagination */
+.competitions-pagination {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem;
+    background: #f8f9fa;
+    border-radius: 16px;
+    margin-top: 3rem;
+}
+
+.pagination-info {
+    font-size: 1rem;
+    color: #666;
+    font-weight: 500;
+}
+
+.pagination-controls {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.pagination-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.25rem;
+    background: white;
+    border: 2px solid #e9ecef;
+    border-radius: 10px;
+    color: var(--primary-color);
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.pagination-btn:hover:not(:disabled) {
+    border-color: var(--primary-color);
+    background: var(--primary-color);
+    color: white;
+    transform: translateY(-2px);
+}
+
+.pagination-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.pagination-numbers {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.page-number {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    background: white;
+    border: 2px solid #e9ecef;
+    color: var(--primary-color);
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.page-number:hover {
+    border-color: var(--primary-color);
+    background: var(--primary-color);
+    color: white;
+}
+
+.page-number.active {
+    background: var(--primary-color);
+    border-color: var(--primary-color);
+    color: white;
+    box-shadow: 0 4px 16px rgba(26, 63, 103, 0.3);
+}
+
+.page-ellipsis {
+    padding: 0 0.5rem;
+    color: #999;
+    font-weight: 600;
+}
+
+/* Animations */
+@keyframes upcomingPulse {
+    0%, 100% {
+        box-shadow: 0 4px 16px rgba(26, 63, 103, 0.3);
+    }
+    50% {
+        box-shadow: 0 4px 16px rgba(26, 63, 103, 0.3), 0 0 20px rgba(255, 107, 107, 0.4);
+    }
+}
+
+/* Competition card enter animation */
+.competition-card.fade-in-up {
+    animation: fadeInUp 0.6s ease-out;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Staggered animation for multiple cards */
+.competition-card:nth-child(1) { animation-delay: 0.1s; }
+.competition-card:nth-child(2) { animation-delay: 0.2s; }
+.competition-card:nth-child(3) { animation-delay: 0.3s; }
+.competition-card:nth-child(4) { animation-delay: 0.4s; }
+.competition-card:nth-child(5) { animation-delay: 0.5s; }
+.competition-card:nth-child(6) { animation-delay: 0.6s; } 

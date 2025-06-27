@@ -18,6 +18,9 @@ class NewsManager {
         this.currentArchiveFilter = null; // Текущий фильтр по архиву
         this.currentArchiveYear = null; // Текущий год в архиве
         
+        // URL параметры
+        this.urlParams = new URLSearchParams(window.location.search);
+        
         // Элементы управления
         this.loadingElement = document.querySelector('.loading-overlay');
         this.errorElement = document.querySelector('.error-message');
@@ -48,6 +51,9 @@ class NewsManager {
             // Инициализируем пагинацию
             this.pagination = new NewsPagination();
             
+            // Применяем URL параметры
+            this.applyUrlParams();
+            
             // Рендерим страницу
             await this.render();
             
@@ -65,6 +71,94 @@ class NewsManager {
             console.error('Failed to initialize NewsManager:', error);
             this.showError('Ошибка загрузки новостей');
         }
+    }
+
+    /**
+     * Применяет параметры из URL
+     */
+    applyUrlParams() {
+        // Категория
+        const category = this.urlParams.get('category');
+        if (category && category !== 'all') {
+            this.currentCategory = category;
+            this.updateActiveTab(category);
+        }
+        
+        // Поиск
+        const search = this.urlParams.get('search');
+        if (search) {
+            this.searchQuery = search.toLowerCase().trim();
+            if (this.searchInput) {
+                this.searchInput.value = search;
+            }
+        }
+        
+        // Архив
+        const archive = this.urlParams.get('archive');
+        if (archive) {
+            this.currentArchiveFilter = archive;
+        }
+        
+        // Страница
+        const page = this.urlParams.get('page');
+        if (page) {
+            this.currentPage = parseInt(page) || 1;
+        }
+        
+        // Количество на странице
+        const perPage = this.urlParams.get('perPage');
+        if (perPage) {
+            this.itemsPerPage = parseInt(perPage) || 6;
+        }
+        
+        // Применяем все фильтры
+        this.applyAllFilters();
+    }
+
+    /**
+     * Обновляет URL с текущими параметрами
+     */
+    updateUrl() {
+        const url = new URL(window.location);
+        const params = url.searchParams;
+        
+        // Категория
+        if (this.currentCategory !== 'all') {
+            params.set('category', this.currentCategory);
+        } else {
+            params.delete('category');
+        }
+        
+        // Поиск
+        if (this.searchQuery) {
+            params.set('search', this.searchQuery);
+        } else {
+            params.delete('search');
+        }
+        
+        // Архив
+        if (this.currentArchiveFilter) {
+            params.set('archive', this.currentArchiveFilter);
+        } else {
+            params.delete('archive');
+        }
+        
+        // Страница
+        if (this.currentPage > 1) {
+            params.set('page', this.currentPage.toString());
+        } else {
+            params.delete('page');
+        }
+        
+        // Количество на странице
+        if (this.itemsPerPage !== 6) {
+            params.set('perPage', this.itemsPerPage.toString());
+        } else {
+            params.delete('perPage');
+        }
+        
+        // Обновляем URL без перезагрузки страницы
+        window.history.replaceState({}, '', url.toString());
     }
 
     /**
@@ -129,6 +223,7 @@ class NewsManager {
             this.currentPage = page;
         }
         
+        this.updateUrl();
         await this.render();
         
         // Прокручиваем к началу контента
@@ -242,6 +337,7 @@ class NewsManager {
         // Применяем все активные фильтры
         this.applyAllFilters();
         this.updateActiveTab(category);
+        this.updateUrl();
         await this.render();
     }
 
@@ -255,6 +351,7 @@ class NewsManager {
         
         // Применяем все активные фильтры
         this.applyAllFilters();
+        this.updateUrl();
         await this.render();
     }
 
@@ -615,6 +712,7 @@ class NewsManager {
         
         // Применяем все активные фильтры
         this.applyAllFilters();
+        this.updateUrl();
         await this.render();
     }
 
@@ -643,6 +741,7 @@ class NewsManager {
         
         // Применяем все активные фильтры (кроме архива)
         this.applyAllFilters();
+        this.updateUrl();
         
         await this.render();
     }
@@ -686,6 +785,22 @@ class NewsManager {
                 searchTimeout = setTimeout(() => {
                     this.search(e.target.value);
                 }, 300);
+            });
+            
+            // Обработка Enter в поиске
+            this.searchInput.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') {
+                    clearTimeout(searchTimeout);
+                    this.search(e.target.value);
+                }
+            });
+        }
+        
+        // Кнопка очистки поиска
+        if (this.searchClearBtn) {
+            this.searchClearBtn.addEventListener('click', () => {
+                this.searchInput.value = '';
+                this.search('');
             });
         }
     }
@@ -831,11 +946,11 @@ class NewsManager {
                     ];
                     const monthName = monthNames[month - 1];
                     description = `Новини українського дзюдо за ${monthName} ${year} року`;
-                } else if (this.currentCategory !== 'all') {
-                    const categoryName = this.getCategoryName(this.currentCategory);
+        } else if (this.currentCategory !== 'all') {
+            const categoryName = this.getCategoryName(this.currentCategory);
                     description = `Останні новини у категорії "${categoryName}"`;
                 }
-            } else {
+        } else {
                 title = `Фільтровані новини: ${filters.join(' • ')}`;
                 description = `Новини українського дзюдо з застосованими фільтрами`;
             }
@@ -973,6 +1088,7 @@ class NewsManager {
         // Применяем "чистые" фильтры (все сброшены)
         this.applyAllFilters();
         this.updateActiveTab('all');
+        this.updateUrl();
         await this.render();
     }
 }

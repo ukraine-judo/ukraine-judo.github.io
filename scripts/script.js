@@ -358,6 +358,24 @@ document.addEventListener('DOMContentLoaded', function() {
                     description: 'Офіційні документи та правила'
                 },
                 {
+                    text: 'Протоколи',
+                    href: 'protocols.html',
+                    icon: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2h12a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z"/><line x1="8" y1="8" x2="16" y2="8"/><line x1="8" y1="12" x2="16" y2="12"/><line x1="8" y1="16" x2="14" y2="16"/></svg>                    ',
+                    description: 'Офіційні протоколи та результати всеукраїнських змагань'
+                },
+                {
+                    text: 'Регламенти',
+                    href: 'regulations.html',
+                    icon: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2h12a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z"/><circle cx="8" cy="8" r="1"/><line x1="11" y1="8" x2="16" y2="8"/><circle cx="8" cy="12" r="1"/><line x1="11" y1="12" x2="16" y2="12"/><circle cx="8" cy="16" r="1"/><line x1="11" y1="16" x2="16" y2="16"/></svg>',
+                    description: 'Офіційні регламенти до всеукраїнських змагань'
+                },
+                {
+                    text: 'Важлива Інформація',
+                    href: 'disclaimer.html',
+                    icon: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>',
+                    description: 'Важлива інформація щодо цього веб-сайту'
+                },
+                {
                     text: 'Регіони',
                     href: 'regions.html',
                     icon: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>',
