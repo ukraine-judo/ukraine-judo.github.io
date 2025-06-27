@@ -303,6 +303,13 @@
     box-shadow: 0 8px 20px rgba(26, 63, 103, 0.3);
 }
 
+/* 1024px - 1366px */
+@media (min-width: 1024px) and (max-width: 1366px) {
+    .news-grid {
+        gap: 4rem;
+    }
+}
+
 /* Responsive */
 @media (max-width: 768px) {
     .news-grid {

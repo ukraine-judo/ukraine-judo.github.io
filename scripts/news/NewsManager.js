@@ -33,35 +33,42 @@ class NewsManager {
     }
 
     /**
-     * Инициализация системы новостей
+     * Инициализация
      */
     async init() {
+        console.log('NewsManager.init() started'); // Отладка
+        
         try {
             this.showLoading();
             
-            // Загружаем все статьи для кеширования
+            // Загружаем все статьи
             this.allArticles = await this.loader.scanArticles();
             this.filteredArticles = [...this.allArticles];
             
-            // Обновляем статистику
-            await this.updateStats();
+            // Инициализируем пагинацию
+            this.pagination = new NewsPagination();
             
-            // Рендерим первую страницу
+            // Рендерим страницу
             await this.render();
             
             // Настраиваем события
             this.setupEvents();
             
+            // Обновляем статистику
+            await this.updateStats();
+            
             this.hideLoading();
             
+            console.log('NewsManager initialization completed'); // Отладка
+            
         } catch (error) {
-            console.error('NewsManager initialization failed:', error);
-            this.showError('Помилка завантаження новин');
+            console.error('Failed to initialize NewsManager:', error);
+            this.showError('Ошибка загрузки новостей');
         }
     }
 
     /**
-     * Рендерит текущую страницу новостей
+     * Рендерит страницу
      */
     async render() {
         if (!this.container) return;
@@ -98,7 +105,7 @@ class NewsManager {
                 totalItems: this.filteredArticles.length,
                 itemsPerPage: this.itemsPerPage,
                 containerId: '.main-articles .pagination',
-                onPageChange: (page) => this.goToPage(page)
+                onPageChange: (page, newItemsPerPage) => this.handlePageChange(page, newItemsPerPage)
             });
         }
 
@@ -107,6 +114,35 @@ class NewsManager {
 
         // Добавляем анимации
         this.animateArticles();
+    }
+
+    /**
+     * Обработчик изменения страницы и количества элементов
+     */
+    async handlePageChange(page, newItemsPerPage = null) {
+        if (newItemsPerPage && newItemsPerPage !== this.itemsPerPage) {
+            // Изменение количества элементов на странице
+            this.itemsPerPage = newItemsPerPage;
+            this.currentPage = 1; // Сбрасываем на первую страницу
+        } else {
+            // Обычная смена страницы
+            this.currentPage = page;
+        }
+        
+        await this.render();
+        
+        // Прокручиваем к началу контента
+        const newsContent = document.querySelector('.news-content');
+        if (newsContent) {
+            newsContent.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    }
+
+    /**
+     * Переход на страницу (для обратной совместимости)
+     */
+    async goToPage(page) {
+        await this.handlePageChange(page);
     }
 
     /**
@@ -196,12 +232,12 @@ class NewsManager {
     }
 
     /**
-     * Фильтрация по категориям
+     * Фильтрация по категории
      */
     async filterByCategory(category) {
         this.currentCategory = category;
         this.currentPage = 1;
-        this.currentArchiveFilter = null; // Сбрасываем архивный фильтр
+        // Убираем сброс архивного фильтра - фильтры должны работать вместе
         
         // Применяем все активные фильтры
         this.applyAllFilters();
@@ -215,6 +251,7 @@ class NewsManager {
     async search(query) {
         this.searchQuery = query.toLowerCase().trim();
         this.currentPage = 1;
+        // Не сбрасываем другие фильтры при поиске
         
         // Применяем все активные фильтры
         this.applyAllFilters();
@@ -303,8 +340,6 @@ class NewsManager {
                 </div>
             </div>
 
-            ${this.renderAdvancedArchive()}
-
             <div class="sidebar-widget">
                 <h3>Наші партнери</h3>
                 <div class="sponsors-grid">
@@ -332,14 +367,14 @@ class NewsManager {
 
         this.sidebarContainer.innerHTML = sidebarHTML;
         
-        // Добавляем обработчики событий для архива
-        this.setupArchiveEvents();
+        // Добавляем обработчики событий для категорий
+        this.setupCategoryEvents();
     }
 
     /**
-     * Настройка событий для архива
+     * Настройка событий для категорий
      */
-    setupArchiveEvents() {
+    setupCategoryEvents() {
         // Настраиваем события для категорий
         const categoryLinks = this.sidebarContainer.querySelectorAll('.category-item a');
         console.log('Setting up category events for', categoryLinks.length, 'links');
@@ -357,7 +392,7 @@ class NewsManager {
         });
 
         // Новый архив использует onclick атрибуты, поэтому дополнительная настройка не нужна
-        console.log('Archive events setup completed for advanced archive navigation');
+        console.log('Category events setup completed');
     }
 
     /**
@@ -568,46 +603,19 @@ class NewsManager {
     async changeArchiveYear(year) {
         this.currentArchiveYear = year;
         await this.renderSidebar();
-        this.setupArchiveEvents();
     }
 
     /**
-     * Фильтрация по дате
+     * Фильтрация по дате (архив)
      */
     async filterByDate(dateKey) {
-        console.log('filterByDate called with:', dateKey);
-        
-        // Устанавливаем текущий архивный фильтр
         this.currentArchiveFilter = dateKey;
-        
-        console.log('Filtering articles for date:', dateKey);
-        
-        // Сбрасываем категорию на "все" при фильтрации по архиву
-        this.currentCategory = 'all';
         this.currentPage = 1;
-        // НЕ сбрасываем поиск - пользователь может хотеть найти что-то в выбранном месяце
+        // Не сбрасываем категорию и поиск при применении архивного фильтра
         
         // Применяем все активные фильтры
         this.applyAllFilters();
-
-        console.log('Filtered articles count:', this.filteredArticles.length);
-
-        // Обновляем UI
-        this.updateActiveTab('all');
-        
         await this.render();
-        
-        // Прокручиваем к началу
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-
-    /**
-     * Переход на страницу
-     */
-    async goToPage(page) {
-        this.currentPage = page;
-        await this.render();
-        window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
     /**
@@ -749,9 +757,14 @@ class NewsManager {
     getCategoryName(category) {
         const categories = {
             'achievements': 'Досягнення',
-            'competitions': 'Змагання', 
+            'announcements': 'Анонси/Оголошення',
+            'greetings': 'Привітання',
+            'results': 'Результати',
+            'decisions': 'Рішення',
             'events': 'Події',
-            'announcements': 'Анонси',
+            'partnerships': 'Партнерство',
+            'federationNews': 'Новини федерації',
+            'competitions': 'Змагання',
             'interviews': 'Інтерв\'ю',
             'education': 'Освіта'
         };
@@ -776,6 +789,13 @@ class NewsManager {
         
         if (!heroTitle || !heroDescription) return;
 
+        // Определяем комбинированный заголовок
+        let title = 'Новини українського дзюдо';
+        let description = 'Стежте за останніми подіями, досягненнями та анонсами Федерації Дзюдо України';
+        
+        const filters = [];
+        
+        // Добавляем фильтр по архиву
         if (this.currentArchiveFilter) {
             const [year, month] = this.currentArchiveFilter.split('-').map(Number);
             const monthNames = [
@@ -783,19 +803,46 @@ class NewsManager {
                 'Липень', 'Серпень', 'Вересень', 'Жовтень', 'Листопад', 'Грудень'
             ];
             const monthName = monthNames[month - 1];
-            heroTitle.textContent = `Архів новин - ${monthName} ${year}`;
-            heroDescription.textContent = `Новини українського дзюдо за ${monthName} ${year} року`;
-        } else if (this.searchQuery) {
-            heroTitle.textContent = `Пошук: "${this.searchQuery}"`;
-            heroDescription.textContent = `Результати пошуку за запитом "${this.searchQuery}"`;
-        } else if (this.currentCategory !== 'all') {
-            const categoryName = this.getCategoryName(this.currentCategory);
-            heroTitle.textContent = `${categoryName} - Новини`;
-            heroDescription.textContent = `Останні новини у категорії "${categoryName}"`;
-        } else {
-            heroTitle.textContent = 'Новини українського дзюдо';
-            heroDescription.textContent = 'Стежте за останніми подіями, досягненнями та анонсами Федерації Дзюдо України';
+            filters.push(`${monthName} ${year}`);
         }
+        
+        // Добавляем фильтр по категории
+        if (this.currentCategory !== 'all') {
+            const categoryName = this.getCategoryName(this.currentCategory);
+            filters.push(categoryName);
+        }
+        
+        // Добавляем поисковый запрос
+        if (this.searchQuery) {
+            filters.push(`"${this.searchQuery}"`);
+        }
+        
+        // Формируем заголовок на основе активных фильтров
+        if (filters.length > 0) {
+            if (filters.length === 1) {
+                title = `${filters[0]} - Новини`;
+                if (this.searchQuery) {
+                    description = `Результати пошуку за запитом "${this.searchQuery}"`;
+                } else if (this.currentArchiveFilter) {
+                    const [year, month] = this.currentArchiveFilter.split('-').map(Number);
+                    const monthNames = [
+                        'Січень', 'Лютий', 'Березень', 'Квітень', 'Травень', 'Червень',
+                        'Липень', 'Серпень', 'Вересень', 'Жовтень', 'Листопад', 'Грудень'
+                    ];
+                    const monthName = monthNames[month - 1];
+                    description = `Новини українського дзюдо за ${monthName} ${year} року`;
+                } else if (this.currentCategory !== 'all') {
+                    const categoryName = this.getCategoryName(this.currentCategory);
+                    description = `Останні новини у категорії "${categoryName}"`;
+                }
+            } else {
+                title = `Фільтровані новини: ${filters.join(' • ')}`;
+                description = `Новини українського дзюдо з застосованими фільтрами`;
+            }
+        }
+        
+        heroTitle.textContent = title;
+        heroDescription.textContent = description;
         
         // Добавляем или обновляем фильтр-бар
         this.updateFilterBar();
@@ -832,7 +879,8 @@ class NewsManager {
             const monthName = monthNames[month - 1];
             activeFilters.push({
                 type: 'archive',
-                label: `📅 ${monthName} ${year}`,
+                label: `${monthName} ${year}`,
+                icon: 'calendar',
                 action: 'clearArchiveFilter'
             });
         }
@@ -840,7 +888,8 @@ class NewsManager {
         if (this.searchQuery) {
             activeFilters.push({
                 type: 'search',
-                label: `🔍 "${this.searchQuery}"`,
+                label: `"${this.searchQuery}"`,
+                icon: 'search',
                 action: 'clearSearch'
             });
         }
@@ -849,7 +898,8 @@ class NewsManager {
             const categoryName = this.getCategoryName(this.currentCategory);
             activeFilters.push({
                 type: 'category',
-                label: `📂 ${categoryName}`,
+                label: categoryName,
+                icon: 'folder',
                 action: () => this.filterByCategory('all')
             });
         }
@@ -857,18 +907,33 @@ class NewsManager {
         // Рендерим фильтр-бар
         if (activeFilters.length > 0) {
             filterBar.innerHTML = `
+                <div class="active-filters-header">
+                    <h3 class="active-filters-title">Активні фільтри</h3>
+                    <p class="active-filters-subtitle">Застосовані фільтри для поточного пошуку</p>
+                </div>
                 <div class="filter-bar-content">
-                    <span class="filter-bar-label">Активні фільтри:</span>
                     <div class="filter-tags">
                         ${activeFilters.map(filter => `
-                            <div class="filter-tag">
+                            <div class="filter-tag" data-type="${filter.type}">
+                                <div class="filter-tag-icon">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        ${this.getFilterIcon(filter.icon)}
+                                    </svg>
+                                </div>
                                 <span class="filter-tag-label">${filter.label}</span>
                                 <button class="filter-tag-remove" onclick="newsManager.${typeof filter.action === 'string' ? filter.action + '()' : 'filterByCategory(\'all\')'}" title="Видалити фільтр">
-                                    ✕
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M18 6L6 18M6 6l12 12"/>
+                                    </svg>
                                 </button>
                             </div>
                         `).join('')}
+                    </div>
+                    <div class="filter-actions">
                         <button class="clear-all-filters" onclick="newsManager.clearAllFilters()">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M3 6h18M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/>
+                            </svg>
                             Скинути всі фільтри
                         </button>
                     </div>
@@ -878,6 +943,18 @@ class NewsManager {
         } else {
             filterBar.style.display = 'none';
         }
+    }
+
+    /**
+     * Возвращает SVG иконку для типа фильтра
+     */
+    getFilterIcon(type) {
+        const icons = {
+            'calendar': '<rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>',
+            'search': '<circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/>',
+            'folder': '<path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/>'
+        };
+        return icons[type] || icons['folder'];
     }
 
     /**

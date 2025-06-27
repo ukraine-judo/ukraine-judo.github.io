@@ -739,9 +739,16 @@ class NewsArticle {
     getCategoryName(category) {
         const categories = {
             'achievements': 'Досягнення',
-            'competitions': 'Змагання',
+            'announcements': 'Анонси/Оголошення',
+            'greetings': 'Привітання',
+            'results': 'Результати',
+            'decisions': 'Рішення',
             'events': 'Події',
-            'announcements': 'Анонси'
+            'partnerships': 'Партнерство',
+            'federationNews': 'Новини федерації',
+            'competitions': 'Змагання',
+            'interviews': 'Інтерв\'ю',
+            'education': 'Освіта'
         };
         return categories[category] || category;
     }

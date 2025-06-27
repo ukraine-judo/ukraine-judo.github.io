@@ -470,7 +470,7 @@ class NewsLoader {
             const excludeIds = new Set(relatedArticles.map(a => a.id));
             
             const categoryArticles = allArticles
-                .filter(article => 
+            .filter(article => 
                     !excludeIds.has(article.id) && 
                     article.category === currentArticle.category
                 )

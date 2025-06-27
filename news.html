@@ -1,15 +1,6 @@
 <!DOCTYPE html>
 <html lang="uk">
 <head>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-VCQC01NHTH"></script>
-    <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'G-VCQC01NHTH');
-    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
@@ -17,7 +8,7 @@
     <title>📰 Новини Дзюдо України | Останні новини ФДУ</title>
     <meta name="title" content="📰 Новини Дзюдо України | Останні новини ФДУ">
     <meta name="description" content="🥋 Новини дзюдо України від ФДУ: результати чемпіонатів, досягнення збірної, анонси змагань 2025.">
-    <meta name="keywords" content="новини дзюдо україна, фду новини, результати змагань дзюдо, чемпіонат україни дзюдо новини, досягнення збірної україни дзюдо, анонси змагань дзюдо, федерація дзюдо україни новини, українське дзюдо новини, спортивні новини дзюдо">
+    <meta name="keywords" content="новини дзюдо україна, фду новини, результати змагань дзюдо, чемпіонат україни дзюдо новини, досягнення збірної україни дзюдо, анонси змагань дзюдо, федерация дзюдо україни новини, українське дзюдо новини, спортивні новини дзюдо">
     <meta name="robots" content="index, follow">
     <meta name="language" content="uk">
     <meta name="author" content="Федерація Дзюдо України">
@@ -55,6 +46,8 @@
     <link rel="stylesheet" href="css/footer.css">
     <link rel="stylesheet" href="css/pages/news/index/hero.css">
     <link rel="stylesheet" href="css/pages/news/index/filter.css">
+    <link rel="stylesheet" href="css/pages/news/index/additional-menu.css">
+    <link rel="stylesheet" href="css/pages/news/index/pagination.css">
     <link rel="stylesheet" href="css/pages/news/index/articles.css">
     <link rel="stylesheet" href="css/pages/news/index/sidebar.css">
     <link rel="stylesheet" href="css/pages/news/index/sidebar-archive.css">
@@ -277,19 +270,43 @@
         <section class="news-content" itemscope itemtype="https://schema.org/ItemList">
             <div class="container">
                 <div class="news-filter" role="search" aria-label="Фільтр новин дзюдо">
+                    <div class="news-filter-header">
+                        <h2 class="filter-main-title">Фільтрація та пошук</h2>
+                        <p class="filter-description">Знайдіть потрібні новини за допомогою пошуку та фільтрів</p>
+                    </div>
+                    
                     <div class="news-filter-content">
-                        <div class="news-search-container">
-                            <div class="search-input-wrapper">
-                                <input type="text" class="news-search" placeholder="Пошук новин дзюдо України, результатів змагань..." aria-label="Пошук новин дзюдо" />
-                                <button class="search-clear-btn" style="display: none;">✕</button>
+                        <div class="filter-section search-section">
+                            <h3 class="filter-section-title">Пошук</h3>
+                            <div class="news-search-container">
+                                <div class="search-input-wrapper">
+                                    <input type="text" class="news-search" placeholder="Введіть ключові слова для пошуку..." aria-label="Пошук новин дзюдо" />
+                                    <button class="search-clear-btn" style="display: none;">✕</button>
+                                </div>
                             </div>
                         </div>
-                        <div class="news-filter-tabs" role="tablist" aria-label="Категорії новин дзюдо">
-                            <button class="news-filter-tab active" data-category="all" role="tab" aria-selected="true">📰 Усі новини дзюдо</button>
-                            <button class="news-filter-tab" data-category="competitions" role="tab" aria-selected="false">🏆 Змагання та чемпіонати</button>
-                            <button class="news-filter-tab" data-category="achievements" role="tab" aria-selected="false">🥇 Досягнення збірної</button>
-                            <button class="news-filter-tab" data-category="events" role="tab" aria-selected="false">📅 Події ФДУ</button>
-                            <button class="news-filter-tab" data-category="announcements" role="tab" aria-selected="false">📢 Анонси турнірів</button>
+                        
+                        <div class="filter-section filters-section">
+                            <h3 class="filter-section-title">Фільтри</h3>
+                            <div class="filters-container">
+                                <div class="news-filter-tabs" role="tablist" aria-label="Категорії новин дзюдо">
+                                    <button class="news-filter-tab active" data-category="all" role="tab" aria-selected="true">Усі новини</button>
+                                    <button class="news-filter-tab" data-category="achievements" role="tab" aria-selected="false">Досягнення</button>
+                                    <button class="news-filter-tab" data-category="results" role="tab" aria-selected="false">Результати</button>
+                                    <button class="news-filter-tab" data-category="competitions" role="tab" aria-selected="false">Змагання</button>
+                                    <button class="news-filter-tab" data-category="announcements" role="tab" aria-selected="false">Анонси</button>
+                                    <button class="news-filter-tab" data-category="events" role="tab" aria-selected="false">Події</button>
+                                    <button class="news-filter-tab" data-category="federationNews" role="tab" aria-selected="false">Новини федерації</button>
+                                    <button class="additional-menu-btn" id="additionalMenuBtn" aria-label="Відкрити додаткове меню">
+                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <circle cx="12" cy="12" r="1"/>
+                                            <circle cx="19" cy="12" r="1"/>
+                                            <circle cx="5" cy="12" r="1"/>
+                                        </svg>
+                                        <span>Розширені фільтри</span>
+                                    </button>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -406,12 +423,113 @@
         </div>
     </footer>
 
+    <!-- Дополнительное меню -->
+    <div class="additional-menu-overlay" id="additionalMenuOverlay">
+        <div class="additional-menu" id="additionalMenu">
+            <div class="additional-menu-header">
+                <h3>Фільтри та архів</h3>
+                <button class="additional-menu-close" id="additionalMenuClose" aria-label="Закрити меню">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M18 6L6 18M6 6l12 12"/>
+                    </svg>
+                </button>
+            </div>
+            
+            <div class="additional-menu-content">
+                <!-- Расширенные фильтры -->
+                <div class="menu-section">
+                    <h4>Розширені фільтри</h4>
+                    <div class="advanced-filters">
+                        <div class="filter-group">
+                            <label class="filter-label">Період публікації</label>
+                            <div class="date-range-filters">
+                                <button class="date-filter-btn active" data-period="all">Всі</button>
+                                <button class="date-filter-btn" data-period="today">Сьогодні</button>
+                                <button class="date-filter-btn" data-period="week">Цього тижня</button>
+                                <button class="date-filter-btn" data-period="month">Цього місяця</button>
+                                <button class="date-filter-btn" data-period="year">Цього року</button>
+                            </div>
+                        </div>
+                        
+                        <div class="filter-group">
+                            <label class="filter-label">Сортування</label>
+                            <div class="sort-filters">
+                                <button class="sort-filter-btn active" data-sort="date-desc">Спочатку нові</button>
+                                <button class="sort-filter-btn" data-sort="date-asc">Спочатку старі</button>
+                                <button class="sort-filter-btn" data-sort="title-asc">А-Я</button>
+                                <button class="sort-filter-btn" data-sort="title-desc">Я-А</button>
+                            </div>
+                        </div>
+                        
+                        <div class="filter-group">
+                            <label class="filter-label">Кількість на сторінці</label>
+                            <div class="per-page-filters">
+                                <button class="per-page-btn active" data-per-page="6">6</button>
+                                <button class="per-page-btn" data-per-page="12">12</button>
+                                <button class="per-page-btn" data-per-page="24">24</button>
+                                <button class="per-page-btn" data-per-page="48">48</button>
+                            </div>
+                        </div>
+                        
+                        <div class="filter-group">
+                            <label class="filter-label">Категорії</label>
+                            <div class="category-filters">
+                                <button class="category-filter-btn active" data-category="all">Всі категорії</button>
+                                <button class="category-filter-btn" data-category="achievements">Досягнення</button>
+                                <button class="category-filter-btn" data-category="announcements">Анонси</button>
+                                <button class="category-filter-btn" data-category="greetings">Привітання</button>
+                                <button class="category-filter-btn" data-category="results">Результати</button>
+                                <button class="category-filter-btn" data-category="decisions">Рішення</button>
+                                <button class="category-filter-btn" data-category="events">Події</button>
+                                <button class="category-filter-btn" data-category="partnerships">Партнерство</button>
+                                <button class="category-filter-btn" data-category="federationNews">Новини федерації</button>
+                                <button class="category-filter-btn" data-category="competitions">Змагання</button>
+                                <button class="category-filter-btn" data-category="interviews">Інтерв'ю</button>
+                                <button class="category-filter-btn" data-category="education">Освіта</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Полный архив -->
+                <div class="menu-section">
+                    <h4>Архів новин</h4>
+                    <div class="archive-container">
+                        <div class="archive-navigation" id="archiveNavigation">
+                            <!-- Архив будет загружен динамически -->
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Статистика -->
+                <div class="menu-section">
+                    <h4>Статистика</h4>
+                    <div class="menu-stats">
+                        <div class="stat-item">
+                            <span class="stat-number" id="menuTotalArticles">—</span>
+                            <span class="stat-label">Всього статей</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number" id="menuThisMonth">—</span>
+                            <span class="stat-label">Цього місяця</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number" id="menuCategories">11</span>
+                            <span class="stat-label">Категорій</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <script src="scripts/script.js"></script>
-    <script src="scripts/news/NewsLoader.js"></script>
+    <script src="scripts/news/NewsInit.js"></script>
     <script src="scripts/news/NewsManager.js"></script>
+    <script src="scripts/news/NewsLoader.js"></script>
     <script src="scripts/news/NewsPagination.js"></script>
     <script src="scripts/news/NewsArticle.js"></script>
-    <script src="scripts/news/NewsInit.js"></script>
+    <script src="scripts/news/NewsSEO.js"></script>
+    <script src="scripts/news/additional-menu.js"></script>
 </body>
 </html> 
