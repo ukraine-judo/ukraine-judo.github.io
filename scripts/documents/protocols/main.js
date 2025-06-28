@@ -13,6 +13,18 @@ class ProtocolsManager {
         this.filteredCompetitions = [];
         this.currentYear = '';
         this.currentSearch = '';
+        this.currentModal = null;
+        
+        // URL State Management
+        this.urlState = {
+            category: 'u23',
+            page: 1,
+            year: '',
+            search: '',
+            modal: null,
+            modalFile: null,
+            modalCompetition: null
+        };
         
         this.init();
     }
@@ -22,7 +34,9 @@ class ProtocolsManager {
             await this.loadAllData();
             this.renderCategories();
             this.setupEventListeners();
-            this.showCategory('u23'); // Show U23 by default
+            this.setupURLStateManagement();
+            this.restoreStateFromURL();
+            this.updateStructuredData();
             this.hideLoading();
         } catch (error) {
             console.error('Error initializing protocols:', error);
@@ -83,8 +97,6 @@ class ProtocolsManager {
             this.allCompetitions[category] = this.generateFallbackData(category);
         }
     }
-
-
 
     generateFallbackMetadata() {
         return {
@@ -215,8 +227,6 @@ class ProtocolsManager {
             }
         });
 
-
-
         // Filters
         const yearFilter = document.getElementById('year-filter');
         if (yearFilter) {
@@ -249,6 +259,23 @@ class ProtocolsManager {
 
         // Modal close
         this.setupModalListeners();
+        
+        // Keyboard shortcuts
+        document.addEventListener('keydown', (e) => {
+            // ESC to close modal
+            if (e.key === 'Escape') {
+                this.closeModal();
+            }
+            
+            // Ctrl/Cmd + K to focus search
+            if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
+                e.preventDefault();
+                const searchFilter = document.getElementById('search-filter');
+                if (searchFilter) {
+                    searchFilter.focus();
+                }
+            }
+        });
     }
 
     showCategory(category) {
@@ -278,11 +305,24 @@ class ProtocolsManager {
         this.currentYear = '';
         this.currentSearch = '';
         
+        // Update URL state
+        this.updateURLState({
+            category: category,
+            page: 1,
+            year: '',
+            search: '',
+            modal: null,
+            modalFile: null,
+            modalCompetition: null
+        });
+        
+        // Update structured data
+        this.updateCategorySchema();
+        this.updateBreadcrumbSchema();
+        
         // Render competitions
         this.applyFilters();
     }
-
-
 
     setupCategoryFilters(category) {
         const competitions = this.allCompetitions[category] || [];
@@ -315,6 +355,14 @@ class ProtocolsManager {
         });
         
         this.currentPage = 1;
+        
+        // Update URL state
+        this.updateURLState({
+            year: this.currentYear,
+            search: this.currentSearch,
+            page: 1
+        });
+        
         this.renderCompetitions();
         this.renderPagination();
     }
@@ -482,51 +530,69 @@ class ProtocolsManager {
         const totalPages = Math.ceil(this.filteredCompetitions.length / this.itemsPerPage);
         
         if (totalPages <= 1) {
-            container.style.display = 'none';
+            container.innerHTML = '';
             return;
         }
 
-        container.style.display = 'flex';
-        
-        const startItem = (this.currentPage - 1) * this.itemsPerPage + 1;
-        const endItem = Math.min(this.currentPage * this.itemsPerPage, this.filteredCompetitions.length);
+        const pageNumbers = this.generatePageNumbers(this.currentPage, totalPages);
         
         container.innerHTML = `
-            <div class="pagination-info">
-                Показано ${startItem}-${endItem} з ${this.filteredCompetitions.length} змагань
-            </div>
             <div class="pagination-controls">
-                <button class="pagination-btn" ${this.currentPage === 1 ? 'disabled' : ''} data-page="${this.currentPage - 1}">
+                <button class="pagination-btn prev-btn ${this.currentPage === 1 ? 'disabled' : ''}" 
+                        data-page="${this.currentPage - 1}" ${this.currentPage === 1 ? 'disabled' : ''}>
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <polyline points="15,18 9,12 15,6"/>
                     </svg>
                     Попередня
                 </button>
+                
                 <div class="pagination-numbers">
-                    ${this.generatePageNumbers(this.currentPage, totalPages)}
+                    ${pageNumbers.map(page => {
+                        if (page === '...') {
+                            return '<span class="pagination-ellipsis">...</span>';
+                        }
+                        const isActive = page === this.currentPage;
+                        return `<button class="pagination-btn number-btn ${isActive ? 'active' : ''}" data-page="${page}">${page}</button>`;
+                    }).join('')}
                 </div>
-                <button class="pagination-btn" ${this.currentPage === totalPages ? 'disabled' : ''} data-page="${this.currentPage + 1}">
+                
+                <button class="pagination-btn next-btn ${this.currentPage === totalPages ? 'disabled' : ''}" 
+                        data-page="${this.currentPage + 1}" ${this.currentPage === totalPages ? 'disabled' : ''}>
                     Наступна
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <polyline points="9,18 15,12 9,6"/>
                     </svg>
                 </button>
             </div>
+            
+            <div class="pagination-info">
+                <span class="pagination-text">
+                    Сторінка ${this.currentPage} з ${totalPages}
+                </span>
+                <span class="pagination-count">
+                    ${this.filteredCompetitions.length} змагань
+                </span>
+            </div>
         `;
 
-        // Add pagination event listeners
-        container.querySelectorAll('[data-page]').forEach(btn => {
+        // Add click listeners
+        container.querySelectorAll('.pagination-btn').forEach(btn => {
             btn.addEventListener('click', (e) => {
-                const page = parseInt(e.currentTarget.dataset.page);
-                if (page && page !== this.currentPage) {
+                e.preventDefault();
+                const page = parseInt(btn.dataset.page);
+                if (page && page !== this.currentPage && page >= 1 && page <= totalPages) {
                     this.currentPage = page;
+                    
+                    // Update URL state
+                    this.updateURLState({ page: page });
+                    
                     this.renderCompetitions();
                     this.renderPagination();
                     
-                    // Scroll to top of competitions
+                    // Scroll to top of competitions section
                     document.getElementById('competitions-section').scrollIntoView({ 
-                        behavior: 'smooth', 
-                        block: 'start' 
+                        behavior: 'smooth',
+                        block: 'start'
                     });
                 }
             });
@@ -583,19 +649,24 @@ class ProtocolsManager {
     }
 
     async showResultsModal(filePath, fileName, competitionTitle) {
-        const modal = document.getElementById('results-modal');
-        if (!modal) return;
-
         try {
+            // Update URL state for modal
+            this.updateURLState({
+                modal: fileName,
+                modalFile: filePath,
+                modalCompetition: competitionTitle
+            });
+            
             const response = await fetch(filePath);
             if (!response.ok) {
-                throw new Error('Failed to load results');
+                throw new Error('Failed to load modal content');
             }
             
-            const htmlContent = await response.text();
-            this.displayModal(htmlContent, `${competitionTitle} - ${fileName}`);
+            const content = await response.text();
+            this.displayModal(content, fileName);
+            
         } catch (error) {
-            console.error('Error loading results:', error);
+            console.error('Error loading modal:', error);
             this.showNotification('Помилка завантаження результатів', 'error');
         }
     }
@@ -775,9 +846,12 @@ class ProtocolsManager {
             modal.classList.remove('show');
             document.body.style.overflow = '';
             
-            setTimeout(() => {
-                modal.style.display = 'none';
-            }, 300);
+            // Clear modal state from URL
+            this.updateURLState({
+                modal: null,
+                modalFile: null,
+                modalCompetition: null
+            });
         }
     }
 
@@ -827,8 +901,15 @@ class ProtocolsManager {
 
     hideLoading() {
         const loadingState = document.getElementById('loading-state');
+        const errorState = document.getElementById('error-state');
+        
         if (loadingState) {
             loadingState.style.display = 'none';
+        }
+        
+        // Also hide error state if it was shown
+        if (errorState) {
+            errorState.style.display = 'none';
         }
     }
 
@@ -843,6 +924,364 @@ class ProtocolsManager {
         if (errorState) {
             errorState.style.display = 'block';
         }
+    }
+
+    // URL State Management Methods
+    setupURLStateManagement() {
+        // Listen for browser back/forward buttons
+        window.addEventListener('popstate', (event) => {
+            this.restoreStateFromURL();
+        });
+
+        // Listen for hash changes
+        window.addEventListener('hashchange', (event) => {
+            this.restoreStateFromURL();
+        });
+    }
+
+    updateURLState(newState = {}) {
+        // Merge new state with current state
+        this.urlState = { ...this.urlState, ...newState };
+        
+        // Build URL parameters
+        const params = new URLSearchParams();
+        
+        if (this.urlState.category && this.urlState.category !== 'u23') {
+            params.set('category', this.urlState.category);
+        }
+        
+        if (this.urlState.page && this.urlState.page > 1) {
+            params.set('page', this.urlState.page.toString());
+        }
+        
+        if (this.urlState.year) {
+            params.set('year', this.urlState.year);
+        }
+        
+        if (this.urlState.search) {
+            params.set('search', this.urlState.search);
+        }
+
+        // Build hash for modal state
+        let hash = '';
+        if (this.urlState.modal) {
+            hash = `#modal=${this.urlState.modal}`;
+            if (this.urlState.modalFile) {
+                hash += `&file=${encodeURIComponent(this.urlState.modalFile)}`;
+            }
+            if (this.urlState.modalCompetition) {
+                hash += `&competition=${encodeURIComponent(this.urlState.modalCompetition)}`;
+            }
+        }
+
+        // Update URL without triggering navigation
+        const newURL = `${window.location.pathname}${params.toString() ? '?' + params.toString() : ''}${hash}`;
+        window.history.replaceState(this.urlState, '', newURL);
+        
+        // Update page title for better UX
+        this.updatePageTitle();
+    }
+
+    updatePageTitle() {
+        let title = 'Протоколи змагань | ФДУ';
+        
+        if (this.urlState.category && this.urlState.category !== 'u23') {
+            const categoryName = this.urlState.category.toUpperCase();
+            title = `Протоколи ${categoryName} | ФДУ`;
+        }
+        
+        if (this.urlState.modal) {
+            title = `${this.urlState.modal} | ${title}`;
+        }
+        
+        document.title = title;
+    }
+
+    createDirectLink(state = null) {
+        const linkState = state || this.urlState;
+        const params = new URLSearchParams();
+        
+        if (linkState.category && linkState.category !== 'u23') {
+            params.set('category', linkState.category);
+        }
+        
+        if (linkState.page && linkState.page > 1) {
+            params.set('page', linkState.page.toString());
+        }
+        
+        if (linkState.year) {
+            params.set('year', linkState.year);
+        }
+        
+        if (linkState.search) {
+            params.set('search', linkState.search);
+        }
+
+        let hash = '';
+        if (linkState.modal) {
+            hash = `#modal=${linkState.modal}`;
+            if (linkState.modalFile) {
+                hash += `&file=${encodeURIComponent(linkState.modalFile)}`;
+            }
+            if (linkState.modalCompetition) {
+                hash += `&competition=${encodeURIComponent(linkState.modalCompetition)}`;
+            }
+        }
+
+        return `${window.location.pathname}${params.toString() ? '?' + params.toString() : ''}${hash}`;
+    }
+
+    copyCurrentLink() {
+        const link = this.createDirectLink();
+        navigator.clipboard.writeText(window.location.origin + link).then(() => {
+            this.showNotification('Посилання скопійовано в буфер обміну', 'success');
+        }).catch(() => {
+            this.showNotification('Помилка копіювання посилання', 'error');
+        });
+    }
+
+    restoreStateFromURL() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const hash = window.location.hash.substring(1);
+        
+        // Parse URL parameters
+        const category = urlParams.get('category') || 'u23';
+        const page = parseInt(urlParams.get('page')) || 1;
+        const year = urlParams.get('year') || '';
+        const search = urlParams.get('search') || '';
+        
+        // Parse hash for modal state
+        let modal = null;
+        let modalFile = null;
+        let modalCompetition = null;
+        
+        if (hash) {
+            const hashParams = new URLSearchParams(hash);
+            modal = hashParams.get('modal');
+            modalFile = hashParams.get('file');
+            modalCompetition = hashParams.get('competition');
+        }
+
+        // Update internal state
+        this.urlState = {
+            category,
+            page,
+            year,
+            search,
+            modal,
+            modalFile,
+            modalCompetition
+        };
+
+        // Apply state changes
+        this.applyURLState();
+    }
+
+    applyURLState() {
+        // Apply category
+        if (this.urlState.category !== this.currentCategory) {
+            this.showCategory(this.urlState.category);
+        }
+
+        // Apply filters
+        if (this.urlState.year !== this.currentYear) {
+            this.currentYear = this.urlState.year;
+            const yearFilter = document.getElementById('year-filter');
+            if (yearFilter) {
+                yearFilter.value = this.urlState.year;
+            }
+        }
+
+        if (this.urlState.search !== this.currentSearch) {
+            this.currentSearch = this.urlState.search;
+            const searchFilter = document.getElementById('search-filter');
+            if (searchFilter) {
+                searchFilter.value = this.urlState.search;
+            }
+        }
+
+        // Apply pagination
+        if (this.urlState.page !== this.currentPage) {
+            this.currentPage = this.urlState.page;
+        }
+
+        // Apply filters and render
+        this.applyFilters();
+
+        // Apply modal state
+        if (this.urlState.modal && this.urlState.modalFile) {
+            this.showResultsModal(this.urlState.modalFile, this.urlState.modal, this.urlState.modalCompetition);
+        }
+    }
+
+    updateStructuredData() {
+        this.updateProtocolsSchema();
+        this.updateCategorySchema();
+        this.updateBreadcrumbSchema();
+    }
+
+    updateProtocolsSchema() {
+        const schemaElement = document.getElementById('protocols-schema');
+        if (!schemaElement) return;
+
+        // Собираем все протоколы из всех категорий
+        const allProtocols = [];
+        let totalCount = 0;
+
+        Object.keys(this.allCompetitions).forEach(category => {
+            const competitions = this.allCompetitions[category] || [];
+            competitions.forEach(competition => {
+                totalCount += competition.files.length;
+                competition.files.forEach(file => {
+                    allProtocols.push({
+                        "@type": "CreativeWork",
+                        "name": `${competition.title} - ${file.name}`,
+                        "description": `Протокол змагань ${competition.title} ${competition.year} року`,
+                        "url": `https://judo.org.ua/${file.path}`,
+                        "datePublished": `${competition.year}-01-01`,
+                        "author": {
+                            "@type": "SportsOrganization",
+                            "name": "Федерація дзюдо України"
+                        },
+                        "publisher": {
+                            "@type": "SportsOrganization",
+                            "name": "Федерація дзюдо України",
+                            "url": "https://judo.org.ua"
+                        },
+                        "about": {
+                            "@type": "SportsEvent",
+                            "name": competition.title,
+                            "description": `Чемпіонат України з дзюдо ${competition.year}`,
+                            "startDate": `${competition.year}-01-01`,
+                            "location": {
+                                "@type": "Place",
+                                "name": competition.location
+                            },
+                            "organizer": {
+                                "@type": "SportsOrganization",
+                                "name": "Федерація дзюдо України"
+                            }
+                        },
+                        "genre": "Sports Protocol",
+                        "fileFormat": file.type === 'modal' ? 'text/html' : 'application/pdf'
+                    });
+                });
+            });
+        });
+
+        const schema = {
+            "@context": "https://schema.org",
+            "@type": "ItemList",
+            "name": "Протоколи змагань ФДУ",
+            "description": `Офіційні протоколи чемпіонатів України з дзюдо серед юніорів та молоді. Всього ${totalCount} документів.`,
+            "numberOfItems": totalCount,
+            "itemListElement": allProtocols.slice(0, 50).map((protocol, index) => ({
+                "@type": "ListItem",
+                "position": index + 1,
+                "item": protocol
+            }))
+        };
+
+        schemaElement.textContent = JSON.stringify(schema, null, 2);
+    }
+
+    updateCategorySchema() {
+        const schemaElement = document.getElementById('category-schema');
+        if (!schemaElement || !this.currentCategory) return;
+
+        const competitions = this.allCompetitions[this.currentCategory] || [];
+        if (competitions.length === 0) return;
+
+        // Берем последнее соревнование как пример
+        const latestCompetition = competitions[0];
+        const metadataCategory = this.metadata?.categories?.[this.currentCategory];
+
+        const schema = {
+            "@context": "https://schema.org",
+            "@type": "SportsEvent",
+            "name": metadataCategory?.title || `Чемпіонат України ${this.currentCategory.toUpperCase()}`,
+            "description": `Чемпіонати України з дзюдо ${metadataCategory?.age_group || 'серед молоді'}`,
+            "sport": "Judo",
+            "organizer": {
+                "@type": "SportsOrganization",
+                "name": "Федерація дзюдо України",
+                "url": "https://judo.org.ua"
+            },
+            "location": {
+                "@type": "Place",
+                "name": "Україна"
+            },
+            "eventStatus": "EventScheduled",
+            "eventAttendanceMode": "OfflineEventAttendanceMode",
+            "audience": {
+                "@type": "Audience",
+                "audienceType": "Sports Fans"
+            },
+            "offers": {
+                "@type": "Offer",
+                "availability": "https://schema.org/InStock",
+                "price": "0",
+                "priceCurrency": "UAH"
+            },
+            "hasPart": competitions.slice(0, 10).map(competition => ({
+                "@type": "SportsEvent",
+                "name": competition.title,
+                "description": `Чемпіонат України з дзюдо ${competition.year}`,
+                "startDate": `${competition.year}-01-01`,
+                "location": {
+                    "@type": "Place",
+                    "name": competition.location
+                },
+                "eventStatus": competition.status === 'upcoming' ? "EventScheduled" : "EventCompleted"
+            }))
+        };
+
+        schemaElement.textContent = JSON.stringify(schema, null, 2);
+    }
+
+    updateBreadcrumbSchema() {
+        const schemaElement = document.getElementById('protocols-breadcrumb-schema');
+        if (!schemaElement) return;
+
+        const breadcrumbItems = [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Головна",
+                "item": "https://judo.org.ua/"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Документи ФДУ",
+                "item": "https://judo.org.ua/documents"
+            },
+            {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "Протоколи змагань",
+                "item": "https://judo.org.ua/protocols"
+            }
+        ];
+
+        // Добавляем текущую категорию если она выбрана
+        if (this.currentCategory && this.currentCategory !== 'u23') {
+            const categoryName = this.currentCategory.toUpperCase();
+            breadcrumbItems.push({
+                "@type": "ListItem",
+                "position": 4,
+                "name": `Категорія ${categoryName}`,
+                "item": `https://judo.org.ua/protocols?category=${this.currentCategory}`
+            });
+        }
+
+        const schema = {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": breadcrumbItems
+        };
+
+        schemaElement.textContent = JSON.stringify(schema, null, 2);
     }
 }
 

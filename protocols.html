@@ -60,6 +60,10 @@
     <meta name="distribution" content="global">
     <meta name="rating" content="general">
 
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/fju-logo.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/fju-logo.png">
+    <link rel="apple-touch-icon" href="assets/fju-logo.png">
+
     <link rel="stylesheet" href="css/global.css">
     <link rel="stylesheet" href="css/navigation.css">
     <link rel="stylesheet" href="css/components.css">
@@ -78,14 +82,113 @@
     {
         "@context": "https://schema.org",
         "@type": "WebPage",
-        "name": "Протоколи змагань",
-        "description": "Офіційні протоколи чемпіонатів України з дзюдо",
+        "name": "Протоколи змагань | Федерація дзюдо України",
+        "description": "Офіційні протоколи чемпіонатів України з дзюдо серед юніорів та молоді. Результати змагань U15, U16, U17, U18, U21, U23. Завантаження документів змагань.",
         "url": "https://judo.org.ua/protocols",
         "mainEntity": {
             "@type": "SportsOrganization",
             "name": "Федерація дзюдо України",
-            "url": "https://judo.org.ua"
+            "alternateName": "ФДУ",
+            "url": "https://judo.org.ua",
+            "logo": "https://judo.org.ua/assets/fju-logo.png",
+            "sport": "Judo",
+            "areaServed": {
+                "@type": "Country",
+                "name": "Ukraine"
+            }
+        },
+        "breadcrumb": {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+                {
+                    "@type": "ListItem",
+                    "position": 1,
+                    "name": "Головна",
+                    "item": "https://judo.org.ua/"
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 2,
+                    "name": "Документи ФДУ",
+                    "item": "https://judo.org.ua/documents"
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 3,
+                    "name": "Протоколи змагань",
+                    "item": "https://judo.org.ua/protocols"
+                }
+            ]
+        },
+        "potentialAction": {
+            "@type": "SearchAction",
+            "target": {
+                "@type": "EntryPoint",
+                "urlTemplate": "https://judo.org.ua/protocols?search={search_term_string}"
+            },
+            "query-input": "required name=search_term_string"
         }
+    }
+    </script>
+    
+    <!-- Dynamic Protocols Schema -->
+    <script type="application/ld+json" id="protocols-schema">
+    {
+        "@context": "https://schema.org",
+        "@type": "ItemList",
+        "name": "Протоколи змагань ФДУ",
+        "description": "Список протоколів чемпіонатів України з дзюдо",
+        "numberOfItems": 0,
+        "itemListElement": []
+    }
+    </script>
+    
+    <!-- Dynamic Category Schema -->
+    <script type="application/ld+json" id="category-schema">
+    {
+        "@context": "https://schema.org",
+        "@type": "SportsEvent",
+        "name": "Завантаження...",
+        "description": "Завантаження інформації про змагання",
+        "sport": "Judo",
+        "organizer": {
+            "@type": "SportsOrganization",
+            "name": "Федерація дзюдо України"
+        }
+    }
+    </script>
+    
+    <!-- FAQ Schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "Які вікові категорії протоколів доступні?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Доступні протоколи для категорій U15, U16, U17, U18, U21 та U23 - чемпіонати України з дзюдо серед юніорів та молоді."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Які формати файлів доступні для завантаження?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Протоколи доступні у форматі PDF, а результати змагань можна переглядати в інтерактивному режимі."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Чи можна шукати протоколи за роком або містом?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Так, доступні фільтри за роком проведення змагань та пошук за назвою або містом проведення."
+                }
+            }
+        ]
     }
     </script>
     
@@ -223,6 +326,7 @@
                 <li class="nav-item" data-priority="5"><a href="../calendar.html">Календар</a></li>
                 <li class="nav-item" data-priority="6"><a href="../documents.html">Документи</a></li>
                 <li class="nav-item" data-priority="7"><a href="../protocols.html" class="active">Протоколи</a></li>
+                <li class="nav-item" data-priority="7"><a href="../regulations.html">Регламенти</a></li>
                 <li class="nav-item" data-priority="8"><a href="../regions.html">Регіони</a></li>
                 <li class="nav-item" data-priority="9"><a href="../gallery.html">Галерея</a></li>
                 <li class="nav-item" data-priority="10"><a href="../contacts.html">Контакти</a></li>
@@ -278,7 +382,7 @@
                     <div class="protocols-hero-content">
                         <h1>📋 Протоколи змагань ФДУ</h1>
                         <p>Офіційні протоколи та результати чемпіонатів України з дзюдо серед юніорів та молоді. 
-                           Завантажуйте документи змагань U15, U16, U17, U18, U21, U23.
+                           Завантажуйте документи всеукраїнських змагань.
                         </p>
                     </div>
                 </div>
@@ -450,5 +554,11 @@
     <!-- Scripts -->
     <script src="../scripts/script.js"></script>
     <script src="../scripts/documents/protocols/main.js"></script>
+    <script>
+        // Initialize Protocols Manager
+        document.addEventListener('DOMContentLoaded', function() {
+            window.protocolsManager = new ProtocolsManager();
+        });
+    </script>
 </body>
 </html> 

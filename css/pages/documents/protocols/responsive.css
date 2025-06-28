@@ -617,6 +617,599 @@
     }
 }
 
+/* Large Desktop (1440p) */
+@media (min-width: 1440px) and (max-width: 1919px) {
+    .container {
+        max-width: 1600px;
+        padding: 0 3rem;
+    }
+    
+    .protocols-header {
+        padding: 4rem 0;
+        margin-bottom: 5rem;
+    }
+    
+    .hero-icon {
+        width: 100px;
+        height: 100px;
+        border-radius: 24px;
+    }
+    
+    .hero-icon svg {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .protocols-title {
+        font-size: clamp(3rem, 4vw, 4rem);
+    }
+    
+    .protocols-subtitle {
+        font-size: 1.3rem;
+    }
+    
+    .categories-grid {
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 2.5rem;
+        max-width: 1400px;
+    }
+    
+    .category-card {
+        padding: 2rem;
+        border-radius: 20px;
+    }
+    
+    .category-icon {
+        width: 80px;
+        height: 80px;
+        font-size: 1.8rem;
+        border-radius: 18px;
+        margin-bottom: 1.5rem;
+    }
+    
+    .category-title {
+        font-size: 1.4rem;
+        margin-bottom: 0.8rem;
+    }
+    
+    .category-description {
+        font-size: 1rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .stat-number {
+        font-size: 1.6rem;
+    }
+    
+    .stat-label {
+        font-size: 0.9rem;
+    }
+    
+    .competitions-grid {
+        grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
+        gap: 2.5rem;
+    }
+    
+    .competition-card {
+        padding: 2.5rem;
+        border-radius: 20px;
+    }
+    
+    .competition-title {
+        font-size: 1.6rem;
+    }
+    
+    .competition-year {
+        font-size: 1.2rem;
+        padding: 0.8rem 1.5rem;
+    }
+    
+    .info-item {
+        font-size: 1.1rem;
+    }
+    
+    .competition-file {
+        padding: 1.2rem 1.5rem;
+        border-radius: 12px;
+    }
+    
+    .file-icon {
+        width: 40px;
+        height: 40px;
+        font-size: 1.2rem;
+    }
+    
+    .file-name {
+        font-size: 1.1rem;
+    }
+    
+    .file-meta {
+        font-size: 0.9rem;
+    }
+    
+    /* Modal */
+    .modal-container {
+        width: 85vw;
+        height: 80vh;
+        border-radius: 20px;
+    }
+    
+    .modal-header {
+        padding: 2rem;
+    }
+    
+    .modal-title {
+        font-size: 1.6rem;
+    }
+    
+    .modal-close {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .results-controls {
+        padding: 1.5rem 2rem;
+    }
+    
+    .results-search input {
+        padding: 1rem 1.2rem;
+        font-size: 1.1rem;
+    }
+    
+    .gender-btn {
+        padding: 0.8rem 1.5rem;
+        font-size: 1rem;
+    }
+    
+    .modal-results {
+        padding: 2rem;
+    }
+    
+    .results-section {
+        padding: 2rem;
+        border-radius: 16px;
+    }
+    
+    .results-section h3 {
+        font-size: 1.5rem;
+        padding: 1rem;
+    }
+    
+    .weight-category {
+        padding: 1.5rem;
+        border-radius: 12px;
+    }
+    
+    .weight-category h4 {
+        font-size: 1.3rem;
+    }
+    
+    .weight-category li {
+        padding: 0.8rem 1rem;
+        font-size: 1rem;
+    }
+}
+
+/* FHD (1920x1080) */
+@media (min-width: 1920px) and (max-width: 2559px) {
+    .protocols-hero {
+        padding: 7rem 0rem 4rem 0rem;
+    }
+    .container {
+        max-width: 1800px;
+        padding: 0 4rem;
+    }
+    
+    .protocols-header {
+        padding: 5rem 0;
+        margin-bottom: 6rem;
+    }
+    
+    .hero-icon {
+        width: 120px;
+        height: 120px;
+        border-radius: 28px;
+    }
+    
+    .hero-icon svg {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .protocols-title {
+        font-size: clamp(3.5rem, 4.5vw, 4.5rem);
+    }
+    
+    .protocols-subtitle {
+        font-size: 1.4rem;
+    }
+    
+    .categories-grid {
+        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+        gap: 3rem;
+        max-width: 1600px;
+    }
+    
+    .category-card {
+        padding: 2.5rem;
+        border-radius: 24px;
+    }
+    
+    .category-icon {
+        width: 90px;
+        height: 90px;
+        font-size: 2rem;
+        border-radius: 20px;
+        margin-bottom: 1.8rem;
+    }
+    
+    .category-title {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+    }
+    
+    .category-description {
+        font-size: 1.1rem;
+        margin-bottom: 1.8rem;
+    }
+    
+    .stat-number {
+        font-size: 1.8rem;
+    }
+    
+    .stat-label {
+        font-size: 1rem;
+    }
+    
+    .stat-years {
+        font-size: 0.9rem;
+        padding: 0.5rem 1rem;
+    }
+    
+    .competitions-grid {
+        grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+        gap: 3rem;
+    }
+    
+    .competition-card {
+        padding: 3rem;
+        border-radius: 24px;
+    }
+    
+    .competition-title {
+        font-size: 1.8rem;
+    }
+    
+    .competition-year {
+        font-size: 1.3rem;
+        padding: 1rem 2rem;
+    }
+    
+    .info-item {
+        font-size: 1.2rem;
+    }
+    
+    .competition-file {
+        padding: 1.5rem 2rem;
+        border-radius: 16px;
+    }
+    
+    .file-icon {
+        width: 48px;
+        height: 48px;
+        font-size: 1.4rem;
+    }
+    
+    .file-name {
+        font-size: 1.2rem;
+    }
+    
+    .file-meta {
+        font-size: 1rem;
+    }
+    
+    .file-download {
+        width: 40px;
+        height: 40px;
+    }
+    
+    /* Pagination */
+    .competitions-pagination {
+        padding: 3rem;
+    }
+    
+    .pagination-btn {
+        padding: 1rem 1.5rem;
+        font-size: 1.1rem;
+    }
+    
+    .pagination-numbers .pagination-btn {
+        width: 50px;
+        height: 50px;
+        font-size: 1.1rem;
+    }
+    
+    /* Modal */
+    .modal-container {
+        width: 80vw;
+        height: 75vh;
+        border-radius: 24px;
+    }
+    
+    .modal-header {
+        padding: 2.5rem;
+    }
+    
+    .modal-title {
+        font-size: 1.8rem;
+    }
+    
+    .modal-close {
+        width: 56px;
+        height: 56px;
+    }
+    
+    .results-controls {
+        padding: 2rem 2.5rem;
+    }
+    
+    .results-search input {
+        padding: 1.2rem 1.5rem;
+        font-size: 1.2rem;
+    }
+    
+    .gender-btn {
+        padding: 1rem 2rem;
+        font-size: 1.1rem;
+    }
+    
+    .modal-results {
+        padding: 2.5rem;
+    }
+    
+    .results-section {
+        padding: 2.5rem;
+        border-radius: 20px;
+    }
+    
+    .results-section h3 {
+        font-size: 1.7rem;
+        padding: 1.2rem;
+    }
+    
+    .weight-category {
+        padding: 2rem;
+        border-radius: 16px;
+    }
+    
+    .weight-category h4 {
+        font-size: 1.5rem;
+    }
+    
+    .weight-category li {
+        padding: 1rem 1.2rem;
+        font-size: 1.1rem;
+    }
+}
+
+/* QHD (2560x1440) */
+@media (min-width: 2560px) {
+    .protocols-hero {
+        padding: 8rem 0rem 4rem 0rem;
+    }
+    .container {
+        max-width: 2200px;
+        padding: 0 5rem;
+    }
+    
+    .protocols-header {
+        padding: 6rem 0;
+        margin-bottom: 7rem;
+    }
+    
+    .hero-icon {
+        width: 140px;
+        height: 140px;
+        border-radius: 32px;
+    }
+    
+    .hero-icon svg {
+        width: 70px;
+        height: 70px;
+    }
+    
+    .protocols-title {
+        font-size: clamp(4rem, 5vw, 5rem);
+    }
+    
+    .protocols-subtitle {
+        font-size: 1.6rem;
+    }
+    
+    .categories-grid {
+        grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+        gap: 3.5rem;
+        max-width: 1800px;
+    }
+    
+    .category-card {
+        padding: 3rem;
+        border-radius: 28px;
+    }
+    
+    .category-icon {
+        width: 100px;
+        height: 100px;
+        font-size: 2.2rem;
+        border-radius: 24px;
+        margin-bottom: 2rem;
+    }
+    
+    .category-title {
+        font-size: 1.7rem;
+        margin-bottom: 1.2rem;
+    }
+    
+    .category-description {
+        font-size: 1.2rem;
+        margin-bottom: 2rem;
+    }
+    
+    .stat-number {
+        font-size: 2rem;
+    }
+    
+    .stat-label {
+        font-size: 1.1rem;
+    }
+    
+    .stat-years {
+        font-size: 1rem;
+        padding: 0.6rem 1.2rem;
+    }
+    
+    .competitions-grid {
+        grid-template-columns: repeat(auto-fill, minmax(550px, 1fr));
+        gap: 3.5rem;
+    }
+    
+    .competition-card {
+        padding: 3.5rem;
+        border-radius: 28px;
+    }
+    
+    .competition-title {
+        font-size: 2rem;
+    }
+    
+    .competition-year {
+        font-size: 1.4rem;
+        padding: 1.2rem 2.5rem;
+    }
+    
+    .info-item {
+        font-size: 1.3rem;
+    }
+    
+    .competition-file {
+        padding: 1.8rem 2.5rem;
+        border-radius: 20px;
+    }
+    
+    .file-icon {
+        width: 56px;
+        height: 56px;
+        font-size: 1.6rem;
+    }
+    
+    .file-name {
+        font-size: 1.3rem;
+    }
+    
+    .file-meta {
+        font-size: 1.1rem;
+    }
+    
+    .file-download {
+        width: 48px;
+        height: 48px;
+    }
+    
+    /* Pagination */
+    .competitions-pagination {
+        padding: 3.5rem;
+    }
+    
+    .pagination-btn {
+        padding: 1.2rem 2rem;
+        font-size: 1.2rem;
+    }
+    
+    .pagination-numbers .pagination-btn {
+        width: 56px;
+        height: 56px;
+        font-size: 1.2rem;
+    }
+    
+    /* Modal */
+    .modal-container {
+        width: 75vw;
+        height: 70vh;
+        border-radius: 28px;
+    }
+    
+    .modal-header {
+        padding: 3rem;
+    }
+    
+    .modal-title {
+        font-size: 2rem;
+    }
+    
+    .modal-close {
+        width: 64px;
+        height: 64px;
+    }
+    
+    .results-controls {
+        padding: 2.5rem 3rem;
+    }
+    
+    .results-search input {
+        padding: 1.5rem 2rem;
+        font-size: 1.3rem;
+    }
+    
+    .gender-btn {
+        padding: 1.2rem 2.5rem;
+        font-size: 1.2rem;
+    }
+    
+    .modal-results {
+        padding: 3rem;
+    }
+    
+    .results-section {
+        padding: 3rem;
+        border-radius: 24px;
+    }
+    
+    .results-section h3 {
+        font-size: 1.9rem;
+        padding: 1.5rem;
+    }
+    
+    .weight-category {
+        padding: 2.5rem;
+        border-radius: 20px;
+    }
+    
+    .weight-category h4 {
+        font-size: 1.7rem;
+    }
+    
+    .weight-category li {
+        padding: 1.2rem 1.5rem;
+        font-size: 1.2rem;
+    }
+}
+
+/* Ultra-wide screens (21:9 and wider) */
+@media (min-width: 1920px) and (min-aspect-ratio: 21/9) {
+    .container {
+        max-width: 2000px;
+    }
+    
+    .categories-grid {
+        grid-template-columns: repeat(4, 1fr);
+        max-width: 1800px;
+    }
+    
+    .competitions-grid {
+        grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
+    }
+}
+
 /* High DPI Displays */
 @media (min-width: 1440px) {
     .container {

@@ -89,14 +89,14 @@ class AdditionalMenuManager {
         if (overlay) {
             // Используем requestAnimationFrame для плавной анимации
             requestAnimationFrame(() => {
-                overlay.classList.add('active');
-                this.isOpen = true;
-                document.body.style.overflow = 'hidden';
-                
+            overlay.classList.add('active');
+            this.isOpen = true;
+            document.body.style.overflow = 'hidden';
+            
                 // Обновляем данные при открытии (асинхронно)
                 setTimeout(() => {
-                    this.updateStats();
-                    this.loadArchiveData();
+            this.updateStats();
+            this.loadArchiveData();
                 }, 100);
             });
         }
@@ -107,9 +107,9 @@ class AdditionalMenuManager {
         if (overlay) {
             // Используем requestAnimationFrame для плавной анимации
             requestAnimationFrame(() => {
-                overlay.classList.remove('active');
-                this.isOpen = false;
-                document.body.style.overflow = '';
+            overlay.classList.remove('active');
+            this.isOpen = false;
+            document.body.style.overflow = '';
             });
         }
     }
