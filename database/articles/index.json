@@ -1,6 +1,56 @@
 {
     "files": [
         {
+            "id": "all-ukrainian-kata-seminar-uzhhorod-2025",
+            "path": "2025/02/all-ukrainian-kata-seminar-uzhhorod-2025.json",
+            "title": "В Ужгороді відбувся масштабний Всеукраїнський Ката-семінар"
+        },
+        {
+            "id": "rangaiev-riga-veteran-european-cup-2025",
+            "path": "2025/02/rangaiev-riga-veteran-european-cup-2025.json",
+            "title": "Українець Олександр Рангаєв – чемпіон Riga Veteran European Cup"
+        },
+        {
+            "id": "ukraine-european-open-warsaw-2025",
+            "path": "2025/02/ukraine-european-open-warsaw-2025.json",
+            "title": "Золото Хаммо і ще чотири нагороди українців з European Open в Варшаві"
+        },
+        {
+            "id": "ukraine-judo-veterans-championship-postponed-2025",
+            "path": "2025/02/ukraine-judo-veterans-championship-postponed-2025.json",
+            "title": "Увага! Чемпіонат України з дзюдо серед ветеранів перенесено"
+        },
+        {
+            "id": "happy-birthday-mykhailo-koshliak-2025",
+            "path": "2025/02/happy-birthday-mykhailo-koshliak-2025.json",
+            "title": "День народження Михайла Кошляка"
+        },
+        {
+            "id": "ukraine-u21-championship-uzhhorod-livestream-2025",
+            "path": "2025/03/ukraine-u21-championship-uzhhorod-livestream-2025.json",
+            "title": "Чемпіонат України з дзюдо серед юніорів до 21 року. Трансляція"
+        },
+        {
+            "id": "happy-birthday-yaroslav-kaletyuk-2025",
+            "path": "2025/03/happy-birthday-yaroslav-kaletyuk-2025.json",
+            "title": "День народження Ярослава Калетюка"
+        },
+        {
+            "id": "judo-instructor-course-announcement-fju-2025",
+            "path": "2025/03/judo-instructor-course-announcement-fju-2025.json",
+            "title": "Підготовчий курс «Інструктор дзюдо: перший рівень» від ФДУ"
+        },
+        {
+            "id": "ukraine-grand-prix-linz-2025",
+            "path": "2025/03/ukraine-grand-prix-linz-2025.json",
+            "title": "Золото і дві бронзи. Підсумок Grand Prix в Лінці для збірної України"
+        },
+        {
+            "id": "ukrainian-team-grand-slam-tbilisi-2025",
+            "path": "2025/03/ukrainian-team-grand-slam-tbilisi-2025.json",
+            "title": "8 українців візьмуть участь у турнірі Grand Slam в Тбілісі"
+        },
+        {
             "id": "inside-judo-ukrainian-team-series-2025",
             "path": "2025/03/inside-judo-ukrainian-team-series-2025.json",
             "title": "Inside Judo Ukrainian Team – серія сюжетів про українську команду!"
@@ -66,9 +116,9 @@
             "title": "П'ять нагород здобули українські юніори на Кубку Європи у Познані"
         },
         {
-            "id": "ukraine-cadets-european-cup-teplice-2025",
-            "path": "2025/04/ukraine-cadets-european-cup-teplice-2025.json",
-            "title": "Українські кадети здобули 9 нагород Кубку Європи у Тепліце"
+            "id": "ukraine-cadets-european-cup-porec-2025",
+            "path": "2025/03/ukraine-cadets-european-cup-porec-2025.json",
+            "title": "Українські кадети здобули 7 нагород на Кубку Європи в Поречі"
         },
         {
             "id": "ukraine-national-team-training-camp-tata-2025",
@@ -314,8 +364,18 @@
             "id": "happy-birthday-serhii-barashko-2025",
             "path": "2025/04/happy-birthday-serhii-barashko-2025.json",
             "title": "День народження Сергія Барашка"
+        },
+        {
+            "id": "ukraine-senior-european-cup-riga-2025",
+            "path": "2025/03/ukraine-senior-european-cup-riga-2025.json",
+            "title": "Дві нагороди здобули українці на Кубку Європи в Ризі"
+        },
+        {
+            "id": "ukraine-u21-championship-uzhhorod-2025",
+            "path": "2025/03/ukraine-u21-championship-uzhhorod-2025.json",
+            "title": "Юніори розіграли нагороди національної першості в Ужгороді. Результати"
         }
     ],
-    "lastUpdate": "2025-03-19T16:00:00Z",
-    "totalArticles": 35
+    "lastUpdate": "2025-02-14T12:00:00Z",
+    "totalArticles": 48
 } 

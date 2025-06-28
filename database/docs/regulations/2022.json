@@ -1,0 +1,75 @@
+{
+  "year": 2022,
+  "title": "Регламенти 2022",
+  "description": "Змагальні регламенти та правила проведення змагань з дзюдо 2022 року",
+  "regulations": [
+    {
+      "id": "2022_01",
+      "title": "Правила змагань 2022",
+      "year": 2022,
+      "description": "Правила проведення змагань з дзюдо 2022 року",
+      "category": "competition",
+      "files": [
+        {
+          "name": "Правила_2022.pdf",
+          "type": "pdf",
+          "size": "1.9 MB",
+          "url": "database/docs/regulations/2022/rules_2022.pdf",
+          "preview": "database/docs/regulations/2022/preview/rules_2022.jpg"
+        }
+      ]
+    },
+    {
+      "id": "2022_02",
+      "title": "Стандарти 2022",
+      "year": 2022,
+      "description": "Стандарти обладнання та технічні вимоги 2022",
+      "category": "competition",
+      "files": [
+        {
+          "name": "Стандарти_2022.pdf",
+          "type": "pdf",
+          "size": "2.6 MB",
+          "url": "database/docs/regulations/2022/standards_2022.pdf",
+          "preview": "database/docs/regulations/2022/preview/standards_2022.jpg"
+        }
+      ]
+    },
+    {
+      "id": "2022_03",
+      "title": "Вимоги до організації 2022",
+      "year": 2022,
+      "description": "Вимоги до організації змагань з дзюдо 2022",
+      "category": "competition",
+      "files": [
+        {
+          "name": "Вимоги_до_організації_2022.pdf",
+          "type": "pdf",
+          "size": "2.3 MB",
+          "url": "database/docs/regulations/2022/organization_requirements_2022.pdf",
+          "preview": "database/docs/regulations/2022/preview/organization_requirements_2022.jpg"
+        }
+      ]
+    },
+    {
+      "id": "2022_04",
+      "title": "Медичні стандарти 2022",
+      "year": 2022,
+      "description": "Медичні стандарти для змагань з дзюдо 2022",
+      "category": "competition",
+      "files": [
+        {
+          "name": "Медичні_стандарти_2022.pdf",
+          "type": "pdf",
+          "size": "1.8 MB",
+          "url": "database/docs/regulations/2022/medical_standards_2022.pdf",
+          "preview": "database/docs/regulations/2022/preview/medical_standards_2022.jpg"
+        }
+      ]
+    }
+  ],
+  "stats": {
+    "total": 4,
+    "categories": ["competition"]
+  }
+} 

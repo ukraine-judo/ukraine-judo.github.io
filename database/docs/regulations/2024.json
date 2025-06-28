@@ -1,0 +1,192 @@
+{
+  "year": 2024,
+  "title": "Регламенти 2024",
+  "description": "Змагальні регламенти та правила проведення змагань з дзюдо 2024 року",
+  "regulations": [
+    {
+      "id": "2024_01",
+      "title": "Регламент проведення чемпіонату України з дзюдо 2024",
+      "year": 2024,
+      "description": "Основні правила та вимоги до проведення чемпіонату України з дзюдо серед дорослих",
+      "category": "competition",
+      "files": [
+        {
+          "name": "Регламент_ЧУ_2024.pdf",
+          "type": "pdf",
+          "size": "2.3 MB",
+          "url": "database/docs/regulations/2024/regulations_chu_2024.pdf",
+          "preview": "database/docs/regulations/2024/preview/regulations_chu_2024.jpg"
+        },
+        {
+          "name": "Схема_змагань_2024.jpg",
+          "type": "image",
+          "size": "1.1 MB",
+          "url": "database/docs/regulations/2024/images/scheme_2024.jpg",
+          "preview": "database/docs/regulations/2024/images/scheme_2024.jpg"
+        }
+      ]
+    },
+    {
+      "id": "2024_02",
+      "title": "Правила проведення змагань з дзюдо 2024",
+      "year": 2024,
+      "description": "Загальні правила проведення змагань з дзюдо в Україні",
+      "category": "competition",
+      "files": [
+        {
+          "name": "Правила_змагань_2024.pdf",
+          "type": "pdf",
+          "size": "1.8 MB",
+          "url": "database/docs/regulations/2024/rules_2024.pdf",
+          "preview": "database/docs/regulations/2024/preview/rules_2024.jpg"
+        }
+      ]
+    },
+    {
+      "id": "2024_03",
+      "title": "Правила суддівства з дзюдо 2024",
+      "year": 2024,
+      "description": "Оновлені правила суддівства та оцінювання технік дзюдо",
+      "category": "competition",
+      "files": [
+        {
+          "name": "Правила_суддівства_2024.pdf",
+          "type": "pdf",
+          "size": "1.8 MB",
+          "url": "database/docs/regulations/2024/refereeing_rules_2024.pdf",
+          "preview": "database/docs/regulations/2024/preview/refereeing_rules_2024.jpg"
+        }
+      ]
+    },
+    {
+      "id": "2024_04",
+      "title": "Система оцінювання технік 2024",
+      "year": 2024,
+      "description": "Детальна система оцінювання технік дзюдо та штрафних балів",
+      "category": "competition",
+      "files": [
+        {
+          "name": "Система_оцінювання_2024.pdf",
+          "type": "pdf",
+          "size": "2.1 MB",
+          "url": "database/docs/regulations/2024/scoring_system_2024.pdf",
+          "preview": "database/docs/regulations/2024/preview/scoring_system_2024.jpg"
+        },
+        {
+          "name": "Таблиця_штрафів_2024.jpg",
+          "type": "image",
+          "size": "856 KB",
+          "url": "database/docs/regulations/2024/images/penalty_table_2024.jpg",
+          "preview": "database/docs/regulations/2024/images/penalty_table_2024.jpg"
+        }
+      ]
+    },
+    {
+      "id": "2024_05",
+      "title": "Технічний регламент змагань 2024",
+      "year": 2024,
+      "description": "Технічні вимоги до обладнання та майданчиків для змагань",
+      "category": "competition",
+      "files": [
+        {
+          "name": "Технічний_регламент_2024.pdf",
+          "type": "pdf",
+          "size": "3.1 MB",
+          "url": "database/docs/regulations/2024/technical_regulations_2024.pdf",
+          "preview": "database/docs/regulations/2024/preview/technical_regulations_2024.jpg"
+        },
+        {
+          "name": "Схема_татамі_2024.png",
+          "type": "image",
+          "size": "856 KB",
+          "url": "database/docs/regulations/2024/images/tatami_scheme_2024.png",
+          "preview": "database/docs/regulations/2024/images/tatami_scheme_2024.png"
+        }
+      ]
+    },
+    {
+      "id": "2024_06",
+      "title": "Стандарти обладнання 2024",
+      "year": 2024,
+      "description": "Стандарти обладнання та інвентарю для змагань з дзюдо",
+      "category": "competition",
+      "files": [
+        {
+          "name": "Стандарти_обладнання_2024.pdf",
+          "type": "pdf",
+          "size": "2.5 MB",
+          "url": "database/docs/regulations/2024/equipment_standards_2024.pdf",
+          "preview": "database/docs/regulations/2024/preview/equipment_standards_2024.jpg"
+        }
+      ]
+    },
+    {
+      "id": "2024_07",
+      "title": "Організаційні вимоги 2024",
+      "year": 2024,
+      "description": "Вимоги до організації та проведення змагань з дзюдо",
+      "category": "competition",
+      "files": [
+        {
+          "name": "Організаційні_вимоги_2024.pdf",
+          "type": "pdf",
+          "size": "2.7 MB",
+          "url": "database/docs/regulations/2024/organizational_requirements_2024.pdf",
+          "preview": "database/docs/regulations/2024/preview/organizational_requirements_2024.jpg"
+        }
+      ]
+    },
+    {
+      "id": "2024_08",
+      "title": "Положення про змагання 2024",
+      "year": 2024,
+      "description": "Положення про проведення змагань з дзюдо в Україні",
+      "category": "competition",
+      "files": [
+        {
+          "name": "Положення_про_змагання_2024.pdf",
+          "type": "pdf",
+          "size": "3.2 MB",
+          "url": "database/docs/regulations/2024/competition_regulations_2024.pdf",
+          "preview": "database/docs/regulations/2024/preview/competition_regulations_2024.jpg"
+        }
+      ]
+    },
+    {
+      "id": "2024_09",
+      "title": "Правила безпеки змагань 2024",
+      "year": 2024,
+      "description": "Правила безпеки та охорони здоров'я під час змагань з дзюдо",
+      "category": "competition",
+      "files": [
+        {
+          "name": "Правила_безпеки_2024.pdf",
+          "type": "pdf",
+          "size": "1.9 MB",
+          "url": "database/docs/regulations/2024/safety_rules_2024.pdf",
+          "preview": "database/docs/regulations/2024/preview/safety_rules_2024.jpg"
+        }
+      ]
+    },
+    {
+      "id": "2024_10",
+      "title": "Медичні вимоги 2024",
+      "year": 2024,
+      "description": "Медичні вимоги та контроль здоров'я спортсменів",
+      "category": "competition",
+      "files": [
+        {
+          "name": "Медичні_вимоги_2024.pdf",
+          "type": "pdf",
+          "size": "2.2 MB",
+          "url": "database/docs/regulations/2024/medical_requirements_2024.pdf",
+          "preview": "database/docs/regulations/2024/preview/medical_requirements_2024.jpg"
+        }
+      ]
+    }
+  ],
+  "stats": {
+    "total": 10,
+    "categories": ["competition"]
+  }
+} 

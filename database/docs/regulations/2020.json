@@ -1,0 +1,27 @@
+{
+  "year": 2020,
+  "title": "Регламенти 2020",
+  "description": "Змагальні регламенти та правила проведення змагань з дзюдо 2020 року",
+  "regulations": [
+    {
+      "id": "2020_01",
+      "title": "Правила організації 2020",
+      "year": 2020,
+      "description": "Правила організації змагань з дзюдо 2020",
+      "category": "competition",
+      "files": [
+        {
+          "name": "Правила_організації_2020.pdf",
+          "type": "pdf",
+          "size": "2.2 MB",
+          "url": "database/docs/regulations/2020/organization_rules_2020.pdf",
+          "preview": "database/docs/regulations/2020/preview/organization_rules_2020.jpg"
+        }
+      ]
+    }
+  ],
+  "stats": {
+    "total": 1,
+    "categories": ["competition"]
+  }
+} 

@@ -1,0 +1,43 @@
+{
+  "year": 2021,
+  "title": "Регламенти 2021",
+  "description": "Змагальні регламенти та правила проведення змагань з дзюдо 2021 року",
+  "regulations": [
+    {
+      "id": "2021_01",
+      "title": "Регламент змагань 2021",
+      "year": 2021,
+      "description": "Регламент проведення змагань з дзюдо 2021 року",
+      "category": "competition",
+      "files": [
+        {
+          "name": "Регламент_2021.pdf",
+          "type": "pdf",
+          "size": "2.0 MB",
+          "url": "database/docs/regulations/2021/regulations_2021.pdf",
+          "preview": "database/docs/regulations/2021/preview/regulations_2021.jpg"
+        }
+      ]
+    },
+    {
+      "id": "2021_02",
+      "title": "Організаційні стандарти 2021",
+      "year": 2021,
+      "description": "Стандарти організації змагань з дзюдо 2021",
+      "category": "competition",
+      "files": [
+        {
+          "name": "Організаційні_стандарти_2021.pdf",
+          "type": "pdf",
+          "size": "2.4 MB",
+          "url": "database/docs/regulations/2021/organizational_standards_2021.pdf",
+          "preview": "database/docs/regulations/2021/preview/organizational_standards_2021.jpg"
+        }
+      ]
+    }
+  ],
+  "stats": {
+    "total": 2,
+    "categories": ["competition"]
+  }
+} 

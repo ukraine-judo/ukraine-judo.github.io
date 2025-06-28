@@ -1,0 +1,107 @@
+{
+  "year": 2023,
+  "title": "Регламенти 2023",
+  "description": "Змагальні регламенти та правила проведення змагань з дзюдо 2023 року",
+  "regulations": [
+    {
+      "id": "2023_01",
+      "title": "Регламент проведення змагань 2023",
+      "year": 2023,
+      "description": "Регламент проведення змагань з дзюдо сезону 2023",
+      "category": "competition",
+      "files": [
+        {
+          "name": "Регламент_2023.pdf",
+          "type": "pdf",
+          "size": "2.1 MB",
+          "url": "database/docs/regulations/2023/regulations_2023.pdf",
+          "preview": "database/docs/regulations/2023/preview/regulations_2023.jpg"
+        }
+      ]
+    },
+    {
+      "id": "2023_02",
+      "title": "Правила суддівства 2023",
+      "year": 2023,
+      "description": "Правила суддівства з дзюдо сезону 2023",
+      "category": "competition",
+      "files": [
+        {
+          "name": "Правила_суддівства_2023.pdf",
+          "type": "pdf",
+          "size": "1.7 MB",
+          "url": "database/docs/regulations/2023/refereeing_rules_2023.pdf",
+          "preview": "database/docs/regulations/2023/preview/refereeing_rules_2023.jpg"
+        }
+      ]
+    },
+    {
+      "id": "2023_03",
+      "title": "Технічні вимоги 2023",
+      "year": 2023,
+      "description": "Технічні вимоги до проведення змагань 2023",
+      "category": "competition",
+      "files": [
+        {
+          "name": "Технічні_вимоги_2023.pdf",
+          "type": "pdf",
+          "size": "2.8 MB",
+          "url": "database/docs/regulations/2023/technical_requirements_2023.pdf",
+          "preview": "database/docs/regulations/2023/preview/technical_requirements_2023.jpg"
+        }
+      ]
+    },
+    {
+      "id": "2023_04",
+      "title": "Організаційні правила 2023",
+      "year": 2023,
+      "description": "Організаційні правила проведення змагань 2023",
+      "category": "competition",
+      "files": [
+        {
+          "name": "Організаційні_правила_2023.pdf",
+          "type": "pdf",
+          "size": "2.5 MB",
+          "url": "database/docs/regulations/2023/organizational_rules_2023.pdf",
+          "preview": "database/docs/regulations/2023/preview/organizational_rules_2023.jpg"
+        }
+      ]
+    },
+    {
+      "id": "2023_05",
+      "title": "Вимоги безпеки 2023",
+      "year": 2023,
+      "description": "Вимоги безпеки для проведення змагань з дзюдо 2023",
+      "category": "competition",
+      "files": [
+        {
+          "name": "Вимоги_безпеки_2023.pdf",
+          "type": "pdf",
+          "size": "1.7 MB",
+          "url": "database/docs/regulations/2023/safety_requirements_2023.pdf",
+          "preview": "database/docs/regulations/2023/preview/safety_requirements_2023.jpg"
+        }
+      ]
+    },
+    {
+      "id": "2023_06",
+      "title": "Медичний контроль 2023",
+      "year": 2023,
+      "description": "Правила медичного контролю спортсменів 2023",
+      "category": "competition",
+      "files": [
+        {
+          "name": "Медичний_контроль_2023.pdf",
+          "type": "pdf",
+          "size": "2.0 MB",
+          "url": "database/docs/regulations/2023/medical_control_2023.pdf",
+          "preview": "database/docs/regulations/2023/preview/medical_control_2023.jpg"
+        }
+      ]
+    }
+  ],
+  "stats": {
+    "total": 6,
+    "categories": ["competition"]
+  }
+} 
