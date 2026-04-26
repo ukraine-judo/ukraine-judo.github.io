@@ -73,6 +73,7 @@
 
     html {
       scroll-behavior: smooth;
+      overflow-x: hidden;
     }
 
     body {
@@ -397,7 +398,7 @@
           <nav style={{ position: 'fixed', top: 0, left: 0, right: 0, zIndex: 100, display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: mobile ? '14px 20px' : '16px 56px', background: 'var(--nav-bg)', backdropFilter: 'blur(20px)', borderBottom: '1px solid var(--border)' }}>
             <Logo size={17} />
             {!mobile && (
-              <div style={{ display: 'flex', gap: 32, alignItems: 'center' }}>
+              <div style={{ display: 'flex', gap: 'clamp(14px,2vw,32px)', alignItems: 'center' }}>
                 {t.nav.map((label, i) => {
                   const ids = ['#about', '#projects', '#stack', '#contact'];
                   return (
