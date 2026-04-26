@@ -30,44 +30,44 @@
     }
 
     :root {
-      --bg:      #f2f0eb;
-      --bg2:     #e9e7e1;
-      --bg3:     #dbd9d3;
-      --ink:     #0f0e0c;
-      --ink-a:   rgba(15,14,12,0.07);
-      --ink-b:   rgba(15,14,12,0.15);
-      --white:   #111010;
-      --muted:   #7a7870;
-      --muted2:  #b0ada5;
-      --border:  rgba(0,0,0,0.1);
-      --green:   #1a9e5c;
-      --nav-bg:   rgba(242,240,235,0.92);
-      --dot-clr:  rgba(0,0,0,0.06);
-      --glow:     rgba(15,14,12,0.07);
-      --shadow-sm:rgba(15,14,12,0.22);
-      --shadow-lg:rgba(15,14,12,0.32);
-      --on-ink:   #f2f0eb;
+      --bg: #f2f0eb;
+      --bg2: #e9e7e1;
+      --bg3: #dbd9d3;
+      --ink: #0f0e0c;
+      --ink-a: rgba(15, 14, 12, 0.07);
+      --ink-b: rgba(15, 14, 12, 0.15);
+      --white: #111010;
+      --muted: #7a7870;
+      --muted2: #b0ada5;
+      --border: rgba(0, 0, 0, 0.1);
+      --green: #1a9e5c;
+      --nav-bg: rgba(242, 240, 235, 0.92);
+      --dot-clr: rgba(0, 0, 0, 0.06);
+      --glow: rgba(15, 14, 12, 0.07);
+      --shadow-sm: rgba(15, 14, 12, 0.22);
+      --shadow-lg: rgba(15, 14, 12, 0.32);
+      --on-ink: #f2f0eb;
       --logo-dev: #6b7390;
     }
 
     [data-theme="dark"] {
-      --bg:      #111110;
-      --bg2:     #191817;
-      --bg3:     #222120;
-      --ink:     #f2f0eb;
-      --ink-a:   rgba(242,240,235,0.07);
-      --ink-b:   rgba(242,240,235,0.15);
-      --white:   #ede9e4;
-      --muted:   #7a7870;
-      --muted2:  #4a4845;
-      --border:  rgba(255,255,255,0.1);
-      --green:   #22c55e;
-      --nav-bg:   rgba(17,17,16,0.92);
-      --dot-clr:  rgba(255,255,255,0.04);
-      --glow:     rgba(242,240,235,0.05);
-      --shadow-sm:rgba(0,0,0,0.5);
-      --shadow-lg:rgba(0,0,0,0.7);
-      --on-ink:   #111110;
+      --bg: #111110;
+      --bg2: #191817;
+      --bg3: #222120;
+      --ink: #f2f0eb;
+      --ink-a: rgba(242, 240, 235, 0.07);
+      --ink-b: rgba(242, 240, 235, 0.15);
+      --white: #ede9e4;
+      --muted: #7a7870;
+      --muted2: #4a4845;
+      --border: rgba(255, 255, 255, 0.1);
+      --green: #22c55e;
+      --nav-bg: rgba(17, 17, 16, 0.92);
+      --dot-clr: rgba(255, 255, 255, 0.04);
+      --glow: rgba(242, 240, 235, 0.05);
+      --shadow-sm: rgba(0, 0, 0, 0.5);
+      --shadow-lg: rgba(0, 0, 0, 0.7);
+      --on-ink: #111110;
       --logo-dev: #5a5854;
     }
 
@@ -224,7 +224,7 @@
           title: 'Реальна робота,\nреальний результат',
           fdu: {
             client: 'Федерація Дзюдо України',
-            tag: 'Комерційний проєкт · 2024–2025',
+            tag: 'Комерційний проєкт · 2025–2026',
             desc: 'Офіційний вебсайт для національної спортивної організації — повноцінна платформа з управлінням контентом, новинами, результатами змагань і архівом федерації.',
             challenge: 'Потрібна була сучасна, швидка платформа, яка б замінила застарілий сайт і спростила роботу адміністраторів.',
             solution: 'Побудував на FastAPI + Jinja2 з адмін-панеллю, SEO-оптимізацією та адаптивним дизайном на Tailwind CSS.',
@@ -411,22 +411,22 @@
                 })}
               </div>
             )}
-            <div style={{ display:'flex', gap:8 }}>
-              <button onClick={() => setDark(d => !d)} style={{ display:'flex', alignItems:'center', justifyContent:'center', width:34, height:34, color: 'var(--muted)', background: 'transparent', border: '1px solid var(--border)', borderRadius: 8, cursor: 'pointer', transition: 'all 0.2s' }}
+            <div style={{ display: 'flex', gap: 8 }}>
+              <button onClick={() => setDark(d => !d)} style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: 34, height: 34, color: 'var(--muted)', background: 'transparent', border: '1px solid var(--border)', borderRadius: 8, cursor: 'pointer', transition: 'all 0.2s' }}
                 onMouseEnter={e => { e.currentTarget.style.color = 'var(--white)'; e.currentTarget.style.borderColor = 'var(--muted)'; }}
                 onMouseLeave={e => { e.currentTarget.style.color = 'var(--muted)'; e.currentTarget.style.borderColor = 'var(--border)'; }}>
                 {dark ? (
                   <svg width="15" height="15" viewBox="0 0 15 15" fill="none">
-                    <circle cx="7.5" cy="7.5" r="3" fill="currentColor"/>
-                    {[[7.5,0.5],[7.5,14.5],[0.5,7.5],[14.5,7.5],[2.4,2.4],[12.6,12.6],[12.6,2.4],[2.4,12.6]].map(([x1,y1],i) => {
-                      const dx = x1-7.5, dy = y1-7.5, len = Math.sqrt(dx*dx+dy*dy);
-                      const ux = dx/len, uy = dy/len;
-                      return <line key={i} x1={7.5+ux*4.2} y1={7.5+uy*4.2} x2={7.5+ux*5.8} y2={7.5+uy*5.8} stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>;
+                    <circle cx="7.5" cy="7.5" r="3" fill="currentColor" />
+                    {[[7.5, 0.5], [7.5, 14.5], [0.5, 7.5], [14.5, 7.5], [2.4, 2.4], [12.6, 12.6], [12.6, 2.4], [2.4, 12.6]].map(([x1, y1], i) => {
+                      const dx = x1 - 7.5, dy = y1 - 7.5, len = Math.sqrt(dx * dx + dy * dy);
+                      const ux = dx / len, uy = dy / len;
+                      return <line key={i} x1={7.5 + ux * 4.2} y1={7.5 + uy * 4.2} x2={7.5 + ux * 5.8} y2={7.5 + uy * 5.8} stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />;
                     })}
                   </svg>
                 ) : (
                   <svg width="15" height="15" viewBox="0 0 15 15" fill="none">
-                    <path d="M13 8.5A5.5 5.5 0 016.5 2a5.5 5.5 0 100 11A5.5 5.5 0 0013 8.5z" fill="currentColor"/>
+                    <path d="M13 8.5A5.5 5.5 0 016.5 2a5.5 5.5 0 100 11A5.5 5.5 0 0013 8.5z" fill="currentColor" />
                   </svg>
                 )}
               </button>
@@ -510,7 +510,7 @@
           <Marquee items={allStack} />
 
           {/* ── ABOUT ── */}
-          <section id="about" data-screen-label="02 About" style={{ padding: `${mobile?'60px':'100px'} ${px}`, background: 'var(--bg2)', borderBottom: '1px solid var(--border)' }}>
+          <section id="about" data-screen-label="02 About" style={{ padding: `${mobile ? '60px' : '100px'} ${px}`, background: 'var(--bg2)', borderBottom: '1px solid var(--border)' }}>
             <div style={{ maxWidth: 1020, margin: '0 auto' }}>
               {/* Header row */}
               <div style={{ display: 'grid', gridTemplateColumns: mobile ? '1fr' : '1fr 1fr', gap: mobile ? 24 : 60, marginBottom: mobile ? 32 : 56, alignItems: 'end' }}>
@@ -579,7 +579,7 @@
           </section>
 
           {/* ── PROJECTS ── */}
-          <section id="projects" data-screen-label="03 Projects" style={{ padding: `${mobile?'60px':'100px'} ${px}` }}>
+          <section id="projects" data-screen-label="03 Projects" style={{ padding: `${mobile ? '60px' : '100px'} ${px}` }}>
             <div style={{ maxWidth: 1020, margin: '0 auto' }}>
               <Reveal><SectionLabel text={t.projects.label} /></Reveal>
               <Reveal delay={50}>
@@ -602,7 +602,7 @@
           </section>
 
           {/* ── STACK ── */}
-          <section id="stack" data-screen-label="04 Stack" style={{ padding: `${mobile?'60px':'100px'} ${px}`, background: 'var(--bg2)', borderTop: '1px solid var(--border)', borderBottom: '1px solid var(--border)' }}>
+          <section id="stack" data-screen-label="04 Stack" style={{ padding: `${mobile ? '60px' : '100px'} ${px}`, background: 'var(--bg2)', borderTop: '1px solid var(--border)', borderBottom: '1px solid var(--border)' }}>
             <div style={{ maxWidth: 1020, margin: '0 auto' }}>
               <Reveal><SectionLabel text={t.stack.label} /></Reveal>
               <Reveal delay={50}>
@@ -618,7 +618,7 @@
           </section>
 
           {/* ── CONTACT ── */}
-          <section id="contact" data-screen-label="05 Contact" style={{ padding: `${mobile?'60px':'100px'} ${px}` }}>
+          <section id="contact" data-screen-label="05 Contact" style={{ padding: `${mobile ? '60px' : '100px'} ${px}` }}>
             <div style={{ maxWidth: 1020, margin: '0 auto', display: 'grid', gridTemplateColumns: mobile ? '1fr' : '1fr 1fr', gap: mobile ? 40 : 80, alignItems: 'start' }}>
               <div>
                 <Reveal><SectionLabel text={t.contact.label} /></Reveal>
@@ -663,8 +663,8 @@
             <Logo size={15} />
             <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
               <svg width="18" height="12" viewBox="0 0 18 12" fill="none" style={{ borderRadius: 2, flexShrink: 0 }}>
-                <rect width="18" height="6" fill="#005BBB"/>
-                <rect y="6" width="18" height="6" fill="#FFD500"/>
+                <rect width="18" height="6" fill="#005BBB" />
+                <rect y="6" width="18" height="6" fill="#FFD500" />
               </svg>
               <span style={{ fontSize: 12, color: 'var(--muted)' }}>
                 {lang === 'uk' ? 'Зроблено в Україні' : 'Made in Ukraine'}
@@ -702,7 +702,7 @@
           onMouseLeave={() => setHov(false)}
           style={{
             gridColumn: mobile ? undefined : item.col,
-            gridRow:    mobile ? undefined : item.row,
+            gridRow: mobile ? undefined : item.row,
             borderRadius: 16,
             border: `1px solid ${hov ? 'var(--muted2)' : 'var(--border)'}`,
             background: hov ? 'var(--bg3)' : 'var(--bg)',
