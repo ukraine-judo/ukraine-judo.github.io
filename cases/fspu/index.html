@@ -1,0 +1,579 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Федерація сучасного п’ятиборства України — кейс Марка Цимбала</title>
+  <meta name="description" content="Кейс єдиного цифрового порталу Федерації сучасного п’ятиборства України: робочий прототип, структура, контентна модель і план переходу на fspu.org.ua.">
+  <meta name="author" content="Марк Цимбал">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="canonical" href="https://motosh.dev/cases/fspu/">
+  <link rel="alternate" hreflang="uk" href="https://motosh.dev/cases/fspu/">
+  <link rel="alternate" hreflang="x-default" href="https://motosh.dev/cases/fspu/">
+
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://motosh.dev/cases/fspu/">
+  <meta property="og:title" content="Федерація сучасного п’ятиборства України — кейс Марка Цимбала">
+  <meta property="og:description" content="Робочий прототип, структура, контентна модель і план переходу на офіційний домен.">
+  <meta property="og:image" content="https://motosh.dev/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Кейс: цифровий портал Федерації сучасного п’ятиборства України">
+  <meta property="og:locale" content="uk_UA">
+  <meta property="og:site_name" content="motosh.dev">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="ФСПУ — кейс Марка Цимбала">
+  <meta name="twitter:description" content="Цифровізація Федерації сучасного п’ятиборства України.">
+  <meta name="twitter:image" content="https://motosh.dev/og-image.png">
+  <meta name="twitter:image:alt" content="Кейс: цифровий портал Федерації сучасного п’ятиборства України">
+
+  <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://motosh.dev/cases/fspu/#breadcrumb",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Головна",
+            "item": "https://motosh.dev/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Роботи",
+            "item": "https://motosh.dev/#work"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "Сучасне п’ятиборство України"
+          }
+        ]
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://motosh.dev/cases/fspu/#webpage",
+        "url": "https://motosh.dev/cases/fspu/",
+        "name": "Федерація сучасного п’ятиборства України — цифровий портал",
+        "description": "Єдиний портал федерації: новини, календар, рейтинги та збірна.",
+        "inLanguage": "uk",
+        "isPartOf": {
+          "@id": "https://motosh.dev/#website"
+        },
+        "breadcrumb": {
+          "@id": "https://motosh.dev/cases/fspu/#breadcrumb"
+        },
+        "primaryImageOfPage": {
+          "@type": "ImageObject",
+          "url": "https://motosh.dev/og-image.png",
+          "width": 1200,
+          "height": 630
+        }
+      },
+      {
+        "@type": "CreativeWork",
+        "@id": "https://motosh.dev/cases/fspu/#work",
+        "name": "Федерація сучасного п’ятиборства України — цифровий портал",
+        "description": "Єдиний портал федерації: новини, календар, рейтинги та збірна.",
+        "url": "https://motosh.dev/cases/fspu/",
+        "inLanguage": "uk",
+        "creativeWorkStatus": "InProgress",
+        "author": {
+          "@id": "https://motosh.dev/#person"
+        },
+        "creator": {
+          "@id": "https://motosh.dev/#person"
+        },
+        "about": "Цифровий портал Федерації сучасного п’ятиборства України",
+        "mainEntityOfPage": {
+          "@id": "https://motosh.dev/cases/fspu/#webpage"
+        }
+      }
+    ]
+  }
+  </script>
+
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,300,0,0&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/design-system/variables.css?v=10">
+  <link rel="stylesheet" href="/assets/core.css?v=10">
+  <link rel="stylesheet" href="/assets/desktop.css?v=10" media="(min-width: 900px)">
+  <link rel="stylesheet" href="/assets/mobile.css?v=10" media="(max-width: 899px)">
+
+  <script>try{if(sessionStorage.getItem("portfolio_route_transition"))document.documentElement.classList.add("route-arriving")}catch{}</script>
+  <script type="module" src="/assets/core.js?v=10"></script>
+</head>
+
+<body class="case-page case-page--fspu">
+  <a class="skip-link" href="#content">До основного вмісту</a>
+
+  <header class="site-header" data-header data-layout="desktop">
+    <div class="container header-inner">
+      <a class="wordmark" href="/" data-route data-route-index="00" data-route-title="motosh.dev" aria-label="motosh.dev — на головну">motosh<span>.dev</span></a>
+
+      <nav class="site-nav" aria-label="Навігація кейсу">
+        <a href="#live">Живий портал</a>
+        <a href="#structure">Структура</a>
+        <a href="#model">Модель</a>
+        <a href="#decisions">Рішення</a>
+        <a href="#plan">План</a>
+      </nav>
+
+      <div class="header-actions">
+        <a class="btn btn--ghost btn--compact" href="/" data-route data-route-index="00" data-route-title="motosh.dev" data-event="fspu_back">
+          <span class="mi mi--sm" aria-hidden="true">arrow_back</span>
+          На головну
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <header class="m-header" data-header data-layout="mobile">
+    <a class="wordmark" href="/" data-route data-route-index="00" data-route-title="motosh.dev" aria-label="motosh.dev — на головну">motosh<span>.dev</span></a>
+    <button class="m-header__menu" type="button" data-sheet-open aria-expanded="false" aria-controls="mobile-sheet">
+      <span class="m-header__menu-label">Меню</span>
+      <span class="mi mi--sm" aria-hidden="true">menu</span>
+    </button>
+  </header>
+
+  <nav class="m-sheet" id="mobile-sheet" data-layout="mobile" data-sheet aria-label="Мобільна навігація" aria-hidden="true">
+    <div class="m-sheet__scrim" data-sheet-close></div>
+    <div class="m-sheet__panel" role="dialog" aria-modal="true" aria-label="Навігація">
+      <div class="m-sheet__grip" data-sheet-grip><i></i></div>
+      <div class="m-sheet__head">
+        <span class="label label--bare">Кейс · 02 · ФСПУ</span>
+        <button class="m-sheet__close" type="button" data-sheet-close aria-label="Закрити меню">
+          <span class="mi mi--sm" aria-hidden="true">close</span>
+        </button>
+      </div>
+
+      <div class="m-sheet__list">
+        <a href="#live" data-sheet-link><span>01</span><strong>Живий портал</strong><small>Перевірити сайт зараз</small><span class="mi mi--sm" aria-hidden="true">arrow_forward</span></a>
+        <a href="#structure" data-sheet-link><span>02</span><strong>Структура</strong><small>Карта порталу</small><span class="mi mi--sm" aria-hidden="true">arrow_forward</span></a>
+        <a href="#model" data-sheet-link><span>03</span><strong>Модель</strong><small>Один запис — багато місць</small><span class="mi mi--sm" aria-hidden="true">arrow_forward</span></a>
+        <a href="#decisions" data-sheet-link><span>04</span><strong>Рішення</strong><small>Що і чому обрано</small><span class="mi mi--sm" aria-hidden="true">arrow_forward</span></a>
+        <a href="#plan" data-sheet-link><span>05</span><strong>План</strong><small>Перехід на fspu.org.ua</small><span class="mi mi--sm" aria-hidden="true">arrow_forward</span></a>
+      </div>
+
+      <div class="m-sheet__cases">
+        <a href="/cases/fdu/" data-route data-route-index="01" data-route-title="Федерація Дзюдо України" data-event="sheet_case_fdu">
+          <img src="/assets/fdu-mark.png?v=1" alt="" width="40" height="40">
+          <span><strong>Кейс ФДУ</strong><small>Запущено · ukrainejudo.com</small></span>
+          <span class="mi mi--sm" aria-hidden="true">arrow_outward</span>
+        </a>
+        <a href="/cases/platform/" data-route data-route-index="03" data-route-title="Система проведення змагань" data-event="sheet_case_platform">
+          <img src="/assets/fdu-mark.png?v=1" alt="" width="40" height="40">
+          <span><strong>Система проведення змагань</strong><small>У розробці · сітки й результати</small></span>
+          <span class="mi mi--sm" aria-hidden="true">arrow_outward</span>
+        </a>
+      </div>
+
+      <a class="btn btn--primary m-sheet__cta" href="/" data-route data-route-index="00" data-route-title="motosh.dev">
+        На головну
+        <span class="mi mi--sm btn__icon" aria-hidden="true">arrow_back</span>
+      </a>
+    </div>
+  </nav>
+
+  <div class="m-dock" data-layout="mobile" data-dock aria-label="Швидкі дії">
+    <a class="m-dock__item" href="/" data-route data-route-index="00" data-route-title="motosh.dev" data-event="dock_home">
+      <span class="mi mi--sm" aria-hidden="true">arrow_back</span>
+      <span>Головна</span>
+    </a>
+    <a class="m-dock__item" href="#structure" data-event="dock_structure">
+      <span class="mi mi--sm" aria-hidden="true">layers</span>
+      <span>Структура</span>
+    </a>
+    <a class="m-dock__item m-dock__item--primary" href="#live" data-event="dock_live">
+      <span class="mi mi--sm" aria-hidden="true">arrow_outward</span>
+      <span>Портал</span>
+    </a>
+  </div>
+
+  <main id="content">
+    <!-- ================================================================= -->
+    <section class="case-hero" id="top" data-nav-title="Початок кейсу" data-nav-hint="Сучасне п’ятиборство">
+      <div class="case-hero__field" aria-hidden="true">
+        <span class="orb case-hero__orb"></span>
+        <canvas data-field></canvas>
+      </div>
+
+      <div class="container">
+        <div class="case-hero__top intro-item">
+          <p class="label">Кейс · 02</p>
+          <span class="pill"><span class="pill__dot pill__dot--pending"></span>У розробці · 2026</span>
+        </div>
+
+        <h1 class="case-hero__title intro-item">Федерація сучасного<br><span class="text-soft">п’ятиборства України</span></h1>
+
+        <div class="case-hero__bottom intro-item">
+          <p>Єдиний офіційний портал федерації: новини, календар, рейтинги та профілі збірної в одному місці — замість пошуку по десятку розрізнених каналів.</p>
+          <dl>
+            <div><dt>Моя роль</dt><dd>Весь продукт</dd></div>
+            <div><dt>Період</dt><dd>2026</dd></div>
+            <div><dt>Домен</dt><dd>fspu.org.ua</dd></div>
+          </dl>
+        </div>
+
+        <div class="case-status intro-item" aria-label="Стан проєкту">
+          <div>
+            <span class="label label--bare">Готово</span>
+            <p>Структура, контентна модель, портал на dev.fspu.org.ua</p>
+          </div>
+          <div>
+            <span class="label label--bare">У роботі</span>
+            <p>Наповнення справжніми матеріалами федерації</p>
+          </div>
+          <div>
+            <span class="label label--bare">Попереду</span>
+            <p>Перехід на офіційну адресу fspu.org.ua</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================================= -->
+    <section class="case-context" id="context" data-nav-title="Вихідна точка" data-nav-hint="Що не працює зараз" data-nav-keywords="проблема контекст">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="label">Вихідна точка</p>
+          <h2>Інформація є. Немає місця, де вона зібрана.</h2>
+          <p class="section-head__lead">У федерації вистачає новин, результатів і подій. Проблема не в кількості матеріалів, а в тому, що вони живуть у різних місцях і за різними правилами.</p>
+        </div>
+
+        <ul class="constraints" data-stagger>
+          <li class="reveal">
+            <span class="mono">01</span>
+            <h3>Джерела не зведені</h3>
+            <p>Оголошення в соцмережах, файли з результатами, окремі сторінки. Щоб дізнатися просту річ, треба знати, де саме шукати.</p>
+          </li>
+          <li class="reveal">
+            <span class="mono">02</span>
+            <h3>Дані не мають форми</h3>
+            <p>Спортсмени, змагання й рейтинги описані по-різному в кожному документі, тому їх неможливо показати списком чи таблицею.</p>
+          </li>
+          <li class="reveal">
+            <span class="mono">03</span>
+            <h3>Оновлення коштує зусиль</h3>
+            <p>Кожна зміна — це ручна робота в кількох місцях. Тому частина інформації просто застаряє.</p>
+          </li>
+          <li class="reveal">
+            <span class="mono">04</span>
+            <h3>Телефон — головний екран</h3>
+            <p>Більшість читає з телефона, а матеріали розраховані на комп’ютер: PDF, широкі таблиці, дрібний текст.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ================================================================= -->
+    <section class="case-live" id="live" data-nav-title="Живий портал" data-nav-hint="dev.fspu.org.ua" data-nav-keywords="сайт портал демо">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="label">Не макет</p>
+          <h2>Портал уже працює — його можна перевірити тут.</h2>
+          <p class="section-head__lead">Усередині рамки не картинка й не прототип, а справжній сайт. Перемикайте ширину вікна: портал перебудовується так само, як на реальному пристрої.</p>
+        </div>
+
+        <figure class="rig reveal" data-rig data-rig-viewport="desktop" data-rig-remote="true"
+                data-rig-defer-hint="Це справжній dev.fspu.org.ua — завантажиться повністю">
+          <figcaption class="rig__bar">
+            <span class="dots dots--traffic" aria-hidden="true"><i></i><i></i><i></i></span>
+            <span class="rig__url mono">dev.fspu.org.ua</span>
+            <span class="rig__readout mono" data-rig-readout></span>
+            <div class="rig__switch" role="group" aria-label="Ширина вікна">
+              <button type="button" data-rig-viewport="desktop" aria-pressed="true" aria-label="Комп’ютер"><span class="mi mi--sm" aria-hidden="true">desktop_windows</span></button>
+              <button type="button" data-rig-viewport="tablet" aria-pressed="false" aria-label="Планшет"><span class="mi mi--sm" aria-hidden="true">tablet_mac</span></button>
+              <button type="button" data-rig-viewport="phone" aria-pressed="false" aria-label="Телефон"><span class="mi mi--sm" aria-hidden="true">smartphone</span></button>
+            </div>
+            <a class="rig__external" href="https://dev.fspu.org.ua" target="_blank" rel="noopener noreferrer" data-event="fspu_live_external" aria-label="Відкрити портал у новій вкладці">
+              <span class="mi mi--sm" aria-hidden="true">arrow_outward</span>
+            </a>
+          </figcaption>
+
+          <div class="rig__stage" data-rig-stage>
+            <div class="rig__loader">
+              <img src="/assets/fspu-mark.png?v=1" alt="" width="64" height="64">
+              <span class="mono">Завантажую dev.fspu.org.ua</span>
+              <span class="rig__progress"><i></i></span>
+            </div>
+            <div class="rig__canvas" data-rig-canvas>
+              <iframe src="https://dev.fspu.org.ua" title="Портал Федерації сучасного п’ятиборства України"
+                      loading="lazy" referrerpolicy="strict-origin-when-cross-origin"
+                      sandbox="allow-same-origin allow-scripts allow-popups allow-popups-to-escape-sandbox"></iframe>
+            </div>
+            <button class="rig__gate" type="button" data-rig-gate>
+              <span class="pill pill--ink">Натисніть, щоб взаємодіяти з живим сайтом</span>
+            </button>
+          </div>
+        </figure>
+
+        <p class="case-live__note reveal">Портал працює на робочому піддомені, поки триває наповнення. Після завершення він займе офіційну адресу fspu.org.ua.</p>
+      </div>
+    </section>
+
+    <!-- ================================================================= -->
+    <section class="case-structure" id="structure" data-nav-title="Структура" data-nav-hint="Карта порталу" data-nav-keywords="інформаційна архітектура карта">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="label">Інформаційна архітектура</p>
+          <h2>Структура порталу вміщається в один екран.</h2>
+          <p class="section-head__lead">Наведіть або оберіть будь-який розділ — підсвітиться його гілка. Максимальна глибина — три кроки від головної: далі людина втрачає нитку.</p>
+        </div>
+
+        <div class="wiring reveal" data-wiring>
+          <svg class="wiring__wires" data-wires aria-hidden="true"></svg>
+
+          <div class="wiring__column">
+            <p class="wiring__legend mono">Рівень 1</p>
+            <button class="wiring__node wiring__node--root" data-node="home" data-node-label="Головна"
+                    data-links="news calendar rating team docs about">Головна</button>
+          </div>
+
+          <div class="wiring__column">
+            <p class="wiring__legend mono">Рівень 2</p>
+            <button class="wiring__node" data-node="news" data-node-label="Новини" data-links="article">Новини</button>
+            <button class="wiring__node" data-node="calendar" data-node-label="Календар" data-links="event">Календар</button>
+            <button class="wiring__node" data-node="rating" data-node-label="Рейтинг" data-links="athlete">Рейтинг</button>
+            <button class="wiring__node" data-node="team" data-node-label="Збірна" data-links="athlete coach">Збірна</button>
+            <button class="wiring__node" data-node="docs" data-node-label="Документи">Документи</button>
+            <button class="wiring__node" data-node="about" data-node-label="Про федерацію" data-links="contacts">Про федерацію</button>
+          </div>
+
+          <div class="wiring__column">
+            <p class="wiring__legend mono">Рівень 3</p>
+            <button class="wiring__node" data-node="article" data-node-label="Новина">Новина</button>
+            <button class="wiring__node" data-node="event" data-node-label="Змагання">Змагання</button>
+            <button class="wiring__node" data-node="athlete" data-node-label="Спортсмен">Спортсмен</button>
+            <button class="wiring__node" data-node="coach" data-node-label="Тренер">Тренер</button>
+            <button class="wiring__node" data-node="contacts" data-node-label="Контакти">Контакти</button>
+          </div>
+
+          <p class="wiring__readout mono" data-wiring-readout aria-live="polite">Оберіть розділ, щоб побачити його зв’язки</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================================= -->
+    <section class="case-model" id="model" data-nav-title="Контентна модель" data-nav-hint="Один запис — багато місць" data-nav-keywords="дані сутності">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="label">Контентна модель</p>
+          <h2>Один запис — багато місць.</h2>
+          <p class="section-head__lead">Найважливіше рішення проєкту не видно на екрані. Спортсмена описують один раз — і він сам з’являється в рейтингу, у складі збірної, у списку учасників і в новині. Наведіть на поле, щоб побачити, куди воно потрапляє.</p>
+        </div>
+
+        <div class="wiring wiring--model reveal" data-wiring>
+          <svg class="wiring__wires" data-wires aria-hidden="true"></svg>
+
+          <div class="wiring__column">
+            <p class="wiring__legend mono">Спортсмен · поля</p>
+            <button class="wiring__node" data-node="f-name" data-node-label="Ім’я" data-links="s-profile s-rating s-team s-entry s-news s-search">Ім’я</button>
+            <button class="wiring__node" data-node="f-discipline" data-node-label="Дисципліна" data-links="s-profile s-rating s-entry">Дисципліна</button>
+            <button class="wiring__node" data-node="f-age" data-node-label="Вікова група" data-links="s-rating s-entry">Вікова група</button>
+            <button class="wiring__node" data-node="f-region" data-node-label="Регіон або клуб" data-links="s-profile s-entry s-search">Регіон або клуб</button>
+            <button class="wiring__node" data-node="f-coach" data-node-label="Тренер" data-links="s-profile s-team">Тренер</button>
+            <button class="wiring__node" data-node="f-photo" data-node-label="Фото" data-links="s-profile s-team s-news s-card">Фото</button>
+            <button class="wiring__node" data-node="f-rank" data-node-label="Позиція в рейтингу" data-links="s-rating s-profile s-card">Позиція в рейтингу</button>
+          </div>
+
+          <div class="wiring__column">
+            <p class="wiring__legend mono">З’являється у</p>
+            <button class="wiring__node" data-node="s-profile" data-node-label="Профіль спортсмена">Профіль спортсмена</button>
+            <button class="wiring__node" data-node="s-rating" data-node-label="Таблиця рейтингу">Таблиця рейтингу</button>
+            <button class="wiring__node" data-node="s-team" data-node-label="Склад збірної">Склад збірної</button>
+            <button class="wiring__node" data-node="s-entry" data-node-label="Список учасників">Список учасників</button>
+            <button class="wiring__node" data-node="s-news" data-node-label="Блок у новині">Блок у новині</button>
+            <button class="wiring__node" data-node="s-search" data-node-label="Результати пошуку">Результати пошуку</button>
+            <button class="wiring__node" data-node="s-card" data-node-label="Картка для соцмереж">Картка для соцмереж</button>
+          </div>
+
+          <p class="wiring__readout mono" data-wiring-readout aria-live="polite">Заповнюється один раз — з’являється у семи місцях</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================================================================= -->
+    <section class="case-decisions" id="decisions" data-nav-title="Журнал рішень" data-nav-hint="Що і чому обрано" data-nav-keywords="компроміси вибір">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="label">Журнал рішень</p>
+          <h2>Кожне рішення має ціну.</h2>
+          <p class="section-head__lead">Тут — не список фіч, а чотири розвилки, на яких довелося щось віддати. Розкрийте будь-яку, щоб побачити альтернативу і те, чим я за неї заплатив.</p>
+        </div>
+
+        <div class="decisions" data-stagger>
+          <details class="decision reveal">
+            <summary>
+              <span class="mono">01</span>
+              <strong>Залишити офіційний домен fspu.org.ua</strong>
+              <span class="decision__marker" aria-hidden="true"></span>
+            </summary>
+            <div class="decision__body">
+              <p><b>Альтернатива:</b> запустити новий портал на свіжій, «красивішій» адресі.</p>
+              <p><b>Чому ні:</b> стару адресу вже знають, вона в документах і в пошуку. Зміна домену обнуляє це і створює два джерела правди замість одного.</p>
+              <p><b>Ціна рішення:</b> перехід складніший технічно — треба узгоджувати доступи й переносити сайт на робочу адресу, а не поруч із нею.</p>
+            </div>
+          </details>
+
+          <details class="decision reveal">
+            <summary>
+              <span class="mono">02</span>
+              <strong>Спершу контентна модель, потім екрани</strong>
+              <span class="decision__marker" aria-hidden="true"></span>
+            </summary>
+            <div class="decision__body">
+              <p><b>Альтернатива:</b> швидко намалювати сторінки й підганяти дані під макет.</p>
+              <p><b>Чому ні:</b> так кожен новий розділ вимагає окремої верстки, а однакові сутності починають жити в різних форматах — рівно та проблема, з якої проєкт починався.</p>
+              <p><b>Ціна рішення:</b> перші тижні виглядають так, ніби нічого не відбувається: структура є, показати нічого.</p>
+            </div>
+          </details>
+
+          <details class="decision reveal">
+            <summary>
+              <span class="mono">03</span>
+              <strong>Глибина не більше трьох кроків</strong>
+              <span class="decision__marker" aria-hidden="true"></span>
+            </summary>
+            <div class="decision__body">
+              <p><b>Альтернатива:</b> повноцінне дерево з підрозділами під кожен тип матеріалів.</p>
+              <p><b>Чому ні:</b> на телефоні кожен додатковий рівень — це ще один екран і ще одна можливість загубитися.</p>
+              <p><b>Ціна рішення:</b> частина матеріалів живе у фільтрах і пошуку, а не має власного пункту меню. Це доведеться пояснити команді федерації.</p>
+            </div>
+          </details>
+
+          <details class="decision reveal">
+            <summary>
+              <span class="mono">04</span>
+              <strong>Демодані у прототипі підписані як демодані</strong>
+              <span class="decision__marker" aria-hidden="true"></span>
+            </summary>
+            <div class="decision__body">
+              <p><b>Альтернатива:</b> показати прототип із порожніми списками або підставити реальні прізвища.</p>
+              <p><b>Чому ні:</b> порожній прототип не дає відчути продукт, а реальні дані без узгодження — це чужа відповідальність, узята без дозволу.</p>
+              <p><b>Ціна рішення:</b> у кожній панелі доводиться носити маркер «демодані», і це видно.</p>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ================================================================= -->
+    <section class="case-plan" id="plan" data-nav-title="План переходу" data-nav-hint="Що має статися" data-nav-keywords="запуск домен">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="label">План переходу</p>
+          <h2>Що має статися, щоб портал став офіційним.</h2>
+          <p class="section-head__lead">На <b>fspu.org.ua</b> зараз працює попередня версія сайту. Новий портал займе цю саму адресу — користувачам не доведеться запам’ятовувати іншу.</p>
+        </div>
+
+        <ol class="plan" data-stagger>
+          <li class="reveal" data-state="done">
+            <span class="plan__state" aria-hidden="true"><span class="mi mi--sm" aria-hidden="true">check</span></span>
+            <div><strong>Структура та контентна модель</strong><p>Розділи, типи записів і зв’язки між ними зафіксовані.</p></div>
+            <span class="plan__owner mono">я</span>
+          </li>
+          <li class="reveal" data-state="done">
+            <span class="plan__state" aria-hidden="true"><span class="mi mi--sm" aria-hidden="true">check</span></span>
+            <div><strong>Робочий прототип</strong><p>Основні сценарії можна пройти й перевірити на телефоні.</p></div>
+            <span class="plan__owner mono">я</span>
+          </li>
+          <li class="reveal" data-state="done">
+            <span class="plan__state" aria-hidden="true"><span class="mi mi--sm" aria-hidden="true">check</span></span>
+            <div><strong>Публікація на піддомені для приймання</strong><p>Портал відкрито на dev.fspu.org.ua — федерація дивиться на робочу адресу, а не на файл.</p></div>
+            <span class="plan__owner mono">я</span>
+          </li>
+          <li class="reveal" data-state="active">
+            <span class="plan__state" aria-hidden="true"></span>
+            <div><strong>Наповнення справжніми матеріалами</strong><p>Новини, календар, склад збірної та документи від федерації.</p></div>
+            <span class="plan__owner mono">федерація</span>
+          </li>
+          <li class="reveal" data-state="todo">
+            <span class="plan__state" aria-hidden="true"></span>
+            <div><strong>Передача доступів до домену</strong><p>Технічний крок, який неможливо зробити без федерації.</p></div>
+            <span class="plan__owner mono">федерація</span>
+          </li>
+          <li class="reveal" data-state="todo">
+            <span class="plan__state" aria-hidden="true"></span>
+            <div><strong>Перенесення на fspu.org.ua</strong><p>Разом зі збереженням старих адрес, щоб посилання не ламалися.</p></div>
+            <span class="plan__owner mono">я</span>
+          </li>
+        </ol>
+
+        <a class="plan__domain reveal" href="https://fspu.org.ua" target="_blank" rel="noopener noreferrer" data-event="fspu_domain">
+          <span>
+            <small class="mono">Офіційна адреса, яку займе портал</small>
+            <strong>fspu.org.ua</strong>
+          </span>
+          <span class="round-arrow"><span class="mi mi--sm" aria-hidden="true">arrow_outward</span></span>
+        </a>
+      </div>
+    </section>
+
+    <!-- ================================================================= -->
+    <section class="case-journey" id="journey" data-nav-title="Хроніка" data-nav-hint="Як рухався проєкт">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="label">Хроніка</p>
+          <h2>Від розрізнених матеріалів до єдиного джерела.</h2>
+        </div>
+
+        <ol class="journey" data-stagger>
+          <li class="reveal">
+            <time class="mono">Початок літа 2026</time>
+            <div><strong>Початок переговорів</strong><p>Обговорили задачу, аудиторії та формат майбутнього порталу.</p></div>
+          </li>
+          <li class="reveal">
+            <time class="mono">Місяць роботи</time>
+            <div><strong>Структура і прототип</strong><p>Зібрав інформаційну архітектуру, контентну модель та інтерфейс.</p></div>
+          </li>
+          <li class="reveal is-current">
+            <time class="mono">Зараз</time>
+            <div><strong>Портал відкрито на піддомені</strong><p>Сайт працює на dev.fspu.org.ua, структура зафіксована, залишилося наповнення.</p></div>
+          </li>
+          <li class="reveal">
+            <time class="mono">Наступний етап</time>
+            <div><strong>Новий fspu.org.ua</strong><p>Перенесення готової системи на офіційну адресу федерації.</p></div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+
+    <!-- ================================================================= -->
+    <section class="case-outro" data-nav-title="Далі" data-nav-hint="Наступний кейс">
+      <div class="container case-outro__grid">
+        <p class="label reveal">Далі</p>
+        <div>
+          <h2 class="reveal">Потрібен продукт, який збере все важливе в одному місці?</h2>
+          <div class="case-outro__actions reveal">
+            <a class="btn btn--light" href="https://t.me/fqmotosh" target="_blank" rel="noopener noreferrer" data-event="fspu_outro_telegram">
+              Обговорити задачу
+              <span class="mi mi--sm btn__icon" aria-hidden="true">arrow_outward</span>
+            </a>
+            <a class="btn btn--dark-ghost" href="/cases/platform/" data-route data-route-index="03" data-route-title="Система проведення змагань" data-event="fspu_outro_platform">
+              Наступний кейс
+              <span class="mi mi--sm btn__icon" aria-hidden="true">arrow_forward</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <footer class="container site-footer">
+        <strong>motosh.dev</strong>
+        <span>Марк Цимбал · Україна · <span data-year>2026</span></span>
+      </footer>
+    </section>
+  </main>
+</body>
+</html>

@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 920" role="img" aria-labelledby="title desc">
+  <title id="title">Плейсхолдер портрета</title>
+  <desc id="desc">Абстрактна композиція, яку можна замінити фотографією Марка</desc>
+  <rect width="720" height="920" fill="#f9f8f6"/>
+  <circle cx="360" cy="305" r="126" fill="#d5d9e2"/>
+  <path d="M132 850c18-215 98-354 228-354s210 139 228 354H132Z" fill="#151515"/>
+  <circle cx="585" cy="144" r="66" fill="none" stroke="#9d9d9d" stroke-width="2"/>
+  <circle cx="585" cy="144" r="28" fill="#151515"/>
+  <path d="M46 76h210M46 90h126" stroke="#151515" stroke-width="2"/>
+  <path d="M46 870h166" stroke="#9d9d9d" stroke-width="2"/>
+</svg>

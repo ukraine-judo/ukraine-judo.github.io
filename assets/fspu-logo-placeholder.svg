@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" role="img" aria-labelledby="title desc">
+  <title id="title">Плейсхолдер логотипа ФСПУ</title>
+  <desc id="desc">Тимчасовий знак до додавання офіційного логотипа</desc>
+  <circle cx="80" cy="80" r="76" fill="none" stroke="#9d9d9d" stroke-width="2"/>
+  <path d="M42 49h76M42 111h76" stroke="#d5d9e2" stroke-width="2"/>
+  <text x="80" y="91" fill="#151515" font-family="Arial, sans-serif" font-size="31" font-weight="700" text-anchor="middle">ФСПУ</text>
+</svg>

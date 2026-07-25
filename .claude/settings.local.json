@@ -1,7 +1,0 @@
-{
-  "permissions": {
-    "allow": [
-      "Bash(grep -n \"html {\\\\\\\\|overflow-x\\\\\\\\|scroll-behavior\" /c/projects/ukraine-judo.github.io/index.html)"
-    ]
-  }
-}
