@@ -6,7 +6,6 @@
 
 import { $, $$, clamp, Disposer, track, lockScroll, unlockScroll } from "./core.js";
 import { createField } from "./field.js";
-import { createLab } from "./lab.js";
 import { createRig } from "./rig.js";
 import { createWiring } from "./wiring.js";
 import { createBracket } from "./bracket.js";
@@ -248,9 +247,6 @@ export const mount = () => {
     disposer.add(() => field.destroy());
     mountFieldInput(disposer, fieldCanvas, field);
   }
-
-  const lab = createLab($("[data-lab]"));
-  disposer.add(() => lab.destroy());
 
   $$("[data-rig]").forEach((node) => {
     // A device switcher is meaningless on a phone: show the product 1:1, and

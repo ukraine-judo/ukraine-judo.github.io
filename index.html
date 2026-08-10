@@ -134,13 +134,13 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,300,0,0&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="/design-system/variables.css?v=10">
-  <link rel="stylesheet" href="/assets/core.css?v=10">
-  <link rel="stylesheet" href="/assets/desktop.css?v=10" media="(min-width: 900px)">
-  <link rel="stylesheet" href="/assets/mobile.css?v=10" media="(max-width: 899px)">
+  <link rel="stylesheet" href="/design-system/variables.css?v=11">
+  <link rel="stylesheet" href="/assets/core.css?v=11">
+  <link rel="stylesheet" href="/assets/desktop.css?v=11" media="(min-width: 900px)">
+  <link rel="stylesheet" href="/assets/mobile.css?v=11" media="(max-width: 899px)">
 
   <script>try{if(sessionStorage.getItem("portfolio_route_transition"))document.documentElement.classList.add("route-arriving")}catch{}</script>
-  <script type="module" src="/assets/core.js?v=10"></script>
+  <script type="module" src="/assets/core.js?v=11"></script>
 </head>
 
 <body>
@@ -155,7 +155,6 @@
 
       <nav class="site-nav" aria-label="Головна навігація">
         <a href="#work">Робота</a>
-        <a href="#system">Система</a>
         <a href="#process">Процес</a>
         <a href="#about">Про мене</a>
       </nav>
@@ -194,9 +193,8 @@
 
       <div class="m-sheet__list">
         <a href="#work" data-sheet-link><span>01</span><strong>Робота</strong><small>Два продукти федерацій</small><span class="mi mi--sm" aria-hidden="true">arrow_forward</span></a>
-        <a href="#system" data-sheet-link><span>02</span><strong>Система</strong><small>Дизайн-система в дії</small><span class="mi mi--sm" aria-hidden="true">arrow_forward</span></a>
-        <a href="#process" data-sheet-link><span>03</span><strong>Процес</strong><small>Від задачі до запуску</small><span class="mi mi--sm" aria-hidden="true">arrow_forward</span></a>
-        <a href="#about" data-sheet-link><span>04</span><strong>Про мене</strong><small>Коротко і без пафосу</small><span class="mi mi--sm" aria-hidden="true">arrow_forward</span></a>
+        <a href="#process" data-sheet-link><span>02</span><strong>Процес</strong><small>Від задачі до запуску</small><span class="mi mi--sm" aria-hidden="true">arrow_forward</span></a>
+        <a href="#about" data-sheet-link><span>03</span><strong>Про мене</strong><small>Коротко і без пафосу</small><span class="mi mi--sm" aria-hidden="true">arrow_forward</span></a>
       </div>
 
       <div class="m-sheet__cases">
@@ -229,9 +227,9 @@
       <span class="mi mi--sm" aria-hidden="true">layers</span>
       <span>Робота</span>
     </a>
-    <a class="m-dock__item" href="#system" data-event="dock_system">
-      <span class="mi mi--sm" aria-hidden="true">layers</span>
-      <span>Система</span>
+    <a class="m-dock__item" href="#process" data-event="dock_process">
+      <span class="mi mi--sm" aria-hidden="true">route</span>
+      <span>Процес</span>
     </a>
     <a class="m-dock__item m-dock__item--primary" href="https://t.me/fqmotosh" target="_blank" rel="noopener noreferrer" data-event="dock_telegram">
       <span class="mi mi--sm" aria-hidden="true">arrow_outward</span>
@@ -252,7 +250,7 @@
       <div class="container hero__grid">
         <p class="label intro-item">Веброзробник · Україна</p>
 
-        <h1 class="hero__title intro-item" data-spec="--text-display-xl · --display-tracking · --color-jet-ink" data-spec-name="Hero lockup">
+        <h1 class="hero__title intro-item">
           <span>Марк</span><span class="text-soft">Цимбал.</span>
         </h1>
 
@@ -260,18 +258,18 @@
           <p>Створюю сайти, якими зручно користуватися людям і легко керувати командам. Веду продукт від першої структури до дня, коли ним починають користуватися щодня.</p>
 
           <div class="hero__actions">
-            <a class="btn btn--primary" href="https://t.me/fqmotosh" target="_blank" rel="noopener noreferrer" data-event="hero_telegram" data-spec="--color-jet-ink · --radius-buttons · --text-body-sm" data-spec-name="Filled primary button">
+            <a class="btn btn--primary" href="https://t.me/fqmotosh" target="_blank" rel="noopener noreferrer" data-event="hero_telegram">
               Обговорити проєкт
               <span class="mi mi--sm btn__icon" aria-hidden="true">arrow_forward</span>
             </a>
-            <a class="btn btn--ghost" href="/cases/fdu/" data-route data-route-index="01" data-route-title="Федерація Дзюдо України" data-event="hero_case" data-spec="--radius-buttons · --color-dove" data-spec-name="Ghost secondary button">
+            <a class="btn btn--ghost" href="/cases/fdu/" data-route data-route-index="01" data-route-title="Федерація Дзюдо України" data-event="hero_case">
               Дивитися кейс
               <span class="mi mi--sm btn__icon" aria-hidden="true">arrow_forward</span>
             </a>
           </div>
         </div>
 
-        <dl class="hero__facts intro-item" data-spec="--color-dove · --spacing-24" data-spec-name="Feature stat block">
+        <dl class="hero__facts intro-item">
           <div>
             <dt><span data-age>16</span> років</dt>
             <dd>Народився 13.06.2010</dd>
@@ -524,101 +522,6 @@
     </section>
 
     <!-- ================================================================= -->
-    <!-- SYSTEM — token lab                                                -->
-    <!-- ================================================================= -->
-    <section class="system" id="system" data-nav-title="Система" data-nav-hint="Дизайн-система в дії" data-nav-keywords="токени дизайн-система css">
-      <div class="container">
-        <div class="section-head reveal">
-          <p class="label">Як це зроблено</p>
-          <h2>Я не малюю сторінки. Я збираю систему.</h2>
-          <p class="section-head__lead">Кожен елемент цього сайту — комбінація токенів. Покрутіть ручки: перед вами справжній компонент і справжній CSS, який його описує.</p>
-        </div>
-
-        <div class="lab reveal" data-lab>
-          <div class="lab__controls">
-            <div class="lab__presets" role="group" aria-label="Пресети">
-              <button type="button" data-lab-preset="quiet" aria-pressed="false">Тихо</button>
-              <button type="button" data-lab-preset="working" aria-pressed="true">Робоче</button>
-              <button type="button" data-lab-preset="terminal" aria-pressed="false">Термінал</button>
-            </div>
-
-            <fieldset class="lab__group">
-              <legend>Поверхня</legend>
-              <div class="lab__options" role="group">
-                <button type="button" data-lab-option="surface:paper" aria-pressed="false">Paper</button>
-                <button type="button" data-lab-option="surface:cream" aria-pressed="true">Cream</button>
-                <button type="button" data-lab-option="surface:sand" aria-pressed="false">Sand</button>
-                <button type="button" data-lab-option="surface:charcoal" aria-pressed="false">Charcoal</button>
-              </div>
-            </fieldset>
-
-            <fieldset class="lab__group">
-              <legend>Щільність</legend>
-              <div class="lab__options" role="group">
-                <button type="button" data-lab-option="density:compact" aria-pressed="false">20</button>
-                <button type="button" data-lab-option="density:comfortable" aria-pressed="true">40</button>
-                <button type="button" data-lab-option="density:roomy" aria-pressed="false">64</button>
-              </div>
-            </fieldset>
-
-            <fieldset class="lab__group">
-              <legend>Заголовок</legend>
-              <div class="lab__options" role="group">
-                <button type="button" data-lab-option="scale:small" aria-pressed="false">24</button>
-                <button type="button" data-lab-option="scale:medium" aria-pressed="true">30</button>
-                <button type="button" data-lab-option="scale:large" aria-pressed="false">48</button>
-              </div>
-            </fieldset>
-
-            <fieldset class="lab__group">
-              <legend>Форма</legend>
-              <div class="lab__options" role="group">
-                <button type="button" data-lab-option="shape:card" aria-pressed="true">Картка · 16</button>
-                <button type="button" data-lab-option="shape:pill" aria-pressed="false">Пігулка · ∞</button>
-              </div>
-            </fieldset>
-
-            <fieldset class="lab__group">
-              <legend>Акцент</legend>
-              <div class="lab__options" role="group">
-                <button type="button" data-lab-option="accent:none" aria-pressed="false">Немає</button>
-                <button type="button" data-lab-option="accent:beta" aria-pressed="true">Sand</button>
-                <button type="button" data-lab-option="accent:terminal" aria-pressed="false">Термінал</button>
-              </div>
-            </fieldset>
-
-            <button class="lab__reset" type="button" data-lab-reset>
-              <span class="mi mi--sm" aria-hidden="true">refresh</span>
-              Скинути
-            </button>
-          </div>
-
-          <div class="lab__stage">
-            <article class="lab-card" data-lab-preview data-spec="--surface-cream · --radius-cards · --card-padding" data-spec-name="Flat cream card">
-              <span class="lab-card__accent"></span>
-              <p class="lab-card__label">Кейс · 01</p>
-              <h3>Федерація Дзюдо України</h3>
-              <p class="lab-card__body">Офіційна платформа національної спортивної організації. Запущена й підтримується щодня.</p>
-              <div class="lab-card__foot">
-                <span class="lab-card__meta">ukrainejudo.com</span>
-                <span class="lab-card__button">Дивитися кейс</span>
-              </div>
-            </article>
-          </div>
-
-          <div class="lab__code">
-            <div class="lab__code-bar">
-              <span class="dots dots--traffic" aria-hidden="true"><i></i><i></i><i></i></span>
-              <span class="mono">case-card.css</span>
-              <button class="lab__copy" type="button" data-lab-copy>Копіювати CSS</button>
-            </div>
-            <pre><code data-lab-code></code></pre>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ================================================================= -->
     <!-- PROCESS                                                           -->
     <!-- ================================================================= -->
     <section class="process" id="process" data-nav-title="Процес" data-nav-hint="Від задачі до запуску" data-nav-keywords="етапи робота методика">
@@ -766,10 +669,6 @@
       <footer class="container site-footer">
         <strong>motosh.dev</strong>
         <span>Марк Цимбал · Україна · <span data-year>2026</span></span>
-        <button class="site-footer__inspect" type="button" data-inspect-toggle data-layout="desktop" data-event="footer_inspect">
-          <span class="mi mi--sm" aria-hidden="true">layers</span>
-          Показати дизайн-систему
-        </button>
       </footer>
     </section>
   </main>

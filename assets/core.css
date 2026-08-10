@@ -32,9 +32,9 @@
        The published scale is eight fixed steps, which cannot express fluid
        display type across a 375px phone and a 1440px desktop. Rather than
        scattering ad-hoc clamps through two stylesheets, display sizing is
-       centralised into exactly three fluid tokens — used by BOTH layouts,
-       and recognised by the inspector, so they are auditable like any other
-       token instead of hiding as magic numbers.
+       centralised into exactly three fluid tokens — used by BOTH layouts, so
+       they stay auditable like any other token instead of hiding as magic
+       numbers.
          xl   — the home hero lockup      52 → 120
          lg   — case-page titles          40 → 72
          sect — every section headline    30 → 60 (ends on --text-heading-lg) */
@@ -44,8 +44,8 @@
 
     /* Motion contract.
        THE LAW: numbers never animate, the chassis animates. Anything that is
-       a measurement — a token in the inspector HUD, a millisecond in the
-       measurement panel, a scale percentage on the device rig — changes at
+       a measurement — a millisecond in the measurement panel, a scale
+       percentage on the device rig — changes at
        --dur-0. Only panels, overlays, curtains and handles move over time.
        The 420–680ms gap is deliberately empty: "control" and "navigation"
        must be audibly different durations. */
@@ -60,8 +60,8 @@
 
     /* Fluid layout rhythm. The published spacing scale is fixed, so a
        responsive page inevitably grows ad-hoc clamps. Four named steps
-       replace eighteen one-off clamps, and — like the type tokens — the
-       inspector resolves them, so layout rhythm is auditable too. */
+       replace eighteen one-off clamps, so — like the type tokens — layout
+       rhythm stays auditable too. */
     --gap-sm: clamp(var(--spacing-24), 3vw, var(--spacing-48));
     --gap-md: clamp(var(--spacing-32), 4vw, var(--spacing-64));
     --gap-lg: clamp(var(--spacing-40), 5vw, var(--spacing-96));
@@ -70,7 +70,7 @@
 
     /* The system's only depth cue is a 1px hairline. When it is drawn with a
        grid gap rather than a border it is still that hairline, so it gets a
-       name — otherwise the inspector would flag it as an unexplained 1px. */
+       name instead of standing as an unexplained 1px. */
     --hairline: 1px;
 
     /* Elevation ladder (system: a single hairline ring, never a shadow stack) */

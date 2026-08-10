@@ -5,9 +5,7 @@
    ========================================================================= */
 
 import { $, $$, clamp, Disposer, track } from "./core.js";
-import { createInspector } from "./inspect.js";
 import { createField } from "./field.js";
-import { createLab } from "./lab.js";
 import { createRig } from "./rig.js";
 import { createWiring } from "./wiring.js";
 import { createBracket } from "./bracket.js";
@@ -141,17 +139,11 @@ const mountMagnets = (disposer) => {
 export const mount = () => {
   const disposer = new Disposer();
 
-  const inspector = createInspector();
-  disposer.add(() => inspector.destroy());
-
   const fieldCanvas = $("[data-field]");
   if (fieldCanvas) {
     const field = createField(fieldCanvas, { spacing: 68, drift: 24 });
     disposer.add(() => field.destroy());
   }
-
-  const lab = createLab($("[data-lab]"));
-  disposer.add(() => lab.destroy());
 
   $$("[data-rig]").forEach((node) => {
     const rig = createRig(node);
