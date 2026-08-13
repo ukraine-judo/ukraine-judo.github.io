@@ -1,0 +1,873 @@
+/* =========================================================================
+   motosh.dev — case pages
+   The shell shared by all three cases (lockup, facts, device rig, next-case
+   cards) and the widgets that belong to one case each.
+   ========================================================================= */
+
+/* -------------------------------------------------------------------------
+   LOCKUP
+   ---------------------------------------------------------------------- */
+.case__hero {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding-top: 24px;
+  padding-bottom: 40px;
+}
+
+.case__title { max-width: 13ch; }
+
+@media (min-width: 900px) {
+  .case__hero { gap: 36px; padding-top: 60px; padding-bottom: 0; }
+
+  .case__lockup {
+    display: grid;
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+    gap: 48px;
+    align-items: end;
+  }
+}
+
+.facts {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+  padding-top: 8px;
+  border-top: 1px solid var(--line);
+}
+
+.fact { display: flex; flex-direction: column; gap: 6px; }
+.fact > span:last-child { font-size: var(--text-body); }
+
+@media (min-width: 900px) {
+  .facts {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    padding-top: 0;
+    border-top: 0;
+  }
+
+  .fact { gap: 8px; }
+  .fact > span:last-child { font-size: var(--text-lede); }
+}
+
+/* -------------------------------------------------------------------------
+   THE DEVICE RIG
+   A real window onto the live site. The control switches its width — the
+   container's own for desktop, 834 for tablet, 390 for phone — so each view
+   is the real layout at that width, not a CSS approximation of one.
+
+   The window's box is transitioned rather than swapped, so the site reflows
+   through the widths in front of the reader. It loads itself on approach and
+   states its own scale, which on a desktop container reads 100%.
+
+   It has no full-screen mode. The frame takes the pointer where there is a
+   mouse, so the site scrolls in place; on touch it stays a picture, because
+   a full-width frame that swallows the swipe leaves the reader stranded
+   halfway down the page with no way past it.
+   ---------------------------------------------------------------------- */
+.rig {
+  background: var(--mist);
+  border-radius: var(--radius-card);
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.rig__bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+/* The stated scale: "1185 × 560 · 100%", or just the percentage where the
+   bar is narrow — the segmented control has already said which width is up. */
+.rig__scale {
+  font-size: var(--text-caps);
+  letter-spacing: 0.02em;
+  color: var(--ink-2);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+  padding-inline: 4px;
+}
+
+.rig__scale [data-rig-dims]::after { content: " · "; }
+
+@media (max-width: 559px) {
+  .rig__scale [data-rig-dims] { display: none; }
+}
+
+/* The caption under the stage. It carries the outbound link: on a phone the
+   bar has room for the widths and the expand control and nothing more, and
+   a control that only fits on a desktop is not a control. */
+.rig__note {
+  font-size: var(--text-caps);
+  line-height: 1.5;
+  color: var(--ink-2);
+  padding-inline: 4px;
+  text-wrap: pretty;
+}
+
+.rig__note a {
+  color: var(--ink);
+  border-bottom: 1px solid var(--line);
+  white-space: nowrap;
+}
+
+.rig__note a:hover { border-bottom-color: var(--ink); }
+.rig__note .mi { vertical-align: -3px; margin-left: 4px; }
+
+.rig__stage {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-inner);
+  background: var(--paper);
+  height: 560px;
+}
+
+/* The window itself. Hung from the top edge and centred on the stage, so a
+   phone-width render sits in the middle of a desktop-width stand with the
+   site's own paper either side of it.
+
+   Width, height and scale are all transitioned: the switch to tablet or
+   phone plays as a resize, and the embedded site reflows through it the way
+   it would under a hand on the window's corner. */
+.rig__scaler {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  transform-origin: 50% 0;
+  overflow: hidden;
+  opacity: 0;
+  /* Opened to the pointer only where a mouse can leave it again — see the
+     block comment above. */
+  pointer-events: none;
+  transition:
+    opacity var(--dur-4) var(--ease-out),
+    width var(--dur-rig) var(--ease-soft),
+    height var(--dur-rig) var(--ease-soft),
+    transform var(--dur-rig) var(--ease-soft),
+    border-radius var(--dur-rig) var(--ease-soft);
+}
+
+.rig__stage.is-ready .rig__scaler { opacity: 1; }
+
+/* A mouse can be moved off the frame; a finger on a full-width frame has
+   nowhere to go. So the site is drivable under a pointer and inert under a
+   thumb — the marked link under the stand is the way in from a phone. */
+@media (hover: hover) and (pointer: fine) {
+  .rig__stage.is-ready .rig__scaler { pointer-events: auto; }
+}
+
+.rig__scaler iframe {
+  border: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  background: var(--paper);
+}
+
+/* The stand sits between the lockup and the first band. Under it, the one
+   accent mark of the page: on a case page the live site is the destination,
+   so this is where the marked link belongs — not on the home cards, where it
+   would send the reader away before they read anything. */
+.case__stand {
+  padding-block: 40px var(--section-pad);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* Flush with the rig's own left edge: it stands beside the stand, not in it. */
+.case__live { align-self: flex-start; }
+
+.rig__url {
+  padding: 0 6px 4px;
+  font-size: var(--text-caps);
+  color: var(--ink-2);
+}
+
+@media (min-width: 900px) {
+  .rig { padding: 20px; gap: 16px; }
+  /* Capped against the viewport as well as stated in pixels: on a short
+     laptop screen a stand taller than the window can never be seen whole,
+     and the reader would be scrolling a window inside a window. The cap is
+     well under 100vh because the bar and the caption stand outside the
+     stage — roughly 145px of the budget is spent before the stage starts. */
+  .rig__stage { height: min(780px, 76vh); }
+  .rig__scaler { box-shadow: 0 20px 60px rgba(32, 32, 32, 0.12); }
+}
+
+/* -------------------------------------------------------------------------
+   GRIDS
+   ---------------------------------------------------------------------- */
+.grid { display: flex; flex-direction: column; gap: 12px; }
+
+@media (min-width: 900px) {
+  .grid { display: grid; gap: 20px; }
+  .grid--2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .grid--3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .grid--4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .grid--4 > * { min-height: 220px; }
+  .grid--tall > * { min-height: 240px; }
+}
+
+.section { display: flex; flex-direction: column; gap: 28px; }
+
+@media (min-width: 900px) {
+  .section { gap: 48px; }
+  .section--tight { gap: 40px; }
+}
+
+/* -------------------------------------------------------------------------
+   THE CHRONICLE
+   A row of dots on a hairline across the dark band; a vertical thread on the
+   phone, where six columns would be six unreadable slivers.
+   ---------------------------------------------------------------------- */
+.chron { display: flex; flex-direction: column; }
+
+.chron__item {
+  display: grid;
+  grid-template-columns: 16px minmax(0, 1fr);
+  gap: 16px;
+  padding-bottom: 24px;
+}
+
+.chron__thread {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.chron__thread i {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--line);
+  margin-top: 6px;
+  flex: none;
+}
+
+.chron__thread span {
+  width: 1px;
+  flex: 1;
+  background: var(--ink-line);
+}
+
+.chron__item--now .chron__thread i { background: var(--accent); }
+
+.chron__body { display: flex; flex-direction: column; gap: 8px; }
+
+.chron__title {
+  font-family: var(--font-display);
+  font-weight: var(--weight-regular);
+  font-size: 20px;
+  line-height: 1.1;
+}
+
+.chron__body p { font-size: var(--text-sm); line-height: 1.55; }
+
+@media (min-width: 900px) {
+  .chron {
+    display: grid;
+    grid-template-columns: repeat(var(--chron-cols, 6), minmax(0, 1fr));
+    align-items: start;
+  }
+
+  .chron__item {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 0 20px 0 0;
+  }
+
+  .chron__thread {
+    position: relative;
+    height: 20px;
+    flex-direction: row;
+    align-items: center;
+    gap: 0;
+  }
+
+  .chron__thread i { margin: 0; position: relative; z-index: 1; }
+
+  .chron__thread span {
+    position: absolute;
+    left: 0;
+    right: -20px;
+    top: 50%;
+    width: auto;
+    height: 1px;
+    flex: none;
+  }
+
+  .chron__title { font-size: 22px; max-width: 12ch; }
+  .chron__body { gap: 20px; }
+  .chron__body p { max-width: 24ch; }
+}
+
+/* On the light band the thread is a hairline, not an ink line. */
+.chron--light .chron__thread span { background: var(--line); }
+
+/* -------------------------------------------------------------------------
+   STATES  (case 01 — «До / Зміна / Після»)
+   ---------------------------------------------------------------------- */
+.states { display: flex; flex-direction: column; gap: 24px; }
+
+.states__panel { display: flex; flex-direction: column; gap: 20px; }
+
+.states__points { display: flex; flex-direction: column; }
+
+.point {
+  display: grid;
+  grid-template-columns: 44px minmax(0, 1fr);
+  gap: 16px;
+  padding: 20px 0;
+  border-top: 1px solid var(--line);
+}
+
+.point b {
+  font-family: var(--font-display);
+  font-weight: var(--weight-regular);
+  font-size: 26px;
+  line-height: 0.9;
+  letter-spacing: var(--track-display);
+  color: var(--bronze);
+}
+
+.point p { font-size: var(--text-body); line-height: 1.5; }
+
+@media (min-width: 900px) {
+  .states { gap: 40px; }
+
+  .states__panel {
+    display: grid;
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    gap: 48px;
+    align-items: start;
+    min-height: 280px;
+  }
+
+  .point {
+    grid-template-columns: 56px minmax(0, 1fr);
+    gap: 24px;
+    padding: 24px 20px;
+    margin-inline: -20px;
+    transition:
+      background-color 200ms ease,
+      border-radius var(--dur-3) var(--ease-soft),
+      transform var(--dur-3) var(--ease-soft);
+  }
+
+  .point:hover {
+    background: var(--mist);
+    border-radius: var(--radius-tile);
+    transform: translateX(10px);
+  }
+
+  .point b { font-size: 32px; }
+  .point p { font-size: var(--text-lede); line-height: 1.45; max-width: 44ch; }
+}
+
+/* -------------------------------------------------------------------------
+   WIRING  (case 02 — one record, seven places)
+   The curves are drawn from live DOM geometry, so they survive any width.
+   On the phone the diagram collapses to a list: seven bezier curves across
+   375px is a scribble, and the point is which fields feed which place.
+   ---------------------------------------------------------------------- */
+.wire { position: relative; display: grid; gap: 20px; }
+
+.wire svg { display: none; }
+
+.record {
+  position: relative;
+  background: var(--ink);
+  border-radius: var(--radius-card);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.record__head { padding: 0 12px 16px; }
+
+.field {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 12px;
+  border-radius: 10px;
+  min-height: 44px;
+  background: transparent;
+  border: 0;
+  width: 100%;
+  text-align: left;
+  transition: background-color 200ms ease;
+}
+
+.field span:first-child { font-size: var(--text-body); color: var(--paper); }
+.field span:last-child { font-size: var(--text-caps); color: var(--ink-2); }
+
+.field.is-on { background: var(--ink-raised-2); }
+.field.is-on span:last-child { color: var(--accent); }
+.wire.is-picking .field:not(.is-on) span:first-child { color: var(--ink-3); }
+
+.places {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.place {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 18px 20px;
+  border-radius: var(--radius-inner);
+  min-height: 44px;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  text-align: left;
+  transition: background-color 200ms ease, border-color 200ms ease;
+}
+
+.place span:first-child { font-size: var(--text-body); }
+.place span:last-child { font-size: var(--text-caps); color: var(--ink-2); }
+
+.place.is-on { background: var(--sand); border-color: var(--bronze); }
+.wire.is-picking .place:not(.is-on) span:first-child { color: var(--ink-3); }
+
+@media (min-width: 900px) {
+  .wire {
+    grid-template-columns: minmax(0, 360px) minmax(0, 1fr);
+    gap: 200px;
+    align-items: center;
+  }
+
+  .wire svg {
+    display: block;
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: visible;
+  }
+
+  .wire path {
+    fill: none;
+    stroke: var(--line);
+    stroke-width: 1;
+    transition: stroke 200ms ease, stroke-width 200ms ease;
+  }
+
+  .wire.is-picking path { stroke: var(--line-faint); }
+  .wire path.is-on { stroke: var(--accent); stroke-width: 2; }
+
+  .record { padding: 24px; }
+}
+
+.wire__note {
+  padding-top: 20px;
+  border-top: 1px solid var(--line);
+}
+
+/* -------------------------------------------------------------------------
+   THROUGH-LINE  (case 02 — the same order in all three projects)
+   ---------------------------------------------------------------------- */
+.through { display: flex; flex-direction: column; gap: 32px; }
+
+@media (min-width: 900px) {
+  .through {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+    gap: 48px;
+    align-items: start;
+  }
+}
+
+/* -------------------------------------------------------------------------
+   PLAN  (case 02 — who does what before launch)
+   ---------------------------------------------------------------------- */
+.plan { display: flex; flex-direction: column; }
+
+.plan__head { display: none; }
+
+.plan__row {
+  display: grid;
+  grid-template-columns: 32px minmax(0, 1fr);
+  gap: 12px 16px;
+  align-items: start;
+  padding: 20px 0;
+  border-top: 1px solid var(--line);
+}
+
+.plan__n {
+  font-family: var(--font-display);
+  font-size: 20px;
+  color: var(--ink-2);
+}
+
+.plan__title { font-size: var(--text-lede); line-height: 1.35; }
+
+.plan__meta {
+  grid-column: 2;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+@media (min-width: 900px) {
+  .plan__head,
+  .plan__row {
+    display: grid;
+    grid-template-columns: 40px minmax(0, 1fr) 180px 140px;
+    gap: 24px;
+    align-items: center;
+  }
+
+  .plan__head { padding: 0 20px 16px; border: 0; }
+
+  .plan__row {
+    padding: 24px 20px;
+    margin-inline: -20px;
+    transition:
+      background-color 200ms ease,
+      border-radius var(--dur-3) var(--ease-soft),
+      transform var(--dur-3) var(--ease-soft);
+  }
+
+  .plan__row:hover {
+    background: var(--mist);
+    border-radius: var(--radius-tile);
+    transform: translateX(10px);
+  }
+
+  .plan__n { font-size: 22px; }
+  .plan__title { font-size: 20px; max-width: 48ch; }
+  .plan__meta { display: contents; }
+  .plan__who { font-size: var(--text-body); color: var(--ink-2); }
+}
+
+/* A note carried on a 3px accent bar — used once per page, at most. */
+.note {
+  display: grid;
+  grid-template-columns: 3px minmax(0, 1fr);
+  gap: 20px;
+  padding-block: 8px;
+}
+
+.note > i { background: var(--accent); }
+
+/* What a role sees. */
+.sees { display: flex; flex-direction: column; gap: 12px; padding-top: 4px; }
+
+.sees li {
+  display: grid;
+  grid-template-columns: 20px minmax(0, 1fr);
+  gap: 12px;
+  align-items: start;
+}
+
+.sees .dot { margin-top: 8px; }
+
+.leg { display: block; width: 24px; border-top: 2px solid var(--accent); }
+.leg--ahead { border-top-style: dashed; }
+
+/* -------------------------------------------------------------------------
+   CHAIN  (case 03 — application to result)
+   ---------------------------------------------------------------------- */
+.chain { display: flex; flex-direction: column; gap: 24px; }
+
+.chain__step { display: flex; flex-direction: column; gap: 12px; }
+
+.chain__rule { display: flex; align-items: center; height: 20px; }
+
+.chain__n {
+  font-family: var(--font-display);
+  font-weight: var(--weight-regular);
+  font-size: 40px;
+  line-height: 0.85;
+  letter-spacing: -0.03em;
+  color: var(--bronze);
+}
+
+@media (min-width: 900px) {
+  .chain {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0;
+  }
+
+  .chain__step { gap: 20px; padding: 0 28px 0 0; }
+
+  .chain__rule {
+    position: relative;
+    height: 20px;
+    display: flex;
+    align-items: center;
+  }
+
+  .chain__rule::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: -28px;
+    height: 1px;
+    background: var(--line);
+  }
+
+  .chain__n { font-size: var(--display-xl); }
+  .chain__step h3 { max-width: 14ch; }
+  .chain__step p { max-width: 30ch; }
+}
+
+/* -------------------------------------------------------------------------
+   BRACKET  (case 03 — the athlete's path through the draw)
+   Eight names, three rounds. On the phone the tree becomes a picker plus a
+   vertical path: a five-column bracket at 375px is unreadable, and the thing
+   worth showing is the selected athlete's route, not the whole tree.
+   ---------------------------------------------------------------------- */
+.bracket {
+  background: var(--paper);
+  border-radius: var(--radius-card);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  color: var(--ink);
+}
+
+.bracket__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.bracket__legend { display: none; }
+
+.bracket__picker { display: flex; flex-wrap: wrap; gap: 8px; }
+
+.bracket__pick {
+  font-size: 14px;
+  border: 1px solid var(--line);
+  padding: 10px 14px;
+  min-height: 44px;
+  border-radius: var(--radius-pill);
+  background: var(--paper);
+  color: var(--ink-2);
+}
+
+.bracket__pick[aria-pressed="true"] {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--paper);
+}
+
+/* Without JavaScript the phone keeps the tree — it is the only place the
+   draw exists, and the picker it would be replaced by does nothing. */
+.js .bracket__tree,
+.js .bracket__rounds { display: none; }
+
+.bracket__tree,
+.bracket__rounds { overflow-x: auto; }
+
+.bracket__picker,
+.bracket__path { display: none; }
+
+.js .bracket__picker { display: flex; }
+.js .bracket__path { display: flex; flex-direction: column; }
+
+.bracket__foot {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  padding-top: 20px;
+  border-top: 1px solid var(--line);
+}
+
+@media (min-width: 900px) {
+  .bracket { padding: 32px; gap: 24px; }
+
+  .js .bracket__picker,
+  .js .bracket__path { display: none; }
+
+  .bracket__legend { display: flex; align-items: center; gap: 24px; }
+
+  .bracket__rounds,
+  .bracket__tree,
+  .js .bracket__rounds,
+  .js .bracket__tree {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 48px minmax(0, 1fr) 48px minmax(0, 1fr);
+    overflow: visible;
+  }
+
+  .bracket__tree { height: 460px; }
+
+  .bracket__col { display: flex; flex-direction: column; }
+
+  .bracket__slot { flex: 1; display: flex; align-items: center; }
+
+  .match {
+    width: 100%;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: border-color 200ms ease;
+  }
+
+  .match.is-on { border-color: var(--accent); }
+
+  .match button {
+    width: 100%;
+    text-align: left;
+    border: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 10px 14px;
+    min-height: 44px;
+    background: transparent;
+    font-size: var(--text-sm);
+  }
+
+  .match button:first-child { border-bottom: 1px solid var(--line); }
+  .match button.is-pick { background: var(--ink); color: var(--paper); }
+  .match button.is-out { color: var(--ink-3); }
+
+  .match button span:last-child { font-size: 12px; color: var(--ink-3); }
+  .match button.is-pick span:last-child { color: var(--accent); }
+
+  .elbow {
+    width: 100%;
+    height: 50%;
+    border-top: 2px solid var(--line);
+    border-right: 2px solid var(--line);
+    border-bottom: 2px solid var(--line);
+    border-radius: 0 10px 10px 0;
+    transition: border-color 200ms ease;
+  }
+
+  .elbow.is-on { border-color: var(--accent); }
+  .elbow.is-ahead { border-style: dashed; }
+}
+
+/* -------------------------------------------------------------------------
+   NEXT CASES
+   ---------------------------------------------------------------------- */
+.next { display: flex; flex-direction: column; gap: 16px; }
+
+.next__card {
+  background: var(--mist);
+  border-radius: var(--radius-tile);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition:
+    background-color 200ms ease,
+    border-radius var(--dur-3) var(--ease-soft);
+}
+
+.next__card:hover { background: var(--mist-2); border-radius: var(--radius-tile-hover); }
+
+@media (min-width: 900px) {
+  .next { gap: 32px; }
+
+  .next__grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+  }
+
+  .next__card { padding: 40px; gap: 16px; min-height: 200px; }
+  .next__card p { max-width: 40ch; }
+}
+
+.next__grid { display: flex; flex-direction: column; gap: 16px; }
+
+/* The through-line rail on the sand band: white cards that nudge right. */
+.rail { display: flex; flex-direction: column; gap: 12px; }
+
+.rail__card {
+  background: var(--paper);
+  border-radius: var(--radius-card);
+  padding: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  transition: transform 300ms var(--ease-soft);
+}
+
+.rail__card:hover { transform: translateX(10px); }
+
+.rail__card > span:first-child { display: flex; flex-direction: column; gap: 6px; }
+
+.rail__name {
+  font-family: var(--font-display);
+  font-size: 22px;
+  line-height: var(--leading-card);
+}
+
+@media (min-width: 900px) {
+  .rail__card { padding: 28px 32px; }
+  .rail__name { font-size: 26px; }
+}
+
+/* -------------------------------------------------------------------------
+   CONTACT  (shared with the home page, one band shorter)
+   ---------------------------------------------------------------------- */
+.contact {
+  position: relative;
+  overflow: hidden;
+  padding-block: 56px;
+}
+
+.contact canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.contact__inner {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+@media (min-width: 900px) {
+  .contact { padding-block: 120px; }
+  .contact__inner { gap: 32px; align-items: start; }
+}
+
+.foot { background: var(--ink); padding-bottom: 24px; }
+
+.foot__inner {
+  padding-top: 20px;
+  border-top: 1px solid var(--ink-line);
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  font-size: var(--text-caps);
+  color: var(--mist);
+}
+
+@media (min-width: 900px) {
+  .foot { padding-bottom: 40px; }
+}

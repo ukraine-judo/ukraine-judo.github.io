@@ -1,10 +1,10 @@
 <!doctype html>
-<html lang="uk">
+<html lang="uk" class="no-js">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Система проведення змагань — кейс Марка Цимбала</title>
-  <meta name="description" content="Кейс системи проведення національних змагань: онлайн-реєстрація, жеребкування, сітки в реальному часі та результати — і прозорий шлях кожного спортсмена.">
+  <meta name="description" content="Внутрішня система для Федерації дзюдо України: онлайн-реєстрація, жеребкування, сітки в реальному часі й результати — від заявки до підсумку в одному ланцюзі.">
   <meta name="author" content="Марк Цимбал">
   <meta name="robots" content="index, follow">
   <meta name="theme-color" content="#ffffff">
@@ -15,19 +15,19 @@
   <meta property="og:type" content="article">
   <meta property="og:url" content="https://motosh.dev/cases/platform/">
   <meta property="og:title" content="Система проведення змагань — кейс Марка Цимбала">
-  <meta property="og:description" content="Реєстрація, жеребкування, сітки й результати національних змагань в одній системі.">
+  <meta property="og:description" content="Від заявки до результату: реєстрація, жеребкування й сітки в реальному часі.">
   <meta property="og:image" content="https://motosh.dev/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="Кейс: система проведення національних змагань">
+  <meta property="og:image:alt" content="Кейс: система проведення змагань">
   <meta property="og:locale" content="uk_UA">
   <meta property="og:site_name" content="motosh.dev">
 
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Система проведення змагань — кейс Марка Цимбала">
-  <meta name="twitter:description" content="Реєстрація, жеребкування, сітки й результати в одній системі.">
+  <meta name="twitter:description" content="Від заявки до результату: реєстрація, жеребкування й сітки в реальному часі.">
   <meta name="twitter:image" content="https://motosh.dev/og-image.png">
-  <meta name="twitter:image:alt" content="Кейс: система проведення національних змагань">
+  <meta name="twitter:image:alt" content="Кейс: система проведення змагань">
 
   <script type="application/ld+json">
 {
@@ -37,23 +37,9 @@
         "@type": "BreadcrumbList",
         "@id": "https://motosh.dev/cases/platform/#breadcrumb",
         "itemListElement": [
-          {
-            "@type": "ListItem",
-            "position": 1,
-            "name": "Головна",
-            "item": "https://motosh.dev/"
-          },
-          {
-            "@type": "ListItem",
-            "position": 2,
-            "name": "Роботи",
-            "item": "https://motosh.dev/#work"
-          },
-          {
-            "@type": "ListItem",
-            "position": 3,
-            "name": "Система проведення змагань"
-          }
+          { "@type": "ListItem", "position": 1, "name": "Головна", "item": "https://motosh.dev/" },
+          { "@type": "ListItem", "position": 2, "name": "Роботи", "item": "https://motosh.dev/#work" },
+          { "@type": "ListItem", "position": 3, "name": "Система проведення змагань" }
         ]
       },
       {
@@ -61,38 +47,16 @@
         "@id": "https://motosh.dev/cases/platform/#webpage",
         "url": "https://motosh.dev/cases/platform/",
         "name": "Система проведення змагань",
-        "description": "Реєстрація, жеребкування, сітки та результати національних змагань в одній системі.",
+        "description": "Внутрішня система проведення національних змагань: заявки, жеребкування, сітки, результати.",
         "inLanguage": "uk",
-        "isPartOf": {
-          "@id": "https://motosh.dev/#website"
-        },
-        "breadcrumb": {
-          "@id": "https://motosh.dev/cases/platform/#breadcrumb"
-        },
+        "isPartOf": { "@id": "https://motosh.dev/#website" },
+        "breadcrumb": { "@id": "https://motosh.dev/cases/platform/#breadcrumb" },
+        "about": { "@id": "https://motosh.dev/#person" },
         "primaryImageOfPage": {
           "@type": "ImageObject",
           "url": "https://motosh.dev/og-image.png",
           "width": 1200,
           "height": 630
-        }
-      },
-      {
-        "@type": "CreativeWork",
-        "@id": "https://motosh.dev/cases/platform/#work",
-        "name": "Система проведення змагань",
-        "description": "Реєстрація, жеребкування, сітки та результати національних змагань в одній системі.",
-        "url": "https://motosh.dev/cases/platform/",
-        "inLanguage": "uk",
-        "creativeWorkStatus": "InProgress",
-        "author": {
-          "@id": "https://motosh.dev/#person"
-        },
-        "creator": {
-          "@id": "https://motosh.dev/#person"
-        },
-        "about": "Система проведення національних змагань для Федерації Дзюдо України",
-        "mainEntityOfPage": {
-          "@id": "https://motosh.dev/cases/platform/#webpage"
         }
       }
     ]
@@ -102,464 +66,488 @@
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,300,0,0&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,300,0,0&display=block" rel="stylesheet">
 
-  <link rel="stylesheet" href="/design-system/variables.css?v=11">
-  <link rel="stylesheet" href="/assets/core.css?v=11">
-  <link rel="stylesheet" href="/assets/desktop.css?v=11" media="(min-width: 900px)">
-  <link rel="stylesheet" href="/assets/mobile.css?v=11" media="(max-width: 899px)">
+  <link rel="stylesheet" href="/design-system/variables.css?v=33">
+  <link rel="stylesheet" href="/assets/base.css?v=33">
+  <link rel="stylesheet" href="/assets/ui.css?v=33">
+  <link rel="stylesheet" href="/assets/case.css?v=33">
 
-  <script>try{if(sessionStorage.getItem("portfolio_route_transition"))document.documentElement.classList.add("route-arriving")}catch{}</script>
-  <script type="module" src="/assets/core.js?v=11"></script>
+  <script>
+    /* A case page is only ever covered by a panel some other page raised.
+       The word is left in `sessionStorage` by the morph or the gate, and it
+       is read here, before the first paint — a curtain decided after boot is
+       a curtain that flashes on a page nobody transitioned into. */
+    (function () {
+      var root = document.documentElement;
+      var gated = false;
+      try {
+        gated = sessionStorage.getItem("motosh:gate") === "1";
+        sessionStorage.removeItem("motosh:gate");
+      } catch (e) { /* private mode: open with no curtain */ }
+
+      root.className = gated ? "js has-gate" : "js";
+      setTimeout(function () { root.classList.remove("has-gate"); }, 4000);
+    })();
+  </script>
+  <script type="module" src="/assets/js/boot.js?v=33"></script>
 </head>
 
-<body class="case-page case-page--platform">
-  <a class="skip-link" href="#content">До основного вмісту</a>
+<body>
+  <a class="skip" href="#main">До основного вмісту</a>
 
-  <header class="site-header" data-header data-layout="desktop">
-    <div class="container header-inner">
-      <a class="wordmark" href="/" data-route data-route-index="00" data-route-title="motosh.dev" aria-label="motosh.dev — на головну">motosh<span>.dev</span></a>
+  <div class="arrival" data-arrival aria-hidden="true"></div>
+  <script>
+    /* The panel the previous page raised is reprinted here from the markup
+       that page serialised, so the two documents draw the literal same frame
+       either side of the navigation. Without it the morph ends on a blank
+       rectangle and every word the visitor was reading is gone in one frame.
 
-      <nav class="site-nav" aria-label="Навігація кейсу">
-        <a href="#why">Задача</a>
-        <a href="#bracket">Сітка</a>
-        <a href="#flow">Ланцюг</a>
-        <a href="#roles">Ролі</a>
-        <a href="#surfaces">Доступ</a>
-      </nav>
+       Inline, and next to the element rather than after boot: a lockup that
+       lands a frame late is a lockup the visitor watches pop in. */
+    (function () {
+      if (!document.documentElement.classList.contains("has-gate")) return;
 
-      <div class="header-actions">
-        <a class="btn btn--ghost btn--compact" href="/" data-route data-route-index="00" data-route-title="motosh.dev" data-event="platform_back">
-          <span class="mi mi--sm" aria-hidden="true">arrow_back</span>
-          На головну
-        </a>
+      var html = null;
+      try {
+        html = sessionStorage.getItem("motosh:lockup");
+        sessionStorage.removeItem("motosh:lockup");
+      } catch (e) { /* private mode: the panel stays blank, as it always was */ }
+
+      // Only ever the panel this site wrote, never whatever the key holds.
+      if (!html || html.lastIndexOf("<div class=\"route__inner\"", 0) !== 0) return;
+      document.currentScript.previousElementSibling.innerHTML = html;
+    })();
+  </script>
+
+  <header class="head">
+    <nav class="nav" aria-label="Навігація кейсів">
+      <a class="nav__back" href="/"><span class="mi mi--sm" aria-hidden="true">arrow_back</span>Усі кейси</a>
+      <span class="nav__sep" aria-hidden="true"></span>
+      <span class="nav__index">Кейс 03 · Змагання</span>
+      <div class="nav__links">
+        <a href="/cases/fdu/">01</a>
+        <a href="/cases/fspu/">02</a>
       </div>
-    </div>
+      <a class="nav__cta" href="https://t.me/fqmotosh" target="_blank" rel="noopener noreferrer">Telegram</a>
+    </nav>
   </header>
 
-  <header class="m-header" data-header data-layout="mobile">
-    <a class="wordmark" href="/" data-route data-route-index="00" data-route-title="motosh.dev" aria-label="motosh.dev — на головну">motosh<span>.dev</span></a>
-    <button class="m-header__menu" type="button" data-sheet-open aria-expanded="false" aria-controls="mobile-sheet">
-      <span class="m-header__menu-label">Меню</span>
-      <span class="mi mi--sm" aria-hidden="true">menu</span>
-    </button>
-  </header>
+  <main id="main">
+    <!-- ==================================================================
+         LOCKUP
+         ================================================================== -->
+    <section class="wrap case__hero">
+      <p class="caps" data-hero="0"><span class="dot"></span>Кейс 03 · У розробці · 2026</p>
 
-  <nav class="m-sheet" id="mobile-sheet" data-layout="mobile" data-sheet aria-label="Мобільна навігація" aria-hidden="true">
-    <div class="m-sheet__scrim" data-sheet-close></div>
-    <div class="m-sheet__panel" role="dialog" aria-modal="true" aria-label="Навігація">
-      <div class="m-sheet__grip" data-sheet-grip><i></i></div>
-      <div class="m-sheet__head">
-        <span class="label label--bare">Кейс · 03 · Змагання</span>
-        <button class="m-sheet__close" type="button" data-sheet-close aria-label="Закрити меню">
-          <span class="mi mi--sm" aria-hidden="true">close</span>
-        </button>
+      <div class="case__lockup" data-hero="1">
+        <h1 class="d-hero case__title">Система проведення змагань</h1>
+        <p class="lede w-46">Продукт для Федерації дзюдо України, у якому національне змагання проходить від заявки до фінальної сітки: реєстрація, жеребкування, сітки в реальному часі й результати — в одному ланцюзі, а не в десятку файлів.</p>
       </div>
 
-      <div class="m-sheet__list">
-        <a href="#why" data-sheet-link><span>01</span><strong>Задача</strong><small>Чому це потрібно федерації</small><span class="mi mi--sm" aria-hidden="true">arrow_forward</span></a>
-        <a href="#bracket" data-sheet-link><span>02</span><strong>Сітка</strong><small>Шлях спортсмена турніром</small><span class="mi mi--sm" aria-hidden="true">arrow_forward</span></a>
-        <a href="#flow" data-sheet-link><span>03</span><strong>Ланцюг</strong><small>Від заявки до результату</small><span class="mi mi--sm" aria-hidden="true">arrow_forward</span></a>
-        <a href="#roles" data-sheet-link><span>04</span><strong>Ролі</strong><small>Спортсмен, тренер, федерація</small><span class="mi mi--sm" aria-hidden="true">arrow_forward</span></a>
-        <a href="#surfaces" data-sheet-link><span>05</span><strong>Доступ</strong><small>Що відкрито, а що закрито</small><span class="mi mi--sm" aria-hidden="true">arrow_forward</span></a>
+      <div class="rule" data-hero="2"></div>
+
+      <div class="facts" data-hero="3">
+        <span class="fact"><span class="caps caps--bronze">Тип</span><span>Внутрішня система</span></span>
+        <span class="fact"><span class="caps caps--bronze">Період</span><span>2026</span></span>
+        <span class="fact"><span class="caps caps--bronze">Роль</span><span>Весь продукт</span></span>
+        <span class="fact"><span class="caps caps--bronze">Статус</span><span>У розробці · 2026</span></span>
       </div>
 
-      <div class="m-sheet__cases">
-        <a href="/cases/fdu/" data-route data-route-index="01" data-route-title="Федерація Дзюдо України" data-event="sheet_case_fdu">
-          <img src="/assets/fdu-mark.png?v=1" alt="" width="40" height="40">
-          <span><strong>Кейс ФДУ</strong><small>Запущено · ukrainejudo.com</small></span>
-          <span class="mi mi--sm" aria-hidden="true">arrow_outward</span>
-        </a>
+      <div class="note" data-hero="4">
+        <i aria-hidden="true"></i>
+        <p class="lede w-62">Як це повʼязано з кейсом 01: сайт федерації відповідає на питання «що відбувається». Ця система — на питання «як це провести». Перше видно всім, друге працює всередині.</p>
+      </div>
+    </section>
+
+    <!-- ==================================================================
+         THE STAND
+         ================================================================== -->
+    <section class="wrap case__stand">
+      <div class="rig" data-rig="https://app.ukrainejudo.com" data-rig-title="Публічна частина системи проведення змагань">
+        <div class="rig__bar">
+          <div class="seg" role="group" aria-label="Ширина вікна">
+            <button type="button" data-device="desktop" aria-pressed="true">Десктоп</button>
+            <button type="button" data-device="tablet" aria-pressed="false">Планшет</button>
+            <button type="button" data-device="phone" aria-pressed="false">Телефон</button>
+          </div>
+          <span class="rig__scale" data-rig-scale><span data-rig-dims></span><span data-rig-pct></span></span>
+        </div>
+
+        <div class="rig__stage" data-rig-stage></div>
+
+        <p class="rig__note">Публічна частина — відкрита. Робоче середовище закрите.</p>
       </div>
 
-      <a class="btn btn--primary m-sheet__cta" href="/" data-route data-route-index="00" data-route-title="motosh.dev">
-        На головну
-        <span class="mi mi--sm btn__icon" aria-hidden="true">arrow_back</span>
+      <a class="link case__live" href="https://app.ukrainejudo.com" target="_blank" rel="noopener noreferrer">
+        <span class="link__mark">Відкрити app.ukrainejudo.com<span class="mi mi--sm mi--gap" aria-hidden="true">open_in_new</span></span>
       </a>
-    </div>
-  </nav>
+    </section>
 
-  <div class="m-dock" data-layout="mobile" data-dock aria-label="Швидкі дії">
-    <a class="m-dock__item" href="/" data-route data-route-index="00" data-route-title="motosh.dev" data-event="dock_home">
-      <span class="mi mi--sm" aria-hidden="true">arrow_back</span>
-      <span>Головна</span>
-    </a>
-    <a class="m-dock__item" href="#flow" data-event="dock_flow">
-      <span class="mi mi--sm" aria-hidden="true">layers</span>
-      <span>Ланцюг</span>
-    </a>
-    <a class="m-dock__item m-dock__item--primary" href="#bracket" data-event="dock_bracket">
-      <span class="mi mi--sm" aria-hidden="true">account_tree</span>
-      <span>Сітка</span>
-    </a>
-  </div>
-
-  <main id="content">
-    <!-- ================================================================= -->
-    <section class="case-hero" id="top" data-nav-title="Початок кейсу" data-nav-hint="Система проведення змагань">
-      <div class="case-hero__field" aria-hidden="true">
-        <span class="orb case-hero__orb"></span>
-        <canvas data-field></canvas>
-      </div>
-
-      <div class="container">
-        <div class="case-hero__top intro-item">
-          <p class="label">Кейс · 03</p>
-          <span class="pill"><span class="pill__dot pill__dot--pending"></span>У розробці · 2026</span>
+    <!-- ==================================================================
+         TASK
+         ================================================================== -->
+    <section class="band band--mist">
+      <div class="wrap section" data-reveal>
+        <div class="head2">
+          <div class="stack g-16">
+            <p class="eyebrow">Задача</p>
+            <h2 class="d-lg w-16">Змагання розсипається на файли</h2>
+          </div>
+          <p class="body w-46">Чотири проблеми, які має один корінь: етапи змагання не передають дані один одному, тому кожен переписує все заново.</p>
         </div>
 
-        <h1 class="case-hero__title intro-item">Система проведення<br><span class="text-soft">змагань</span></h1>
-
-        <div class="case-hero__bottom intro-item">
-          <p>Продукт для Федерації Дзюдо України, у якому національне змагання проходить від заявки до фінальної сітки: онлайн-реєстрація, жеребкування, сітки в реальному часі й результати — в одному ланцюгу, а не в десятку файлів.</p>
-          <dl>
-            <div><dt>Моя роль</dt><dd>Весь продукт</dd></div>
-            <div><dt>Період</dt><dd>2026</dd></div>
-            <div><dt>Тип</dt><dd>Внутрішня система</dd></div>
-          </dl>
-        </div>
-
-        <div class="case-status intro-item" aria-label="Стан проєкту">
-          <div>
-            <span class="label label--bare">Готово</span>
-            <p>Модель змагання, сітки, публічний перегляд результатів</p>
+        <div class="grid grid--4">
+          <div class="tile tile--paper tile--compact">
+            <p class="caps caps--bronze">01</p>
+            <h3 class="d-sm">Заявка окремо від сітки</h3>
+            <p class="body">Реєстрація і жеребкування живуть у різних місцях.</p>
           </div>
-          <div>
-            <span class="label label--bare">У роботі</span>
-            <p>Робоче середовище для адміністраторів федерації</p>
+          <div class="tile tile--paper tile--compact">
+            <p class="caps caps--bronze">02</p>
+            <h3 class="d-sm">Сітка застаріває</h3>
+            <p class="body">Вона змінюється швидше, ніж її встигають оновлювати.</p>
           </div>
-          <div>
-            <span class="label label--bare">Попереду</span>
-            <p>Проведення перших національних стартів у системі</p>
+          <div class="tile tile--paper tile--compact">
+            <p class="caps caps--bronze">03</p>
+            <h3 class="d-sm">Спортсмен не бачить шляху</h3>
+            <p class="body">Незрозуміло, коли і з ким наступна зустріч.</p>
+          </div>
+          <div class="tile tile--paper tile--compact">
+            <p class="caps caps--bronze">04</p>
+            <h3 class="d-sm">Історія нікуди не веде</h3>
+            <p class="body">Підсумок змагання зникає в документі.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ================================================================= -->
-    <section class="case-context" id="why" data-nav-title="Задача" data-nav-hint="Чому це потрібно" data-nav-keywords="проблема змагання">
-      <div class="container">
-        <div class="section-head reveal">
-          <p class="label">Задача</p>
-          <h2>Змагання живе в системі, а не в файлах.</h2>
-          <p class="section-head__lead">Турнір складається з простих речей: хто заявився, хто з ким бореться, хто пройшов далі. Складність з’являється тоді, коли ці речі лежать окремо одна від одної — і кожна зміна означає, що комусь треба переписати ще один документ.</p>
+    <!-- ==================================================================
+         THE CHAIN
+         ================================================================== -->
+    <section class="band">
+      <div class="wrap section" data-reveal>
+        <div class="head2">
+          <div class="stack g-16">
+            <p class="eyebrow">Ланцюг</p>
+            <h2 class="d-lg w-16">Від заявки до результату</h2>
+          </div>
+          <p class="body w-46">Кожен крок віддає наступному готові дані. Ніхто нічого не переписує вручну, тому немає моменту, у якому дві версії правди починають розходитися.</p>
         </div>
 
-        <ul class="constraints" data-stagger>
-          <li class="reveal">
-            <span class="mono">01</span>
-            <h3>Заявка окремо від сітки</h3>
-            <p>Список учасників формується в одному місці, а жеребкування робиться в іншому. Між ними — ручне перенесення, у якому й трапляються помилки.</p>
-          </li>
-          <li class="reveal">
-            <span class="mono">02</span>
-            <h3>Сітка застаріває швидше, ніж оновлюється</h3>
-            <p>Поки результат зустрічі дійде до аркуша на стіні, він уже нікому не новина. А ті, хто не в залі, не бачать нічого.</p>
-          </li>
-          <li class="reveal">
-            <span class="mono">03</span>
-            <h3>Спортсмен не бачить свого шляху</h3>
-            <p>Питання «коли я борюся і з ким далі» вимагає знайти потрібну людину, а не подивитися на екран.</p>
-          </li>
-          <li class="reveal">
-            <span class="mono">04</span>
-            <h3>Історія нікуди не веде</h3>
-            <p>Після змагання результати лишаються в документі. Через рік знайти, де і як виступав спортсмен, майже неможливо.</p>
-          </li>
-        </ul>
+        <div class="chain">
+          <div class="chain__step">
+            <span class="chain__rule"><span class="dot dot--square" aria-hidden="true"></span></span>
+            <span class="chain__n">01</span>
+            <h3 class="d-md">Онлайн-реєстрація</h3>
+            <p class="body">Заявка подається один раз і одразу стає рядком у системі: категорія, вік, клуб, тренер. Список учасників формується сам.</p>
+          </div>
+          <div class="chain__step">
+            <span class="chain__rule"><span class="dot dot--square dot--ink" aria-hidden="true"></span></span>
+            <span class="chain__n">02</span>
+            <h3 class="d-md">Онлайн-жеребкування</h3>
+            <p class="body">Пари формуються за правилами категорії, а не переносяться руками. Результат жеребкування одразу стає сіткою.</p>
+          </div>
+          <div class="chain__step">
+            <span class="chain__rule"><span class="dot dot--square dot--ink" aria-hidden="true"></span></span>
+            <span class="chain__n">03</span>
+            <h3 class="d-md">Сітка в реальному часі</h3>
+            <p class="body">Зустріч завершилася — сітка оновилася для всіх одночасно: і для залу, і для тих, хто дивиться з дому.</p>
+          </div>
+          <div class="chain__step">
+            <span class="chain__rule"><span class="dot dot--square dot--ink" aria-hidden="true"></span></span>
+            <span class="chain__n">04</span>
+            <h3 class="d-md">Результат, який лишається</h3>
+            <p class="body">Підсумок не зникає в документі: він стає частиною історії спортсмена й доступний через рік так само, як сьогодні.</p>
+          </div>
+        </div>
       </div>
     </section>
 
-    <!-- ================================================================= -->
-    <section class="case-bracket" id="bracket" data-nav-title="Сітка" data-nav-hint="Шлях спортсмена" data-nav-keywords="жеребкування турнір">
-      <div class="container">
-        <div class="section-head reveal">
-          <p class="label">Прозорість</p>
-          <h2>Спортсмен бачить свій шлях, а не таблицю.</h2>
-          <p class="section-head__lead">Оберіть будь-якого учасника — підсвітиться весь його маршрут турніром: зустрічі, які вже позаду, і ті, що можуть бути попереду. Перемикачі показують, як та сама сітка виглядає на трьох етапах змагання.</p>
+    <!-- ==================================================================
+         THE DRAW
+         ================================================================== -->
+    <section class="band band--ink">
+      <div class="wrap section section--tight" data-reveal>
+        <div class="head2">
+          <div class="stack g-16">
+            <p class="eyebrow">Сітка</p>
+            <h2 class="d-lg paper w-16">Шлях спортсмена видно наскрізь</h2>
+          </div>
+          <p class="body light w-46">Оберіть учасника — сітка підсвітить його шлях: пройдене суцільною лінією, майбутнє пунктиром. Зустріч завершилася — сітка оновилася для всіх одночасно.</p>
         </div>
 
-        <div class="bracket-block reveal">
-          <div class="bracket-block__head">
-            <div class="bracket-block__stages" role="group" aria-label="Етап змагання">
-              <button type="button" data-bracket-stage="reg" aria-pressed="false">Реєстрація</button>
-              <button type="button" data-bracket-stage="draw" aria-pressed="true">Жеребкування</button>
-              <button type="button" data-bracket-stage="result" aria-pressed="false">Результати</button>
+        <div class="bracket" data-bracket>
+          <div class="bracket__top">
+            <div class="baseline g-16">
+              <span class="d-sm nowrap">Категорія −66 кг</span>
+              <span class="chip chip--sand">Демодані</span>
             </div>
-            <span class="pill">до 66 кг · демодані</span>
-          </div>
-
-          <div class="bracket" data-bracket data-stage="draw">
-            <svg class="bracket__wires" data-bracket-wires aria-hidden="true"></svg>
-
-            <div class="bracket__round">
-              <p class="bracket__legend mono">1/4 фіналу</p>
-              <button class="bracket__slot" type="button" data-slot="s1a" data-round="1" data-athlete="a1" data-name="Учасник 1" data-next="s5a" data-result="won"><span class="bracket__seed mono">1</span><span class="bracket__name">Учасник 1</span></button>
-              <button class="bracket__slot" type="button" data-slot="s1b" data-round="1" data-athlete="a2" data-name="Учасник 2" data-next="s5a" data-result="lost"><span class="bracket__seed mono">2</span><span class="bracket__name">Учасник 2</span></button>
-              <button class="bracket__slot" type="button" data-slot="s2a" data-round="1" data-athlete="a3" data-name="Учасник 3" data-next="s5b" data-result="lost"><span class="bracket__seed mono">3</span><span class="bracket__name">Учасник 3</span></button>
-              <button class="bracket__slot" type="button" data-slot="s2b" data-round="1" data-athlete="a4" data-name="Учасник 4" data-next="s5b" data-result="won"><span class="bracket__seed mono">4</span><span class="bracket__name">Учасник 4</span></button>
-              <button class="bracket__slot" type="button" data-slot="s3a" data-round="1" data-athlete="a5" data-name="Учасник 5" data-next="s6a" data-result="won"><span class="bracket__seed mono">5</span><span class="bracket__name">Учасник 5</span></button>
-              <button class="bracket__slot" type="button" data-slot="s3b" data-round="1" data-athlete="a6" data-name="Учасник 6" data-next="s6a" data-result="lost"><span class="bracket__seed mono">6</span><span class="bracket__name">Учасник 6</span></button>
-              <button class="bracket__slot" type="button" data-slot="s4a" data-round="1" data-athlete="a7" data-name="Учасник 7" data-next="s6b" data-result="lost"><span class="bracket__seed mono">7</span><span class="bracket__name">Учасник 7</span></button>
-              <button class="bracket__slot" type="button" data-slot="s4b" data-round="1" data-athlete="a8" data-name="Учасник 8" data-next="s6b" data-result="won"><span class="bracket__seed mono">8</span><span class="bracket__name">Учасник 8</span></button>
-            </div>
-
-            <div class="bracket__round">
-              <p class="bracket__legend mono">1/2 фіналу</p>
-              <button class="bracket__slot" type="button" data-slot="s5a" data-round="2" data-athlete="a1" data-name="Учасник 1" data-next="s7a" data-result="won"><span class="bracket__name">—</span></button>
-              <button class="bracket__slot" type="button" data-slot="s5b" data-round="2" data-athlete="a4" data-name="Учасник 4" data-next="s7a" data-result="lost"><span class="bracket__name">—</span></button>
-              <button class="bracket__slot" type="button" data-slot="s6a" data-round="2" data-athlete="a5" data-name="Учасник 5" data-next="s7b" data-result="won"><span class="bracket__name">—</span></button>
-              <button class="bracket__slot" type="button" data-slot="s6b" data-round="2" data-athlete="a8" data-name="Учасник 8" data-next="s7b" data-result="lost"><span class="bracket__name">—</span></button>
-            </div>
-
-            <div class="bracket__round">
-              <p class="bracket__legend mono">Фінал</p>
-              <button class="bracket__slot" type="button" data-slot="s7a" data-round="3" data-athlete="a1" data-name="Учасник 1" data-next="s8" data-result="won"><span class="bracket__name">—</span></button>
-              <button class="bracket__slot" type="button" data-slot="s7b" data-round="3" data-athlete="a5" data-name="Учасник 5" data-next="s8" data-result="lost"><span class="bracket__name">—</span></button>
-            </div>
-
-            <div class="bracket__round bracket__round--winner">
-              <p class="bracket__legend mono">Перемога</p>
-              <button class="bracket__slot bracket__slot--winner" type="button" data-slot="s8" data-round="4" data-athlete="a1" data-name="Учасник 1" data-result="won"><span class="bracket__name">—</span></button>
+            <div class="bracket__legend caps">
+              <span class="inline g-8"><i class="leg leg--done" aria-hidden="true"></i>Пройдено</span>
+              <span class="inline g-8"><i class="leg leg--ahead" aria-hidden="true"></i>Попереду</span>
             </div>
           </div>
 
-          <p class="bracket__readout mono" data-bracket-readout aria-live="polite">Жеребкування визначило пари першого кола.</p>
-        </div>
-      </div>
-    </section>
+          <div class="bracket__picker" role="group" aria-label="Учасник">
+            <button class="bracket__pick" type="button" data-pick="0" aria-pressed="true">№1</button>
+            <button class="bracket__pick" type="button" data-pick="1" aria-pressed="false">№2</button>
+            <button class="bracket__pick" type="button" data-pick="2" aria-pressed="false">№3</button>
+            <button class="bracket__pick" type="button" data-pick="3" aria-pressed="false">№4</button>
+            <button class="bracket__pick" type="button" data-pick="4" aria-pressed="false">№5</button>
+            <button class="bracket__pick" type="button" data-pick="5" aria-pressed="false">№6</button>
+            <button class="bracket__pick" type="button" data-pick="6" aria-pressed="false">№7</button>
+            <button class="bracket__pick" type="button" data-pick="7" aria-pressed="false">№8</button>
+          </div>
 
-    <!-- ================================================================= -->
-    <section class="case-flow" id="flow" data-nav-title="Ланцюг" data-nav-hint="Від заявки до результату" data-nav-keywords="процес етапи">
-      <div class="container">
-        <div class="section-head reveal">
-          <p class="label">Ланцюг</p>
-          <h2>Від заявки до результату — один ланцюг.</h2>
-          <p class="section-head__lead">Кожен крок віддає наступному готові дані. Ніхто нічого не переписує вручну, тому й немає моменту, у якому дві версії правди починають розходитися.</p>
-        </div>
+          <div class="bracket__path chron chron--light" data-path></div>
 
-        <ol class="flow" data-stagger>
-          <li class="reveal">
-            <span class="mono">01</span>
-            <div>
-              <strong>Онлайн-реєстрація</strong>
-              <p>Заявка подається один раз і одразу стає рядком у системі: категорія, вік, клуб, тренер. Список учасників формується сам.</p>
-            </div>
-          </li>
-          <li class="reveal">
-            <span class="mono">02</span>
-            <div>
-              <strong>Онлайн-жеребкування</strong>
-              <p>Пари формуються за правилами категорії, а не переносяться руками. Результат жеребкування одразу стає сіткою.</p>
-            </div>
-          </li>
-          <li class="reveal">
-            <span class="mono">03</span>
-            <div>
-              <strong>Сітка в реальному часі</strong>
-              <p>Зустріч завершилася — сітка оновилася для всіх одночасно: і для залу, і для тих, хто дивиться з дому.</p>
-            </div>
-          </li>
-          <li class="reveal">
-            <span class="mono">04</span>
-            <div>
-              <strong>Результат, який лишається</strong>
-              <p>Підсумок змагання не зникає в документі: він стає частиною історії спортсмена й доступний через рік так само, як сьогодні.</p>
-            </div>
-          </li>
-        </ol>
-      </div>
-    </section>
+          <div class="bracket__rounds caps">
+            <span>1/4 фіналу</span><span></span><span>1/2 фіналу</span><span></span><span>Фінал</span>
+          </div>
 
-    <!-- ================================================================= -->
-    <section class="case-roles" id="roles" data-nav-title="Ролі" data-nav-hint="Хто що бачить" data-nav-keywords="спортсмен тренер федерація">
-      <div class="container">
-        <div class="section-head reveal">
-          <p class="label">Три ролі</p>
-          <h2>Одна система, три різні питання.</h2>
-        </div>
-
-        <div class="roles" data-stagger>
-          <article class="role reveal">
-            <span class="mono">01</span>
-            <h3>Спортсмен</h3>
-            <p class="role__question">«Коли і з ким я борюся?»</p>
-            <ul>
-              <li>Своя зустріч: коли, де, з ким</li>
-              <li>Свій шлях сіткою — назад і вперед</li>
-              <li>Минулі та майбутні змагання в одному профілі</li>
-            </ul>
-          </article>
-
-          <article class="role reveal">
-            <span class="mono">02</span>
-            <h3>Тренер</h3>
-            <p class="role__question">«Що зараз у моїх спортсменів?»</p>
-            <ul>
-              <li>Усі свої учасники на одному екрані</li>
-              <li>Розклад зустрічей без обходу залів</li>
-              <li>Результати одразу після завершення</li>
-            </ul>
-          </article>
-
-          <article class="role reveal">
-            <span class="mono">03</span>
-            <h3>Федерація</h3>
-            <p class="role__question">«Чи все йде за планом?»</p>
-            <ul>
-              <li>Проведення змагання від заявок до підсумків</li>
-              <li>Одне джерело правди замість кількох файлів</li>
-              <li>Історія стартів, яка не губиться</li>
-            </ul>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- ================================================================= -->
-    <section class="case-surfaces" id="surfaces" data-nav-title="Доступ" data-nav-hint="Що відкрито, що закрито" data-nav-keywords="домени доступ">
-      <div class="container">
-        <div class="section-head reveal">
-          <p class="label">Дві поверхні</p>
-          <h2>Відкрито те, що має бути відкритим.</h2>
-          <p class="section-head__lead">Продукт має публічну частину, де змагання можна дивитися, і робоче середовище, де його проводять. Друге закрите — і в цьому кейсі свідомо не показане.</p>
-        </div>
-
-        <div class="surfaces" data-stagger>
-          <article class="surface reveal">
-            <figure class="rig" data-rig data-rig-viewport="desktop" data-rig-remote="true"
-                    data-rig-defer-hint="Це справжній app.ukrainejudo.com — завантажиться повністю">
-              <figcaption class="rig__bar">
-                <span class="dots dots--traffic" aria-hidden="true"><i></i><i></i><i></i></span>
-                <span class="rig__url mono">app.ukrainejudo.com</span>
-                <span class="rig__readout mono" data-rig-readout></span>
-                <div class="rig__switch" role="group" aria-label="Ширина вікна">
-                  <button type="button" data-rig-viewport="desktop" aria-pressed="true" aria-label="Комп’ютер"><span class="mi mi--sm" aria-hidden="true">desktop_windows</span></button>
-                  <button type="button" data-rig-viewport="tablet" aria-pressed="false" aria-label="Планшет"><span class="mi mi--sm" aria-hidden="true">tablet_mac</span></button>
-                  <button type="button" data-rig-viewport="phone" aria-pressed="false" aria-label="Телефон"><span class="mi mi--sm" aria-hidden="true">smartphone</span></button>
+          <div class="bracket__tree">
+            <div class="bracket__col">
+              <div class="bracket__slot">
+                <div class="match" data-match data-a="0" data-b="1" data-w="0" data-round="1/4 фіналу">
+                  <button type="button" data-side="0"><span>Спортсмен 01</span><span>перем.</span></button>
+                  <button type="button" data-side="1"><span>Спортсмен 02</span><span>—</span></button>
                 </div>
-                <a class="rig__external" href="https://app.ukrainejudo.com" target="_blank" rel="noopener noreferrer" data-event="platform_app_open" aria-label="Відкрити у новій вкладці">
-                  <span class="mi mi--sm" aria-hidden="true">arrow_outward</span>
-                </a>
-              </figcaption>
-              <div class="rig__stage" data-rig-stage>
-                <div class="rig__loader">
-                  <img src="/assets/fdu-mark.png?v=1" alt="" width="64" height="64">
-                  <span class="mono">Завантажую app.ukrainejudo.com</span>
-                  <span class="rig__progress"><i></i></span>
-                </div>
-                <div class="rig__canvas" data-rig-canvas>
-                  <iframe src="https://app.ukrainejudo.com" title="Публічна частина системи проведення змагань"
-                          loading="lazy" referrerpolicy="strict-origin-when-cross-origin"
-                          sandbox="allow-same-origin allow-scripts allow-popups allow-popups-to-escape-sandbox"></iframe>
-                </div>
-                <button class="rig__gate" type="button" data-rig-gate>
-                  <span class="pill pill--ink">Натисніть, щоб взаємодіяти</span>
-                </button>
               </div>
-            </figure>
-
-            <div class="surface__note">
-              <span class="pill"><span class="pill__dot"></span>Публічна частина</span>
-              <strong>app.ukrainejudo.com</strong>
-              <p>Оновлений основний сайт федерації: тут змагання видно ззовні — сітки, розклад, результати й профілі спортсменів.</p>
-            </div>
-          </article>
-
-          <article class="surface surface--closed reveal">
-            <figure class="rig" data-rig data-rig-viewport="desktop" data-rig-remote="true"
-                    data-rig-defer-hint="Відкриється екран входу — далі доступ лише адміністраторам">
-              <figcaption class="rig__bar">
-                <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
-                <span class="rig__url mono">platform.ukrainejudo.com</span>
-                <span class="rig__readout mono" data-rig-readout></span>
-                <div class="rig__switch" role="group" aria-label="Ширина вікна">
-                  <button type="button" data-rig-viewport="desktop" aria-pressed="true" aria-label="Комп’ютер"><span class="mi mi--sm" aria-hidden="true">desktop_windows</span></button>
-                  <button type="button" data-rig-viewport="tablet" aria-pressed="false" aria-label="Планшет"><span class="mi mi--sm" aria-hidden="true">tablet_mac</span></button>
-                  <button type="button" data-rig-viewport="phone" aria-pressed="false" aria-label="Телефон"><span class="mi mi--sm" aria-hidden="true">smartphone</span></button>
+              <div class="bracket__slot">
+                <div class="match" data-match data-a="2" data-b="3" data-w="3" data-round="1/4 фіналу">
+                  <button type="button" data-side="2"><span>Спортсмен 03</span><span>—</span></button>
+                  <button type="button" data-side="3"><span>Спортсмен 04</span><span>перем.</span></button>
                 </div>
-                <span class="rig__lock mi mi--sm" aria-hidden="true">lock</span>
-              </figcaption>
-              <div class="rig__stage" data-rig-stage>
-                <div class="rig__loader">
-                  <img src="/assets/fdu-mark.png?v=1" alt="" width="64" height="64">
-                  <span class="mono">Завантажую екран входу</span>
-                  <span class="rig__progress"><i></i></span>
-                </div>
-                <div class="rig__canvas" data-rig-canvas>
-                  <iframe src="https://platform.ukrainejudo.com" title="Екран входу до робочого середовища федерації"
-                          loading="lazy" referrerpolicy="strict-origin-when-cross-origin"
-                          sandbox="allow-same-origin allow-scripts"></iframe>
-                </div>
-                <button class="rig__gate" type="button" data-rig-gate>
-                  <span class="pill pill--ink">Натисніть, щоб взаємодіяти</span>
-                </button>
               </div>
-            </figure>
-
-            <div class="surface__note">
-              <span class="pill pill--beta"><span class="mi mi--sm" aria-hidden="true">lock</span>Лише адміністратори</span>
-              <strong>platform.ukrainejudo.com</strong>
-              <p>Робоче середовище федерації: реєстрації, жеребкування та внесення результатів. Далі за екраном входу — те, що бачать лише адміністратори, тому воно тут і закінчується.</p>
+              <div class="bracket__slot">
+                <div class="match" data-match data-a="4" data-b="5" data-w="4" data-round="1/4 фіналу">
+                  <button type="button" data-side="4"><span>Спортсмен 05</span><span>перем.</span></button>
+                  <button type="button" data-side="5"><span>Спортсмен 06</span><span>—</span></button>
+                </div>
+              </div>
+              <div class="bracket__slot">
+                <div class="match" data-match data-a="6" data-b="7" data-w="7" data-round="1/4 фіналу">
+                  <button type="button" data-side="6"><span>Спортсмен 07</span><span>—</span></button>
+                  <button type="button" data-side="7"><span>Спортсмен 08</span><span>перем.</span></button>
+                </div>
+              </div>
             </div>
-          </article>
-        </div>
-      </div>
-    </section>
 
-    <!-- ================================================================= -->
-    <section class="case-journey" id="journey" data-nav-title="Хроніка" data-nav-hint="Як рухався проєкт">
-      <div class="container">
-        <div class="section-head reveal">
-          <p class="label">Хроніка</p>
-          <h2>Від окремого сайту до системи, яка проводить старти.</h2>
-        </div>
+            <div class="bracket__col">
+              <div class="bracket__slot"><div class="elbow" data-elbow data-a="0" data-b="3" data-done="true"></div></div>
+              <div class="bracket__slot"><div class="elbow" data-elbow data-a="4" data-b="7" data-done="true"></div></div>
+            </div>
 
-        <ol class="journey" data-stagger>
-          <li class="reveal">
-            <time class="mono">Після запуску ФДУ</time>
-            <div><strong>Побачив наступну задачу</strong><p>Сайт відповів на питання «що відбувається», але не на питання «як це провести».</p></div>
-          </li>
-          <li class="reveal">
-            <time class="mono">2026</time>
-            <div><strong>Модель змагання</strong><p>Заявка, категорія, пара, зустріч, результат — описані як пов’язані сутності, а не як стовпці таблиці.</p></div>
-          </li>
-          <li class="reveal is-current">
-            <time class="mono">Зараз</time>
-            <div><strong>Сітки та публічний перегляд</strong><p>Шлях спортсмена турніром видно ззовні, робоче середовище добудовується.</p></div>
-          </li>
-          <li class="reveal">
-            <time class="mono">Наступний етап</time>
-            <div><strong>Перші старти в системі</strong><p>Проведення національних змагань повністю всередині продукту.</p></div>
-          </li>
-        </ol>
-      </div>
-    </section>
+            <div class="bracket__col">
+              <div class="bracket__slot">
+                <div class="match" data-match data-a="0" data-b="3" data-w="0" data-round="1/2 фіналу">
+                  <button type="button" data-side="0"><span>Спортсмен 01</span><span>перем.</span></button>
+                  <button type="button" data-side="3"><span>Спортсмен 04</span><span>—</span></button>
+                </div>
+              </div>
+              <div class="bracket__slot">
+                <div class="match" data-match data-a="4" data-b="7" data-w="4" data-round="1/2 фіналу">
+                  <button type="button" data-side="4"><span>Спортсмен 05</span><span>перем.</span></button>
+                  <button type="button" data-side="7"><span>Спортсмен 08</span><span>—</span></button>
+                </div>
+              </div>
+            </div>
 
-    <!-- ================================================================= -->
-    <section class="case-outro" data-nav-title="Далі" data-nav-hint="Наступний кейс">
-      <div class="container case-outro__grid">
-        <p class="label reveal">Далі</p>
-        <div>
-          <h2 class="reveal">Потрібна система, яка проводить процес, а не описує його?</h2>
-          <div class="case-outro__actions reveal">
-            <a class="btn btn--light" href="https://t.me/fqmotosh" target="_blank" rel="noopener noreferrer" data-event="platform_outro_telegram">
-              Обговорити задачу
-              <span class="mi mi--sm btn__icon" aria-hidden="true">arrow_outward</span>
-            </a>
-            <a class="btn btn--dark-ghost" href="/cases/fdu/" data-route data-route-index="01" data-route-title="Федерація Дзюдо України" data-event="platform_outro_fdu">
-              Кейс ФДУ
-              <span class="mi mi--sm btn__icon" aria-hidden="true">arrow_forward</span>
-            </a>
+            <div class="bracket__col">
+              <div class="bracket__slot"><div class="elbow" data-elbow data-a="0" data-b="4" data-done="false"></div></div>
+            </div>
+
+            <div class="bracket__col">
+              <div class="bracket__slot">
+                <div class="match" data-match data-a="0" data-b="4" data-w="" data-round="Фінал">
+                  <button type="button" data-side="0"><span>Спортсмен 01</span><span>далі</span></button>
+                  <button type="button" data-side="4"><span>Спортсмен 05</span><span>далі</span></button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="bracket__foot">
+            <span class="caps caps--bronze">Обраний</span>
+            <span class="lede" data-pick-name></span>
+            <span class="body" data-pick-summary></span>
           </div>
         </div>
       </div>
+    </section>
 
-      <footer class="container site-footer">
-        <strong>motosh.dev</strong>
-        <span>Марк Цимбал · Україна · <span data-year>2026</span></span>
-      </footer>
+    <!-- ==================================================================
+         ROLES
+         ================================================================== -->
+    <section class="band">
+      <div class="wrap section section--tight" data-reveal>
+        <div class="head2">
+          <div class="stack g-16">
+            <p class="eyebrow">Ролі</p>
+            <h2 class="d-lg w-16">Три ролі — три різні питання</h2>
+          </div>
+          <p class="body w-46">Один продукт, але кожен приходить у нього зі своїм питанням. Екран відповідає на те, яке ставить саме ця роль.</p>
+        </div>
+
+        <div class="grid grid--3">
+          <div class="tile tile--mist tile--wide">
+            <p class="caps caps--bronze">Спортсмен</p>
+            <h3 class="d-md w-16">«Коли і з ким я борюся?»</h3>
+            <ul class="sees">
+              <li><span class="dot"></span><span class="body">Свою зустріч: коли, де, з ким</span></li>
+              <li><span class="dot"></span><span class="body">Свій шлях по сітці — назад і вперед</span></li>
+              <li><span class="dot"></span><span class="body">Минулі й майбутні змагання в одному профілі</span></li>
+            </ul>
+          </div>
+          <div class="tile tile--mist tile--wide">
+            <p class="caps caps--bronze">Тренер</p>
+            <h3 class="d-md w-16">«Що зараз у моїх спортсменів?»</h3>
+            <ul class="sees">
+              <li><span class="dot"></span><span class="body">Усіх своїх учасників на одному екрані</span></li>
+              <li><span class="dot"></span><span class="body">Розклад зустрічей без обходу залів</span></li>
+              <li><span class="dot"></span><span class="body">Результати одразу після завершення</span></li>
+            </ul>
+          </div>
+          <div class="tile tile--mist tile--wide">
+            <p class="caps caps--bronze">Федерація</p>
+            <h3 class="d-md w-16">«Чи все йде за планом?»</h3>
+            <ul class="sees">
+              <li><span class="dot"></span><span class="body">Проведення змагання від заявок до підсумків</span></li>
+              <li><span class="dot"></span><span class="body">Одне джерело правди замість кількох файлів</span></li>
+              <li><span class="dot"></span><span class="body">Історія стартів, яка не губиться</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================================================================
+         TWO SURFACES
+         ================================================================== -->
+    <section class="band band--sand">
+      <div class="wrap section section--tight" data-reveal>
+        <div class="head2">
+          <div class="stack g-16">
+            <p class="eyebrow">Дві поверхні</p>
+            <h2 class="d-lg w-16">Де дивляться і де проводять</h2>
+          </div>
+          <p class="body w-46">Публічна частина відкрита всім. Робоче середовище — ні, і в кейсі воно свідомо не показане далі екрана входу.</p>
+        </div>
+
+        <div class="grid grid--2">
+          <div class="card">
+            <p class="caps"><span class="dot"></span>Відкрито</p>
+            <h3 class="d-md">Публічна частина</h3>
+            <p class="body w-42">Сітки, розклад зустрічей і результати. Змагання можна дивитися із залу й з дому — обидва бачать одне й те саме.</p>
+          </div>
+          <div class="card card--ink">
+            <p class="caps caps--bronze"><span class="mi mi--xs" aria-hidden="true">lock</span>Тільки вхід</p>
+            <h3 class="d-md paper">Робоче середовище</h3>
+            <p class="body light w-42">Те, чим змагання проводять: реєстрація, жеребкування, внесення результатів. Доступ у адміністраторів федерації — тому далі екрана входу тут нічого немає.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================================================================
+         CHRONICLE
+         ================================================================== -->
+    <section class="band">
+      <div class="wrap section" data-reveal>
+        <div class="head2">
+          <div class="stack g-16">
+            <p class="eyebrow">Хроніка</p>
+            <h2 class="d-lg w-16">Куди йде продукт</h2>
+          </div>
+          <p class="body w-46">Помісячних віх поки немає — проєкт датований 2026 роком. Тут те, що вже сталося, і те, що попереду.</p>
+        </div>
+
+        <div class="chron chron--light" style="--chron-cols: 4">
+          <div class="chron__item">
+            <span class="chron__thread"><i></i><span></span></span>
+            <span class="chron__body">
+              <span class="caps caps--bronze">Після запуску ФДУ</span>
+              <span class="chron__title">Наступна задача</span>
+              <p class="muted">Сайт відповів на питання «що відбувається», але не на «як це провести».</p>
+            </span>
+          </div>
+          <div class="chron__item">
+            <span class="chron__thread"><i></i><span></span></span>
+            <span class="chron__body">
+              <span class="caps caps--bronze">2026</span>
+              <span class="chron__title">Модель змагання</span>
+              <p class="muted">Заявка, категорія, пара, зустріч, результат — описані як повʼязані сутності, а не як стовпці таблиці.</p>
+            </span>
+          </div>
+          <div class="chron__item chron__item--now">
+            <span class="chron__thread"><i></i><span></span></span>
+            <span class="chron__body">
+              <span class="caps caps--accent">Зараз</span>
+              <span class="chron__title">Сітки й публічний перегляд</span>
+              <p class="muted">Шлях спортсмена турніром видно ззовні, робоче середовище добудовується.</p>
+            </span>
+          </div>
+          <div class="chron__item">
+            <span class="chron__thread"><i></i><span></span></span>
+            <span class="chron__body">
+              <span class="caps caps--bronze">Наступний етап</span>
+              <span class="chron__title">Перші національні старти</span>
+              <p class="muted">Змагання, проведене повністю всередині продукту.</p>
+            </span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================================================================
+         OTHER CASES
+         ================================================================== -->
+    <section class="band">
+      <div class="wrap next" data-reveal>
+        <p class="eyebrow">Інші кейси</p>
+        <div class="next__grid">
+          <a class="next__card" href="/cases/fdu/">
+            <span class="caps">01 · Запущено · 2026</span>
+            <h3 class="d-md">Федерація дзюдо України</h3>
+            <p class="body">Сайт, який відповідає на питання «що відбувається». Ця система — на «як це провести».</p>
+            <span class="inline g-10 push">Відкрити кейс <span class="mi mi--sm" aria-hidden="true">arrow_forward</span></span>
+          </a>
+          <a class="next__card" href="/cases/fspu/">
+            <span class="caps">02 · У розробці · 2026</span>
+            <h3 class="d-md">Сучасне пʼятиборство</h3>
+            <p class="body">Та сама послідовність: спершу контентна модель, потім екрани.</p>
+            <span class="inline g-10 push">Відкрити кейс <span class="mi mi--sm" aria-hidden="true">arrow_forward</span></span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================================================================
+         CONTACT
+         ================================================================== -->
+    <section class="band band--ink contact" id="contact">
+      <canvas data-ambient aria-hidden="true"></canvas>
+      <div class="wrap contact__inner" data-reveal>
+        <p class="caps caps--light"><span class="dot"></span>Відповідаю в межах доби</p>
+        <h2 class="d-lg paper w-20">Ваші процеси теж живуть у таблицях і листуванні?</h2>
+        <div class="contact__actions">
+          <a class="btn btn--paper" href="https://t.me/fqmotosh" target="_blank" rel="noopener noreferrer">
+            <span><span class="btn__long">Написати в </span>Telegram</span>
+            <span class="mi" aria-hidden="true">arrow_forward</span>
+          </a>
+          <a class="btn btn--ghost" href="mailto:motoshfq@proton.me">motoshfq@proton.me</a>
+        </div>
+      </div>
     </section>
   </main>
+
+  <footer class="foot">
+    <div class="wrap foot__inner">
+      <span>© 2026 Марк Цимбал</span>
+      <span>motosh.dev</span>
+    </div>
+  </footer>
 </body>
 </html>

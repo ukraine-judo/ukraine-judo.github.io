@@ -1,0 +1,546 @@
+/* =========================================================================
+   motosh.dev — home composition
+   The phone layout is the base. From 900px the same cells are re-laid out:
+   the hero splits into two columns and the card scroller becomes the
+   overlapping cluster. No markup is duplicated between the two.
+   ========================================================================= */
+
+/* -------------------------------------------------------------------------
+   HERO
+   ---------------------------------------------------------------------- */
+/* On the phone the copy column dissolves into the hero itself, so the card
+   scroller can sit between the call to action and the closing rule without
+   the markup being written twice. */
+.hero {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding-top: 32px;
+  padding-bottom: 48px;
+}
+
+.hero__copy { display: contents; }
+
+.hero__title { max-width: 13ch; }
+
+.hero__stats {
+  order: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.hero__meta { display: flex; flex-wrap: wrap; gap: 12px; }
+
+@media (min-width: 900px) {
+  .hero {
+    display: grid;
+    /* The copy leads. The cluster used to hold the wider column and, being
+       square, was also the tallest thing on the first screen — three live
+       previews outshouting the sentence they are supposed to illustrate. */
+    grid-template-columns: minmax(0, 1fr) minmax(0, 0.97fr);
+
+    /* The first screen is the hero and nothing else. Without this the block
+       below it showed its heading under the fold — an eyebrow and half a
+       sentence, which reads as the page starting over rather than as an
+       invitation to scroll. 86px is the floating header above it; the two
+       are coupled, so a taller header needs this number raised. */
+    min-height: calc(100svh - 86px);
+    gap: 48px;
+    align-items: start;
+    padding-top: 60px;
+    padding-bottom: 0;
+  }
+
+  .hero__copy {
+    display: flex;
+    flex-direction: column;
+    gap: 36px;
+    padding-top: 20px;
+  }
+
+  .hero__stats {
+    order: 0;
+    margin-top: 20px;
+  }
+
+  .hero__meta { gap: 20px; }
+}
+
+/* -------------------------------------------------------------------------
+   THE CLUSTER
+   Three products, three shapes. On the phone they are a scroller; on the
+   desktop they overlap inside a square, and the whole square drifts against
+   the scroll.
+   ---------------------------------------------------------------------- */
+.cluster {
+  display: flex;
+  gap: 12px;
+  padding: 4px 0 4px var(--gutter);
+  margin-inline: calc(var(--gutter) * -1);
+  overflow-x: auto;
+  scrollbar-width: none;
+  scroll-snap-type: x proximity;
+}
+
+.cluster::-webkit-scrollbar { display: none; }
+
+.cluster__card {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-card);
+  padding: 8px;
+  display: block;
+  flex: 0 0 260px;
+  scroll-snap-align: start;
+}
+
+.cluster__card--wide { flex-basis: 296px; }
+
+.cluster__screen {
+  position: relative;
+  display: block;
+  aspect-ratio: 16 / 10;
+  min-width: 0;
+  overflow: hidden;
+  border-radius: var(--radius-inner);
+  background: var(--mist);
+}
+
+@media (min-width: 900px) {
+  .cluster {
+    display: block;
+    position: relative;
+    width: 100%;
+    /* Capped as well as fractioned: on a wide monitor the column alone would
+       let the square grow past the point where it reads as an aside. What is
+       left over becomes air between the sentence and the previews. */
+    max-width: 650px;
+    /* Not square any more: the two small cards were raised, and a square
+       would have kept a strip of nothing under the composition. Note that
+       every `top` below is a percentage of THIS height — change the ratio
+       and all three cards move. */
+    aspect-ratio: 1 / 0.86;
+    margin: 20px 0 0 auto;
+    padding: 0;
+    overflow: visible;
+    will-change: transform;
+  }
+
+  .cluster__card {
+    position: absolute;
+    flex: none;
+  }
+
+  .cluster__card:hover { border-color: var(--ink); }
+
+  /* The anchor of the group, so it is the one that grew. It leans left into
+     the gutter between the columns rather than right, where the mid card
+     already has the overhang. */
+  .cluster__card--wide {
+    top: 0;
+    left: -4%;
+    width: 104%;
+    z-index: 1;
+    border-radius: var(--radius-card);
+    padding: 10px;
+  }
+
+  .cluster__card--wide:hover { transform: translateY(-10px); }
+  .cluster__card--wide .cluster__screen { border-radius: 10px; }
+
+  /* Raised past the halfway mark: it used to hang mostly below the wide card
+     and only clip its bottom edge. Now the proportion is the other way round
+     — more of it is over the card than under it. */
+  .cluster__card--mid {
+    top: 43%;
+    right: -6%;
+    width: 62%;
+    z-index: 3;
+    border-radius: 18px;
+    padding: 9px;
+  }
+
+  .cluster__card--mid:hover { transform: translateY(-8px); }
+  .cluster__card--mid .cluster__screen { border-radius: 9px; }
+
+  /* Raised the same way, and further: the phone is the narrowest of the
+     three, so it needs the most overlap to read as part of the group rather
+     than as something that slid off the bottom. */
+  .cluster__card--tall {
+    top: 37.5%;
+    /* Held back as the group grew. The overhang is a share of the cluster,
+       so a wider cluster reaches further left on its own — and the line it
+       must not touch, "Одна відповідальність за результат", does not move. */
+    left: -10.5%;
+    width: 27%;
+    z-index: 2;
+    border-radius: 26px;
+    padding: 8px;
+  }
+
+  .cluster__card--tall:hover { transform: translateY(-8px); }
+
+  .cluster__card--tall .cluster__screen {
+    aspect-ratio: 9 / 16;
+    border-radius: 18px;
+  }
+}
+
+/* -------------------------------------------------------------------------
+   TRUST
+   ---------------------------------------------------------------------- */
+/* The marks carry their own colour. They were greyed out and dimmed, which
+   is the stock way to say "logos of clients who are not the point" — but
+   these two are the whole point, and a federation's emblem is its colours.
+
+   The section rides a mist band, so its padding comes from `.band` and is
+   not repeated here. The case list below is mist too, and two bands of one
+   tone touching would read as a single slab — hence the hairline, which
+   divides them without spending a second colour on it. */
+.trust { border-bottom: 1px solid var(--mist-2); }
+
+.trust__inner { display: flex; flex-direction: column; gap: 28px; }
+
+.trust__head { display: flex; flex-direction: column; gap: 12px; }
+.trust__lead { color: var(--ink-2); }
+
+.trust__marks {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.mark {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.mark__logo {
+  width: 56px;
+  height: 56px;
+  object-fit: contain;
+  flex: 0 0 auto;
+}
+
+.mark__text { display: flex; flex-direction: column; gap: 4px; }
+
+.mark__name {
+  font-weight: var(--weight-medium);
+  font-size: var(--text-body);
+  line-height: 1.3;
+  text-wrap: balance;
+}
+
+.mark__note { color: var(--ink-2); }
+
+@media (min-width: 900px) {
+  .trust { padding-block: var(--section-pad); }
+
+  .trust__inner {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 60px;
+  }
+
+  .trust__head { flex: 0 1 26ch; }
+
+  .trust__marks {
+    flex-direction: row;
+    align-items: center;
+    gap: 44px;
+  }
+
+  /* A hairline between the two, in the rule grammar the rest of the page
+     uses to separate two things that belong to one row. */
+  .trust__marks .mark + .mark {
+    padding-left: 44px;
+    border-left: 1px solid var(--line);
+  }
+
+  .mark__logo { width: 72px; height: 72px; }
+  .mark__name { max-width: 18ch; }
+}
+
+/* -------------------------------------------------------------------------
+   WORK
+   ---------------------------------------------------------------------- */
+.work { display: flex; flex-direction: column; gap: 40px; }
+
+.work__list { display: flex; flex-direction: column; gap: 40px; }
+
+.work__case {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.work__copy {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  min-width: 0;
+}
+
+@media (min-width: 900px) {
+  .work { gap: 80px; }
+  .work__list { gap: 80px; }
+
+  .work__case {
+    display: grid;
+    grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+    gap: 48px;
+    align-items: center;
+  }
+
+  /* Case 02 mirrors: the stand takes the wide column on the left. */
+  .work__case--flip { grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr); }
+
+  .work__copy { gap: 20px; }
+}
+
+/* On the phone the design puts the stand between the title and the body
+   copy, so the reader meets the product before its description. */
+@media (max-width: 899px) {
+  .work__case .stand { order: 2; }
+  .work__case .work__copy { display: contents; }
+  .work__case .work__eyebrow { order: 0; }
+  .work__case .work__title { order: 1; }
+  .work__case .work__body { order: 3; }
+  .work__case .work__links { order: 4; }
+}
+
+/* Two doors per case, always in the same order: the case first, the live site
+   second. The gap is small enough that they read as one block. */
+.work__links { display: flex; flex-direction: column; gap: 4px; }
+
+/* -------------------------------------------------------------------------
+   SERVICES
+   Four zones on a twelve-column grid: 7 / 5 over 5 / 7, so no row reads as
+   a pair of equal boxes.
+   ---------------------------------------------------------------------- */
+.services { display: flex; flex-direction: column; gap: 32px; }
+
+.services__grid { display: flex; flex-direction: column; gap: 12px; }
+
+@media (min-width: 900px) {
+  .services { gap: 40px; }
+
+  .services__grid {
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    gap: 20px;
+  }
+
+  .services__grid > *:nth-child(1) { grid-column: span 7; min-height: 300px; }
+  .services__grid > *:nth-child(2) { grid-column: span 5; min-height: 300px; }
+  .services__grid > *:nth-child(3) { grid-column: span 5; min-height: 260px; }
+  .services__grid > *:nth-child(4) { grid-column: span 7; min-height: 260px; }
+}
+
+/* -------------------------------------------------------------------------
+   PROCESS
+   Three steps, each dropped lower than the last — the stagger is the
+   sequence. On the phone it is a plain stack; there is no room to fall.
+   ---------------------------------------------------------------------- */
+.process { display: flex; flex-direction: column; gap: 32px; }
+
+.process__steps { display: flex; flex-direction: column; gap: 24px; }
+
+.step {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding-top: 20px;
+  border-top: 1px solid var(--paper);
+}
+
+.step__head { display: flex; align-items: baseline; gap: 16px; flex-wrap: wrap; }
+
+.step__num {
+  font-family: var(--font-display);
+  font-size: 48px;
+  line-height: 1;
+  letter-spacing: -0.03em;
+}
+
+.step__tags { display: flex; flex-wrap: wrap; gap: 8px; padding-top: 4px; }
+
+@media (min-width: 900px) {
+  .process { gap: 48px; }
+
+  .process__steps {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+    align-items: start;
+  }
+
+  .step {
+    gap: 16px;
+    padding: 20px 20px 28px;
+    transition:
+      background-color 200ms ease,
+      border-color 200ms ease,
+      border-radius var(--dur-3) var(--ease-soft),
+      transform var(--dur-3) var(--ease-soft);
+  }
+
+  .step:hover {
+    background: var(--paper);
+    border-top-color: var(--ink);
+    border-radius: var(--radius-tile);
+    transform: translateY(-12px);
+  }
+
+  .step--last:hover { border-top-color: var(--accent); }
+
+  .step:nth-child(2) { margin-top: 60px; }
+  .step:nth-child(3) { margin-top: 120px; }
+
+  .step__head { display: contents; }
+  .step__num { font-size: 72px; line-height: 0.9; }
+}
+
+/* -------------------------------------------------------------------------
+   ABOUT
+   The portrait is deliberately absent — see the comment in index.html. The
+   figures card and the three principles carry the section on their own.
+   ---------------------------------------------------------------------- */
+.about { display: flex; flex-direction: column; gap: 32px; }
+
+.about__body { display: flex; flex-direction: column; gap: 20px; }
+
+.figures {
+  background: var(--paper);
+  border-radius: var(--radius-card);
+  padding: 24px;
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.figures > div { display: flex; flex-direction: column; gap: 8px; }
+
+.figures b {
+  font-family: var(--font-display);
+  font-weight: var(--weight-regular);
+  font-size: 36px;
+  line-height: 0.9;
+  letter-spacing: var(--track-display);
+}
+
+.principles { display: flex; flex-direction: column; }
+
+.principle {
+  display: grid;
+  grid-template-columns: 64px minmax(0, 1fr);
+  gap: 16px;
+  padding: 24px 0;
+  border-top: 1px solid var(--sand-line);
+}
+
+.principle:last-child { border-bottom: 1px solid var(--sand-line); }
+
+.principle b {
+  font-family: var(--font-display);
+  font-weight: var(--weight-regular);
+  font-size: 40px;
+  line-height: 0.85;
+  letter-spacing: -0.03em;
+  color: var(--bronze);
+}
+
+.principle p {
+  font-size: 17px;
+  line-height: var(--leading-lede);
+  color: var(--ink);
+}
+
+@media (min-width: 900px) {
+  .about { gap: 48px; }
+
+  .about__body {
+    display: grid;
+    grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+    gap: 48px;
+    align-items: start;
+  }
+
+  .figures { padding: 28px 32px; justify-content: flex-start; gap: 40px; }
+  .figures b { font-size: 40px; }
+
+  .principle {
+    grid-template-columns: 88px minmax(0, 1fr);
+    gap: 24px;
+    padding: 32px 20px;
+    margin-inline: -20px;
+    transition:
+      background-color 200ms ease,
+      border-color 200ms ease,
+      border-radius var(--dur-3) var(--ease-soft),
+      transform var(--dur-3) var(--ease-soft);
+  }
+
+  .principle:hover {
+    background: var(--paper);
+    border-top-color: var(--ink);
+    border-radius: var(--radius-tile);
+    transform: translateX(12px);
+  }
+
+  .principle b { font-size: 56px; }
+  .principle p { font-size: 20px; line-height: 1.45; }
+}
+
+/* -------------------------------------------------------------------------
+   CONTACT
+   The ambient dot lattice runs behind the closing band.
+   ---------------------------------------------------------------------- */
+.contact {
+  position: relative;
+  overflow: hidden;
+  padding-block: 64px;
+}
+
+.contact canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.contact__inner {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  align-items: stretch;
+}
+
+@media (min-width: 900px) {
+  .contact { padding-block: 140px; }
+  .contact__inner { gap: 36px; align-items: start; }
+}
+
+/* -------------------------------------------------------------------------
+   FOOTER
+   ---------------------------------------------------------------------- */
+.foot { background: var(--ink); padding-bottom: 24px; }
+
+.foot__inner {
+  padding-top: 20px;
+  border-top: 1px solid var(--ink-line);
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  font-size: var(--text-caps);
+  color: var(--mist);
+}
+
+@media (min-width: 900px) {
+  .foot { padding-bottom: 40px; }
+  .foot__inner { gap: 20px; }
+}

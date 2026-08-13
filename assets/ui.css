@@ -1,0 +1,775 @@
+/* =========================================================================
+   motosh.dev — components
+   The parts that appear on more than one page: navigation, buttons, links,
+   the tile, the card, the live stand, chips and segmented controls, plus the
+   two full-screen surfaces (intro curtain, route panel).
+   ========================================================================= */
+
+/* -------------------------------------------------------------------------
+   NAVIGATION
+   A pill on Mist. On the phone it holds the name and the Telegram button and
+   nothing else — four section links in a 390px pill is four tap targets that
+   are all too small.
+   ---------------------------------------------------------------------- */
+.head {
+  position: sticky;
+  top: 0;
+  z-index: var(--z-nav);
+  padding: 12px;
+  background: var(--paper);
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--mist);
+  border-radius: var(--radius-pill);
+  padding: 8px 8px 8px 18px;
+}
+
+.nav__brand {
+  font-family: var(--font-display);
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  min-height: 48px;
+  padding: 12px 0;
+  border-radius: var(--radius-pill);
+  white-space: nowrap;
+}
+
+.nav__back {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 44px;
+  font-size: var(--text-sm);
+  color: var(--ink-2);
+  white-space: nowrap;
+}
+
+.nav__sep,
+.nav__links,
+.nav__index { display: none; }
+
+.nav__cta {
+  font-family: var(--font-display);
+  font-size: var(--text-sm);
+  color: var(--paper);
+  background: var(--ink);
+  padding: 12px 18px;
+  display: flex;
+  align-items: center;
+  min-height: 48px;
+  border-radius: var(--radius-pill);
+  margin-left: auto;
+  white-space: nowrap;
+}
+
+.nav__cta:hover,
+.nav__cta:active { background: var(--ink-2); color: var(--paper); }
+
+@media (min-width: 900px) {
+  .head {
+    top: 20px;
+    padding: 20px 0 0;
+    display: flex;
+    justify-content: center;
+    background: transparent;
+  }
+
+  .nav { padding: 8px 18px; }
+
+  .nav__brand { padding: 12px 14px; }
+  .nav__brand:hover { background: var(--paper); }
+
+  .nav__back {
+    min-height: 48px;
+    padding: 12px 14px;
+    border-radius: var(--radius-pill);
+    gap: 8px;
+  }
+
+  .nav__back:hover { background: var(--paper); color: var(--ink); }
+
+  .nav__sep {
+    display: block;
+    width: 1px;
+    height: 20px;
+    background: var(--line);
+  }
+
+  .nav__index {
+    display: flex;
+    align-items: center;
+    font-family: var(--font-display);
+    font-size: 16px;
+    padding: 12px 14px;
+    min-height: 48px;
+    white-space: nowrap;
+  }
+
+  .nav__links { display: flex; gap: 4px; }
+
+  .nav__links a {
+    font-size: var(--text-sm);
+    color: var(--ink-2);
+    padding: 12px 16px;
+    border-radius: var(--radius-pill);
+    display: flex;
+    align-items: center;
+    min-height: 48px;
+    white-space: nowrap;
+  }
+
+  .nav__links a:hover { background: var(--paper); color: var(--ink); }
+
+  .nav__cta { font-size: 16px; padding: 12px 20px; }
+}
+
+/* -------------------------------------------------------------------------
+   BUTTONS
+   6px radius, never a pill — the pill belongs to navigation and to chips.
+   ---------------------------------------------------------------------- */
+.btn {
+  font-family: var(--font-display);
+  font-weight: var(--weight-regular);
+  font-size: 17px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  min-height: 56px;
+  padding: 18px 20px;
+  border: 0;
+  border-radius: var(--radius-btn);
+  text-align: left;
+}
+
+.btn--ink { background: var(--ink); color: var(--paper); }
+.btn--ink:hover,
+.btn--ink:active { background: var(--ink-2); color: var(--paper); }
+
+.btn--paper { background: var(--paper); color: var(--ink); }
+.btn--paper:hover,
+.btn--paper:active { background: var(--mist); color: var(--ink); }
+
+.btn--ghost {
+  background: transparent;
+  color: var(--paper);
+  border: 1px solid var(--ink-line);
+  justify-content: center;
+  min-height: 52px;
+  padding: 16px 20px;
+  font-size: var(--text-body);
+  font-family: var(--font-sans);
+}
+
+.btn--ghost:hover,
+.btn--ghost:active { border-color: var(--paper); color: var(--paper); }
+
+/* -------------------------------------------------------------------------
+   CONTACT ACTIONS
+   One row at every width. Two stacked full-bleed buttons read as a form;
+   side by side they read as two ways to reach the same person, which is
+   what they are. On a narrow phone the Telegram label sheds "Написати в"
+   rather than the row breaking — the address is the longer of the two, and
+   the one that must not be abbreviated.
+   ---------------------------------------------------------------------- */
+.contact__actions {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  /* Stretch, not centre: the two have different min-heights and a 4px step
+     between two buttons standing side by side is the kind of thing you see
+     without being able to name. */
+  align-items: stretch;
+  gap: 12px;
+}
+
+.contact__actions .btn { flex: 0 1 auto; min-width: 0; }
+
+@media (max-width: 559px) {
+  .contact__actions .btn {
+    justify-content: center;
+    gap: 8px;
+    font-size: 15px;
+    padding-inline: 14px;
+    min-height: 52px;
+  }
+
+  .contact__actions .btn--ghost { padding-inline: 12px; }
+  .btn__long { display: none; }
+}
+
+@media (min-width: 900px) {
+  .contact__actions { gap: 16px; }
+}
+
+@media (min-width: 900px) {
+  .btn {
+    display: inline-flex;
+    justify-content: flex-start;
+    font-size: 16px;
+    gap: 40px;
+    min-height: 48px;
+    padding: 14px 20px;
+    width: fit-content;
+  }
+
+  .btn:hover { transform: translateY(-2px); }
+
+  .btn--ghost { gap: 0; }
+}
+
+/* -------------------------------------------------------------------------
+   LINKS
+   Two shapes, and the accent decides which is which. The marked link (accent
+   underscore, nudges right) goes deeper into this site; the muted link leaves
+   it. The accent is rationed to one mark per block, and it is spent on the
+   door that keeps the reader here — an outbound link never gets it.
+   ---------------------------------------------------------------------- */
+.link {
+  font-size: var(--text-body);
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  min-height: 48px;
+}
+
+.link__mark {
+  display: inline-flex;
+  align-items: center;
+  border-bottom: 2px solid var(--accent);
+  padding-bottom: 2px;
+  transition: transform var(--dur-2) var(--ease-soft);
+}
+
+.link:hover .link__mark { transform: translateX(8px); }
+
+/* The muted link stays put: a step sideways reads as progress, and leaving
+   for another domain is not progress through this page. */
+.link--muted { color: var(--ink-2); }
+.link--muted:hover { color: var(--ink); }
+
+.link--sand { color: var(--ink); }
+
+/* -------------------------------------------------------------------------
+   THE TILE
+   One rounded corner that opens on hover. The only decorative move in the
+   system, and the reason a grid of plain rectangles is not a table.
+   ---------------------------------------------------------------------- */
+.tile {
+  background: var(--mist);
+  border-radius: var(--radius-tile);
+  padding: 32px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  transition:
+    background-color var(--dur-1) ease,
+    border-radius 320ms var(--ease-soft);
+}
+
+.tile:hover { border-radius: var(--radius-tile-hover); }
+.tile--mist:hover { background: var(--mist-2); }
+
+/* A tile sitting on a Mist band inverts: paper face, no background change. */
+.tile--paper { background: var(--paper); }
+
+/* A tile on the dark band. */
+.tile--ink {
+  background: transparent;
+  border-top: 1px solid var(--ink-line);
+  border-radius: 0;
+  padding: 36px 32px;
+  gap: 20px;
+  transition:
+    background-color 220ms ease,
+    border-radius var(--dur-3) var(--ease-soft);
+}
+
+.tile--ink:hover { background: var(--ink-raised); border-radius: var(--radius-tile); }
+
+/* The closing line of a tile, pinned to its floor. */
+.tile__foot { margin-top: auto; padding-top: 8px; }
+
+@media (min-width: 900px) {
+  .tile { padding: 48px 40px; gap: 16px; }
+  .tile--compact { padding: 32px 28px; gap: 16px; }
+  .tile--wide { padding: 40px 36px; gap: 16px; }
+  .tile__foot { padding-top: 20px; }
+}
+
+/* -------------------------------------------------------------------------
+   THE CARD
+   20px all round. Used where content sits on a tinted band and needs to be
+   lifted off it without a shadow.
+   ---------------------------------------------------------------------- */
+.card {
+  background: var(--paper);
+  border-radius: var(--radius-card);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.card--ink { background: var(--ink); color: var(--paper); }
+
+@media (min-width: 900px) {
+  .card { padding: 36px 32px; gap: 16px; }
+}
+
+/* -------------------------------------------------------------------------
+   CHIPS AND SEGMENTED CONTROLS
+   ---------------------------------------------------------------------- */
+.chip {
+  background: var(--paper);
+  border-radius: var(--radius-chip);
+  padding: 8px 16px;
+  font-size: var(--text-caps);
+  font-weight: var(--weight-medium);
+  letter-spacing: var(--track-meta);
+  color: var(--ink-2);
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+}
+
+.chip--sand {
+  background: var(--sand);
+  color: var(--bronze);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 6px 12px;
+}
+
+.chip--done { background: var(--ink); color: var(--paper); border: 1px solid var(--ink); }
+.chip--now { background: var(--accent); color: var(--paper); border: 1px solid var(--accent); }
+.chip--wait { background: transparent; color: var(--ink-2); border: 1px solid var(--line); }
+
+.seg {
+  display: flex;
+  gap: 4px;
+  background: var(--paper);
+  border-radius: var(--radius-pill);
+  padding: 4px;
+}
+
+.seg--mist { background: var(--mist); width: fit-content; }
+
+.seg button {
+  flex: 1;
+  font-family: inherit;
+  font-size: 14px;
+  border: 0;
+  padding: 10px 12px;
+  min-height: 44px;
+  border-radius: var(--radius-pill);
+  background: transparent;
+  color: var(--ink-2);
+  white-space: nowrap;
+}
+
+.seg button[aria-pressed="true"],
+.seg button[aria-selected="true"] { background: var(--ink); color: var(--paper); }
+
+/* Three nowrap labels have a floor, and below ~360px it is above the card's
+   own content box. Give the padding back rather than let the control ride
+   into the card's edge. */
+@media (max-width: 359px) {
+  .seg { padding: 3px; gap: 3px; }
+  .seg button { padding: 10px 6px; font-size: 13px; }
+}
+
+@media (min-width: 900px) {
+  .seg button { flex: 0 0 auto; padding: 10px 18px; }
+  .seg--mist button { font-size: var(--text-sm); padding: 12px 24px; min-height: 48px; }
+}
+
+/* -------------------------------------------------------------------------
+   THE LIVE STAND
+   A framed site inside a paper mount. The labelled placeholder sits under
+   the frame, so a host that refuses to be embedded degrades to its own name
+   instead of to a white void.
+   ---------------------------------------------------------------------- */
+.stand {
+  background: var(--paper);
+  border-radius: var(--radius-card);
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+  transition:
+    padding 380ms var(--ease-soft),
+    border-radius 380ms var(--ease-soft);
+}
+
+.stand__screen {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  min-width: 0;
+  overflow: hidden;
+  border-radius: var(--radius-inner);
+  background: var(--mist);
+}
+
+/* The stand is the click target for its own case. The route morph grows this
+   card into the next page, so this card is what the pointer has to land on —
+   a text link elsewhere would grow a box the visitor never touched.
+   The link below the stand carries the keyboard, which is why this one is
+   taken out of the tab order instead of repeated in it. */
+.stand__open {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  padding: 12px;
+}
+
+/* The affordance only appears where there is a pointer to show it to; on a
+   phone the stand is still tappable and the link below still reads. */
+.stand__hint {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 14px;
+  border-radius: var(--radius-pill);
+  background: rgba(32, 32, 32, 0.82);
+  color: var(--paper);
+  font-size: var(--text-caps);
+  font-weight: var(--weight-medium);
+  letter-spacing: var(--track-meta);
+  white-space: nowrap;
+  opacity: 0;
+  transform: translateY(6px);
+  transition:
+    opacity var(--dur-2) var(--ease-out),
+    transform var(--dur-2) var(--ease-out);
+}
+
+@media (hover: hover) and (min-width: 900px) {
+  .stand:hover .stand__hint { opacity: 1; transform: none; }
+}
+
+.stand__url {
+  padding: 0 6px 4px;
+  color: var(--ink-2);
+  font-size: var(--text-caps);
+  font-weight: var(--weight-medium);
+  letter-spacing: var(--track-meta);
+}
+
+@media (min-width: 900px) {
+  .stand { padding: 10px; gap: 10px; }
+  .stand:hover { padding: 5px; border-radius: 26px; }
+}
+
+.shot {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 16px;
+  background: var(--mist);
+  color: var(--ink-3);
+  font-size: var(--text-caps);
+  font-weight: var(--weight-medium);
+  letter-spacing: var(--track-meta);
+  text-align: center;
+}
+
+.shot img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+}
+
+.frame {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  background: transparent;
+}
+
+/* Dimensions are set by frames.js from the slot's declared render width —
+   never here, or the two would drift apart. */
+.frame iframe {
+  border: 0;
+  max-width: none;
+  transform-origin: 0 0;
+  opacity: 0;
+  transition: opacity var(--dur-4) var(--ease-out);
+}
+
+/* A frame arrives when its document does, not when its element exists. Until
+   then the placeholder underneath is what the visitor reads. */
+.frame.is-ready iframe { opacity: 1; }
+
+/* -------------------------------------------------------------------------
+   THE LOAD LINE
+   A segment travelling across a hairline: the same object the intro curtain
+   draws while the page settles. Ink rather than accent — six of these can be
+   running at once on the home page, and the accent is rationed to one mark.
+   ---------------------------------------------------------------------- */
+.loading {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  z-index: 2;
+  overflow: hidden;
+  background: var(--line);
+  pointer-events: none;
+  transition: opacity var(--dur-2) ease;
+}
+
+.loading::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 40%;
+  background: var(--ink);
+  animation: loading-sweep 1200ms var(--ease-line) infinite;
+}
+
+/* The segment is 40% of the track, so it clears both ends at ±100% / 250%. */
+@keyframes loading-sweep {
+  from { transform: translateX(-100%); }
+  to { transform: translateX(250%); }
+}
+
+/* A frame the visitor is not meant to click through — the hero cards and the
+   thumbnails are links, and the site underneath must not eat the pointer. */
+.frame--inert { pointer-events: none; }
+
+/* -------------------------------------------------------------------------
+   SCROLL REVEAL
+   Everything below the fold rises on entry. The hero is excluded: its first
+   paint must not wait on an observer callback.
+   ---------------------------------------------------------------------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity var(--dur-4) var(--ease-soft),
+    transform var(--dur-4) var(--ease-soft);
+  transition-delay: calc(var(--reveal-order, 0) * 70ms);
+}
+
+.reveal.is-in { opacity: 1; transform: none; }
+
+/* -------------------------------------------------------------------------
+   INTRO CURTAIN  (home)
+   Paper, full bleed, the name and a line that draws itself. Lifts away and
+   hands the screen to the hero.
+   ---------------------------------------------------------------------- */
+/* The curtain only exists once a script has claimed it — otherwise a failed
+   module would leave the page behind a sheet of paper for good. */
+html:not(.has-intro) .intro { display: none; }
+
+.intro {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-curtain);
+  background: var(--paper);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  pointer-events: none;
+  will-change: transform;
+}
+
+.intro__inner { display: flex; flex-direction: column; gap: 20px; }
+
+.intro__mark {
+  font-family: var(--font-display);
+  font-weight: var(--weight-regular);
+  font-size: clamp(28px, 3.4vw, 46px);
+  line-height: 1;
+  letter-spacing: -0.025em;
+  opacity: 0;
+  transform: translateY(14px);
+}
+
+/* The rule, but with the hairline half of it masked so the ink line can be
+   drawn across it from the left. */
+.intro__rule { display: flex; align-items: center; }
+
+.intro__rule i {
+  width: var(--rule-lead);
+  height: 1px;
+  background: var(--accent);
+  flex: none;
+}
+
+.intro__rule span {
+  flex: 1;
+  height: 1px;
+  background: var(--line);
+  overflow: hidden;
+}
+
+.intro__rule b {
+  display: block;
+  width: 100%;
+  height: 1px;
+  background: var(--ink);
+  transform: scaleX(0);
+  transform-origin: 0 50%;
+}
+
+.intro__role {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+/* -------------------------------------------------------------------------
+   ROUTE PANEL  (home → case)
+   Always viewport-sized; the card's rectangle is only its starting inset().
+   Opening with clip-path keeps the growth on the compositor and stops the
+   lockup inside from reflowing a single character while the panel grows.
+   ---------------------------------------------------------------------- */
+.route {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-route);
+  background: var(--ink);
+  color: var(--paper);
+  overflow: hidden;
+  visibility: hidden;
+  clip-path: inset(50% round var(--radius-card));
+}
+
+.route.is-armed { visibility: visible; }
+
+.route__inner {
+  height: 100%;
+  overflow: hidden;
+  padding: clamp(20px, 3.4vw, 56px);
+  display: flex;
+  flex-direction: column;
+  gap: clamp(20px, 2.6vw, 40px);
+}
+
+.route__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.route__back {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 48px;
+  font-size: var(--text-sm);
+  color: var(--mist);
+}
+
+.route__title {
+  font-family: var(--font-display);
+  font-weight: var(--weight-regular);
+  font-size: clamp(30px, 4.6vw, 62px);
+  line-height: 0.95;
+  letter-spacing: -0.025em;
+  color: var(--paper);
+  max-width: 15ch;
+  text-wrap: pretty;
+}
+
+.route__lead {
+  font-size: clamp(16px, 1.5vw, 19px);
+  line-height: var(--leading-lede);
+  color: var(--mist);
+  max-width: 52ch;
+}
+
+.route__facts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: clamp(20px, 3vw, 56px);
+  padding-top: clamp(16px, 2vw, 28px);
+  border-top: 1px solid var(--ink-line);
+}
+
+.route__facts > div { display: flex; flex-direction: column; gap: 8px; }
+.route__facts span:last-child { font-size: var(--text-body); color: var(--paper); }
+
+.route__load {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding-top: clamp(12px, 1.6vw, 24px);
+}
+
+.route__track {
+  flex: 1;
+  height: 2px;
+  background: var(--ink-line);
+  overflow: hidden;
+}
+
+.route__bar {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: 0 50%;
+}
+
+/* -------------------------------------------------------------------------
+   THE GATE PANEL
+   One element, both halves of every transition. On the way in, the document
+   paints behind it and it lifts. On the way out, it rises over the page
+   being left and the next document inherits it standing.
+
+   It is displayed only when a curtain is actually running: `has-gate` is
+   written by the inline script in the head, before the first paint, from a
+   word the previous page left in `sessionStorage`. Deciding after boot is
+   what makes a curtain flash on a page nobody transitioned into.
+   ---------------------------------------------------------------------- */
+.arrival {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-curtain);
+  background: var(--ink);
+  color: var(--paper);
+  overflow: hidden;
+  pointer-events: none;
+  will-change: transform;
+  display: none;
+}
+
+html.has-gate .arrival,
+.arrival.is-gate { display: block; }
+
+/* On arrival the panel carries the lockup the previous page was showing, so
+   the seam holds. On the way out it must be blank: a wipe is not carrying a
+   case anywhere, and the one it happens to be holding is the case behind it. */
+.arrival.is-gate > * { display: none; }
+
+.arrival.is-lifting {
+  transform: translateY(-100%);
+  transition: transform var(--dur-gate) var(--ease-gate) 40ms;
+}
+
+.arrival.is-gate { transform: translateY(100%); }
+
+.arrival.is-gate.is-closing {
+  transform: translateY(0);
+  transition: transform 460ms var(--ease-gate);
+}

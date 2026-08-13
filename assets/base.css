@@ -1,0 +1,378 @@
+/* =========================================================================
+   motosh.dev — base
+   Reset, elements, the type scale and the measure utilities. Everything here
+   is shared by all four pages. No component lives in this file.
+
+   No @layer anywhere in the project: the previous build put tokens inside
+   one and a media-query override silently lost to the base declaration.
+   Plain cascade, mobile first, `min-width: 900px` blocks in place.
+   ========================================================================= */
+
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+html {
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+  /* Reserve the gutter permanently so locking the scroll for a curtain
+     cannot shift the layout underneath it. */
+  scrollbar-gutter: stable;
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-size: var(--text-body);
+  line-height: var(--leading-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+body[data-locked="true"] { overflow: hidden; }
+
+img,
+svg,
+canvas,
+iframe { display: block; }
+
+img { max-width: 100%; height: auto; }
+svg,
+canvas { max-width: 100%; }
+
+/* An iframe is deliberately NOT capped at 100%. Every frame in this project
+   renders a site at a true window width inside an `overflow: hidden` mount
+   and is scaled down by a transform; capping it would make the site lay
+   itself out at the mount's width and then be shrunk a second time. */
+
+button,
+input,
+select,
+textarea { font: inherit; color: inherit; }
+
+button { cursor: pointer; }
+
+h1, h2, h3, h4, p, figure, blockquote { margin: 0; }
+
+/* Every panel in this project is a flex or grid box, and both beat the
+   attribute's own `display: none`. Without this a hidden tab panel stays on
+   screen. */
+[hidden] { display: none !important; }
+
+ul, ol { margin: 0; padding: 0; list-style: none; }
+
+a {
+  color: var(--ink);
+  text-decoration: none;
+  transition:
+    background-color var(--dur-1) ease,
+    color var(--dur-1) ease,
+    border-color var(--dur-1) ease,
+    transform var(--dur-2) var(--ease-soft);
+}
+
+a:hover { color: var(--ink-2); }
+
+button {
+  transition:
+    background-color var(--dur-1) ease,
+    color var(--dur-1) ease,
+    border-color var(--dur-1) ease,
+    transform var(--dur-2) var(--ease-soft);
+}
+
+:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 3px;
+}
+
+::selection { background: var(--sand); }
+
+.skip {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 300;
+  background: var(--ink);
+  color: var(--paper);
+  padding: 12px 20px;
+  border-radius: 0 0 var(--radius-btn) 0;
+}
+
+.skip:focus { left: 0; color: var(--paper); }
+
+/* -------------------------------------------------------------------------
+   LAYOUT PRIMITIVES
+   ---------------------------------------------------------------------- */
+.wrap {
+  width: 100%;
+  max-width: var(--page-max);
+  margin: 0 auto;
+  padding-inline: var(--gutter);
+}
+
+.band { padding-block: var(--section-pad); }
+.band--mist { background: var(--mist); }
+.band--sand { background: var(--sand); }
+.band--ink { background: var(--ink); color: var(--paper); }
+
+.stack { display: flex; flex-direction: column; }
+
+.g-4 { gap: 4px; }
+.g-8 { gap: 8px; }
+.g-10 { gap: 10px; }
+.g-12 { gap: 12px; }
+.g-14 { gap: 14px; }
+.g-16 { gap: 16px; }
+.g-20 { gap: 20px; }
+.g-24 { gap: 24px; }
+.g-28 { gap: 28px; }
+.g-32 { gap: 32px; }
+.g-36 { gap: 36px; }
+.g-40 { gap: 40px; }
+.g-48 { gap: 48px; }
+
+/* The two-up section head: title left, lead right, baselines aligned at the
+   bottom. Stacks on the phone, where there is no second column to align to. */
+.head2 { display: grid; gap: 16px; }
+
+@media (min-width: 900px) {
+  .head2 {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 48px;
+    align-items: end;
+  }
+}
+
+/* -------------------------------------------------------------------------
+   TYPE
+   The display face is never heavier than 400. Hierarchy comes from size and
+   leading, never from weight.
+   ---------------------------------------------------------------------- */
+.d-hero,
+.d-xl,
+.d-lg,
+.d-md,
+.d-sm {
+  font-family: var(--font-display);
+  font-weight: var(--weight-regular);
+}
+
+.d-hero {
+  font-size: var(--display-hero);
+  line-height: var(--leading-hero);
+  letter-spacing: var(--track-hero);
+  text-wrap: pretty;
+}
+
+.d-xl {
+  font-size: var(--display-xl);
+  line-height: 0.85;
+  letter-spacing: -0.03em;
+}
+
+.d-lg {
+  font-size: var(--display-lg);
+  line-height: var(--leading-display);
+  letter-spacing: var(--track-display);
+}
+
+.d-md {
+  font-size: var(--display-md);
+  line-height: 1.02;
+  letter-spacing: var(--track-display);
+}
+
+.d-sm {
+  font-size: var(--display-sm);
+  line-height: var(--leading-card);
+}
+
+.lede {
+  font-size: var(--text-lede);
+  line-height: var(--leading-lede);
+  color: var(--ink-2);
+}
+
+.body {
+  font-size: var(--text-body);
+  line-height: var(--leading-body);
+  color: var(--ink-2);
+}
+
+/* The meta voice. One object: 13px, 500, 0.08em, uppercase. */
+.caps {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  font-size: var(--text-caps);
+  font-weight: var(--weight-medium);
+  letter-spacing: var(--track-caps);
+  text-transform: uppercase;
+  color: var(--ink-2);
+  line-height: 1.3;
+}
+
+.caps--bronze { color: var(--bronze); }
+.caps--light { color: var(--mist); }
+.caps--accent { color: var(--accent); }
+.caps--stack { display: block; }
+
+/* Sentence case on purpose: the eyebrow is a name, not a stamp. */
+.eyebrow {
+  font-size: var(--text-eyebrow);
+  line-height: 1.4;
+  color: var(--bronze);
+}
+
+/* -------------------------------------------------------------------------
+   MEASURE
+   Capped in ch, never in pixels — the cap has to hold when the display face
+   swaps or the user bumps the base size.
+   ---------------------------------------------------------------------- */
+.w-12 { max-width: 12ch; }
+.w-13 { max-width: 13ch; }
+.w-14 { max-width: 14ch; }
+.w-16 { max-width: 16ch; }
+.w-18 { max-width: 18ch; }
+.w-20 { max-width: 20ch; }
+.w-24 { max-width: 24ch; }
+.w-30 { max-width: 30ch; }
+.w-34 { max-width: 34ch; }
+.w-38 { max-width: 38ch; }
+.w-40 { max-width: 40ch; }
+.w-42 { max-width: 42ch; }
+.w-44 { max-width: 44ch; }
+.w-46 { max-width: 46ch; }
+.w-48 { max-width: 48ch; }
+.w-52 { max-width: 52ch; }
+.w-60 { max-width: 60ch; }
+.w-62 { max-width: 62ch; }
+
+/* The phone has one column and no room to hold a 40ch cap next to anything,
+   so measure is released below the desktop breakpoint. */
+@media (max-width: 899px) {
+  .w-30, .w-34, .w-38, .w-40, .w-42, .w-44,
+  .w-46, .w-48, .w-52, .w-60, .w-62 { max-width: none; }
+}
+
+/* -------------------------------------------------------------------------
+   THE RULE
+   28px of accent, then a hairline running to the end of the column. The same
+   object under the hero, under a case title, above a closing note.
+   ---------------------------------------------------------------------- */
+.rule {
+  display: flex;
+  align-items: center;
+}
+
+.rule::before {
+  content: "";
+  width: var(--rule-lead);
+  height: 1px;
+  background: var(--accent);
+  flex: none;
+}
+
+.rule::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--line);
+}
+
+.rule--ink::after { background: var(--ink-line); }
+
+/* The 7px live dot and the 3px separator bullet. */
+.dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--accent);
+  display: block;
+  flex: none;
+}
+
+.dot--square {
+  width: 10px;
+  height: 10px;
+  border-radius: 0;
+}
+
+.dot--ink { background: var(--ink); }
+.dot--line { background: var(--line); }
+
+.sep {
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: var(--line);
+  display: block;
+  flex: none;
+  align-self: center;
+}
+
+/* The 24px accent dash that closes a service tile. */
+.dash {
+  width: 24px;
+  height: 1px;
+  background: var(--accent);
+  display: block;
+  flex: none;
+}
+
+/* -------------------------------------------------------------------------
+   ICONS
+   Material Symbols Rounded at weight 300, ligature-addressed.
+   ---------------------------------------------------------------------- */
+.mi {
+  font-family: "Material Symbols Rounded";
+  font-variation-settings: "wght" 300;
+  font-feature-settings: "liga" 1;
+  -webkit-font-feature-settings: "liga" 1;
+  font-weight: normal;
+  font-style: normal;
+  letter-spacing: normal;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  font-size: 22px;
+  line-height: 1;
+  flex: none;
+}
+
+.mi--sm { font-size: 20px; }
+.mi--xs { font-size: 18px; }
+.mi--gap { margin-left: 8px; }
+
+/* -------------------------------------------------------------------------
+   UTILITIES
+   ---------------------------------------------------------------------- */
+.inline { display: flex; align-items: center; }
+.baseline { display: flex; align-items: baseline; }
+.between { display: flex; align-items: center; justify-content: space-between; }
+.wrapf { flex-wrap: wrap; }
+.muted { color: var(--ink-2); }
+.dim { color: var(--ink-3); }
+.light { color: var(--mist); }
+.paper { color: var(--paper); }
+.bronze { color: var(--bronze); }
+.accent { color: var(--accent); }
+.nowrap { white-space: nowrap; }
+.fit { width: fit-content; }
+.push { margin-top: auto; }
+.rel { position: relative; }
+.vh {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}

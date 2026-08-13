@@ -1,96 +1,121 @@
+/* =========================================================================
+   motosh.dev — design tokens
+   The published token layer and the single source of truth for every value
+   the site draws. assets/*.css may compose these; none of them may invent a
+   colour, a step or a curve that is not declared here.
+   ========================================================================= */
+
 :root {
-  /* Colors */
-  --color-jet-ink: #0a0a0a;
-  --color-charcoal: #151515;
-  --color-fog: #858585;
-  --color-pewter: #9d9d9d;
-  --color-steel: #545454;
-  --color-dove: #d5d9e2;
-  --color-cream: #f9f8f6;
-  --color-paper: #ffffff;
-  --color-sand: #f2ede5;
-  --color-slate: #3b3b3b;
-  --color-ember: #ff5f57;
-  --color-sunbeam: #ffbd2e;
-  --color-sprout: #28c840;
+  /* ---- Ink ------------------------------------------------------------ */
+  --ink: #202020;          /* headings, primary text, the dark surface      */
+  --ink-2: #4d4d4d;        /* body copy, secondary labels                   */
+  --ink-3: #8a8a8a;        /* dimmed-out state (wiring, bracket)            */
+  --line: #e8e8e8;         /* the single hairline                           */
+  --line-faint: #f2f2f2;   /* a hairline that has been stepped back         */
 
-  /* Typography — Font Families */
-  --font-universalsans: 'universalSans', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  --font-universalsansdisplay: 'universalSansDisplay', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  --font-geistmono: 'GeistMono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  /* ---- Surfaces ------------------------------------------------------- */
+  --paper: #ffffff;
+  --mist: #efefef;         /* the alternating section band                  */
+  --mist-2: #e8e8e8;       /* mist tile hover                               */
+  --sand: #ebe6dd;         /* the warm band: «Про мене», результат          */
+  --sand-line: #d9d2c6;    /* hairline on sand                              */
+  --ink-raised: #2a2a2a;   /* card hover on the dark band                   */
+  --ink-raised-2: #2f2f2f; /* active row inside the dark record panel       */
+  --ink-line: #4d4d4d;     /* hairline on the dark band                     */
 
-  /* Typography — Scale */
-  --text-caption: 12px;
-  --leading-caption: 20;
-  --tracking-caption: -0.12px;
-  --text-body-sm: 14px;
-  --leading-body-sm: 20;
+  /* ---- Accents -------------------------------------------------------- */
+  --accent: #ff682c;       /* the only chromatic mark: 28px rules, dots     */
+  --bronze: #816729;       /* section eyebrows and field labels             */
+
+  /* ---- Type ----------------------------------------------------------- */
+  --font-display: Manrope, Inter, ui-sans-serif, system-ui, sans-serif;
+  --font-sans: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+
+  --text-caps: 13px;       /* uppercase 500 / .08em — the meta voice        */
+  --text-eyebrow: 14px;    /* bronze section label                          */
+  --text-sm: 15px;
   --text-body: 16px;
-  --leading-body: 24;
-  --text-heading-sm: 24px;
-  --leading-heading-sm: 32;
-  --tracking-heading-sm: -0.6px;
-  --text-subheading: 30px;
-  --leading-subheading: 36;
-  --tracking-subheading: -0.75px;
-  --text-heading: 48px;
-  --leading-heading: 48;
-  --tracking-heading: -1.2px;
-  --text-heading-lg: 60px;
-  --leading-heading-lg: 60;
-  --tracking-heading-lg: -1.5px;
-  --text-display: 72px;
-  --leading-display: 72;
-  --tracking-display: -1.8px;
+  --text-lede: 18px;
 
-  /* Typography — Weights */
-  --font-weight-regular: 400;
-  --font-weight-medium: 500;
-  --font-weight-bold: 700;
+  /* Display steps. Phone values are the base; desktop.css-scale overrides
+     live in assets/base.css behind the 900px query, because the design
+     draws the two widths as two separate compositions. */
+  --display-hero: 48px;
+  --display-xl: 40px;      /* oversized ordinals — the chain, principles     */
+  --display-lg: 32px;      /* section headline                              */
+  --display-md: 28px;      /* card headline                                 */
+  --display-sm: 22px;      /* tile headline                                 */
 
-  /* Spacing */
-  --spacing-unit: 4px;
-  --spacing-4: 4px;
-  --spacing-8: 8px;
-  --spacing-12: 12px;
-  --spacing-16: 16px;
-  --spacing-20: 20px;
-  --spacing-24: 24px;
-  --spacing-32: 32px;
-  --spacing-40: 40px;
-  --spacing-48: 48px;
-  --spacing-64: 64px;
-  --spacing-96: 96px;
-  --spacing-144: 144px;
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-semibold: 600;
 
-  /* Layout */
-  --page-max-width: 1200px;
-  --section-gap: 80px;
-  --card-padding: 40px;
-  --element-gap: 12px;
+  /* ---- Tracking ------------------------------------------------------- */
+  --track-hero: -0.03em;
+  --track-display: -0.02em;
+  --track-caps: 0.08em;
+  --track-meta: 0.04em;
 
-  /* Border Radius */
-  --radius-sm: 3px;
-  --radius-md: 6px;
-  --radius-xl: 12px;
-  --radius-2xl: 16px;
-  --radius-full: 9999px;
+  /* ---- Leading -------------------------------------------------------- */
+  --leading-hero: 0.91;
+  --leading-display: 0.98;
+  --leading-card: 1.05;
+  --leading-lede: 1.5;
+  --leading-body: 1.6;
 
-  /* Named Radii */
-  --radius-cards: 16px;
-  --radius-pills: 9999px;
-  --radius-inputs: 6px;
-  --radius-buttons: 9999px;
-  --radius-smallcards: 8px;
+  /* ---- Radii ---------------------------------------------------------- */
+  --radius-btn: 6px;             /* buttons — deliberately not a pill       */
+  --radius-tile: 6px 0 0 0;      /* the signature single corner             */
+  --radius-tile-hover: 24px 0 0 0;
+  --radius-card: 20px;           /* rounded card, stand frame               */
+  --radius-inner: 12px;          /* a screen inside a frame                 */
+  --radius-chip: 200px;
+  --radius-pill: 200px;          /* navigation, chips, segmented controls   */
 
-  /* Shadows */
-  --shadow-subtle: rgba(10, 10, 10, 0.15) 0px 0px 0px 1px;
-  --shadow-xl: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.1) 0px 8px 10px -6px;
-  --shadow-subtle-2: rgba(0, 0, 0, 0.06) 0px 0px 0px 1px, rgba(15, 23, 42, 0.18) 0px 18px 40px -24px;
+  /* ---- Layout --------------------------------------------------------- */
+  --page-max: 1400px;
+  --gutter: 20px;          /* 40px from 900px up                            */
+  --section-pad: 56px;     /* 80px from 900px up                            */
+  --rule-lead: 28px;       /* the accent head of every rule                 */
 
-  /* Surfaces */
-  --surface-paper: #ffffff;
-  --surface-cream: #f9f8f6;
-  --surface-sand: #f2ede5;
-  --surface-charcoal: #151515;
+  /* ---- Motion ---------------------------------------------------------
+     Three curves, no others.
+       out   — things arriving (reveals, hero stagger, curtain copy)
+       soft  — things answering the pointer (hover, radius, nudge)
+       gate  — things that own the whole screen (curtain, route morph)   */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-soft: cubic-bezier(0.2, 0.7, 0.2, 1);
+  --ease-gate: cubic-bezier(0.76, 0, 0.24, 1);
+  --ease-line: cubic-bezier(0.65, 0, 0.35, 1);
+
+  --dur-1: 180ms;          /* colour swap                                   */
+  --dur-2: 260ms;          /* nudge, transform on hover                     */
+  --dur-3: 340ms;          /* radius morph, row shift                       */
+  --dur-4: 620ms;          /* scroll reveal                                 */
+  --dur-morph: 620ms;      /* stand card → case page                        */
+  --dur-rig: 560ms;        /* device width switch in the site viewer        */
+  --dur-gate: 720ms;       /* curtain                                       */
+
+  /* ---- Layers --------------------------------------------------------- */
+  --z-nav: 40;
+  --z-route: 150;
+  --z-curtain: 200;
+}
+
+/* From 900px the design switches to its desktop composition: wider gutters,
+   taller bands, and a display scale that has to survive 900 → 1600px. */
+@media (min-width: 900px) {
+  :root {
+    --display-hero: clamp(40px, 4.6vw, 66px);
+    --display-xl: 56px;
+    --display-lg: 40px;
+    --display-md: 32px;
+    --display-sm: 24px;
+
+    --track-hero: -0.025em;
+    --leading-display: 0.95;
+
+    --gutter: 40px;
+    --section-pad: 80px;
+  }
 }
